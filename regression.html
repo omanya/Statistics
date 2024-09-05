@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Regression | Statistics I</title>
+  <meta name="description" content="This is the script for the Statistics course." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Regression | Statistics I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the script for the Statistics course." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Regression | Statistics I" />
+  
+  <meta name="twitter:description" content="This is the script for the Statistics course." />
+  
+
+<meta name="author" content="Maria Osipenko" />
+
+
+<meta name="date" content="2024-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="association-between-two-features.html"/>
+<link rel="next" href="ii-probability-theory.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<ul>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
+<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="concentration-measures.html"><a href="concentration-measures.html"><i class="fa fa-check"></i><b>3</b> Concentration measures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve"><i class="fa fa-check"></i><b>3.1</b> Lorenz curve</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-a-sample"><i class="fa fa-check"></i><b>3.1.1</b> Lorenz curve for a sample</a></li>
+<li class="chapter" data-level="3.1.2" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-frequency-distributions"><i class="fa fa-check"></i><b>3.1.2</b> Lorenz curve for frequency distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient-and-concentration-rate"><i class="fa fa-check"></i><b>3.2</b> Gini coefficient and concentration rate</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient"><i class="fa fa-check"></i><b>3.2.1</b> Gini coefficient</a></li>
+<li class="chapter" data-level="3.2.2" data-path="concentration-measures.html"><a href="concentration-measures.html#concentration-rate"><i class="fa fa-check"></i><b>3.2.2</b> Concentration rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>4</b> Association between two features</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#frequency-distribution-for-two-features"><i class="fa fa-check"></i><b>4.1</b> Frequency distribution for two features</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#joint-frequencies"><i class="fa fa-check"></i><b>4.1.1</b> Joint frequencies</a></li>
+<li class="chapter" data-level="4.1.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#marginal-frequencies"><i class="fa fa-check"></i><b>4.1.2</b> Marginal frequencies</a></li>
+<li class="chapter" data-level="4.1.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-table"><i class="fa fa-check"></i><b>4.1.3</b> Contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#conditional-frequency-distribution"><i class="fa fa-check"></i><b>4.2</b> Conditional frequency distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-independence"><i class="fa fa-check"></i><b>4.3</b> Empirical independence</a></li>
+<li class="chapter" data-level="4.4" data-path="association-between-two-features.html"><a href="association-between-two-features.html#dependence-measures"><i class="fa fa-check"></i><b>4.4</b> Dependence measures</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>4.4.1</b> Empirical covariance and correlation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Rank correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency coefficient</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Regression</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>5.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
+<li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
+<li class="chapter" data-level="6" data-path="model-of-randomness.html"><a href="model-of-randomness.html"><i class="fa fa-check"></i><b>6</b> Model of randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-space"><i class="fa fa-check"></i><b>6.1</b> Probability space</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#outcomes"><i class="fa fa-check"></i><b>6.1.1</b> Outcomes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#event-space"><i class="fa fa-check"></i><b>6.1.2</b> Event space</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-measure"><i class="fa fa-check"></i><b>6.1.3</b> Probability measure</a></li>
+<li class="chapter" data-level="6.1.4" data-path="model-of-randomness.html"><a href="model-of-randomness.html#calculating-with-probabilities"><i class="fa fa-check"></i><b>6.1.4</b> Calculating with probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#sampling-as-a-random-process"><i class="fa fa-check"></i><b>6.2</b> Sampling as a random process</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html"><i class="fa fa-check"></i><b>7</b> Conditional probabilities and independence</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.1</b> Conditional probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#independence"><i class="fa fa-check"></i><b>7.2</b> Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>8.1</b> Discrete random variable</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>8.1.1</b> Probability and distribution functions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables.html"><a href="random-variables.html#covariance-and-correlation"><i class="fa fa-check"></i><b>8.1.3</b> Covariance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>8.2</b> Continuous random variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>8.2.1</b> Density function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>8.2.2</b> Distribution function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-1"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.4</b> Quantiles of continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>8.3</b> Some important distributions</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>8.3.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>8.3.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="8.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>8.3.3</b> Normal distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation.html"><a href="parameter-estimation.html"><i class="fa fa-check"></i><b>9</b> Parameter estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#basic-ideas-of-inductive-statistics"><i class="fa fa-check"></i><b>9.1</b> Basic ideas of inductive statistics</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-theoretically"><i class="fa fa-check"></i><b>9.1.1</b> Parameter estimation theoretically</a></li>
+<li class="chapter" data-level="9.1.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-practically"><i class="fa fa-check"></i><b>9.1.2</b> Parameter estimation practically</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regression" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Regression<a href="regression.html#regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+function checkAnswer_mmc(q) {
+      const selectedOptions = document.querySelectorAll('input[name="option'+q.id+'"]:checked');
+      if (selectedOptions.length === 2) {
+        const userAnswers = Array.from(selectedOptions).map(option => option.value);
+        const correctAnswers = q.answer;
+        const isCorrect = userAnswers.every(answer => correctAnswers.includes(answer));
+
+if (isCorrect) {
+          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+          document.getElementById('result'+q.id).style.color = "green";
+        } else {
+          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+          document.getElementById('result'+q.id).style.color = "red";
+        }
+      } else {
+        document.getElementById('result'+q.id).textContent = 'Please select two options.';
+      }
+    }
+// numeric
+function generateQuestion_num(id) {
+      // Generate two random numbers between 2 and 10
+      const num1 = Math.floor(Math.random() * 10) + 2;
+      const num2 = Math.floor(Math.random() * 10) + 2;
+      const x1 = Math.floor(Math.random() * 100) + 2;
+      const x2 = Math.floor(Math.random() * 100) + 2;
+      const x3 = Math.floor(Math.random() * 100) + 2;
+      const x4 = Math.floor(Math.random() * 100) + 2;
+      const x5 = Math.floor(Math.random() * 100) + 2;
+      const x6 = Math.floor(Math.random() * 100) + 2;
+
+       // Calculate the correct answer
+      let answer = num1*Math.sqrt(x1) + num2*Math.sqrt(x2);
+
+      // Return the question and answer as an object
+      return {
+       // question: num1 + "\\(\\sqrt{x}+\\)"+ num2 + "\\(\\sqrt{y}\\)" + " for \\(x=\\)" + x1 + " and \\(y=\\)" + x2,
+        question: [num1,num2,x1,x2,x3,x4,x5,x6],
+        answer: answer,
+        id: id
+      };
+    }
+
+function checkAnswer_num(q) {
+      const userAnswer = document.getElementById('answer'+q.id).value;
+      const isCorrect = Math.round(parseFloat(userAnswer)*100)/100 === Math.round(q.answer*100)/100;
+
+      if (isCorrect) {
+        document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+        document.getElementById('result'+q.id).style.color = "green";
+      } else {
+        document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+        document.getElementById('result'+q.id).style.color = "red";
+      }
+  }
+
+// plain multiple choice
+  function checkAnswer_match(q) {
+      const selectedOption = document.querySelector('input[name="option'+q.id+'"]:checked');
+      if (selectedOption) {
+        const userAnswer = selectedOption.value;
+        const isCorrect = userAnswer === q.answer;
+
+        if (isCorrect) {
+          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+          document.getElementById('result'+q.id).style.color = "green";
+        } else {
+          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+          document.getElementById('result'+q.id).style.color = "red";
+        }
+      } else {
+        document.getElementById('result'+q.id).textContent = 'Please select an option.';
+      }
+    }
+</script>
+<p>We have empirically established a linear relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
+<p>**Can we now predict the expected sales for a given temperature level?</p>
+<p><span class="math inline">\(\leadsto\)</span> correlation calculation vs. regression calculation:</p>
+<ul>
+<li><p>When asking about the linear relationship between two characteristics
+we distinguish between the following two aspects:</p>
+<ul>
+<li><p>Correlation:
+Determines the <strong>strength</strong> of the linear relationship between two characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In short: whether a linear relationship exists.</p></li>
+<li><p>Regression:
+Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</span> of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In short: which linear relationship exists.</p></li>
+</ul></li>
+</ul>
+<hr />
+<p>In this chapter we will learn</p>
+<ul>
+<li>How to calculate the coefficients of linear regression.</li>
+<li>How to make the prediction and assess the quality of the model and</li>
+<li>How to extend the regression calculation to non-linear relationships.</li>
+</ul>
+<hr />
+<div id="linear-regression" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Linear regression<a href="regression.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>Let <span class="math inline">\((x_1, y_1), \ldots, (x_n,y_n)\)</span> be a sample of metrically scaled characteristics
+<span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p></li>
+<li><p>We assume a linear functional relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[
+    y=a+bx,\quad a,b\in \mathbb R,
+\]</span></p>
+<ul>
+<li><p>the term <span class="math inline">\(a+bx\)</span> is called <strong>regression line</strong>;</p></li>
+<li><p>the variable <span class="math inline">\(y\)</span> is called <strong>regressand</strong> or <strong>explained variable</strong>;</p></li>
+<li><p>the variable <span class="math inline">\(x\)</span> is called <strong>regressor</strong> or <strong>explanatory variable</strong>.</p></li>
+<li><p>In practice, the relationship is usually not perfectly linear. Therefore one writes
+<span class="math display">\[\begin{align*}
+    y_1&amp;= a + b x_1 + \varepsilon_1\\
+       &amp;\vdots\\
+    y_n &amp;= a + b x_n + \varepsilon_n,
+\end{align*}\]</span>
+where <span class="math inline">\(\varepsilon_1, \ldots, \varepsilon_n\)</span> are the so-called <strong>error terms</strong> or <strong>residuals</strong>.</p></li>
+</ul>
+<hr />
+<div class="example">
+<p><span id="exm:linreg0" class="example"><strong>Example 5.1  (Linear regression for stock returns on market returns.) </strong></span>We consider the data from <a href="association-between-two-features.html#exr:exrankkor">4.3</a>:</p>
+<p><span class="math display">\[
+\begin{array}{r|rr}
+month~i&amp; market ~return ~x_i&amp; stock~return~y_i\\\hline
+1&amp;0.4&amp;0.4\\
+2&amp;0.9&amp;1.5\\
+3&amp;1.2&amp;1.8\\
+4&amp;0.2&amp;1.0\\
+5&amp;-0.4&amp;-1.1\\
+6&amp;-0.5&amp;0.6
+\end{array}
+\]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+<iframe title="App Regression" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-regression" width="700" height="500"></iframe>
+</div>
+<div id="calculation-of-the-regression-coefficients" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Calculation of the regression coefficients<a href="regression.html#calculation-of-the-regression-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>The regression coefficients, the <strong>intercept</strong> <span class="math inline">\(a\)</span> and the <strong>slope</strong> of the regression line <span class="math inline">\(b\)</span>, are to be determined.</p></li>
+<li><p>The <strong>method of least squares (MkQ)</strong> determines <span class="math inline">\(a\)</span>
+and <span class="math inline">\(b\)</span> by minimizing the sum of the squared error terms:</p></li>
+</ul>
+<p><span class="math display">\[
+      \min_{a,b} \sum_{i=1}^n \varepsilon_i^2 = \min_{a,b} \sum_{i=1}^n
+      (y_i-(a+bx_i))^2.
+\]</span></p>
+<ul>
+<li>Let <span class="math inline">\((x_1,y_1), \ldots, (x_n,y_n)\)</span> be a sample of the characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. The system of linear equations</li>
+</ul>
+<p><span class="math display">\[
+      y_i = a + b x_i + \varepsilon_i, \quad i=1,\ldots, n
+\]</span></p>
+<p>is called <strong>linear regression</strong> with <strong>intercept</strong> <span class="math inline">\(a\)</span>, <strong>slope</strong> <span class="math inline">\(b\)</span> and <strong>error terms (residuals)</strong> <span class="math inline">\(\varepsilon_1,\ldots, \varepsilon_n\)</span>.</p>
+<ul>
+<li>The <strong>least squares estimators</strong> for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are given by
+<span class="math display">\[\begin{align*}
+    \hat a &amp;= \overline y-\hat b \overline x, \\
+    \hat b &amp;= \frac{\hat\sigma_{XY}} {\hat \sigma_X^2} =
+             \hat\rho_{XY}\cdot \frac{\hat\sigma_Y}{\hat\sigma_X}
+    = \frac{\sum_{i=1}^n x_i y_i - n\overline x\overline y}
+    {\sum_{i=1}^n x_i^2 - n \overline x^2} = \frac{\sum_{i=1}^n
+      (x_i-\overline x) (y_i-\overline y)} {\sum_{i=1}^n
+      (x_i-\overline x)^2}.
+  \end{align*}\]</span></li>
+</ul>
+</div>
+<div id="coefficient-of-determination" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Coefficient of determination<a href="regression.html#coefficient-of-determination" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>The <strong>coefficient of determination</strong> <span class="math inline">\(R^2\)</span> describes the <strong>proportion</strong> of the total variance of the sample <span class="math inline">\((y_1,\ldots,y_n)\)</span> that is explained by the regression line.</p></li>
+<li><p>In the case of linear regression, the <strong>coefficient of determination</strong> <span class="math inline">\(R^2\)</span> is defined as
+<span class="math display">\[
+    R^2 = 1-\frac{\sum_{i=1}^n (a+b x_i-y_i)^2} {\sum_{i=1}^n
+      (y_i-\overline y)^2}.
+\]</span></p></li>
+<li><p>It holds</p></li>
+</ul>
+<p><span class="math display">\[
+      0\leq R^2\leq 1\quad\text{ und } \quad R^2 = \hat\rho_{XY}^2.
+\]</span></p>
+<ul>
+<li><span class="math inline">\(R^2=0\)</span> corresponds to the case of uncorrelatedness, and <span class="math inline">\(R^2=1\)</span> corresponds to the case of perfect linear correlation between the features <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
+</ul>
+<div class="example">
+<p><span id="exm:umswetreg" class="example"><strong>Example 5.2  (Sales vs Weather) </strong></span>Cont. of Example <a href="association-between-two-features.html#exm:umswetkor">4.9</a>.</p>
+<p>We perform the linear regression from sales to temperature.</p>
+<ul>
+<li><p>Characteristics:</p>
+<ul>
+<li><p><span class="math inline">\(U=\text{sales per customer}\)</span></p></li>
+<li><p><span class="math inline">\(T=\text{average temperature}\)</span></p></li>
+</ul></li>
+</ul>
+<table>
+<caption><span id="tab:umswetdatzz">Table 5.1: </span>Sample size n=10 for the characteristics U turnover in EUR and T temperature in °C.</caption>
+<thead>
+<tr class="header">
+<th align="right">Day</th>
+<th align="right">Sales</th>
+<th align="right">Temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">24.2</td>
+<td align="right">13.57</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">20.36</td>
+<td align="right">14.77</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">25.18</td>
+<td align="right">14.2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">25.94</td>
+<td align="right">17.65</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">31.18</td>
+<td align="right">24.79</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">24.83</td>
+<td align="right">15.85</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">30.17</td>
+<td align="right">23.58</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">26.92</td>
+<td align="right">19.3</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">19.36</td>
+<td align="right">10.67</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">23.24</td>
+<td align="right">17.35</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar s= 25.1373\)</span>; <span class="math inline">\(\bar t=17.1731\)</span>; <span class="math inline">\(s_S^2=14.0397\)</span>, <span class="math inline">\(s_T^2 = 19.4972\)</span> and
+<span class="math inline">\(\hat\sigma_{TS}=14.9706.\)</span></p></li>
+<li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9706}{19.4972} = 0.7678\)</span></p></li>
+<li><p>and <span class="math inline">\(\hat a=25.1373+ 0.7678\cdot 17.1731 = 11.9511.\)</span></p></li>
+<li><p>Sales as a function of temperature:
+<span class="math inline">\(s= 11.9511 + 0.7678\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
+<li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{UT}^2=(0.9048)^2=0.8187.\)</span></p></li>
+<li><p>Graphically:</p></li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-81-1.png" width="70%" /></p>
+</div>
+<hr />
+</div>
+</div>
+<div id="non-linear-regression" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If the relationship is not linear, such as <span class="math inline">\(v=\alpha\cdot \beta^u\)</span>: convert <span class="math inline">\(\rightarrow\)</span> into a linear relationship using a suitable transformation, e.g. by logarithmizing:
+<span class="math inline">\(\ln v = \ln \alpha + (\ln \beta)\cdot u\)</span>.</p>
+<ul>
+<li><p>Set: <span class="math inline">\(y=\ln v\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\ln \beta\)</span> and <span class="math inline">\(x=u\)</span>
+<span class="math inline">\(\Rightarrow\)</span> The transformed function <span class="math inline">\(y=a+bx\)</span> is a straight line with the coefficients
+coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>.</p></li>
+<li><p>The further procedure:</p>
+<ul>
+<li><p>Transform the data <span class="math inline">\((u_i, v_i)\)</span> of the sample accordingly</p></li>
+<li><p>Calculate the regression coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with the MkQ</p></li>
+<li><p>Transform backwards <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> from <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>; here <span class="math inline">\(\hat\alpha=\text e^a\)</span> and <span class="math inline">\(\hat\beta=\text e^b\)</span></p></li>
+<li><p>Obtain the estimated functional equation; here <span class="math inline">\(v=\hat\alpha\cdot \hat\beta^u\)</span></p></li>
+</ul></li>
+</ul>
+<div class="example">
+<p><span id="exm:lognachfr" class="example"><strong>Example 5.3  (Nichtlineare (log-linearisierte) Nachfrage) </strong></span></p>
+<ul>
+<li>Econometric relation: exponential demand <span class="math inline">\(q\)</span> for a certain consumer good
+specific consumer good as a function of the price <span class="math inline">\(p\)</span></li>
+</ul>
+<p><span class="math display">\[
+    q = \alpha\text e^{\beta \cdot u}, \beta&lt;0
+\]</span></p>
+<ul>
+<li>Transformation:</li>
+</ul>
+<p><span class="math display">\[
+      q=\alpha \, \text e^{\beta\cdot p} \quad\Rightarrow\quad \ln q = \ln\alpha
+      + \beta\cdot p \quad\iff\quad y=a+b\, x,
+\]</span></p>
+<p>so: <span class="math inline">\(y=\ln q\)</span>, <span class="math inline">\(x=p\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\beta\)</span></p>
+<ul>
+<li>the original data (<span class="math inline">\(q,p\)</span>) and the transformed data (<span class="math inline">\(x,y\)</span>):</li>
+</ul>
+<p><span class="math display">\[
+    \begin{array}[t]{rrrrr}
+      \hline
+      i &amp; q_i &amp; p_i &amp; x_i &amp; y_i\\\hline
+      1 &amp; 2.5224 &amp; 5.75 &amp; 5.75 &amp; 0.9252\\
+      2 &amp; 1.6603 &amp; 15.77 &amp; 15.77 &amp; 0.507\\
+      3 &amp; 2.1616 &amp; 8.18 &amp; 8.18 &amp; 0.7708\\
+      4 &amp; 0.0578 &amp; 17.66 &amp; 17.66 &amp; -2.8508\\
+      5 &amp; 0.0818 &amp; 18.81 &amp; 18.81 &amp; -2.5035\\
+      6 &amp; 3.7369 &amp; 0.91 &amp; 0.91 &amp; 1.3183\\
+      7 &amp; 2.8806 &amp; 10.56 &amp; 10.56 &amp; 1.058\\
+      8 &amp; 0.2824 &amp; 17.85 &amp; 17.85 &amp; -1.2644\\\hline
+    \end{array}
+\]</span></p>
+<ul>
+<li><p>Least-Squares estimates for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (<span class="math inline">\(\hat\sigma_{XY} = -9.0957\)</span>, <span class="math inline">\(\hat\sigma_X^2 = 43.6473\)</span>, <span class="math inline">\(\bar x= 11.9362\)</span> and <span class="math inline">\(\bar y =-0.2549\)</span>:
+<span class="math display">\[\begin{align*}
+    \hat b&amp;= \frac{-9.0957} {43.6473} =-0.2084\\
+    \hat a&amp;= -0.2549 -0.2084 \cdot 11.9362 = 2.2325
+\end{align*}\]</span></p></li>
+<li><p>Transformation back into the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[
+   \hat  \alpha = \text e^{\hat a} = 9.323 \text{ und   } \quad \hat \beta=\hat b = -0.2084
+\]</span></p>
+<ul>
+<li>Demand function:</li>
+</ul>
+<p><span class="math display">\[
+    \hat q=9.323\cdot \text e^{-0.2084\cdot x}
+\]</span></p>
+<iframe title="App log-linearisierte Nachfrage" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-linreg" width="700" height="900"></iframe>
+</div>
+<hr />
+<p><strong>Transformation table</strong></p>
+<p>For the transformation <span class="math inline">\(v=f(u,\alpha\beta)\rightarrow y=a+b\,x\)</span>
+there are further examples of non-linear problems that can be
+can be transformed to a linear regression approach,
+are:</p>
+<p><span class="math display">\[
+      \begin{array}[t]{c|ccccc}
+        \hline
+        No&amp;v=f(u) &amp; y=T(v) &amp; a &amp; b &amp; x=g(u)\\\hline
+        1&amp;v=\alpha + \beta\, u^k &amp; v=\alpha + \beta\cdot u^k &amp; \alpha &amp;
+                                                                      \beta
+                                &amp; u^k\\[5pt]
+        2&amp;v=\frac{\alpha\, u}{\beta+u} &amp; \frac{1}{v} = \frac{1}{\alpha}
+                                       + \frac{\beta}{\alpha}\, \frac{1}{u} &amp;
+                                                                    \frac{1}{\alpha}
+                            &amp; \frac{\beta}{\alpha} &amp; \frac{1}{u}\\[5pt]
+        3&amp;v = \frac{u}{\alpha + \beta\, u} &amp; \frac{u}{v} = \alpha +
+                                           \beta\, u &amp; \alpha &amp; \beta
+                                &amp; u\\[5pt]
+        4&amp;v = \alpha \, \beta^u &amp; \ln v = \ln \alpha + (\ln\beta) u &amp;
+                                                                     \ln
+                                                                     \alpha
+                            &amp; \ln \beta &amp; u\\[5pt]
+        5&amp;v = \alpha\, u^\beta &amp; \ln v = \ln \alpha + \beta\, \ln u &amp;
+                                                                    \ln
+                                                                    \alpha
+                            &amp; \beta &amp; \ln u\\[5pt]\hline
+      \end{array}
+\]</span></p>
+<hr />
+<div id="q71" class="quiz">
+<script>
+
+
+// Generate a random question
+  const questionObj73 = {
+      question: 'In a linear regression model \\(Y=\\alpha + \\beta x+\\varepsilon,\\) \\(Y\\) is called',
+      options: ['the regressor', 'the error term','the dependent variable','the independent variable', 'the regressand', 'the residuum'],
+      answer: ['5','3'],
+      id: 73
+    };
+</script>
+<p class="question">
+<span id="question-text73"></span>
+</p>
+<div class="options">
+<p><label>
+<input type="checkbox" name="option73" value=1> the regressor
+</label>
+<label>
+<input type="checkbox" name="option73" value=2> the error term
+</label>
+<label>
+<input type="checkbox" name="option73" value=3> the dependent variable
+</label>
+<label>
+<input type="checkbox" name="option73" value=4> the independent variable
+</label>
+<label>
+<input type="checkbox" name="option73" value=5> the regressand
+</label>
+<label>
+<input type="checkbox" name="option73" value=6> the residuum
+</label></p>
+</div>
+<button onclick="checkAnswer_mmc(questionObj73)">
+Submit
+</button>
+<p id="result73">
+</p>
+<script>
+    // Display the question
+    document.getElementById('question-text73').textContent = questionObj73.question;
+
+</script>
+<hr />
+<script>
+
+
+// Generate a random question
+  const questionObj74 = {
+      question: 'In a linear regression model \\(Y=\\alpha + \\beta x+\\varepsilon,\\) \\(x\\) is called',
+      options: ['regressor', 'error term','dependent variable','independent variable', 'regressand', 'residuum'],
+      answer: ['1','4'],
+      id: 74
+    };
+</script>
+<p class="question">
+<span id="question-text74"></span>
+</p>
+<div class="options">
+<p><label>
+<input type="checkbox" name="option74" value=1> the regressor
+</label>
+<label>
+<input type="checkbox" name="option74" value=2> the error term
+</label>
+<label>
+<input type="checkbox" name="option74" value=3> the dependent variable
+</label>
+<label>
+<input type="checkbox" name="option74" value=4> the independent variable
+</label>
+<label>
+<input type="checkbox" name="option74" value=5> the regressand
+</label>
+<label>
+<input type="checkbox" name="option74" value=6> the residuum
+</label></p>
+</div>
+<button onclick="checkAnswer_mmc(questionObj74)">
+Submit
+</button>
+<p id="result74">
+</p>
+<script>
+    // Display the question
+    document.getElementById('question-text74').textContent = questionObj74.question;
+
+</script>
+<hr />
+<script>
+  // Generate a random question
+    const questionObj75 = {
+      question: 'The coefficient of determination measures',
+      options: ['the proportion of variance in the regression.','the proportion of variance that was not explained by the regression.' ,'the correlation.', 'the proportion of variance explained by the regression.', 'the proportion of variance in the error terms.'],
+      answer: '4',
+      id: 75
+    };
+</script>
+<p class="question">
+<span id="question-text75"></span>
+</p>
+<div class="options">
+<label>
+<input type="radio" name="option75" value=1> the proportion of variance in the regression.
+</label>
+<label>
+<input type="radio" name="option75" value=2> the proportion of variance that was not explained by the regression.
+</label>
+<label>
+<input type="radio" name="option75" value=3> the correlation.
+</label>
+<label>
+<input type="radio" name="option75" value=4> the proportion of variance explained by the regression.
+</label>
+<label>
+<input type="radio" name="option75" value=5> the proportion of variance in the error terms.
+</label>
+</div>
+<button onclick="checkAnswer_match(questionObj75)">Submit</button>
+<p id="result75">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text75').textContent = questionObj75.question;
+</script>
+<hr />
+<p id="question">
+<span id="question-text76"></span>
+</p>
+<input type="number" id="answer76" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj76)">Submit</button>
+<p id="result76">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj76 = generateQuestion_num(76);
+// Display the question
+    document.getElementById('question-text76').textContent = "What is the coefficient of determination if the correlation of the dependent and the independent variables is \\("+ questionObj76.question[0]*10/100 + "\\)";
+    questionObj76.answer = Math.pow(questionObj76.question[0]*10/100,2)
+</script>
+<hr />
+<script>
+  // Generate a random question
+    const questionObj77 = {
+      question: 'Consider demand \\(v\\) for a specific consumer good as a function of income \\(u\\): \\[v=\\alpha e^{\\beta\\cdot u}.\\] Apply an appropriate transformation (see the transformation table above) to transform the demand function into a linear form. What is the resulting expression for transforming \\(u\\) to \\(x\\)?',
+      options: ['\\(x=\\frac 1{\\ln(u)}\\)','\\(x=u\\)' ,'\\(x=\\ln(u)\\)', '\\(x=\\frac1u\\)', '\\(x=e^u\\)'],
+      answer: '4',
+      id: 77
+    };
+</script>
+<p class="question">
+<span id="question-text77"></span>
+</p>
+<div class="options">
+<label>
+<input type="radio" name="option77" value=1> \(x=\frac 1{\ln(u)}\).
+</label>
+<label>
+<input type="radio" name="option77" value=2> \(x=u\).
+</label>
+<label>
+<input type="radio" name="option77" value=3> \(x=\ln(u)\).
+</label>
+<label>
+<input type="radio" name="option77" value=4> \(x=\frac1u\).
+</label>
+<label>
+<input type="radio" name="option77" value=5> \(x=e^u\).
+</label>
+</div>
+<button onclick="checkAnswer_match(questionObj77)">Submit</button>
+<p id="result77">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text77').textContent = questionObj77.question;
+</script>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="association-between-two-features.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ii-probability-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/13-linreg.rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

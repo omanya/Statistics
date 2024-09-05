@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Features, frequencies, empirical distribution | Statistics I</title>
+  <meta name="description" content="This is the script for the Statistics course." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Features, frequencies, empirical distribution | Statistics I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the script for the Statistics course." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Features, frequencies, empirical distribution | Statistics I" />
+  
+  <meta name="twitter:description" content="This is the script for the Statistics course." />
+  
+
+<meta name="author" content="Maria Osipenko" />
+
+
+<meta name="date" content="2024-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="sample-measures.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<ul>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
+<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="concentration-measures.html"><a href="concentration-measures.html"><i class="fa fa-check"></i><b>3</b> Concentration measures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve"><i class="fa fa-check"></i><b>3.1</b> Lorenz curve</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-a-sample"><i class="fa fa-check"></i><b>3.1.1</b> Lorenz curve for a sample</a></li>
+<li class="chapter" data-level="3.1.2" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-frequency-distributions"><i class="fa fa-check"></i><b>3.1.2</b> Lorenz curve for frequency distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient-and-concentration-rate"><i class="fa fa-check"></i><b>3.2</b> Gini coefficient and concentration rate</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient"><i class="fa fa-check"></i><b>3.2.1</b> Gini coefficient</a></li>
+<li class="chapter" data-level="3.2.2" data-path="concentration-measures.html"><a href="concentration-measures.html#concentration-rate"><i class="fa fa-check"></i><b>3.2.2</b> Concentration rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>4</b> Association between two features</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#frequency-distribution-for-two-features"><i class="fa fa-check"></i><b>4.1</b> Frequency distribution for two features</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#joint-frequencies"><i class="fa fa-check"></i><b>4.1.1</b> Joint frequencies</a></li>
+<li class="chapter" data-level="4.1.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#marginal-frequencies"><i class="fa fa-check"></i><b>4.1.2</b> Marginal frequencies</a></li>
+<li class="chapter" data-level="4.1.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-table"><i class="fa fa-check"></i><b>4.1.3</b> Contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#conditional-frequency-distribution"><i class="fa fa-check"></i><b>4.2</b> Conditional frequency distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-independence"><i class="fa fa-check"></i><b>4.3</b> Empirical independence</a></li>
+<li class="chapter" data-level="4.4" data-path="association-between-two-features.html"><a href="association-between-two-features.html#dependence-measures"><i class="fa fa-check"></i><b>4.4</b> Dependence measures</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>4.4.1</b> Empirical covariance and correlation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Rank correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency coefficient</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Regression</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>5.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
+<li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
+<li class="chapter" data-level="6" data-path="model-of-randomness.html"><a href="model-of-randomness.html"><i class="fa fa-check"></i><b>6</b> Model of randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-space"><i class="fa fa-check"></i><b>6.1</b> Probability space</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#outcomes"><i class="fa fa-check"></i><b>6.1.1</b> Outcomes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#event-space"><i class="fa fa-check"></i><b>6.1.2</b> Event space</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-measure"><i class="fa fa-check"></i><b>6.1.3</b> Probability measure</a></li>
+<li class="chapter" data-level="6.1.4" data-path="model-of-randomness.html"><a href="model-of-randomness.html#calculating-with-probabilities"><i class="fa fa-check"></i><b>6.1.4</b> Calculating with probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#sampling-as-a-random-process"><i class="fa fa-check"></i><b>6.2</b> Sampling as a random process</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html"><i class="fa fa-check"></i><b>7</b> Conditional probabilities and independence</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.1</b> Conditional probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#independence"><i class="fa fa-check"></i><b>7.2</b> Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>8.1</b> Discrete random variable</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>8.1.1</b> Probability and distribution functions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables.html"><a href="random-variables.html#covariance-and-correlation"><i class="fa fa-check"></i><b>8.1.3</b> Covariance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>8.2</b> Continuous random variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>8.2.1</b> Density function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>8.2.2</b> Distribution function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-1"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.4</b> Quantiles of continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>8.3</b> Some important distributions</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>8.3.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>8.3.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="8.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>8.3.3</b> Normal distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation.html"><a href="parameter-estimation.html"><i class="fa fa-check"></i><b>9</b> Parameter estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#basic-ideas-of-inductive-statistics"><i class="fa fa-check"></i><b>9.1</b> Basic ideas of inductive statistics</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-theoretically"><i class="fa fa-check"></i><b>9.1.1</b> Parameter estimation theoretically</a></li>
+<li class="chapter" data-level="9.1.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-practically"><i class="fa fa-check"></i><b>9.1.2</b> Parameter estimation practically</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="features-frequencies-empirical-distribution" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Features, frequencies, empirical distribution<a href="features-frequencies-empirical-distribution.html#features-frequencies-empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We’ll start by looking at different data and how they differ, and how to create clear visualizations for different types of data.</p>
+<hr />
+<p>In this chapter we will learn</p>
+<ul>
+<li>What <strong>features</strong> and <strong>feature values</strong> are and what kinds of feature <strong>scale types</strong> exist.</li>
+<li>How to calculate <strong>frequencies</strong> for features depending on the scale and</li>
+<li>represent them in afunctional form as <strong>empirical probability, density and distribution functions</strong>.</li>
+</ul>
+<hr />
+<div id="features" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Features<a href="features-frequencies-empirical-distribution.html#features" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Features or Characteristics are different aspects of objects in the population. We want to examine these aspects. The characteristics of interest are determined <strong>before</strong> a sample is drawn. The <strong>values</strong> of the features are then measured on the objects <strong>randomly</strong> selected from the population.</p>
+<hr />
+<div class="example">
+<p><span id="exm:merk" class="example"><strong>Example 1.1  (Customer characteristics) </strong></span><span class="math inline">\(\Omega\)</span>: Customers, i.e. objects <span class="math inline">\(w\)</span> are customers.</p>
+<ul>
+<li><p>Characteristics:</p>
+<ul>
+<li><span class="math inline">\(A=\)</span> Payment (means of payment),</li>
+<li><span class="math inline">\(B=\)</span> Rating (product rating: stars 1 - 5),</li>
+<li><span class="math inline">\(C=\)</span> Orders (number of orders in the last month),</li>
+<li><span class="math inline">\(D=\)</span> Usage (app usage or web interface usage),</li>
+<li><span class="math inline">\(X=\)</span> Time_spent (average time spent in the online store in minutes) and</li>
+<li><span class="math inline">\(Y=\)</span> Sales amount (average sales per order).</li>
+</ul></li>
+</ul>
+<table>
+<caption><span id="tab:datatable0">Table 1.1: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristics <span class="math inline">\(A, B, C, D, X\)</span> and <span class="math inline">\(Y\)</span> of customers.</caption>
+<thead>
+<tr class="header">
+<th align="right">customer</th>
+<th align="right">payment</th>
+<th align="right">rating</th>
+<th align="right">orders</th>
+<th align="right">usage</th>
+<th align="right">time_spent</th>
+<th align="right">sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">Credit card</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">Web</td>
+<td align="right">14.94</td>
+<td align="right">46.75</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">Debit payment</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">App</td>
+<td align="right">62.79</td>
+<td align="right">99.48</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">PayPal</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">App</td>
+<td align="right">79.12</td>
+<td align="right">6.29</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">PayPal</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">Web</td>
+<td align="right">25.48</td>
+<td align="right">19.06</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">Bill payment</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">App</td>
+<td align="right">20.55</td>
+<td align="right">64.63</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">Bill payment</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">App</td>
+<td align="right">11.95</td>
+<td align="right">5.08</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">PayPal</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">Web</td>
+<td align="right">21.00</td>
+<td align="right">7.89</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">PayPal</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">App</td>
+<td align="right">47.81</td>
+<td align="right">8.77</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">Debit payment</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">App</td>
+<td align="right">10.71</td>
+<td align="right">6.10</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">Credit card</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">App</td>
+<td align="right">8.44</td>
+<td align="right">26.34</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<div id="scale-types" class="section level3 unnumbered hasAnchor">
+<h3>Scale types<a href="features-frequencies-empirical-distribution.html#scale-types" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The values of different features can have different ‘depth of information’. Depending on which values a characteristic has, they can be assigned to one of the following scale types.</p>
+<ul>
+<li><strong>Nominal scale</strong>: the values are equal, no relation of the values (<span class="math inline">\(&gt;,&lt;\)</span>) or ranking possible.</li>
+<li><strong>Ordinal scale</strong>: the values can be ranked, e.g. greater, better, etc.</li>
+<li><strong>Metric scale</strong>: each characteristic represents a value on the number line. Not only comparisons (larger, smaller) but also the distances between the values make sense.
+<ul>
+<li><strong>discrete</strong>: <span class="math inline">\(A_X = \{a_1, a_2,\ldots,a_J\}\)</span> or <span class="math inline">\(A_X = \{a_1, a_2,\ldots\}\)</span>,</li>
+<li><strong>continuous</strong>: <span class="math inline">\(A_X\subseteq \mathbb R\)</span> an interval on the real numbers.</li>
+</ul></li>
+</ul>
+<hr />
+<div class="example">
+<p><span id="exm:merk1" class="example"><strong>Example 1.2  (Merkmale von Kunden) </strong></span>Example <a href="features-frequencies-empirical-distribution.html#exm:merk">1.1</a> cont.</p>
+<ul>
+<li><span class="math inline">\(A=\)</span> Payment: <strong>nominal</strong>,</li>
+<li><span class="math inline">\(B=\)</span> Rating: <strong>ordinal</strong>,</li>
+<li><span class="math inline">\(C=\)</span> Orders: <strong>metric discrete</strong>,</li>
+<li><span class="math inline">\(D=\)</span> Usage: <strong>metric discrete</strong>,</li>
+<li><span class="math inline">\(X=\)</span> Time_spent: <strong>metric continuous</strong>,</li>
+<li><span class="math inline">\(Y=\)</span> Sales amount: <strong>metric continuous</strong>.</li>
+</ul>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 1.1  (Features of corporate customers.) </strong></span><span class="math inline">\(\Omega\)</span>: Corporate customers with different characteristics:</p>
+<ul>
+<li><span class="math inline">\(X_1\)</span>: Number of employees,</li>
+<li><span class="math inline">\(X_2\)</span>: Debt-equity ratio,</li>
+<li><span class="math inline">\(X_3\)</span>: Type of company,</li>
+<li><span class="math inline">\(X_4\)</span>: Rating category.</li>
+</ul>
+<iframe title="Aufgabe_Firmenkunden" src="./htmls/Firmenkunden_Skalentypen.html" width="700" height="350"></iframe>
+</div>
+<hr />
+</div>
+<div id="turn-nominal-into-metric" class="section level3 unnumbered hasAnchor">
+<h3>Turn “nominal” into “metric”…<a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A nominally scaled feature <span class="math inline">\(X\)</span> with sample values <span class="math inline">\(x_1,\ldots, x_n\)</span> can be transformed into a feature with a metric scale if required. For each value <span class="math inline">\(a_j,j=1,\ldots, J\)</span> in the value set <span class="math inline">\(A_X\)</span>, a new variable <span class="math inline">\(D_{a_j}\)</span> (<strong>dummy variable</strong>) is defined with the values <span class="math inline">\(d_{i,a_j}, i=1,\ldots, n\)</span>, which are determined on the following basis:</p>
+<p><span class="math display">\[\begin{align}
+d_{i,a_j} = \begin{cases}1, &amp;\text{ if } x_i = a_j,\\
+                0, &amp;\text{ else. }\end{cases}
+\end{align}\]</span></p>
+<hr />
+<div class="example">
+<p><span id="exm:nutz" class="example"><strong>Example 1.3  (App or web usage.) </strong></span>Feature <span class="math inline">\(D\)</span> “Usage” has two values <span class="math inline">\(A_D = \{\text{App}, \text{Web}\}\)</span>. We define two new variables</p>
+<ul>
+<li><span class="math inline">\(D_{\text{App}}\)</span> with</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+d_{i,\text{App}} = \begin{cases}1, &amp;\text{ if } x_i = \text{App},\\
+                0, &amp;\text{ else. }\end{cases}
+\end{align}\]</span></p>
+<ul>
+<li><span class="math inline">\(D_{\text{Web}}\)</span> with</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+d_{i,\text{Web}} = \begin{cases}1, &amp;\text{ if } x_i = \text{Web},\\
+                0, &amp;\text{ else. }\end{cases}
+\end{align}\]</span></p>
+<p>All values are summarized again in the following table</p>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 1.2: </span>Sample of size <span class="math inline">\(n=10\)</span> to feature <span class="math inline">\(D\)</span> “Usage” and the dummy variables with metric scale and values <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>.</caption>
+<thead>
+<tr class="header">
+<th align="right">Customer <span class="math inline">\(i\)</span></th>
+<th align="right">Usage <span class="math inline">\(x_i\)</span></th>
+<th align="right"><span class="math inline">\(D_{App}\)</span></th>
+<th align="right"><span class="math inline">\(D_{Web}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">Web</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">Web</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">Web</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">App</td>
+<td align="right">1</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<p>Such a transformation can be useful if you want to use the data as input into a model (e.g. linear regression).</p>
+<hr />
+
+</div>
+</div>
+<div id="frequencies" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Frequencies<a href="features-frequencies-empirical-distribution.html#frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Objective: Starting from a sample with size <span class="math inline">\(n\)</span> for a characteristic <span class="math inline">\(X\)</span> with:</p>
+<ul>
+<li><p>the sample values <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>,</p></li>
+<li><p>the value set <span class="math inline">\(A_x = \{a_1,a_2,\ldots, a_J\}\)</span>, with a total of <span class="math inline">\(J\)</span> different values,</p></li>
+</ul>
+<p>calculate the frequencies for the values.</p>
+<table>
+<caption><span id="tab:data0">Table 1.3: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristics <span class="math inline">\(A, B, C, D, X\)</span> and <span class="math inline">\(Y\)</span> of customers.</caption>
+<thead>
+<tr class="header">
+<th align="right">customer</th>
+<th align="right">payment</th>
+<th align="right">rating</th>
+<th align="right">orders</th>
+<th align="right">usage</th>
+<th align="right">time_spent</th>
+<th align="right">sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">Credit card</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">Web</td>
+<td align="right">14.94</td>
+<td align="right">46.75</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">Debit payment</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">App</td>
+<td align="right">62.79</td>
+<td align="right">99.48</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">PayPal</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">App</td>
+<td align="right">79.12</td>
+<td align="right">6.29</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">PayPal</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">Web</td>
+<td align="right">25.48</td>
+<td align="right">19.06</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">Bill payment</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">App</td>
+<td align="right">20.55</td>
+<td align="right">64.63</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">Bill payment</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">App</td>
+<td align="right">11.95</td>
+<td align="right">5.08</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">PayPal</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">Web</td>
+<td align="right">21.00</td>
+<td align="right">7.89</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">PayPal</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">App</td>
+<td align="right">47.81</td>
+<td align="right">8.77</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">Debit payment</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">App</td>
+<td align="right">10.71</td>
+<td align="right">6.10</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">Credit card</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">App</td>
+<td align="right">8.44</td>
+<td align="right">26.34</td>
+</tr>
+</tbody>
+</table>
+<div id="frequencies-without-class-formation" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Frequencies without class formation<a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(\leadsto\)</span> for features with nominal, ordinal or discrete metric scale (the values are repeated several times).</p>
+<ul>
+<li><p>Absolute frequency of value <span class="math inline">\(a_j\)</span>:
+<span class="math display">\[H_j=H(a_j)=number~of~measured~values~with~x_i=a_j.\]</span></p></li>
+<li><p>Relative frequency of value <span class="math inline">\(a_j\)</span>:
+<span class="math display">\[h_j=h(a_j)=\frac{H_j}{n}.\]</span></p></li>
+<li><p>Frequency <strong>distribution</strong>:
+<span class="math display">\[\begin{array}{cccc}
+a_{1} &amp; a_{2} &amp;\ldots &amp;a_{J}\\
+h_{1} &amp; h_{2} &amp;\ldots &amp;h_{J}
+\end{array}\]</span></p></li>
+</ul>
+<hr />
+<div class="example">
+<p><span id="exm:zahl" class="example"><strong>Example 1.4  (Payment.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 1.4: </span>Relative frequencies for the feature <span class="math inline">\(A\)</span>: Means of payment.</caption>
+<thead>
+<tr class="header">
+<th align="right">Bill payment</th>
+<th align="right">Credit card</th>
+<th align="right">Debit payment</th>
+<th align="right">PayPal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0.2</td>
+<td align="right">0.2</td>
+<td align="right">0.2</td>
+<td align="right">0.4</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="_main_files/figure-html/unnamed-chunk-11-1.png" alt="Balkendiagramm" width="80%" />
+<p class="caption">
+Figure 1.1: Balkendiagramm
+</p>
+</div>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-2" class="exercise"><strong>Exercise 1.2  (Frequency of ratings) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<iframe title="Aufgabe_Häufigkeiten_Bewertungen" src="./htmls/H_Bewertungen.html" width="700" height="250"></iframe>
+</div>
+<hr />
+</div>
+<div id="frequencies-with-class-formation" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Frequencies with class formation<a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>With continuous or discrete metric scaling (the values are rarely repeated), the actual values are summarized in <strong>classes</strong>. For example, sales from 0 to 25 euros could be included in a class <span class="math inline">\([0;25)\)</span>, etc.</p>
+<ul>
+<li><p>Class formation <span class="math inline">\(A_X=K_1\cup K_2 \cup \ldots \cup K_J\)</span> with <span class="math inline">\(K_i\cap K_j=\emptyset\)</span> for <span class="math inline">\(i\not=j\)</span>, (i.e. divide the value range into <span class="math inline">\(J\)</span> intervals that do not overlap).</p></li>
+<li><p>Class <span class="math inline">\(K_j=[b_{j-1}; b_j)\)</span> has the class width <span class="math inline">\(d_j=b_j - b_{j-1}\)</span>, <span class="math inline">\(b_{j-1}\)</span> is the lower limit (contained in the class); <span class="math inline">\(b_j\)</span> is the upper limit (lies outside the class).</p></li>
+<li><p>Absolute frequency of <span class="math inline">\(K_j\)</span>:
+<span class="math display">\[H_j=H(K_j)=number~of~measured~values~with~x_i\in K_j.\]</span></p></li>
+<li><p>Relative frequency of <span class="math inline">\(K_j\)</span>:
+<span class="math display">\[h_j=h(K_j)=\frac{H_j}{n}.\]</span></p></li>
+<li><p>Frequency distribution:
+<span class="math display">\[\begin{array}{cccc}
+K_{1} &amp; K_{2} &amp;\ldots &amp;K_{J}\\
+h_{1} &amp; h_{2} &amp;\ldots &amp;h_{J}
+\end{array}\]</span></p></li>
+<li><p><strong>Class mean</strong>: arithmetic mean of the sample values in <span class="math inline">\(K_j\)</span> (class representative)
+<span class="math display">\[a_j = \frac 1{H_{j}}\sum_{x_i\in K_j}x_i\]</span></p></li>
+<li><p><strong>Class center</strong>: Center of the interval (as a substitute for class means if they cannot be calculated)
+<span class="math display">\[a_j = \frac{b_j + b_{j-1}}{2}\]</span></p></li>
+</ul>
+<hr />
+<div class="example">
+<p><span id="exm:umsatzh" class="example"><strong>Example 1.5  (Sales) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p>Several class divisions are conceivable for characteristic <span class="math inline">\(Y\)</span>.</p>
+<ul>
+<li>Equal class width:</li>
+</ul>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 1.5: </span>Class devision (variant 1) for feature <span class="math inline">\(Y\)</span>.</caption>
+<colgroup>
+<col width="8%" />
+<col width="12%" />
+<col width="11%" />
+<col width="11%" />
+<col width="26%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(j\)</span></th>
+<th align="right"><span class="math inline">\(K_j\)</span></th>
+<th align="right"><span class="math inline">\(H_j\)</span></th>
+<th align="right"><span class="math inline">\(h_j\)</span></th>
+<th align="right"><span class="math inline">\(a_j\)</span> Class_mean</th>
+<th align="right"><span class="math inline">\(a_j\)</span> Class_center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">[0,25)</td>
+<td align="right">6</td>
+<td align="right">0.6</td>
+<td align="right">8.87</td>
+<td align="right">12.5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">[25,50)</td>
+<td align="right">2</td>
+<td align="right">0.2</td>
+<td align="right">36.55</td>
+<td align="right">37.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">[50,75)</td>
+<td align="right">1</td>
+<td align="right">0.1</td>
+<td align="right">64.63</td>
+<td align="right">62.5</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">[75,100]</td>
+<td align="right">1</td>
+<td align="right">0.1</td>
+<td align="right">99.48</td>
+<td align="right">87.5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Histogram: bars
+<ul>
+<li>Width of the bars: <span class="math inline">\(d_j=b_j - b_{j-1}\)</span></li>
+<li>Height of the bars: <strong>density</strong> <span class="math inline">\(\frac{h_j}{d_j}\)</span> of the class <span class="math inline">\(K_j\)</span></li>
+<li>Area of the beams: <span class="math inline">\(h_j\)</span>.</li>
+</ul></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
+<img src="_main_files/figure-html/unnamed-chunk-15-1.png" alt="Histogram for Y: equal class width" width="80%" />
+<p class="caption">
+Figure 1.2: Histogram for Y: equal class width
+</p>
+</div>
+<ul>
+<li>Unequal class width:
+Several class divisions are conceivable for characteristic</li>
+</ul>
+<table>
+<caption><span id="tab:unnamed-chunk-16">Table 1.6: </span>Class devision (variant 2) for feature <span class="math inline">\(Y\)</span>.</caption>
+<colgroup>
+<col width="8%" />
+<col width="12%" />
+<col width="11%" />
+<col width="11%" />
+<col width="26%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(j\)</span></th>
+<th align="right"><span class="math inline">\(K_j\)</span></th>
+<th align="right"><span class="math inline">\(H_j\)</span></th>
+<th align="right"><span class="math inline">\(h_j\)</span></th>
+<th align="right"><span class="math inline">\(a_j\)</span> Class_mean</th>
+<th align="right"><span class="math inline">\(a_j\)</span> Class_center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">[0,10)</td>
+<td align="right">5</td>
+<td align="right">0.5</td>
+<td align="right">6.83</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">[10,30)</td>
+<td align="right">2</td>
+<td align="right">0.2</td>
+<td align="right">22.7</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">[30,50)</td>
+<td align="right">1</td>
+<td align="right">0.1</td>
+<td align="right">46.75</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">[50,100]</td>
+<td align="right">2</td>
+<td align="right">0.2</td>
+<td align="right">82.06</td>
+<td align="right">75</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
+<img src="_main_files/figure-html/unnamed-chunk-17-1.png" alt="Histogram for Y: unequal class width" width="80%" />
+<p class="caption">
+Figure 1.3: Histogram for Y: unequal class width
+</p>
+</div>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-3" class="exercise"><strong>Exercise 1.3  (Employee age.) </strong></span>Classification of the feature “age of employees”.</p>
+<iframe title="Aufgabe_Klasseneinteilung_Mitarbeiteralter" src="./htmls/klasseneinteilung_mitarbeiter_alter.html" width="700" height="500"></iframe>
+</div>
+<hr />
+
+
+</div>
+</div>
+<div id="empirical-distribution" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Empirical distribution<a href="features-frequencies-empirical-distribution.html#empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Empirical distribution is given in <strong>functional form</strong> by the <strong>empirical probability and distribution functions</strong> (discrete case) and by the <strong>empirical density and distribution functions</strong>
+(continuous case).</p>
+<div id="empirical-probability-and-distribution-functions-discrete-case" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Empirical probability and distribution functions (discrete case)<a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math inline">\(X\)</span> is a metrically scaled characteristic with possible values <span class="math inline">\(A_X=\{a_1,a_2,\ldots, a_J\}\)</span>. Values <span class="math inline">\(x_1,x_2,\ldots, x_n\)</span> represent a random sample of <span class="math inline">\(X\)</span>.</p>
+<div class="definition">
+<p><span id="def:deffxFX" class="definition"><strong>Definition 1.1  (Empirical probability and distribution functions) </strong></span>The <strong>empirical probability function</strong> is the function</p>
+<p><span class="math inline">\(\hat f_X:\mathbb R\rightarrow[0,1]\)</span> with
+<span class="math display">\[
+      \hat{f}_X(x)=\hat{f}(x) = \frac{\text{number of sample values with } x_i= x}{n} = \begin{cases}
+        h(a_j), &amp; x=a_j,\\
+        0 ,&amp;\text{other}
+      \end{cases}
+\]</span></p>
+<p>The <strong>empirical distribution function</strong> is the function
+<span class="math inline">\(\hat F_X:\mathbb R\rightarrow[0,1]\)</span> with
+<span class="math display">\[
+      \hat{F}_X(x)=\hat{F}(x) = \frac{\text{Anzahl der Stichprobenwerte mit } x_i\leq x}{n} = \sum_{j: a_j\leq x} h(a_j).
+  \]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:bestf" class="example"><strong>Example 1.6  (Probability and distribution functions for feature: Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<ul>
+<li>Metrically scaled characteristic <span class="math inline">\(C\)</span>, the number of orders</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span>: 2,2,3,5,2,5,6,4,3,1</li>
+</ul>
+<p><span class="math display">\[\hat f(x)=\begin{cases}0.1 &amp;\text{for} ~x\in\{1;4;6\},\\
+                        0.2 &amp;\text{for}~x\in\{3;5\},\\
+                        0.3 &amp;\text{for}~x=2,\\
+                        0 &amp;\text{otherwise}\end{cases}\]</span></p>
+<p><span class="math display">\[\hat F(x)=\begin{cases}0&amp;\text{for} ~x&lt;1,\\
+                        0.1 &amp;\text{for}~1\leq x&lt;2,\\
+                        0.4 &amp;\text{for}~2\leq x&lt;3,\\
+                        0.6 &amp;\text{for}~3\leq x&lt;4,\\
+                        0.7 &amp;\text{for}~4\leq x&lt;5,\\
+                        0.9 &amp;\text{for}~5\leq x&lt;6,\\
+                        1 &amp;\text{for}~x\leq 6.\\\end{cases}\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" alt="Empirical probability and distribution functions for \(C\): Orders" width="672" height="60%" />
+<p class="caption">
+Figure 1.4: Empirical probability and distribution functions for <span class="math inline">\(C\)</span>: Orders
+</p>
+</div>
+</div>
+</div>
+<div id="empirical-density-and-distribution-functions-continuous-case" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Empirical density and distribution functions (continuous case)<a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Assumption: Density of a class is evenly distributed over the entire width of the class:</li>
+</ul>
+<p><span class="math display">\[\hat f(x) = \frac{h_j}{d_j}, x\in K_j=[b_{j-1};~b_j),\]</span></p>
+<p>where <span class="math inline">\(h_j\)</span> is the relative frequency and <span class="math inline">\(d_j=b_j - b_{j-1}\)</span> is the width of <span class="math inline">\(K_j\)</span>.</p>
+<ul>
+<li><p>Relative frequencies = empirical probabilities are areas under the density function.</p></li>
+<li><p>If <span class="math inline">\(\hat f\)</span> is constant within a class <span class="math inline">\(K_j\)</span>, then the cumulative distribution function <span class="math inline">\(\hat F\)</span> (= cumulative empirical probability) is a linear function of <span class="math inline">\(x\)</span> with increase <span class="math inline">\(\hat f\)</span> for <span class="math inline">\(K_j\)</span>. So <span class="math inline">\(\hat F(x), x\in K_j\)</span> is a line between the points <span class="math inline">\((b_{j-1};~\sum_{k=1}^{j-1}h_k)\)</span> (the latter is the cumulative frequency up to <span class="math inline">\(K_{j-1}\)</span>) and <span class="math inline">\((b_j; ~\sum_{k=1}^{j}h_k)\)</span> (the latter is the cumulative frequency up to <span class="math inline">\(K_{j}\)</span>).</p></li>
+</ul>
+<p><span class="math display">\[\hat F(x) = \sum_{k=1}^{j-1}h_k + \hat f(x)\cdot(x-b_{j-1}), x\in K_j=[b_{j-1};~b_j)\]</span></p>
+<ul>
+<li>Relationship between <span class="math inline">\(\hat F(x)\)</span> and <span class="math inline">\(\hat f(x)\)</span>:</li>
+</ul>
+<p><span class="math display">\[\hat F(x)=\int_{-\infty}^x\hat f(t)dt~\text{  and   } \hat f(x) = \hat F ^\prime (x)\]</span></p>
+<hr />
+<div class="example">
+<p><span id="exm:umsatzf" class="example"><strong>Example 1.7  (Density and distribution functions for the sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-21">Table 1.7: </span>Relative frequencies and cumulative frequencies for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">[0,10)</th>
+<th align="right">[10,30)</th>
+<th align="right">[30,50)</th>
+<th align="right">[50,100]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">rel. Frequency</td>
+<td align="right">0.5</td>
+<td align="right">0.2</td>
+<td align="right">0.1</td>
+<td align="right">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">cumulative rel. Frequency</td>
+<td align="right">0.5</td>
+<td align="right">0.7</td>
+<td align="right">0.8</td>
+<td align="right">1.0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>metric scaled characteristic <span class="math inline">\(Y\)</span>: Invoice amount,</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span>: 46.75; 99.48; 6.29; 19.06; 64.63; 5.08; 7.89; 8.77; 6.1; 26.34,</li>
+<li>Classification: [0,10); [10,30); [30,50); [50,100]</li>
+</ul>
+<p><span class="math display">\[\hat f(x)=\begin{cases}0.05 &amp;\text{for} ~x\in [0;10),\\
+                        0.01 &amp;\text{for}~x\in [10;30),\\
+                        0.005&amp;\text{for}~x\in [30;50),\\
+                        0.004&amp;\text{for}~x\in [50;100],\\
+                        0,\text{sonst.}\end{cases}\]</span></p>
+<p><span class="math display">\[\hat F(x)=\begin{cases}0&amp;\text{for} ~x&lt;0,\\
+                        0 + 0.05\cdot(x-0) = 0.05\cdot x &amp;\text{for}~0\leq x&lt;10,\\
+                        0.5 + 0.01\cdot (x-10) = 0.4 + 0.01x &amp;\text{for}~10\leq x&lt;30,\\
+                        0.7 + 0.005\cdot(x-30) = 0.55 + 0.005\cdot x &amp;\text{for}~30\leq x&lt; 50,\\
+                        0.8 + 0.004\cdot(x-50) = 0.6 + 0.004\cdot x &amp;\text{for}~50\leq x\leq 100,\\
+                        1&amp;\text{for}~x&gt; 1\end{cases}\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="_main_files/figure-html/unnamed-chunk-22-1.png" alt="Empirical density and distribution functions for \(Y\): Sales amount" width="80%" />
+<p class="caption">
+Figure 1.5: Empirical density and distribution functions for <span class="math inline">\(Y\)</span>: Sales amount
+</p>
+</div>
+</div>
+<div class="exercise">
+<p><span id="exr:zeitf" class="exercise"><strong>Exercise 1.4  (Density and distribution functions for time spent in the online store.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-23">Table 1.8: </span>Relative frequencies and cumulative frequencies for the feature <span class="math inline">\(X\)</span>: Time spent in the online store.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">[0,10)</th>
+<th align="right">[10,20)</th>
+<th align="right">[20,60)</th>
+<th align="right">[60,80]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">rel. Frequency</td>
+<td align="right">0.1</td>
+<td align="right">0.3</td>
+<td align="right">0.4</td>
+<td align="right">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">cumulative rel. Frequency</td>
+<td align="right">0.1</td>
+<td align="right">0.4</td>
+<td align="right">0.8</td>
+<td align="right">1.0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>metric continuously scaled characteristic <span class="math inline">\(X\)</span>: Time in the online store,</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span>: 14.94; 62.79; 79.12; 25.48; 20.55; 11.95; 21; 47.81; 10.71; 8.44,</li>
+<li>Class division: [0,10); [10,20); [20,60); [60,80]</li>
+</ul>
+<iframe title="Aufgabe_verteilung_zeit" src="./htmls/fx_Fx_zeit.html" width="700" height="700"></iframe>
+<p>Enter the values of the density function for the classes and try to interpret the graphical distribution function!</p>
+<iframe title="empirische Verteilung" src="Apps_RBook/#section-empirische-verteilung" width="760" height="600"></iframe>
+<div id="tester" style="width:600px;height:250px;">
+
+</div>
+<script>
+    TESTER = document.getElementById('tester');
+    Plotly.newPlot( TESTER, [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }], {
+    margin: { t: 0 } } );
+</script>
+<script>
+var subject = ['Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly']
+var score = [1,6,2,8,2,9,4,5,1,5,2,8]
+
+var data = [{
+  type: 'scatter',
+  x: subject,
+  y: score,
+  mode: 'markers',
+  transforms: [{
+    type: 'filter',
+    target: 'y',
+    operation: '>',
+    value: 4
+  }]
+}]
+
+var layout = {
+    title: 'Filter Scores > 4'
+}
+
+Plotly.newPlot('myDiv', data, layout)
+
+</script>
+</div>
+<hr />
+<!--## Rückblick{-}
+
+
+```{=html}
+<iframe title="Wortwolke" src="Apps_RBook/#section-wortwolke" width="760" height="600"></iframe>
+```
+-->
+<!--
+Quest #1 investiere in eine Aktie -> simuliere, wer hat die höchste Rendite? Bestimme VaR in Portfolio, wer hat nicht überschritten?
+Quest #2 bestimme die optimalen Portfoliogewichte (Mean-Variance Utility maximization). Wenn nur eine von zwei Aktien täglich beobachtbar ist, wie kann ich Ptflrendite vorhersagen?
+
+oder kaufe zwei call optionen um in 7 Tagen Aktien zu einem K zu kaufen - Kaufpreis zahlen (wird genannt für jedes K)
+
+Quest #3 Binomial Modell stocks: 3 or five days up(u) and down(d) with  equal prob. 
+
+Beispiel Hypothesentest: Anteil positiver Bewertungen erhöht?/ Anteil neg. Bew. kleiner?
+Zeit auf der Website verändert? (Verhaltensänderung mit der Zeit-> zufällige Kunden auf der Website gewesen, kann nur Teilerhebung da nur die Kunden werden beobachtet)
+-->
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sample-measures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-merk.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

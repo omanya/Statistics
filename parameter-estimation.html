@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Parameter estimation | Statistics I</title>
+  <meta name="description" content="This is the script for the Statistics course." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Parameter estimation | Statistics I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the script for the Statistics course." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Parameter estimation | Statistics I" />
+  
+  <meta name="twitter:description" content="This is the script for the Statistics course." />
+  
+
+<meta name="author" content="Maria Osipenko" />
+
+
+<meta name="date" content="2024-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="iii-introduction-to-inferential-statistics.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<ul>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
+<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="concentration-measures.html"><a href="concentration-measures.html"><i class="fa fa-check"></i><b>3</b> Concentration measures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve"><i class="fa fa-check"></i><b>3.1</b> Lorenz curve</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-a-sample"><i class="fa fa-check"></i><b>3.1.1</b> Lorenz curve for a sample</a></li>
+<li class="chapter" data-level="3.1.2" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-frequency-distributions"><i class="fa fa-check"></i><b>3.1.2</b> Lorenz curve for frequency distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient-and-concentration-rate"><i class="fa fa-check"></i><b>3.2</b> Gini coefficient and concentration rate</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient"><i class="fa fa-check"></i><b>3.2.1</b> Gini coefficient</a></li>
+<li class="chapter" data-level="3.2.2" data-path="concentration-measures.html"><a href="concentration-measures.html#concentration-rate"><i class="fa fa-check"></i><b>3.2.2</b> Concentration rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>4</b> Association between two features</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#frequency-distribution-for-two-features"><i class="fa fa-check"></i><b>4.1</b> Frequency distribution for two features</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#joint-frequencies"><i class="fa fa-check"></i><b>4.1.1</b> Joint frequencies</a></li>
+<li class="chapter" data-level="4.1.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#marginal-frequencies"><i class="fa fa-check"></i><b>4.1.2</b> Marginal frequencies</a></li>
+<li class="chapter" data-level="4.1.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-table"><i class="fa fa-check"></i><b>4.1.3</b> Contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#conditional-frequency-distribution"><i class="fa fa-check"></i><b>4.2</b> Conditional frequency distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-independence"><i class="fa fa-check"></i><b>4.3</b> Empirical independence</a></li>
+<li class="chapter" data-level="4.4" data-path="association-between-two-features.html"><a href="association-between-two-features.html#dependence-measures"><i class="fa fa-check"></i><b>4.4</b> Dependence measures</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>4.4.1</b> Empirical covariance and correlation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Rank correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency coefficient</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Regression</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>5.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
+<li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
+<li class="chapter" data-level="6" data-path="model-of-randomness.html"><a href="model-of-randomness.html"><i class="fa fa-check"></i><b>6</b> Model of randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-space"><i class="fa fa-check"></i><b>6.1</b> Probability space</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#outcomes"><i class="fa fa-check"></i><b>6.1.1</b> Outcomes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#event-space"><i class="fa fa-check"></i><b>6.1.2</b> Event space</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-measure"><i class="fa fa-check"></i><b>6.1.3</b> Probability measure</a></li>
+<li class="chapter" data-level="6.1.4" data-path="model-of-randomness.html"><a href="model-of-randomness.html#calculating-with-probabilities"><i class="fa fa-check"></i><b>6.1.4</b> Calculating with probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#sampling-as-a-random-process"><i class="fa fa-check"></i><b>6.2</b> Sampling as a random process</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html"><i class="fa fa-check"></i><b>7</b> Conditional probabilities and independence</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.1</b> Conditional probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#independence"><i class="fa fa-check"></i><b>7.2</b> Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>8.1</b> Discrete random variable</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>8.1.1</b> Probability and distribution functions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables.html"><a href="random-variables.html#covariance-and-correlation"><i class="fa fa-check"></i><b>8.1.3</b> Covariance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>8.2</b> Continuous random variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>8.2.1</b> Density function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>8.2.2</b> Distribution function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-1"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.4</b> Quantiles of continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>8.3</b> Some important distributions</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>8.3.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>8.3.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="8.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>8.3.3</b> Normal distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation.html"><a href="parameter-estimation.html"><i class="fa fa-check"></i><b>9</b> Parameter estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#basic-ideas-of-inductive-statistics"><i class="fa fa-check"></i><b>9.1</b> Basic ideas of inductive statistics</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-theoretically"><i class="fa fa-check"></i><b>9.1.1</b> Parameter estimation theoretically</a></li>
+<li class="chapter" data-level="9.1.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-practically"><i class="fa fa-check"></i><b>9.1.2</b> Parameter estimation practically</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="parameter-estimation" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Parameter estimation<a href="parameter-estimation.html#parameter-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+function checkAnswer_mmc(q) {
+      const selectedOptions = document.querySelectorAll('input[name="option'+q.id+'"]:checked');
+      if (selectedOptions.length === 2) {
+        const userAnswers = Array.from(selectedOptions).map(option => option.value);
+        const correctAnswers = q.answer;
+        const isCorrect = userAnswers.every(answer => correctAnswers.includes(answer));
+
+if (isCorrect) {
+          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+          document.getElementById('result'+q.id).style.color = "green";
+        } else {
+          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+          document.getElementById('result'+q.id).style.color = "red";
+        }
+      } else {
+        document.getElementById('result'+q.id).textContent = 'Please select two options.';
+      }
+    }
+// numeric
+function generateQuestion_num(id) {
+      // Generate two random numbers between 2 and 10
+      const num1 = Math.floor(Math.random() * 10) + 2;
+      const num2 = Math.floor(Math.random() * 10) + 2;
+      const x1 = Math.floor(Math.random() * 100) + 2;
+      const x2 = Math.floor(Math.random() * 100) + 2;
+      const x3 = Math.floor(Math.random() * 100) + 2;
+      const x4 = Math.floor(Math.random() * 100) + 2;
+      const x5 = Math.floor(Math.random() * 100) + 2;
+      const x6 = Math.floor(Math.random() * 100) + 2;
+
+       // Calculate the correct answer
+      let answer = num1*Math.sqrt(x1) + num2*Math.sqrt(x2);
+
+      // Return the question and answer as an object
+      return {
+       // question: num1 + "\\(\\sqrt{x}+\\)"+ num2 + "\\(\\sqrt{y}\\)" + " for \\(x=\\)" + x1 + " and \\(y=\\)" + x2,
+        question: [num1,num2,x1,x2,x3,x4,x5,x6],
+        answer: answer,
+        id: id
+      };
+    }
+
+function checkAnswer_num(q) {
+      const userAnswer = document.getElementById('answer'+q.id).value;
+      const isCorrect = Math.round(parseFloat(userAnswer)*10000)/10000 === Math.round(q.answer*10000)/10000;
+
+      if (isCorrect) {
+        document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+        document.getElementById('result'+q.id).style.color = "green";
+      } else {
+        document.getElementById('result'+q.id).textContent = `Sorry, incorrect. The correct answer is ` + Math.round(q.answer*10000)/10000 + '.';
+        document.getElementById('result'+q.id).style.color = "red";
+      }
+  }
+
+// plain multiple choice
+  function checkAnswer_match(q) {
+      const selectedOption = document.querySelector('input[name="option'+q.id+'"]:checked');
+      if (selectedOption) {
+        const userAnswer = selectedOption.value;
+        const isCorrect = userAnswer === q.answer;
+
+        if (isCorrect) {
+          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+          document.getElementById('result'+q.id).style.color = "green";
+        } else {
+          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+          document.getElementById('result'+q.id).style.color = "red";
+        }
+      } else {
+        document.getElementById('result'+q.id).textContent = 'Please select an option.';
+      }
+    }
+    
+function factorial(n){
+  let answer = 1;
+  if (n == 0 || n == 1){
+    return answer;
+  }
+  else if(n > 1){
+    for(var i = n; i >= 1; i--){
+      answer = answer * i;
+    }
+    return answer;
+  }
+  else{
+    return "number has to be positive."
+  }  
+}
+
+function binomial(n, k) {
+     if ((typeof n !== 'number') || (typeof k !== 'number')) 
+  return false; 
+    var coeff = 1;
+    for (var x = n-k+1; x <= n; x++) coeff *= x;
+    for (x = 1; x <= k; x++) coeff /= x;
+    return coeff;
+}
+
+function binomialCDF(k,n,p) {
+    let answer = 0;
+
+    for(var i = 0; i <= k; i++){
+      answer = answer + binomial(n,i)*Math.pow(p,i)*Math.pow((1-p),(n-i));
+    }
+    return answer;
+}
+function normalCDF(x, mean, std) {
+  var x = (x - mean) / std
+  var t = 1 / (1 + .2315419 * Math.abs(x))
+  var d =.3989423 * Math.exp( -x * x / 2)
+  var prob = d * t * (.3193815 + t * ( -.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))))
+  if( x > 0 ) prob = 1 - prob
+  return prob
+}
+</script>
+<p>To answer the question on inferences about the population regarding <strong>parameter estimation</strong>, let’s take a close look at distributions of <strong>estimators</strong> like <span class="math inline">\(\bar X\)</span> to find some <strong>criteria</strong> of “good” estimators to define and quantify the uncertainty of the estimate.</p>
+<hr />
+<p>In this chapter we will learn:</p>
+<ul>
+<li>How random sampling results in <strong>estimators</strong>, that are <strong>random variables</strong>,</li>
+<li>What is the <strong>distribution of the sample mean</strong> in case of normal distribution in the population,</li>
+<li>How to take the uncertainty of the estimate into account in the estimation procedure <span class="math inline">\(\leadsto\)</span> <strong>interval estimation</strong>.</li>
+</ul>
+<hr />
+<div id="basic-ideas-of-inductive-statistics" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Basic ideas of inductive statistics<a href="parameter-estimation.html#basic-ideas-of-inductive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In inductive statistics, we want to generalize our findings, which are based on a single sample, on the whole population of interest. With the help of random sampling and appropriate estimators, we conduct inference for parameters of interest in the population.</p>
+<div class="exercise">
+<p><span id="exr:grundideen" class="exercise"><strong>Exercise 9.1  (Basic Concepts) </strong></span></p>
+<iframe title="" src="./htmls/grundideen_eng.html" width="720" height="700"></iframe>
+</div>
+<div id="parameter-estimation-theoretically" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Parameter estimation theoretically<a href="parameter-estimation.html#parameter-estimation-theoretically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before we conduct any data analysis, we think of a model for a real-world problem.</p>
+<div class="example">
+<p><span id="exm:sampling" class="example"><strong>Example 9.1  (New customers) </strong></span>You want to expand your customer base to a specific population group and are interested in:</p>
+<ul>
+<li><p>to what proportion will the new customers use the app (<span class="math inline">\(Y\)</span>), specifically: what would be <strong>the proportion of app users</strong> in your new customer base (<span class="math inline">\(p\)</span>),</p></li>
+<li><p>what average sales amount can you expect from new customers (<span class="math inline">\(X\)</span>), specifically: what would be <strong>the average sales amount</strong> of your new customers (<span class="math inline">\(\mathbb E(X)=\mathbb \mu_X\)</span>).</p></li>
+</ul>
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables. We are interested in the distribution parameters of these random variables.
+We will build upon the following concept of a random sample…</p>
+</div>
+<div id="modeling-the-quantities-of-interest" class="section level4 unnumbered hasAnchor">
+<h4>Modeling the quantities of interest<a href="parameter-estimation.html#modeling-the-quantities-of-interest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>App usage is the property of interest, so:</li>
+</ul>
+<p><span class="math display">\[
+Y=\begin{cases}1,&amp;\text{if app usage},\\0,&amp;\text{no app usage}.\end{cases}
+\]</span>
+<span class="math inline">\(Y\sim Ber(p)\)</span>. Of interest is <strong>the share of app users</strong> (<span class="math inline">\(p\)</span>).</p>
+<ul>
+<li>sales amount is size <span class="math inline">\(X\)</span> and the average sales amount is of interest: <span class="math inline">\(\mathbb E(X)=\mu_x\)</span>.</li>
+</ul>
+</div>
+<div id="random-sample" class="section level4 unnumbered hasAnchor">
+<h4>Random sample<a href="parameter-estimation.html#random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We have often talked about a sample and have seen how sampling can be modeled (See “Random events and Probability”). Now we formally define what we mean by a <strong>random sample</strong> as a random process.</p>
+<p>Let <span class="math inline">\(X_1,\ldots, X_n\)</span> be random variables. <span class="math inline">\((X_1,\ldots, X_n)\)</span> is called a <strong>random sample</strong>
+of size <span class="math inline">\(n\)</span> (<strong>sample variables</strong>) to <span class="math inline">\(X\)</span> if the distributions of <span class="math inline">\(X\)</span> and <span class="math inline">\(X_i\)</span>, <span class="math inline">\(i=1,2,\ldots, n\)</span>, match and <span class="math inline">\(X_1,\ldots, X_n\)</span> are independent.</p>
+<p>The observed realization <span class="math inline">\((x_1,\ldots, x_n)\)</span> of random sample <span class="math inline">\((X_1,\ldots, X_n)\)</span> is called a <strong>sample realization</strong>.
+The set <span class="math inline">\(\mathcal X\)</span> of all possible sample realizations is called the <strong>sample space</strong>: <span class="math inline">\(\mathcal X\subseteq\mathbb R^n\)</span>.</p>
+<div class="example">
+<p><span id="exm:sampling2" class="example"><strong>Example 9.2  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling">9.1</a> cont.</p>
+<p>The plan is to randomly select <span class="math inline">\(n\)</span> customers and survey them.</p>
+<ul>
+<li><strong>App Usage</strong>:</li>
+</ul>
+<p>The sample variables for <span class="math inline">\(Y\)</span> are: <span class="math inline">\(\color{blue}{Y_1, Y_2,\ldots,Y_n},\)</span>
+where <span class="math inline">\(Y_i\)</span> takes the value 1 or 0, depending on whether the <span class="math inline">\(i\)</span>th selected person uses the app or not. So the value of <span class="math inline">\(Y_i\)</span> is initially <strong>unknown</strong> because we don’t know which person will be interviewed in the <span class="math inline">\(i\)</span>th position.</p>
+<p><span class="math inline">\(\leadsto\)</span> <span class="math inline">\(Y_1,\ldots, Y_n\)</span> are <strong>random variables!</strong></p>
+<ul>
+<li><strong>sales amount</strong>:
+The sample variables for <span class="math inline">\(X\)</span> are: <span class="math inline">\({\color{red}{X_1, X_2,\ldots,X_n}},\)</span>
+where <span class="math inline">\(X_i\)</span> represents the estimate of the bill amount of the <span class="math inline">\(i\)</span>th selected person. So the value of <span class="math inline">\(X_i\)</span> is initially <strong>unknown</strong> because we don’t know which person will be interviewed in the <span class="math inline">\(i\)</span>th position.</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span> <span class="math inline">\(X_1,\ldots, X_n\)</span> are <strong>random variables!</strong></p>
+</div>
+</div>
+<div id="estimation" class="section level4 unnumbered hasAnchor">
+<h4>Estimation<a href="parameter-estimation.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In descriptive statistics we have used the formulas for computing the empirical mean and the empirical frequencies in order to summarize the sample given. Now we look at those formulas from the probabilistic point of view, realize that there are many possible samples from a population and the formulas (which correspond to estimators) return different values depending on a particular sample realization.</p>
+<div class="example">
+<p><span id="exm:sampling3" class="example"><strong>Example 9.3  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling2">9.2</a> cont.</p>
+<p>Calculation formulas (estimators) for the parameters of interest:</p>
+<ul>
+<li><p>the app user share <span class="math inline">\(p\)</span>:
+<span class="math display">\[\begin{align}
+\color{blue}{\overline{Y}}&amp;\color{blue}{=\frac 1n (Y_1 + Y_2 + \ldots Y_n)} \leadsto\color{blue}{\frac{\text{Number of 1s (=app usage)}}{\text{Number of values}}}\\
+&amp;\color{blue}{= \text{Sample frequency of ones (=app usage)}}
+\end{align}\]</span></p></li>
+<li><p>the average sales amount (<span class="math inline">\(\mathbb E(X)\)</span>):
+<span class="math display">\[\color{red}{\overline{X}=\frac 1n (X_1 + X_2 + \ldots X_n) \leadsto\text{sample mean}}.\]</span></p></li>
+</ul>
+<p><span class="math inline">\(\overline{Y}\)</span> and <span class="math inline">\(\overline{X}\)</span> are functions of the sample variables, so they are themselves <strong>random variables</strong>.</p>
+</div>
+</div>
+</div>
+<div id="parameter-estimation-practically" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Parameter estimation practically<a href="parameter-estimation.html#parameter-estimation-practically" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let us return to our estimation problem. Assume the proportion of app users is <span class="math inline">\(0.6\)</span> and the mean sales amount in the population of all potential new customers is <span class="math inline">\(25\)</span> Euro. In the reality we do not know those values and we have to estimate them.</p>
+<p>So imagine, we conduct a survey among the potential new customers and ask the survey participants to indicate whether they would use the app or not, and how high would be their willingness to pay.</p>
+<div class="example">
+<p><span id="exm:sampling4" class="example"><strong>Example 9.4  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling3">9.3</a> cont.</p>
+<p>We need to set the sample size (<span class="math inline">\(n\)</span>) and then conduct a survey to get concrete sample values (<span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>).</p>
+</div>
+<p>In the animation you can see what happens when a sample is taken:</p>
+<iframe title="GGZ" src="./htmls/Stichprobe.html" width="760" height="500"></iframe>
+<script>
+function sample01(p){
+  let unif = Math.random();
+  let value = 0;
+  if(unif>p){
+    value=1;
+  }
+  return value;
+}
+
+function sampleUnif(min=10,max=50,dec=2){
+  let value = Math.random()*(max-min)+min;
+  value = Math.round(value*Math.pow(10,dec))/Math.pow(10,dec);
+  return value;
+}
+
+function generateSample(n=10,p=0.4,min=10,max=40,dec=2) {
+      // Generate n random samples for bernoulli and unif
+      let sample1 = [];
+      let sample2 = [];
+      let sample3 = [];
+      
+      let mean1 = 0;
+      let mean2 = 0;
+      let sig2 = 0;
+      
+      for(var i = 0; i < (n); i++){
+        sample1[i]=sample01(p=p);
+        mean1 = mean1 + 1/n*sample1[i];
+        if(sample1[i]>0) {
+          sample3[i]="yes";
+        }
+        else {
+          sample3[i]="no";
+        }
+        sample2[i]=sampleUnif(min=min, max=max, dec=dec);
+        mean2 = mean2 + 1/n*sample2[i];
+      };
+      mean1 = Math.round(mean1*Math.pow(10,dec))/Math.pow(10,dec);
+      mean2 = Math.round(mean2*Math.pow(10,dec))/Math.pow(10,dec);
+      
+       for(var i = 0; i < (n); i++){
+          sig2 = sig2 + Math.pow(sample2[i]-mean2,2)
+       };
+       
+      sig2 = 1/(n-1)*sig2;
+
+      // Return the sample as an object
+      return {
+        sample1: sample1,
+        sample2: sample2,
+        sample3: sample3,
+        mean1: mean1,
+        mean2: mean2,
+        sig2: sig2
+      };
+    }
+    
+function showSample(id){
+
+      // get n
+      //let n= 10;
+      var n = document.getElementById("myn"+id).value;  
+      //generate a sample
+      let mysample = generateSample(n=n);
+      
+      //set up the ids
+      let textid1 = "app-text-1" + id;
+      let textid2  = "app-text-2" + id;
+      let textid3  = "app-text-3" + id;
+      let textid4  = "app-text-4" + id;
+      let textid5  = "app-text-5" + id;
+      let textid6  = "app-text-6" + id;
+      let textid7  = "app-text-7" + id;
+      
+      // impute the texts
+      let sample1 = mysample.sample1;
+      let sample2 = mysample.sample2;
+      let sample3 = mysample.sample3;
+      let mean1 = mysample.mean1;
+      let mean2 = mysample.mean2;
+      let interv = [];
+      interv[0]=mean2 - 1.96*10/Math.sqrt(n);
+      interv[1]=mean2 + 1.96*10/Math.sqrt(n);
+      
+      document.getElementById(textid1).textContent = "{" + sample3.join(", ") + "}";
+      document.getElementById(textid2).textContent = "{"+sample1.join(", ") + "}";
+      document.getElementById(textid3).textContent = "{"+sample2.join(", ") + "}";
+      document.getElementById(textid4).textContent = mean1;
+      document.getElementById(textid5).textContent = mean2;
+
+      
+      //style
+      document.getElementById(textid1).style.color = "blue";
+      document.getElementById(textid2).style.color = "blue";
+      document.getElementById(textid3).style.color = "red";
+      document.getElementById(textid4).style.color = "blue";
+      document.getElementById(textid5).style.color = "red";
+
+}
+
+function showInterv(id){
+
+      // get n
+      //let n= 10;
+      var n = document.getElementById("myn"+id).value;  
+      //generate a sample
+      let mysample = generateSample(n=n);
+      
+      //set up the ids
+      let textid1 = "app-text-1" + id;
+      let textid2  = "app-text-2" + id;
+      let textid3  = "app-text-3" + id;
+      let textid4  = "app-text-4" + id;
+      let textid5  = "app-text-5" + id;
+      let textid6  = "app-text-6" + id;
+      let textid7  = "app-text-7" + id;
+      
+      // impute the texts
+      let sample1 = mysample.sample1;
+      let sample2 = mysample.sample2;
+      let sample3 = mysample.sample3;
+      let mean1 = mysample.mean1;
+      let mean2 = mysample.mean2;
+      let interv = [];
+      interv[0]=Math.round((mean2 - 1.96*10/Math.sqrt(n))*100)/100;
+      interv[1]=Math.round((mean2 + 1.96*10/Math.sqrt(n))*100)/100;
+      
+    
+      document.getElementById(textid3).textContent = "{"+sample2.join(", ") + "}";
+      document.getElementById(textid5).textContent = mean2;
+      document.getElementById(textid6).textContent = interv.join(", ");
+
+      
+      //style
+    
+      document.getElementById(textid3).style.color = "red";
+     document.getElementById(textid5).style.color = "red";
+      document.getElementById(textid6).style.color = "blue";
+
+}
+    
+  
+</script>
+<div id="app100" class="app">
+<h3>
+Sample size \(n\):
+</h3>
+<form>
+<select id = "myn100" onchange = "showSample(100)" ><br />
+<option value="10">10</option><br />
+<option value="20">20</option><br />
+<option value="50">50</option><br />
+<option value="100">100</option><br />
+</select>
+</form>
+<h3>
+Sample realizations:
+</h3>
+<ul>
+<li>
+The survey results for App usage (yes/no) as realized sample values:
+<p id="sample1">
+\(\color{blue}{\{1,2,\ldots, n\}=} ~\)<span id="app-text-1100"></span>
+</p>
+</li>
+<li>
+As realizations of the corresponding 0-1 Bernoulli random variable:
+<p id="sample12">
+\(\color{blue}{\{y_1,y_2,\ldots,y_n\}=}~\)<span id="app-text-2100"></span>
+</p>
+</li>
+<li>
+Willingness to pay in form of self-estimated sales amount with sample values:
+<p id="sample2">
+\(\color{red}{\{x_1,x_2,\ldots,x_n\}=}~\)<span id="app-text-3100"></span>
+</p>
+</li>
+</ul>
+<h3>
+Calculation of the resulting estimates:
+</h3>
+<ul>
+<li>
+The estimate for the proportion of app users:
+<p id="mean1">
+\(\color{blue}{\bar y=\frac 1n(y_1+y_2 + \ldots + y_n)=}\) <span id="app-text-4100"></span>
+</p>
+</li>
+<li>
+The estimate for the average sales amount:
+<p id="mean1">
+\(\color{red}{\bar x=\frac 1n(x_1+x_2 + \ldots + x_n)= }\)<span id="app-text-5100"></span>
+</p>
+</li>
+</ul>
+<button onclick="showSample(100)">
+draw a new sample
+</button>
+<script>
+showSample(100)
+</script>
+</div>
+<div id="q51" class="quiz">
+<script>
+
+
+// Generate a random question
+  const questionObj51 = {
+      question: 'What do you observe when you conduct several different simulated surveys with \\(n=10\\) in the app above? (Keep in mind that the actual population parameters correspond to \\(0.6\\) for the proportion of app users and to \\(25\\) Euro average sales amount.)',
+      options: ['The estimates change the sample.', 'The estimated values change from sample to sample.', 'The estimation result deviates from the true parameter.', 'The estimation result perfectly agrees with the population parameter to be estimated.'],
+      answer: ['2','3'],
+      id: 51
+    };
+</script>
+<p class="question">
+<span id="question-text51"></span>
+</p>
+<div class="options">
+<p><label>
+<input type="checkbox" name="option51" value=1> The estimates change the sample.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option51" value=2> The estimated values change from sample to sample.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option51" value=3> The estimation result deviates from the true parameter.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option51" value=4> The estimation result perfectly agrees with the population parameter to be estimated.
+</label></p>
+</div>
+<button onclick="checkAnswer_mmc(questionObj51)">
+Submit
+</button>
+<p id="result51">
+</p>
+<script>
+    // Display the question
+    document.getElementById('question-text51').textContent = questionObj51.question;
+
+</script>
+<hr />
+<script>
+
+
+// Generate a random question
+  const questionObj52 = {
+      question: 'What happens if you increase the sample size to \\(n=100\\)?',
+      options: ['Nothing changes.', 'Precision increases as the sample size increases.', 'The estimates vary more from sample to sample.', '\\((70;50)\\)'],
+      answer: ['2','4'],
+      id: 52
+    };
+</script>
+<p class="question">
+<span id="question-text52"></span>
+</p>
+<div class="options">
+<p><label>
+<input type="checkbox" name="option52" value=1> Nothing changes.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option52" value=2> Precision increases as the sample size increases.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option52" value=3> The estimates vary more from sample to sample.
+</label>
+<br>
+<label>
+<input type="checkbox" name="option52" value=4> The estimates vary less from sample to sample.
+</label></p>
+</div>
+<button onclick="checkAnswer_mmc(questionObj52)">
+Submit
+</button>
+<p id="result52">
+</p>
+<script>
+    // Display the question
+    document.getElementById('question-text52').textContent = questionObj52.question;
+
+</script>
+</div>
+<hr />
+</div>
+</div>
+<div id="estimating-the-expectation-mu-of-a-normal-population" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population<a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the last section, we considered the normal distribution for modelling random variables. We have seen, that addition and scaling of normal random variables results again in a normally distributed random variable. Let us look at a sample from a normal distribution and consider estimating its expectation/ mean <span class="math inline">\(\mu\)</span> from that sample.</p>
+<p>A natural estimator for <span class="math inline">\(\mu\)</span> is the sample mean <span class="math inline">\(\bar X\)</span>. For a concrete sample, it takes on a value, <span class="math inline">\(\bar x\)</span>, but <strong>over all possible samples</strong>, it is a <strong>random variable</strong> with a distribution. We can actually derive its distribution for a normal population using the properties of normal distribution.</p>
+<div id="distribution-of-the-sample-mean-for-a-normal-population" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Distribution of the sample mean for a normal population<a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If we make a random selection (with replacement) from a normally distributed population and write down a possible result as <span class="math inline">\(n\)</span> random variable “placeholders” as <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>, or calculate the mean <span class="math inline">\(\bar X\)</span> , then:</p>
+<ul>
+<li><p><span class="math inline">\(X_i\sim N(\mu_X,\sigma_X^2)\)</span> by assumption, since we are selecting from a normally distributed population.</p></li>
+<li><p><span class="math inline">\(X_i\)</span> independent, as you move with replacement</p></li>
+<li><p><span class="math inline">\(\overline X = \frac 1n\sum_{i=1}^n\)</span> using the additive property of the normal distribution,</p></li>
+<li><p><span class="math inline">\(\overline X\sim N(\mu_X,\frac{\sigma_X^2}n)\)</span>, since <span class="math inline">\(\mathbb E(\overline X) = \frac 1n\cdot n\cdot \mu_X=\color{blue}{\mu_X}\)</span>, <span class="math inline">\({\text{Var}(\overline X)}=\frac 1{n^2}\cdot n\cdot \sigma_X^2=\color{red}{\frac {\sigma^2_X}{n}}\)</span>, and <span class="math inline">\(\sqrt{\text{Var}(\overline X)} = \color{red}{\frac {\sigma_X}{\sqrt n}}\)</span>.</p></li>
+<li><p>Hence the sample mean is distributed as follows:
+<span class="math display">\[\overline X\sim N\left (\color{blue}{\mu_X};\color{red}{\frac {\sigma^2_X}{n}}\right),\]</span>
+and the standardized sample mean:
+<span class="math display">\[\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}}\sim N(0;1).\]</span></p></li>
+</ul>
+<div id="q52" class="quiz">
+<p id="question">
+<span id="question-text53"></span>
+<input type="number" id="answer53" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj53)">Submit</button>
+</p>
+<p id="result53">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj53 = generateQuestion_num(53);
+// Display the question
+    document.getElementById('question-text53').textContent = "Assume the mean age of your customers is \\(" +  (questionObj53.question[0]*5) + "\\) years with a standard deviation of \\(" + (questionObj53.question[1]*2) + "\\) years. Further assume, that the customer age is approximately normal distributed. Determine the distribution of the sample mean for a sample of customers with size \\(n=20\\)! \\[\\] The distribution is normal with \\(\\mu=\\)";
+    questionObj53.answer = questionObj53.question[0]*5
+</script>
+<p id="question">
+<span id="question-text54"></span>
+<input type="number" id="answer54" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj54)">Submit</button>
+</p>
+<p id="result54">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj54 = generateQuestion_num(54);
+// Display the question
+    document.getElementById('question-text54').textContent = "\\(\\sigma^2=\\)";
+    questionObj54.answer = Math.pow((questionObj53.question[1]*2),2)/20
+</script>
+<p id="question">
+<span id="question-text55"></span>
+<input type="number" id="answer55" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj55)">Submit</button>
+</p>
+<p id="result55">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj55 = generateQuestion_num(55);
+// Display the question
+    document.getElementById('question-text55').textContent = "How does the variance of the sample mean changes, if the new sample size is \\(n=500\\)? \\[\\]\\(\\sigma^2_{n=500}=\\)";
+    questionObj55.answer = Math.pow((questionObj53.question[1]*2),2)/500
+</script>
+</div>
+</div>
+<div id="constructing-a-confidence-interval-for-mu-of-a-normal-population" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have figured out that our estimator <span class="math inline">\(\bar X\)</span> for <span class="math inline">\(\mu\)</span> is a random variable and its values vary from sample to sample. This means, that whenever we have a fixed sample, we should still anticipate this variability in our conclusions. One way to do it, is to construct a confidence interval for <span class="math inline">\(\mu\)</span>, which covers the true parameter with a high probability. An interval means, that besides the estimate <span class="math inline">\(\bar x\)</span>, we can calculate a lower and an upper bound (realized confidence interval) for <span class="math inline">\(\mu\)</span>.</p>
+<p>Confidence intervals cover the true parameter with a certain high probability, chosen by the person conducting the analysis. Normally this probability is <span class="math inline">\(90\%,95\%,99\%.\)</span> The remaining probability of a failure to cover is denoted as <span class="math inline">\(\alpha\)</span> and takes on values <span class="math inline">\(10\%,5\%,1\%\)</span> respectively. The coverage probability is then <span class="math inline">\(1-\alpha\)</span>.</p>
+<p>Again, we assume that we sample from a normally distributed population with unknown <span class="math inline">\(\mu\)</span> but <strong>known</strong> variance <span class="math inline">\(\sigma^2\)</span>. Thus, we would like to conduct interval estimation for <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>.</p>
+<ul>
+<li><p>The starting point is the point estimator <span class="math inline">\(\overline X\)</span>, which is <span class="math inline">\(N(\mu,\sigma^2/n)\)</span>-distributed.</p></li>
+<li><p>The standardized sample mean <span class="math inline">\(\displaystyle\frac{\overline X-\mu}{\sigma/\sqrt{n}}\)</span> is <span class="math inline">\(N(0,1)\)</span>-distributed, therefore:
+<span class="math display">\[\begin{equation*}
+    \mathbb P\left(-N_{1-\alpha/2} \leq \frac{\overline
+      X-\mu}{\sigma/\sqrt{n}}\leq N_{1-\alpha/2}\right)=1-\alpha,
+\end{equation*}\]</span>
+with <span class="math inline">\(N_{1-\alpha/2}\)</span> the <span class="math inline">\(1-\alpha/2\)</span> quantile of the standard normal distribution.</p></li>
+<li><p>Rearranging the term inside the probability results in:
+<span class="math display">\[\begin{equation*}
+      1-\alpha = \mathbb P\left(\overline X - N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}} \leq \mu \leq \overline X + N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}}\right),
+\end{equation*}\]</span>
+and the <span class="math inline">\((1-\alpha)\)</span> confidence interval is given by:
+<span class="math display">\[\begin{equation*}
+      \left[\overline X - N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}}, \overline X + N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}}\right].
+\end{equation*}\]</span></p></li>
+</ul>
+<p>The realized confidence interval can be computed as:</p>
+<p><span class="math display">\[\begin{equation*}
+        \left[\overline x - N_{1-\alpha/2}
+        \frac{\sigma}{\sqrt{n}}, \overline x + N_{1-\alpha/2}
+        \frac{\sigma}{\sqrt{n}}\right],
+\end{equation*}\]</span>
+where <span class="math inline">\(\overline x\)</span> and <span class="math inline">\(n\)</span> are taken from the given sample.</p>
+<div class="example">
+<p><span id="exm:intsch2" class="example"><strong>Example 9.5  (Monthly returns) </strong></span>Compute the <span class="math inline">\(95\%\)</span>-confidence interval for the mean of monthly stock returns.</p>
+<ul>
+<li><p>random monthly return <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span> with known <span class="math inline">\(\sigma^2 = 0.25\)</span></p></li>
+<li><p>Data: <span class="math inline">\(12\)</span> monthly returns in <span class="math inline">\(\%\)</span></p></li>
+</ul>
+<span class="math display">\[\begin{array}{c|cccccccccccc}
+     i&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10&amp;11&amp;12\\\hline
+      x_i&amp;0.35&amp;0.89&amp;1.02&amp;0.52&amp;0.12&amp;-0.22&amp;-0.48&amp;-0.37&amp;0.07&amp;0.29&amp;0.41&amp;0.72
+\end{array}\]</span>
+<!-- \begin{array}[t]{|*{4}{cc|}} -->
+<!--       \hline -->
+<!--       n & x_n & n & x_n & n & x_n & n & x_n \\\hline -->
+<!--       1 & 0.35 & 4 & \phantom{-}0.52 & 7 & -0.48 & 10 & 0.29\\ -->
+<!--       2 & 0.89 & 5 & \phantom{-}0.12 & 8 & -0.37 & 11 & 0.41\\ -->
+<!--       3 & 1.02 & 6 & -0.22 & 9 & \phantom{-}0.07 & 12 & 0.72\\\hline -->
+<!-- \end{array} -->
+<ul>
+<li><p>Confidence level <span class="math inline">\(1-\alpha=0.95\)</span> <span class="math inline">\(\Rightarrow\)</span> error probability <span class="math inline">\(\alpha=0.05.\)</span></p></li>
+<li><p>Sample mean: <span class="math inline">\(\displaystyle \overline x=\frac 1{12}(0.35 + \ldots + 0.72)=\frac{3.32}{12}=0.2767\%\)</span></p></li>
+<li><p><span class="math inline">\((1-\alpha/2)\)</span>-quantile <span class="math inline">\(N_{1-\alpha/2} = N_{0.975} =1.96\)</span></p></li>
+<li><p>Realized confidence interval:
+<span class="math display">\[\begin{align*}
+      &amp;\left[\overline x - N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}}, \overline x + N_{1-\alpha/2}
+      \frac{\sigma}{\sqrt{n}}\right] = \\
+    &amp;\left[0.2767-1.96\cdot
+      \frac{\sqrt{0.25}}{\sqrt{12}};
+      0.2767+
+      1.96\cdot\frac{\sqrt{0.25}}
+      {\sqrt{12}}\right]
+    = [-0.0062\%; 0.5596\%]
+\end{align*}\]</span></p></li>
+</ul>
+</div>
+<hr />
+<script>
+function generateQuestion_num2(id,n=10,p=0.4,min=10,max=40,dec=2) {
+      // Generate 
+      let out = generateSample(n=n,p=p,min=min,max=max,dec=dec);
+      let mean2 = out.mean2;
+      let sig2 = Math.round(out.sig2*100)/100;
+      let mean1 = out.mean1;
+      //alpha
+      const singn = [0.01,0.05,0.1];
+      const which = Math.floor((Math.random()*(2-0) + 0));
+      let al = singn[which];
+      // quant
+      const qn = [2.575829, 1.959964, 1.644854];
+      const qt = [4.604095, 2.776445, 2.131847];
+       const qch1 = [0.2069891, 0.4844186, 0.7107230];
+       const qch2 = [14.860259, 11.143287,  9.487729];
+      let qnn = qn[which];
+      let qtt = qt[which];
+      let qchh1 = qch1[which];
+      let qchh2 = qch2[which];
+
+       // Calculate the correct answer
+      let answer1 = 1;
+      let answer2 = 1;
+
+      // Return the question and answer as an object
+      return {
+       // question: num1 + "\\(\\sqrt{x}+\\)"+ num2 + "\\(\\sqrt{y}\\)" + " for \\(x=\\)" + x1 + " and \\(y=\\)" + x2,
+        sample: out.sample2,
+        sample01: out.sample1,
+        question: [mean2,sig2,al,qnn,qtt,qchh1,qchh2, mean1],
+        answer1: answer1,
+        answer2: answer2,
+        id: id
+      };
+    }
+    
+function checkAnswer_num2(q) {
+      const userAnswer1 = document.getElementById('answer1'+q.id).value;
+      const userAnswer2 = document.getElementById('answer2'+q.id).value;
+      const isBothCorrect = Math.round(parseFloat(userAnswer1)*1000)/1000 === Math.round(q.answer1*1000)/1000 && Math.round(parseFloat(userAnswer2)*1000)/1000 === Math.round(q.answer2*1000)/1000;
+      const isCorrect1 = Math.round(parseFloat(userAnswer1)*1000)/1000 === Math.round(q.answer1*1000)/1000;
+      const isCorrect2 = Math.round(parseFloat(userAnswer2)*1000)/1000 === Math.round(q.answer2*1000)/1000;
+
+      if (isBothCorrect) {
+        document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+        document.getElementById('result'+q.id).style.color = "green";
+      }  else if (isCorrect1) {
+        document.getElementById('result'+q.id).textContent = 'Your first entry is correct. Your second entry is incorrect.';
+        document.getElementById('result'+q.id).style.color = "orange";
+        
+      }  else if (isCorrect2) {
+        document.getElementById('result'+q.id).textContent = 'Your first entry is incorrect. Your second entry is correct.';
+        document.getElementById('result'+q.id).style.color = "orange";
+        
+      } else {
+        document.getElementById('result'+q.id).textContent = `Sorry, incorrect. The correct answer is [` + Math.round(q.answer1*1000)/1000 + ',' + Math.round(q.answer2*1000)/1000 + '].';
+        document.getElementById('result'+q.id).style.color = "red";
+      }
+  }
+
+</script>
+<div id="q52" class="quiz">
+<p id="question">
+<span id="question-text56"></span>
+</p>
+<input type="number" id="answer56" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj56)">Submit</button>
+<p id="result56">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj56 = generateQuestion_num(56);
+    const questionObj561 = generateQuestion_num2(561, n=5,min=10, max=60);
+// Display the question
+    document.getElementById('question-text56').textContent = "For a sample of customer ages: \\["+ questionObj561.sample.join(", ") + "\\] compute the confindence interval for the mean age for \\(\\alpha="+ questionObj561.question[2] + "\\). Assume that customer ages are normally distributed." + " \\[\\] The point estimate for \\(\\mu\\) is (round to two decimal places)";
+    questionObj56.answer = questionObj561.question[0]
+</script>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="iii-introduction-to-inferential-statistics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-intro_inferential.rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

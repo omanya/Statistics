@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Conditional probabilities and independence | Statistics I</title>
+  <meta name="description" content="This is the script for the Statistics course." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Conditional probabilities and independence | Statistics I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the script for the Statistics course." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Conditional probabilities and independence | Statistics I" />
+  
+  <meta name="twitter:description" content="This is the script for the Statistics course." />
+  
+
+<meta name="author" content="Maria Osipenko" />
+
+
+<meta name="date" content="2024-09-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="model-of-randomness.html"/>
+<link rel="next" href="random-variables.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<ul>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
+<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="concentration-measures.html"><a href="concentration-measures.html"><i class="fa fa-check"></i><b>3</b> Concentration measures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve"><i class="fa fa-check"></i><b>3.1</b> Lorenz curve</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-a-sample"><i class="fa fa-check"></i><b>3.1.1</b> Lorenz curve for a sample</a></li>
+<li class="chapter" data-level="3.1.2" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-frequency-distributions"><i class="fa fa-check"></i><b>3.1.2</b> Lorenz curve for frequency distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient-and-concentration-rate"><i class="fa fa-check"></i><b>3.2</b> Gini coefficient and concentration rate</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient"><i class="fa fa-check"></i><b>3.2.1</b> Gini coefficient</a></li>
+<li class="chapter" data-level="3.2.2" data-path="concentration-measures.html"><a href="concentration-measures.html#concentration-rate"><i class="fa fa-check"></i><b>3.2.2</b> Concentration rate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>4</b> Association between two features</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#frequency-distribution-for-two-features"><i class="fa fa-check"></i><b>4.1</b> Frequency distribution for two features</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#joint-frequencies"><i class="fa fa-check"></i><b>4.1.1</b> Joint frequencies</a></li>
+<li class="chapter" data-level="4.1.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#marginal-frequencies"><i class="fa fa-check"></i><b>4.1.2</b> Marginal frequencies</a></li>
+<li class="chapter" data-level="4.1.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-table"><i class="fa fa-check"></i><b>4.1.3</b> Contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#conditional-frequency-distribution"><i class="fa fa-check"></i><b>4.2</b> Conditional frequency distribution</a></li>
+<li class="chapter" data-level="4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-independence"><i class="fa fa-check"></i><b>4.3</b> Empirical independence</a></li>
+<li class="chapter" data-level="4.4" data-path="association-between-two-features.html"><a href="association-between-two-features.html#dependence-measures"><i class="fa fa-check"></i><b>4.4</b> Dependence measures</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>4.4.1</b> Empirical covariance and correlation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Rank correlation</a></li>
+<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency coefficient</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Regression</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>5.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
+<li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
+<li class="chapter" data-level="6" data-path="model-of-randomness.html"><a href="model-of-randomness.html"><i class="fa fa-check"></i><b>6</b> Model of randomness</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-space"><i class="fa fa-check"></i><b>6.1</b> Probability space</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="model-of-randomness.html"><a href="model-of-randomness.html#outcomes"><i class="fa fa-check"></i><b>6.1.1</b> Outcomes</a></li>
+<li class="chapter" data-level="6.1.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#event-space"><i class="fa fa-check"></i><b>6.1.2</b> Event space</a></li>
+<li class="chapter" data-level="6.1.3" data-path="model-of-randomness.html"><a href="model-of-randomness.html#probability-measure"><i class="fa fa-check"></i><b>6.1.3</b> Probability measure</a></li>
+<li class="chapter" data-level="6.1.4" data-path="model-of-randomness.html"><a href="model-of-randomness.html#calculating-with-probabilities"><i class="fa fa-check"></i><b>6.1.4</b> Calculating with probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="model-of-randomness.html"><a href="model-of-randomness.html#sampling-as-a-random-process"><i class="fa fa-check"></i><b>6.2</b> Sampling as a random process</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html"><i class="fa fa-check"></i><b>7</b> Conditional probabilities and independence</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#conditional-probabilities"><i class="fa fa-check"></i><b>7.1</b> Conditional probabilities</a></li>
+<li class="chapter" data-level="7.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#independence"><i class="fa fa-check"></i><b>7.2</b> Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>8.1</b> Discrete random variable</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>8.1.1</b> Probability and distribution functions</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.1.3" data-path="random-variables.html"><a href="random-variables.html#covariance-and-correlation"><i class="fa fa-check"></i><b>8.1.3</b> Covariance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>8.2</b> Continuous random variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>8.2.1</b> Density function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>8.2.2</b> Distribution function</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-1"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.4</b> Quantiles of continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>8.3</b> Some important distributions</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>8.3.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="8.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>8.3.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="8.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>8.3.3</b> Normal distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a></li>
+<li class="chapter" data-level="9" data-path="parameter-estimation.html"><a href="parameter-estimation.html"><i class="fa fa-check"></i><b>9</b> Parameter estimation</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#basic-ideas-of-inductive-statistics"><i class="fa fa-check"></i><b>9.1</b> Basic ideas of inductive statistics</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-theoretically"><i class="fa fa-check"></i><b>9.1.1</b> Parameter estimation theoretically</a></li>
+<li class="chapter" data-level="9.1.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#parameter-estimation-practically"><i class="fa fa-check"></i><b>9.1.2</b> Parameter estimation practically</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="conditional-probabilities-and-independence" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Conditional probabilities and independence<a href="conditional-probabilities-and-independence.html#conditional-probabilities-and-independence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Conditional probabilities express the fact that information about the occurrence of an event <span class="math inline">\(B\)</span> can influence the assessment of the probability of an event <span class="math inline">\(A\)</span>.</p>
+<p>Example: The assessment of the probability that a 40-year-old man will suffer a stroke differs depending on whether it is known that he has high blood pressure or whether this information is not available.</p>
+<p>In the operational context, too, the focus is often not on joint distribution, but rather on what happens to an event of interest if another related event has already occurred. For example, if it is known that a randomly selected customer uses the app, how many orders per month could be expected from the customer? The chance for the respective number of orders is described by <strong>conditional probabilities</strong>.</p>
+<p>In other situations, some conditional probabilities are known, but you would need the “reverse” conditional probabilities or the total (unconditional) probabilities. For example, if in a rating model you have the information on the chances of being loaded into a rating category in the event of a subsequent default, but you need the inverse of this, i.e. the chance of defaulting if you are sorted into a certain rating category (default probability per rating category). In this case, the <strong>total probability</strong> (total probability of default) is also of interest.</p>
+<p>When assessing probabilities for additional information, the decisive factor is whether the events involved are <strong>dependent</strong> or <strong>independent</strong>.</p>
+<hr />
+<p>In this chapter we will learn</p>
+<ul>
+<li>How to calculate and interpret the probabilities for an event under the condition that another event has already occurred (<span class="math inline">\(\leadsto\)</span> <strong>conditional probability</strong>) and</li>
+<li>how to check <strong>independence</strong> of events using conditional probabilities.</li>
+<li>How to calculate unconditional probabilities from conditional probabilities (<span class="math inline">\(\leadsto\)</span> <strong>total probability</strong>) and</li>
+<li>how to “swap” the event of interest and the condition in the conditional probability if necessary (<span class="math inline">\(\leadsto\)</span> <strong>Bayes’ theorem</strong>).</li>
+</ul>
+<hr />
+<div id="conditional-probabilities" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Conditional probabilities<a href="conditional-probabilities-and-independence.html#conditional-probabilities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For two events <span class="math inline">\(A,B\subseteq \Omega\)</span> and with <span class="math inline">\(\mathbb P(B)&gt;0\)</span> the <strong>conditional probability</strong> of <span class="math inline">\(A\)</span> under <span class="math inline">\(B\)</span> is defined as</p>
+<p><span class="math display">\[
+\mathbb P(A|B) = \displaystyle \frac {\mathbb P(A\cap B)}{ \mathbb P(B)}.
+\]</span></p>
+<hr />
+<div class="example">
+<p><span id="exm:wurf123b" class="example"><strong>Example 7.1  (Rolling a die twice) </strong></span>Cont. of Example <a href="model-of-randomness.html#exm:wurf123ff">6.3</a>.</p>
+<p>In the experiment: rolling a fair dice twice with the numbers 1, 2 and 3 on two sides of the dice, we defined</p>
+<ul>
+<li><p>Result set:
+<span class="math display">\[\begin{align*}
+      \Omega &amp;= \{(1;1), (1;2), (1;3), (2;1),\ldots, (3;3)\}\\
+      &amp;=\{(a,b) | a,b\in \{1; 2; 3\}\},
+\end{align*}\]</span>
+where <span class="math inline">\(a=\text {result in 1st throw}\)</span> and <span class="math inline">\(b=\text {result 2nd in throw}\)</span></p></li>
+<li><p>Events:</p>
+<ul>
+<li><span class="math inline">\(A=\)</span>“The sum of both dice is 4”, <span class="math inline">\(B=\)</span>“The numbers of both dice are odd” and <span class="math inline">\(A\cap B=\)</span>“The sum of both dice is 4 and the numbers of both dice are odd”.</li>
+</ul></li>
+<li><p>Probabilities:</p></li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb P(A) &amp;= \frac{|A|}{|\Omega|}= \frac 13,\\
+\mathbb P(B) &amp;= \frac{|B|}{|\Omega|}=\frac 49,\\
+\mathbb P(A\cap B) &amp;= \frac{|A\cap B|}{|\Omega|}=\frac 29.
+\end{align}\]</span></p>
+<p>If <span class="math inline">\(B\)</span> is now considered certain, the chance for <span class="math inline">\(A\)</span> changes:</p>
+<p><span class="math display">\[
+\mathbb P(A|B)=\frac {\mathbb P(A\cap B)}{ \mathbb P(B)} = \frac {\frac 29}{\frac 49} = \frac 12.
+\]</span></p>
+<p>The chances for <span class="math inline">\(A\)</span> under the additional information about <span class="math inline">\(B\)</span> have now increased (<span class="math inline">\(\mathbb P(A|B)=\frac 12\)</span>) compared to the situation before (<span class="math inline">\(\mathbb P(A)=\frac 13\)</span>).</p>
+<ul>
+<li>Interactive:</li>
+</ul>
+<iframe title="Wahrscheinlichkeiten" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-wahrscheinlichkeiten" width="700" height="700"></iframe>
+</div>
+<hr />
+</div>
+<div id="independence" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Independence<a href="conditional-probabilities-and-independence.html#independence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Conditional probabilities express that information about the occurrence of an event <span class="math inline">\(B\)</span> can influence the assessment of the probability of an event <span class="math inline">\(A\)</span>.</p>
+<p>If the information about the occurrence of this event has <strong>no effect</strong> on the probability of <span class="math inline">\(A\)</span>, then these events are <strong>stochastically independent</strong>:</p>
+<p><span class="math display">\[\begin{equation*}
+        \mathbb P(A|B) = \mathbb P(A).
+\end{equation*}\]</span></p>
+<div id="criteria-for-independence" class="section level3 unnumbered hasAnchor">
+<h3>Criteria for independence<a href="conditional-probabilities-and-independence.html#criteria-for-independence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the case of stochastic independence:
+<span class="math inline">\(\displaystyle \mathbb P(A|B) = \frac{\mathbb P(A\cap B)}{\mathbb P(B)} =\mathbb P(A)\)</span>, so that
+<span class="math display">\[\begin{equation*}
+        \mathbb P(A\cap B) = \mathbb P(A)\cdot \mathbb P(B),
+\end{equation*}\]</span>
+where <span class="math inline">\(\mathbb P(B)&gt;0\)</span> is assumed.</p>
+<p>The events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are independent if
+<span class="math display">\[\begin{align*}
+      \mathbb P(A\cap B) &amp;= \mathbb P(A)\cdot \mathbb P(B),\\
+      \mathbb P(A\cap C) &amp;= \mathbb P(A)\cdot \mathbb P(C),\\
+      \mathbb P(B\cap C) &amp;= \mathbb P(B)\cdot \mathbb P(C),\\
+      \mathbb P(A\cap B\cap C) &amp;= \mathbb P(A)\cdot \mathbb P(B)\cdot \mathbb P(C).
+    \end{align*}\]</span></p>
+<p>For <strong>independence of three events</strong> <strong>all</strong> listed criteria must be fulfilled.</p>
+<hr />
+<div class="example">
+<p><span id="exm:wurf123abh" class="example"><strong>Example 7.2  (Rolling a die twice) </strong></span>Cont. of Example <a href="conditional-probabilities-and-independence.html#exm:wurf123b">7.1</a>.</p>
+<p>In the experiment: rolling a fair dice twice with the numbers 1, 2 and 3 on two sides of the dice, the defined events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are dependent, since:</p>
+<p><span class="math display">\[\begin{align}
+\mathbb P(A\cap B) &amp;=\frac 29\not = \frac 13\cdot\frac 49.
+\end{align}\]</span></p>
+<p>So, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are dependent. The same can be deduced from <span class="math inline">\(\mathbb P(A|B)=\frac 12\not=\frac 13=\mathbb P(A)\)</span>.</p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-21" class="exercise"><strong>Exercise 7.1  (Conditional probabilities and independence) </strong></span></p>
+<iframe title="Aufgabe_Bedingte_Wkt" src="./htmls/quiz_bedwkt.html" width="760" height="500"></iframe>
+</div>
+<hr />
+</div>
+</div>
+<div id="additional-information-for-sampling" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Additional information for sampling<a href="conditional-probabilities-and-independence.html#additional-information-for-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When analyzing customer characteristics, it is also often necessary to model conditional variables. For example, if it is known that a randomly selected customer uses the app, how many orders per month could be expected from this customer?</p>
+<div class="example">
+<p><span id="exm:ziehungbed" class="example"><strong>Example 7.3  (Orders and Usage) </strong></span>Wir nehmen an, dass wir die <strong>gemeinsame Wahrscheinlichkeiten</strong> bereits kennen.</p>
+<p>We assume that we already know the <strong>common probabilities</strong>.</p>
+<p><strong>What is the distribution of the number of orders among app users?</strong></p>
+<ul>
+<li>Result set:</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\Omega &amp;= \{(App; 1), (App; 2),\ldots, (App; 6),\ldots, \\
+&amp;~~~~(Web;1),\ldots,(Web; 6) \}\\
+\\Omega|&amp;=12.
+\end{align}\]</span></p>
+<ul>
+<li><p>Event space: <span class="math inline">\(\mathcal F=\mathcal P(\Omega).\)</span></p></li>
+<li><p>Probability measure: (assumption that we know the joint probabilities)</p></li>
+</ul>
+<p><span class="math display" id="eq:vertab">\[\begin{equation}
+\begin{array}{c|cccccc}
+\mathbb P((a_i,b_i))&amp;b_1=1&amp;b_2=2&amp;b_3=3&amp;b_4=4&amp;b_5=5&amp;b_6=6\\\hline
+a_1=App&amp;0,02&amp;0,06&amp;0,12&amp;0,2&amp;0,12&amp;0,08\\
+a_2=Web&amp;0,08&amp;0,09&amp;0,13&amp;0,05&amp;0,03&amp;0,02\\
+\end{array} \tag{7.1}
+\end{equation}\]</span></p>
+<ul>
+<li><p>Events:</p>
+<ul>
+<li><p><span class="math inline">\(A_1 =\)</span> Use of the app:
+<span class="math display">\[\begin{align}\mathbb P(A_1)&amp;= 0.6.\end{align}\]</span></p></li>
+<li><p><span class="math inline">\(B_{i}=\)</span> Number of orders <span class="math inline">\(=i\)</span> <span class="math inline">\(\leadsto\)</span>
+<span class="math display">\[\begin{align}\mathbb P(B_{i})&amp;=\mathbb P((App;i),(Web;i)):\end{align}\]</span>
+<span class="math display">\[
+  \begin{array}{c|cccccc}
+  i&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
+  \mathbb P(B_i) &amp;0,1&amp;0,15&amp;0,25&amp;0,25&amp;0,15&amp;0,1
+  \end{array}
+\]</span></p></li>
+<li><p><span class="math inline">\(A_1\cap B_{i}=\)</span> <span class="math inline">\(i\)</span> Orders via app <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(A_1\cap B_{i}=\{(App;i),(App;i),(App;i),(App;i)\}\)</span>
+<span class="math display">\[\begin{align}\mathbb P(A_1\cap B_{i})&amp;=\mathbb P((App;i)).\end{align}\]</span>
+<span class="math inline">\(\leadsto\)</span> first line in <a href="conditional-probabilities-and-independence.html#eq:vertab">(7.1)</a>.</p></li>
+</ul></li>
+<li><p>Conditional distribution of <span class="math inline">\(B_i\)</span> given <span class="math inline">\(A_1\)</span> is (<span class="math inline">\(\mathbb P(B_i|A_1 = \frac{\mathbb P(A_1\cap B_{i})}{\mathbb P(A_1)}\)</span>):</p></li>
+</ul>
+<p><span class="math display">\[
+    \begin{array}{c|cccccc}
+    i&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
+    \mathbb P(B_i|A_1) &amp;0,0333&amp;0,1&amp;0,2&amp;0,3333&amp;0,2&amp;0,1333
+    \end{array}
+\]</span>
+<strong>So how many orders do we expect app users to place on average?</strong></p>
+<p><span class="math display">\[
+1\cdot 0,0333 + 2\cdot 0,1 + 3\cdot 0,2 + 4\cdot 0,3333 + 5\cdot 0,2 + 6\cdot 0,1333 = 3,9663
+\]</span></p>
+<p><strong>..and from the web users?</strong></p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-22" class="exercise"><strong>Exercise 7.2  (Orders) </strong></span></p>
+<iframe title="Aufgabe_Bestellungen" src="./htmls/aufgabe_mittlere_anzahl_bestellungen.html" width="760" height="500"></iframe>
+</div>
+<hr />
+</div>
+<div id="total-probability-and-bayes-formula" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Total probability and Bayes’ formula<a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As already indicated, there are situations where some conditional probabilities are known, but one would need the total (unconditional) probabilities or the “reverse” conditional probabilities. We illustrate the whole thing with an example of product recommendations.</p>
+<hr />
+<div class="example">
+<p><span id="exm:premf" class="example"><strong>Example 7.4  (Product recommendations) </strong></span>Cont. of Example <a href="conditional-probabilities-and-independence.html#exm:wurf123b">7.1</a>.</p>
+<p>A (purchased) model for product recommendations usually has quality specifications that quantify how well the model sorts customers into the appropriate product recommendation groups. Since these models are trained on the data sets of customers about whom it is already known which product they have bought, there is a measure of the quality of the separation after the model has been created, such as the “true-positive” probabilities that the customers who later bought product <span class="math inline">\(x\)</span> will also be sorted into the product recommendation group <span class="math inline">\(x\)</span>. Or the “false positive” probabilities that the product recommendation will be missed.</p>
+<p>Let’s assume that there are three product groups (<span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span>) for which the model issues recommendations for each customer (<span class="math inline">\(E=\{E_1,E_2,E_3\}\)</span>).</p>
+<p>The basis for the model formation are the groups <span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span> of customers who have purchased the respective product. The algorithm is to derive a “formula” from various customer characteristics to determine which product the customer will choose in the near future based on the characteristics. The model is then tested and it is determined how high the probability is that the model will make the right or wrong recommendation. Ideally, all customers from <span class="math inline">\(G_1\)</span> get the recommendation <span class="math inline">\(E_1\)</span> and so on.</p>
+<p>How well the model (without having the information to which group the customer belongs) assigns the corresponding recommendation can be determined for each product group by calculating the conditional probability:</p>
+<!--
+Ein Ratingmodell hat meistens Qualitätsangaben, die quantifizieren, wie gut das Modell die Kunden, denen die Ausfall droht, von den solventen Kunden trennen. Da diese Modelle an den Datensätzen von Kunden trainiert werden, über die man bereits weiß, ob die Ausfall hatten oder nicht, gibt es nach der Modellbildung ein Maß für die Güte der Trennung, wie etwa die Wahrscheinlichkeiten die jeweilige Kategorie zu bekommen separat für die **Gruppe der  solventen Kunden** und für die **Gruppen der Kunden mit (Teil)Ausfall**.
+
+Gehen wir davon aus, dass drei Ratingkategorien ($R$) von dem Modell vergeben werden $1$, $2$ und $3$. Die Situation am Ende der Periode ist $S$. Die Gruppe der solventen Kunden nennen wir $K$ (kein Ausfall), die Gruppe mit Teilausfall bezeichnen wir als $T$ und die letzte Gruppe mit kompleten Ausfall als $A$.
+
+Folgenden Trennungswahrscheinlichkeiten (gegeben die Situation am Ende der Periode $Y$) sind für das verwendete Ratingmodell:
+-->
+<p><span class="math display">\[\begin{align}
+\mathbb P(E|G)&amp;=\begin{pmatrix}
+&amp;G_1&amp;G_2&amp;G_3\\
+E_1&amp;0,8&amp;0,2&amp;0,05\\
+E_2&amp;0,15&amp;0,6&amp;0,1\\
+E_3&amp;0,05&amp;0,2&amp;0,85
+\end{pmatrix}
+\end{align}\]</span></p>
+<p>For each group, you can then see quite clearly how much of the classification is correct (e.g. <span class="math inline">\(G_1\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_1)=0.8\)</span>) or incorrect (e.g. <span class="math inline">\(G_2\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_2) + P(E_3|G_2)=0.4\)</span>).</p>
+<p>The important questions here are:</p>
+<ul>
+<li><p>How likely is it that recommendations for the respective product will be offered at all? (In what proportions will they spend the recommendations on the products? KPIs, tussles between the product teams, …)</p></li>
+<li><p>What will be the convergence rates per product? (how many of the customers who are offered a product recommendation actually buy the product? We want high convergence rates).</p></li>
+</ul>
+<p>The first question could be answered by specifying <span class="math inline">\(\mathbb P(E_i)\)</span>, the second - by specifying <span class="math inline">\(\mathbb P(G_i|E_i)\)</span>. But how do we calculate these probabilities if we only have the conditional probabilities of the form <span class="math inline">\(\mathbb P(E_i|G_i)\)</span>? (and perhaps still have an idea of the customer shares, buy products <span class="math inline">\(1,2,3\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(G_i)\)</span>). The answer is provided by the <strong>formula of total probability</strong> and the <strong>Bayes formula</strong>.</p>
+</div>
+<hr />
+<div id="total-probability" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Total probability<a href="conditional-probabilities-and-independence.html#total-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We investigate how conditional probabilities can be used to determine unconditional probabilities of an event.</p>
+<p>The sets <span class="math inline">\(A_1, \ldots, A_n\)</span> form a <strong>decomposition</strong> (partition) of <span class="math inline">\(\Omega\)</span> if</p>
+<ul>
+<li><p><span class="math inline">\(A_i\cap A_j=\emptyset\)</span> for <span class="math inline">\(i\not=j\)</span>, i.e. the sets
+<span class="math inline">\(A_1, \ldots, A_n\)</span> are pairwise disjoint,</p></li>
+<li><p><span class="math inline">\(A_1\cup\cdots\cup A_n=\Omega\)</span>.</p></li>
+</ul>
+<p>For a decomposition <span class="math inline">\(A_1,\ldots, A_n\)</span> of <span class="math inline">\(\Omega\)</span>, the <strong>formula of total probability</strong> applies to <span class="math inline">\(B\in\mathcal F\)</span>:</p>
+<p><span class="math display">\[\begin{equation*}
+      \mathbb P(B) = \sum_{i=1}^n \mathbb P(B|A_i)\, \mathbb P(A_i).
+    \end{equation*}\]</span>
+<!--Bemerkung: Die Aussage folgt aus 
+    $\mathbb P(B|A_i)\mathbb P(A_i)=\mathbb P(B\cap A_i)$
+    und $B=(B\cap A_1)\cup \cdots\cup (B\cap A_n)$.
+--></p>
+<hr />
+<div class="example">
+<p><span id="exm:premff" class="example"><strong>Example 7.5  (Product recommendations) </strong></span>Cont. of Example <a href="conditional-probabilities-and-independence.html#exm:premf">7.4</a>.</p>
+<p>Assume that the proportion of customers who buy the products is as follows:</p>
+<p><span class="math display">\[
+\begin{array}{c|ccc}
+i&amp;1&amp;2&amp;3\\\hline
+\mathbb P(G_i)&amp;0.5&amp;0.3&amp;0.2
+\end{array}
+\]</span>
+Since our company only recommends the three products, <span class="math inline">\(G_1,G_2\)</span> and <span class="math inline">\(G_3\)</span> form a decomposition of the entire product recommendation system <span class="math inline">\(\Omega\)</span>.</p>
+<p>We can now answer the first question “How likely is it that recommendations for the respective product will be offered at all? (In what proportions will they issue the recommendations for the products?)” using the total probability.</p>
+<p><span class="math display">\[\begin{align}
+\mathbb P(E_1)&amp;=\mathbb P(E_1|G_1)\cdot \mathbb P(G_1) + \mathbb P(E_1|G_2)\cdot \mathbb P(G_2) + \mathbb P(E_1|G_3)\cdot \mathbb P(G_3) \\
+&amp;=0,8\cdot 0.5 + 0,2\cdot 0.3+ 0,05\cdot 0.2 \\
+&amp;=0.47
+\end{align}\]</span></p>
+<!--
+Analog:
+
+\begin{align}
+\mathbb P(E_2)&=0.275\\
+\mathbb P(E_3)&=0.255
+\end{align}
+-->
+<p><strong>Can you also calculate <span class="math inline">\(\mathbb P(E_2)\)</span> and <span class="math inline">\(\mathbb P(E_3)\)</span>?</strong></p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-23" class="exercise"><strong>Exercise 7.3  (totale Wahrscheinlichkeit: Product recommendations) </strong></span></p>
+<iframe title="Aufgabe_totale_Wkt_Prodemf" src="./htmls/totale_wkt_prodempf.html" width="700" height="700"></iframe>
+</div>
+<hr />
+</div>
+<div id="bayes-formula" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Bayes formula<a href="conditional-probabilities-and-independence.html#bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Bayes formula can be used to reverse the conclusion.</p>
+<p>Example: In medicine, we are interested in the probability of a disease in the event that a medical test is positive.</p>
+<p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two events with <span class="math inline">\(\mathbb P(B)&gt;0\)</span>. Then the following applies:</p>
+<p><span class="math display">\[\begin{equation*}
+        \mathbb P(A|B) = \frac{\mathbb P(B|A)\cdot \mathbb P(A)}{\mathbb P(B)}.
+      \end{equation*}\]</span></p>
+<p>Let <span class="math inline">\(A_1,\ldots, A_n\)</span> be a decomposition of <span class="math inline">\(\Omega\)</span> with
+<span class="math inline">\(\mathbb P(A_i)&gt;0\)</span> and <span class="math inline">\(\mathbb P(B|A_i)&gt;0\)</span> for at least one <span class="math inline">\(i\)</span>. Then applies
+<span class="math display">\[\begin{equation*}
+    \mathbb P(A_k|B) = \frac{\mathbb P(B|A_k)\, \mathbb P(A_k)} {\sum_{i=1}^n \mathbb P(B|A_i)\,
+      \mathbb P(A_i)} = \frac{\mathbb P(B|A_k)\, \mathbb P(A_k)} {\mathbb P(B)}\quad \text{
+      for } k=1,\ldots, n.
+  \end{equation*}\]</span></p>
+<hr />
+<div class="example">
+<p><span id="exm:premfff" class="example"><strong>Example 7.6  (Product recommendations) </strong></span>Cont. of Example <a href="conditional-probabilities-and-independence.html#exm:premff">7.5</a>.</p>
+<p>Now we can also answer the question about the expected convergence rates:</p>
+<p>According to the Bayes formula:</p>
+<p><span class="math display">\[\begin{align}
+\mathbb P(G_1|E_1) &amp;= \frac{\mathbb P(E_1|G_1)\cdot \mathbb P(G_1)}{\mathbb P(E_1)}\\
+&amp;=\frac{0,8\cdot0.5}{0.47} = 0.8511.
+\end{align}\]</span></p>
+<p><strong>Can you calculate the convergence rates for <span class="math inline">\(G_2\)</span> and <span class="math inline">\(G_3\)</span>?</strong></p>
+</div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-24" class="exercise"><strong>Exercise 7.4  (Bayes formula for product recommendations) </strong></span></p>
+<iframe title="Aufgabe_Bayes_Wkt_Prodemf" src="./htmls/bayes_wkt_prodempf.html" width="700" height="700"></iframe>
+</div>
+<hr />
+</div>
+<div id="product-recommendations-according-to-the-naive-bayes-method" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Product recommendations according to the ‘Naive Bayes’ method<a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you want to develop a model for the product recommendations yourself, the conditional probabilities and the formulas from this topic will help you again.</p>
+<hr />
+<div class="example">
+<p><span id="exm:premfeig" class="example"><strong>Example 7.7  (Product recommendations) </strong></span>Let us also assume that there are three product groups (<span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span>) for which the model is to issue recommendations for each customer (<span class="math inline">\(E=\{E_1,E_2,E_3\}\)</span>).</p>
+<p>The model is based on the groups <span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span> of customers who have purchased the respective product. We are now to derive a “formula” from a wide variety of customer characteristics to determine which product the customer “tends” to buy based on the characteristic attribute values.</p>
+<p>We only consider two characteristics:</p>
+<ul>
+<li>Customer age (<span class="math inline">\(X_1\)</span>) divided into <span class="math inline">\(\leq 25\)</span> and <span class="math inline">\(&gt; 25\)</span>.</li>
+<li>The last calculation in euros (<span class="math inline">\(X_2\)</span>) divided into <span class="math inline">\(\leq 50\)</span> and <span class="math inline">\(&gt; 50\)</span>.</li>
+</ul>
+<p>We can calculate the probabilities of the above values for each group. For example, we have calculated the following proportions:</p>
+<ul>
+<li>In <span class="math inline">\(G_1\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{c|cc}
+\mathbb P(X_1,X_2|G_1) &amp;\leq 50&amp;&gt;50\\\hline
+\leq 25 &amp;0.1&amp;0.4\\
+&gt; 25 &amp;0.2&amp;0.3\\
+\end{array}
+\]</span></p>
+<ul>
+<li>In <span class="math inline">\(G_2\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{c|cc}
+\mathbb P(X_1,X_2|G_2) &amp;\leq 50&amp;&gt;50\\\hline
+\leq 25 &amp;0.2&amp;0.1\\
+&gt; 25 &amp;0.4&amp;0.3\\
+\end{array}
+\]</span></p>
+<ul>
+<li>In <span class="math inline">\(G_3\)</span>:</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{c|cc}
+\mathbb P(X_1,X_2|G_3) &amp;\leq 50&amp;&gt;50\\\hline
+\leq 25 &amp;0.6&amp;0.1\\
+&gt; 25 &amp;0.1&amp;0.2\\
+\end{array}
+\]</span></p>
+<p>But what we really need are the “inverse” conditional probabilities (probability for product category given the data constellations). So, given that</p>
+<p><span class="math display">\[
+\begin{array}{c|ccc}
+i&amp;1&amp;2&amp;3\\\hline
+\mathbb P(G_i)&amp;0.5&amp;0.3&amp;0.2
+\end{array}
+\]</span>
+and with the help of the total probability of choice:</p>
+<p><span class="math display">\[\begin{align}
+\mathbb P(X_1\leq 25 \text{ und } X_2\leq 50) &amp;=0.1\cdot 0.5 + 0.2\cdot 0.3 + 0.6\cdot 0.2= 0.23.\\
+\mathbb P(X_1\leq 25 \text{ und } X_2&gt; 50) &amp;= \ldots \text{analogeous}\ldots = 0.25\\
+\mathbb P(X_1&gt; 25 \text{ und } X_2\leq 50) &amp;= \ldots \text{analogeous}\ldots = 0.24\\
+\mathbb P(X_1&gt; 25 \text{ und } X_2&gt; 50) &amp;= \ldots \text{analogeous}\ldots = 0.28\\
+\end{align}\]</span></p>
+<p>And with the help of the Bayes formula:</p>
+<ul>
+<li>for the constellation Nr. 1 <span class="math inline">\(K_1 = X_1\leq 25 \text{ und } X_2\leq 50\)</span>:</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\mathbb P(G_1|K_1) &amp;=\frac{0.1\cdot 0.5}{0.23}  = 0.2174\\
+\mathbb P(G_2|K_1) &amp;= \ldots \text{analogeous}\ldots =0.2609\\
+\mathbb P(G_3|K_1) &amp;= \ldots \text{analogeous}\ldots =0.5217
+\end{align}\]</span></p>
+</div>
+<hr />
+<!--
+## Rückblick{-}
+
+
+```{=html}
+<iframe title="Wortwolke" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-wortwolke" width="760" height="600"></iframe>
+```
+-->
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="model-of-randomness.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="random-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/15-bedwkt.rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
