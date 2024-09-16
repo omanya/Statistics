@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-09-05" />
+<meta name="date" content="2024-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1012,10 +1012,45 @@ Figure 1.5: Empirical density and distribution functions for <span class="math i
 </ul>
 <iframe title="Aufgabe_verteilung_zeit" src="./htmls/fx_Fx_zeit.html" width="700" height="700"></iframe>
 <p>Enter the values of the density function for the classes and try to interpret the graphical distribution function!</p>
-<iframe title="empirische Verteilung" src="Apps_RBook/#section-empirische-verteilung" width="760" height="600"></iframe>
-<div id="tester" style="width:600px;height:250px;">
+<iframe title="empirische Verteilung" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-empirische-verteilung" width="700" height="600"></iframe>
+<!--
+<script>src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"</script>
 
-</div>
+<script>
+
+
+(async function() {
+  const data = [
+    { year: 2010, count: 10 },
+    { year: 2011, count: 20 },
+    { year: 2012, count: 15 },
+    { year: 2013, count: 25 },
+    { year: 2014, count: 22 },
+    { year: 2015, count: 30 },
+    { year: 2016, count: 28 },
+  ];
+
+  new Chart(
+    document.getElementById('acquisitions'),
+    {
+      type: 'bar',
+      data: {
+        labels: data.map(row => row.year),
+        datasets: [
+          {
+            label: 'Acquisitions by year',
+            data: data.map(row => row.count)
+          }
+        ]
+      }
+    }
+  );
+})();
+</script>
+
+<div id='acquisitions' style="width:600px;height:250px;"></div>
+
+<div id="tester" style="width:600px;height:250px;"></div>
 <script>
     TESTER = document.getElementById('tester');
     Plotly.newPlot( TESTER, [{
@@ -1023,6 +1058,7 @@ Figure 1.5: Empirical density and distribution functions for <span class="math i
     y: [1, 2, 4, 8, 16] }], {
     margin: { t: 0 } } );
 </script>
+
 <script>
 var subject = ['Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly']
 var score = [1,6,2,8,2,9,4,5,1,5,2,8]
@@ -1047,13 +1083,14 @@ var layout = {
 Plotly.newPlot('myDiv', data, layout)
 
 </script>
+-->
 </div>
 <hr />
 <!--## Rückblick{-}
 
 
 ```{=html}
-<iframe title="Wortwolke" src="Apps_RBook/#section-wortwolke" width="760" height="600"></iframe>
+<iframe title="Wortwolke" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-wortwolke" width="760" height="600"></iframe>
 ```
 -->
 <!--
