@@ -363,7 +363,7 @@ where <span class="math inline">\(\mathbb P(B)&gt;0\)</span> is assumed.</p>
 <p><span class="math display">\[\begin{align}
 \Omega &amp;= \{(App; 1), (App; 2),\ldots, (App; 6),\ldots, \\
 &amp;~~~~(Web;1),\ldots,(Web; 6) \}\\
-\\Omega|&amp;=12.
+|\Omega|&amp;=12.
 \end{align}\]</span></p>
 <ul>
 <li><p>Event space: <span class="math inline">\(\mathcal F=\mathcal P(\Omega).\)</span></p></li>
@@ -372,8 +372,8 @@ where <span class="math inline">\(\mathbb P(B)&gt;0\)</span> is assumed.</p>
 <p><span class="math display" id="eq:vertab">\[\begin{equation}
 \begin{array}{c|cccccc}
 \mathbb P((a_i,b_i))&amp;b_1=1&amp;b_2=2&amp;b_3=3&amp;b_4=4&amp;b_5=5&amp;b_6=6\\\hline
-a_1=App&amp;0,02&amp;0,06&amp;0,12&amp;0,2&amp;0,12&amp;0,08\\
-a_2=Web&amp;0,08&amp;0,09&amp;0,13&amp;0,05&amp;0,03&amp;0,02\\
+a_1=App&amp;0.02&amp;0.06&amp;0.12&amp;0.2&amp;0.12&amp;0.08\\
+a_2=Web&amp;0.08&amp;0.09&amp;0.13&amp;0.05&amp;0.03&amp;0.02\\
 \end{array} \tag{7.1}
 \end{equation}\]</span></p>
 <ul>
@@ -386,7 +386,7 @@ a_2=Web&amp;0,08&amp;0,09&amp;0,13&amp;0,05&amp;0,03&amp;0,02\\
 <span class="math display">\[
   \begin{array}{c|cccccc}
   i&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
-  \mathbb P(B_i) &amp;0,1&amp;0,15&amp;0,25&amp;0,25&amp;0,15&amp;0,1
+  \mathbb P(B_i) &amp;0.1&amp;0.15&amp;0.25&amp;0.25&amp;0.15&amp;0.1
   \end{array}
 \]</span></p></li>
 <li><p><span class="math inline">\(A_1\cap B_{i}=\)</span> <span class="math inline">\(i\)</span> Orders via app <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(A_1\cap B_{i}=\{(App;i),(App;i),(App;i),(App;i)\}\)</span>
@@ -398,12 +398,12 @@ a_2=Web&amp;0,08&amp;0,09&amp;0,13&amp;0,05&amp;0,03&amp;0,02\\
 <p><span class="math display">\[
     \begin{array}{c|cccccc}
     i&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
-    \mathbb P(B_i|A_1) &amp;0,0333&amp;0,1&amp;0,2&amp;0,3333&amp;0,2&amp;0,1333
+    \mathbb P(B_i|A_1) &amp;0.0333&amp;0.1&amp;0.2&amp;0.3333&amp;0.2&amp;0.1333
     \end{array}
 \]</span>
 <strong>So how many orders do we expect app users to place on average?</strong></p>
 <p><span class="math display">\[
-1\cdot 0,0333 + 2\cdot 0,1 + 3\cdot 0,2 + 4\cdot 0,3333 + 5\cdot 0,2 + 6\cdot 0,1333 = 3,9663
+1\cdot 0.0333 + 2\cdot 0.1 + 3\cdot 0.2 + 4\cdot 0.3333 + 5\cdot 0.2 + 6\cdot 0.1333 = 3.9663
 \]</span></p>
 <p><strong>..and from the web users?</strong></p>
 </div>
@@ -434,9 +434,9 @@ Folgenden Trennungswahrscheinlichkeiten (gegeben die Situation am Ende der Perio
 <p><span class="math display">\[\begin{align}
 \mathbb P(E|G)&amp;=\begin{pmatrix}
 &amp;G_1&amp;G_2&amp;G_3\\
-E_1&amp;0,8&amp;0,2&amp;0,05\\
-E_2&amp;0,15&amp;0,6&amp;0,1\\
-E_3&amp;0,05&amp;0,2&amp;0,85
+E_1&amp;0.8&amp;0.2&amp;0.05\\
+E_2&amp;0.15&amp;0.6&amp;0.1\\
+E_3&amp;0.05&amp;0.2&amp;0.85
 \end{pmatrix}
 \end{align}\]</span></p>
 <p>For each group, you can then see quite clearly how much of the classification is correct (e.g. <span class="math inline">\(G_1\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_1)=0.8\)</span>) or incorrect (e.g. <span class="math inline">\(G_2\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_2) + P(E_3|G_2)=0.4\)</span>).</p>
@@ -479,7 +479,7 @@ Since our company only recommends the three products, <span class="math inline">
 <p>We can now answer the first question “How likely is it that recommendations for the respective product will be offered at all? (In what proportions will they issue the recommendations for the products?)” using the total probability.</p>
 <p><span class="math display">\[\begin{align}
 \mathbb P(E_1)&amp;=\mathbb P(E_1|G_1)\cdot \mathbb P(G_1) + \mathbb P(E_1|G_2)\cdot \mathbb P(G_2) + \mathbb P(E_1|G_3)\cdot \mathbb P(G_3) \\
-&amp;=0,8\cdot 0.5 + 0,2\cdot 0.3+ 0,05\cdot 0.2 \\
+&amp;=0.8\cdot 0.5 + 0.2\cdot 0.3+ 0.05\cdot 0.2 \\
 &amp;=0.47
 \end{align}\]</span></p>
 <!--
@@ -521,7 +521,7 @@ Analog:
 <p>According to the Bayes formula:</p>
 <p><span class="math display">\[\begin{align}
 \mathbb P(G_1|E_1) &amp;= \frac{\mathbb P(E_1|G_1)\cdot \mathbb P(G_1)}{\mathbb P(E_1)}\\
-&amp;=\frac{0,8\cdot0.5}{0.47} = 0.8511.
+&amp;=\frac{0.8\cdot0.5}{0.47} = 0.8511.
 \end{align}\]</span></p>
 <p><strong>Can you calculate the convergence rates for <span class="math inline">\(G_2\)</span> and <span class="math inline">\(G_3\)</span>?</strong></p>
 </div>
