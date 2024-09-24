@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-09-23" />
+<meta name="date" content="2024-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -222,7 +222,7 @@
 <li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
 <ul>
 <li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
-<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population</a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -429,9 +429,9 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 <p><span class="math inline">\(\leadsto\)</span> <span class="math inline">\(X_1,\ldots, X_n\)</span> are <strong>random variables!</strong></p>
 </div>
 </div>
-<div id="estimation" class="section level4 unnumbered hasAnchor">
-<h4>Estimation<a href="parameter-estimation.html#estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In descriptive statistics we have used the formulas for computing the empirical mean and the empirical frequencies in order to summarize the sample given. Now we look at those formulas from the probabilistic point of view, realize that there are many possible samples from a population and the formulas (which correspond to estimators) return different values depending on a particular sample realization.</p>
+<div id="estimators" class="section level4 unnumbered hasAnchor">
+<h4>Estimators<a href="parameter-estimation.html#estimators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the descriptive statistics, we have used the formulas for computing the empirical mean and the empirical frequencies in order to summarize the sample given. Now we look at those formulas from the probabilistic point of view, realize that there are <em>many possible samples</em> from a population and the formulas, which now correspond to <strong>estimators</strong>, return different values depending on a particular sample realization.</p>
 <div class="example">
 <p><span id="exm:sampling3" class="example"><strong>Example 9.3  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling2">9.2</a> cont.</p>
 <p>Calculation formulas (estimators) for the parameters of interest:</p>
@@ -446,6 +446,23 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 </ul>
 <p><span class="math inline">\(\overline{Y}\)</span> and <span class="math inline">\(\overline{X}\)</span> are functions of the sample variables, so they are themselves <strong>random variables</strong>.</p>
 </div>
+<p>Overall, a distinction is made between <strong>point</strong> and <strong>interval estimation</strong>. The aim of a <strong>point estimate</strong> is to provide the most accurate possible approximation value for an unknown population parameter. <strong>Interval estimation</strong> is a way to incorporate the <em>variability</em> of an estimator into the estimation process. The result of the interval estimation is an <strong>interval</strong> which is constructed in a way to cover the true parameter with certain high coverage probability.</p>
+</div>
+<div id="properties-of-estimators" class="section level4 unnumbered hasAnchor">
+<h4>Properties of Estimators<a href="parameter-estimation.html#properties-of-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Since the estimators are random variables and their values vary with each particular sample, we need to ensure, that the values calculated from a sample make sense. The following properties are the properties of <em>good</em> estimators, which allow valid inference based on a sample.</p>
+<ul>
+<li><p><strong>Unbiasedness</strong>: An estimator should tend to deliver the correct value, i.e. neither systematically overestimate nor underestimate. An estimator is called unbiased, if <em>its expectations is equal to the true parameter</em> it attempts to estimate.</p></li>
+<li><p><strong>Consistency</strong>: This property states that the estimator converges to the quantity being estimated. This definition takes into account the variance and the bias of the estimator; the two sizes should shrink as the sample size <span class="math inline">\(n\)</span> increases.</p></li>
+</ul>
+<div class="figure">
+<img src="/images/unbiased.png" alt="" />
+<p class="caption">Illustration for unbiasedness and consistency of estimators</p>
+</div>
+<ul>
+<li><strong>Efficiency</strong>: An unbiased estimator is more efficient than another unbiased estimator if it has the <em>smaller variance</em>.</li>
+</ul>
+<p>The formulas, that we learned in the descriptive statistics, constitute estimators, which exhibit the properties above. That is, they are unbiased, consistent and efficient estimators of the corresponding unknown paramters of the population.</p>
 </div>
 </div>
 <div id="parameter-estimation-practically" class="section level3 hasAnchor" number="9.1.2">
@@ -814,8 +831,8 @@ and the standardized sample mean:
 </script>
 </div>
 </div>
-<div id="constructing-a-confidence-interval-for-mu-of-a-normal-population" class="section level3 hasAnchor" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-population" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have figured out that our estimator <span class="math inline">\(\bar X\)</span> for <span class="math inline">\(\mu\)</span> is a random variable and its values vary from sample to sample. This means, that whenever we have a fixed sample, we should still anticipate this variability in our conclusions. One way to do it, is to construct a confidence interval for <span class="math inline">\(\mu\)</span>, which covers the true parameter with a high probability. An interval means, that besides the estimate <span class="math inline">\(\bar x\)</span>, we can calculate a lower and an upper bound (realized confidence interval) for <span class="math inline">\(\mu\)</span>.</p>
 <p>Confidence intervals cover the true parameter with a certain high probability, chosen by the person conducting the analysis. Normally this probability is <span class="math inline">\(90\%,95\%,99\%.\)</span> The remaining probability of a failure to cover is denoted as <span class="math inline">\(\alpha\)</span> and takes on values <span class="math inline">\(10\%,5\%,1\%\)</span> respectively. The coverage probability is then <span class="math inline">\(1-\alpha\)</span>.</p>
 <p>Again, we assume that we sample from a normally distributed population with unknown <span class="math inline">\(\mu\)</span> but <strong>known</strong> variance <span class="math inline">\(\sigma^2\)</span>. Thus, we would like to conduct interval estimation for <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>.</p>
