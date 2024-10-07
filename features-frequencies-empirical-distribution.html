@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-09-30" />
+<meta name="date" content="2024-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -876,14 +876,15 @@ Figure 1.3: Histogram for Y: unequal class width
 <p>The <strong>empirical distribution function</strong> is the function
 <span class="math inline">\(\hat F_X:\mathbb R\rightarrow[0,1]\)</span> with
 <span class="math display">\[
-      \hat{F}_X(x)=\hat{F}(x) = \frac{\text{Anzahl der Stichprobenwerte mit } x_i\leq x}{n} = \sum_{j: a_j\leq x} h(a_j).
+      \hat{F}_X(x)=\hat{F}(x) = \frac{\text{number of sample values with } x_i\leq x}{n} = \sum_{j: a_j\leq x} h(a_j).
   \]</span></p>
 </div>
 <div class="example">
 <p><span id="exm:bestf" class="example"><strong>Example 1.6  (Probability and distribution functions for feature: Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<!--![](images/table1.3.png){width=50%}-->
 <ul>
 <li>Metrically scaled characteristic <span class="math inline">\(C\)</span>, the number of orders</li>
-<li>Sample of size <span class="math inline">\(n=10\)</span>: 2,2,3,5,2,5,6,4,3,1</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span> for <span class="math inline">\(C=\)</span>“Orders”: <span class="math inline">\(2,2,3,5,2,5,6,4,3,1\)</span></li>
 </ul>
 <p><span class="math display">\[\hat f(x)=\begin{cases}0.1 &amp;\text{for} ~x\in\{1;4;6\},\\
                         0.2 &amp;\text{for}~x\in\{3;5\},\\
@@ -912,7 +913,7 @@ Figure 1.4: Empirical probability and distribution functions for <span class="ma
 <p><span class="math display">\[\hat f(x) = \frac{h_j}{d_j}, x\in K_j=[b_{j-1};~b_j),\]</span></p>
 <p>where <span class="math inline">\(h_j\)</span> is the relative frequency and <span class="math inline">\(d_j=b_j - b_{j-1}\)</span> is the width of <span class="math inline">\(K_j\)</span>.</p>
 <ul>
-<li><p>Relative frequencies = empirical probabilities are areas under the density function.</p></li>
+<li><p>Relative frequencies (= empirical probabilities) are areas under the density function.</p></li>
 <li><p>If <span class="math inline">\(\hat f\)</span> is constant within a class <span class="math inline">\(K_j\)</span>, then the cumulative distribution function <span class="math inline">\(\hat F\)</span> (= cumulative empirical probability) is a linear function of <span class="math inline">\(x\)</span> with increase <span class="math inline">\(\hat f\)</span> for <span class="math inline">\(K_j\)</span>. So <span class="math inline">\(\hat F(x), x\in K_j\)</span> is a line between the points <span class="math inline">\((b_{j-1};~\sum_{k=1}^{j-1}h_k)\)</span> (the latter is the cumulative frequency up to <span class="math inline">\(K_{j-1}\)</span>) and <span class="math inline">\((b_j; ~\sum_{k=1}^{j}h_k)\)</span> (the latter is the cumulative frequency up to <span class="math inline">\(K_{j}\)</span>).</p></li>
 </ul>
 <p><span class="math display">\[\hat F(x) = \sum_{k=1}^{j-1}h_k + \hat f(x)\cdot(x-b_{j-1}), x\in K_j=[b_{j-1};~b_j)\]</span></p>
@@ -952,15 +953,15 @@ Figure 1.4: Empirical probability and distribution functions for <span class="ma
 </tbody>
 </table>
 <ul>
-<li>metric scaled characteristic <span class="math inline">\(Y\)</span>: Invoice amount,</li>
-<li>Sample of size <span class="math inline">\(n=10\)</span>: 46.75; 99.48; 6.29; 19.06; 64.63; 5.08; 7.89; 8.77; 6.1; 26.34,</li>
-<li>Classification: [0,10); [10,30); [30,50); [50,100]</li>
+<li>metric scaled characteristic <span class="math inline">\(Y\)</span>: Sales amount,</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span>: <span class="math inline">\(46.75; 99.48; 6.29; 19.06; 64.63; 5.08; 7.89; 8.77; 6.1; 26.34,\)</span></li>
+<li>Classification: <span class="math inline">\([0,10); [10,30); [30,50); [50,100].\)</span></li>
 </ul>
 <p><span class="math display">\[\hat f(x)=\begin{cases}0.05 &amp;\text{for} ~x\in [0;10),\\
                         0.01 &amp;\text{for}~x\in [10;30),\\
                         0.005&amp;\text{for}~x\in [30;50),\\
                         0.004&amp;\text{for}~x\in [50;100],\\
-                        0,\text{sonst.}\end{cases}\]</span></p>
+                        0,&amp;\text{else.}\end{cases}\]</span></p>
 <p><span class="math display">\[\hat F(x)=\begin{cases}0&amp;\text{for} ~x&lt;0,\\
                         0 + 0.05\cdot(x-0) = 0.05\cdot x &amp;\text{for}~0\leq x&lt;10,\\
                         0.5 + 0.01\cdot (x-10) = 0.4 + 0.01x &amp;\text{for}~10\leq x&lt;30,\\
@@ -1005,9 +1006,9 @@ Figure 1.5: Empirical density and distribution functions for <span class="math i
 </tbody>
 </table>
 <ul>
-<li>metric continuously scaled characteristic <span class="math inline">\(X\)</span>: Time in the online store,</li>
-<li>Sample of size <span class="math inline">\(n=10\)</span>: 14.94; 62.79; 79.12; 25.48; 20.55; 11.95; 21; 47.81; 10.71; 8.44,</li>
-<li>Class division: [0,10); [10,20); [20,60); [60,80]</li>
+<li>metric continuously scaled characteristic <span class="math inline">\(X\)</span>: Time spent in the online store,</li>
+<li>Sample of size <span class="math inline">\(n=10\)</span>: <span class="math inline">\(14.94; 62.79; 79.12; 25.48; 20.55; 11.95; 21; 47.81; 10.71; 8.44,\)</span></li>
+<li>Class division: <span class="math inline">\([0,10); [10,20); [20,60); [60,80].\)</span></li>
 </ul>
 <iframe title="Aufgabe_verteilung_zeit" src="./htmls/fx_Fx_zeit.html" width="700" height="700"></iframe>
 <p>Enter the values of the density function for the classes and try to interpret the graphical distribution function!</p>
