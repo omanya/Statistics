@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-07" />
+<meta name="date" content="2024-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -787,7 +787,7 @@ Figure 1.2: Histogram for Y: equal class width
 Several class divisions are conceivable for characteristic</li>
 </ul>
 <table>
-<caption><span id="tab:unnamed-chunk-16">Table 1.6: </span>Class devision (variant 2) for feature <span class="math inline">\(Y\)</span>.</caption>
+<caption>(#tab:tab1_6)Class devision (variant 2) for feature <span class="math inline">\(Y\)</span>.</caption>
 <colgroup>
 <col width="8%" />
 <col width="12%" />
@@ -841,8 +841,8 @@ Several class divisions are conceivable for characteristic</li>
 </tr>
 </tbody>
 </table>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-17"></span>
-<img src="_main_files/figure-html/unnamed-chunk-17-1.png" alt="Histogram for Y: unequal class width" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
+<img src="_main_files/figure-html/unnamed-chunk-16-1.png" alt="Histogram for Y: unequal class width" width="80%" />
 <p class="caption">
 Figure 1.3: Histogram for Y: unequal class width
 </p>
@@ -859,7 +859,16 @@ Figure 1.3: Histogram for Y: unequal class width
 </div>
 <div id="empirical-distribution" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Empirical distribution<a href="features-frequencies-empirical-distribution.html#empirical-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Empirical distribution is given in <strong>functional form</strong> by the <strong>empirical probability and distribution functions</strong> (discrete case) and by the <strong>empirical density and distribution functions</strong>
+<p>We previously calculated frequencies that gave us an approximation for the probabilities. Nevertheless, frequencies are not very practical, especially in the case of classes. For example, if you need probabilities for values/intervals that do not correspond exactly to the classes.</p>
+<div class="example">
+<p><span id="exm:Fn" class="example"><strong>Example 1.6  (Computing probability for having a maximum of x Orders.) </strong></span>Suppose you set up the frequency distribution for Orders with values <span class="math inline">\(1,\ldots,6\)</span> using Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>. Now you boss wants you to report the chance that a randomly chosen customer places no more than <span class="math inline">\(5\)</span> Orders, more than <span class="math inline">\(3\)</span> Orders or less or equal to the <strong>average number of Orders</strong> (e.g. <span class="math inline">\(3.3\)</span> in this month), is reported to her on a regular basis.</p>
+<p>How could this kind of probability can be computed efficiently using the frequency distribution?</p>
+</div>
+<div class="example">
+<p><span id="exm:fn" class="example"><strong>Example 1.7  (Computing probability for Sales between x and y Euro.) </strong></span>Suppose you set up the frequency distribution for Sales with classes <span class="math inline">\([0;10)\)</span>, <span class="math inline">\([10;30)\)</span>, <span class="math inline">\([30;50)\)</span> and <span class="math inline">\([50;100)\)</span> as in Example <a href="features-frequencies-empirical-distribution.html#exm:umsatzh">1.5</a>, Table (tab:tab1_6). Now you boss wants to know your estimator of the chance that a randomly chosen customer will place an order worth <span class="math inline">\(5\)</span> Euros to <span class="math inline">\(15\)</span> Euros.</p>
+<p>How could this kind of probability can be computed using the frequency distribution for the unchanged class formation?</p>
+</div>
+<p>As in the example above, where we need to interpolate between the values in the frequency distributions of a sample, it is more practical to have <strong>functions</strong> for computing empirical probabilities, in which <strong>any real number</strong> can be plugged-in and the needed probabilities are returned. Empirical distribution is given in <strong>functional form</strong> by the <strong>empirical probability and distribution functions</strong> (discrete case) and by the <strong>empirical density and distribution functions</strong>
 (continuous case).</p>
 <div id="empirical-probability-and-distribution-functions-discrete-case" class="section level3 hasAnchor" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Empirical probability and distribution functions (discrete case)<a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -880,7 +889,7 @@ Figure 1.3: Histogram for Y: unequal class width
   \]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:bestf" class="example"><strong>Example 1.6  (Probability and distribution functions for feature: Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p><span id="exm:bestf" class="example"><strong>Example 1.8  (Probability and distribution functions for feature: Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
 <!--![](images/table1.3.png){width=50%}-->
 <ul>
 <li>Metrically scaled characteristic <span class="math inline">\(C\)</span>, the number of orders</li>
@@ -897,8 +906,8 @@ Figure 1.3: Histogram for Y: unequal class width
                         0.7 &amp;\text{for}~4\leq x&lt;5,\\
                         0.9 &amp;\text{for}~5\leq x&lt;6,\\
                         1 &amp;\text{for}~x\leq 6.\\\end{cases}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
-<img src="_main_files/figure-html/unnamed-chunk-20-1.png" alt="Empirical probability and distribution functions for \(C\): Orders" width="672" height="60%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
+<img src="_main_files/figure-html/unnamed-chunk-19-1.png" alt="Empirical probability and distribution functions for \(C\): Orders" width="672" height="60%" />
 <p class="caption">
 Figure 1.4: Empirical probability and distribution functions for <span class="math inline">\(C\)</span>: Orders
 </p>
@@ -923,9 +932,9 @@ Figure 1.4: Empirical probability and distribution functions for <span class="ma
 <p><span class="math display">\[\hat F(x)=\int_{-\infty}^x\hat f(t)dt~\text{  and   } \hat f(x) = \hat F ^\prime (x)\]</span></p>
 <hr />
 <div class="example">
-<p><span id="exm:umsatzf" class="example"><strong>Example 1.7  (Density and distribution functions for the sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p><span id="exm:umsatzf" class="example"><strong>Example 1.9  (Density and distribution functions for the sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-21">Table 1.7: </span>Relative frequencies and cumulative frequencies for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-20">Table 1.6: </span>Relative frequencies and cumulative frequencies for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -968,8 +977,8 @@ Figure 1.4: Empirical probability and distribution functions for <span class="ma
                         0.7 + 0.005\cdot(x-30) = 0.55 + 0.005\cdot x &amp;\text{for}~30\leq x&lt; 50,\\
                         0.8 + 0.004\cdot(x-50) = 0.6 + 0.004\cdot x &amp;\text{for}~50\leq x\leq 100,\\
                         1&amp;\text{for}~x&gt; 1\end{cases}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
-<img src="_main_files/figure-html/unnamed-chunk-22-1.png" alt="Empirical density and distribution functions for \(Y\): Sales amount" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
+<img src="_main_files/figure-html/unnamed-chunk-21-1.png" alt="Empirical density and distribution functions for \(Y\): Sales amount" width="80%" />
 <p class="caption">
 Figure 1.5: Empirical density and distribution functions for <span class="math inline">\(Y\)</span>: Sales amount
 </p>
@@ -978,7 +987,7 @@ Figure 1.5: Empirical density and distribution functions for <span class="math i
 <div class="exercise">
 <p><span id="exr:zeitf" class="exercise"><strong>Exercise 1.4  (Density and distribution functions for time spent in the online store.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-23">Table 1.8: </span>Relative frequencies and cumulative frequencies for the feature <span class="math inline">\(X\)</span>: Time spent in the online store.</caption>
+<caption><span id="tab:unnamed-chunk-22">Table 1.7: </span>Relative frequencies and cumulative frequencies for the feature <span class="math inline">\(X\)</span>: Time spent in the online store.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>

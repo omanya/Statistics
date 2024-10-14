@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-07" />
+<meta name="date" content="2024-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -379,7 +379,7 @@ month~i&amp; market ~return ~x_i&amp; stock~return~y_i\\\hline
 6&amp;-0.5&amp;0.6
 \end{array}
 \]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <iframe title="App Regression" src="https://rshiny.f4.htw-berlin.de/users/mo//Apps_RBook/#section-regression" width="700" height="500"></iframe>
 </div>
 <div id="calculation-of-the-regression-coefficients" class="section level3 hasAnchor" number="5.1.1">
@@ -441,7 +441,7 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 </ul></li>
 </ul>
 <table>
-<caption><span id="tab:umswetdatzz">Table 5.1: </span>Sample size n=10 for the characteristics U turnover in EUR and T temperature in °C.</caption>
+<caption><span id="tab:umswetdatzz">Table 5.1: </span>Sample size n=10 for the characteristics U sales in EUR and T temperature in °C.</caption>
 <thead>
 <tr class="header">
 <th align="right">Day</th>
@@ -503,16 +503,16 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 </tbody>
 </table>
 <ul>
-<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar s= 25.1373\)</span>; <span class="math inline">\(\bar t=17.1731\)</span>; <span class="math inline">\(s_S^2=14.0397\)</span>, <span class="math inline">\(s_T^2 = 19.4972\)</span> and
-<span class="math inline">\(\hat\sigma_{TS}=14.9706.\)</span></p></li>
+<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar u= 25.1373\)</span>; <span class="math inline">\(\bar t=17.1731\)</span>; <span class="math inline">\(s_U^2=14.0397\)</span>, <span class="math inline">\(s_T^2 = 19.4972\)</span> and
+<span class="math inline">\(\hat\sigma_{TU}=14.9706.\)</span></p></li>
 <li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9706}{19.4972} = 0.7678\)</span></p></li>
 <li><p>and <span class="math inline">\(\hat a=25.1373+ 0.7678\cdot 17.1731 = 11.9511.\)</span></p></li>
 <li><p>Sales as a function of temperature:
-<span class="math inline">\(s= 11.9511 + 0.7678\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
+<span class="math inline">\(u= 11.9511 + 0.7678\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
 <li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{UT}^2=(0.9048)^2=0.8187.\)</span></p></li>
 <li><p>Graphically:</p></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="70%" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-81-1.png" width="70%" /></p>
 </div>
 <hr />
 </div>
@@ -534,7 +534,7 @@ coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\
 </ul></li>
 </ul>
 <div class="example">
-<p><span id="exm:lognachfr" class="example"><strong>Example 5.3  (Nichtlineare (log-linearisierte) Nachfrage) </strong></span></p>
+<p><span id="exm:lognachfr" class="example"><strong>Example 5.3  (Nonlinear (log-linearised) Demand function) </strong></span></p>
 <ul>
 <li>Econometric relation: exponential demand <span class="math inline">\(q\)</span> for a certain consumer good
 specific consumer good as a function of the price <span class="math inline">\(p\)</span></li>
