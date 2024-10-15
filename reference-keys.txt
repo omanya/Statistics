@@ -22,6 +22,8 @@ exm:fn
 def:deffxFX
 exm:bestf
 fig:unnamed-chunk-19
+def:deffcont
+def:defFcont
 exm:umsatzf
 tab:unnamed-chunk-20
 fig:unnamed-chunk-21
