@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,21 +274,23 @@
 </div>
 <div id="lorenz-curve-for-a-sample" class="section level3 hasAnchor" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Lorenz curve for a sample<a href="concentration-measures.html#lorenz-curve-for-a-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For an <strong>ordered sample</strong> <span class="math inline">\(\displaystyle x_{[1]}\leq x_{[2]}\leq \cdots\leq x_{[n]}\)</span> of a metrically scaled characteristic <span class="math inline">\(X\)</span> and <span class="math inline">\([i]=[1],\ldots,[n]\)</span> calculate</p>
+<div class="definition">
+<p><span id="def:defLC" class="definition"><strong>Definition 3.1  (Lorenz curve (sample)) </strong></span>For an <strong>ordered sample</strong> <span class="math inline">\(\displaystyle x_{[1]}\leq x_{[2]}\leq \cdots\leq x_{[n]}\)</span> of a metrically scaled characteristic <span class="math inline">\(X\)</span> and <span class="math inline">\([i]=[1],\ldots,[n]\)</span>, we calculate:</p>
 <ul>
-<li>the cumulative proportion of the total number of feature carriers: <span class="math inline">\(u_i = \frac{[i]}n\)</span>,</li>
-<li>the cumulative feature sums:<span class="math inline">\(\displaystyle S_i=x_{[1]} + x_{[2]} + \cdots + x_{[i]}\)</span> and</li>
-<li>the cumulative proportion of the total sum of times: <span class="math inline">\(v_i=\frac{S_i}{S_n}\)</span>.</li>
+<li>the cumulative proportion of the total number of holders: <span class="math inline">\(u_i = \frac{[i]}n\)</span>,</li>
+<li>the cumulative feature sums: <span class="math inline">\(\displaystyle S_i=x_{[1]} + x_{[2]} + \cdots + x_{[i]}\)</span> and</li>
+<li>the cumulative proportion of the total sum of the feature: <span class="math inline">\(v_i=\frac{S_i}{S_n}\)</span>.</li>
 </ul>
 <p>The <strong>Lorenz curve</strong> is the polygon through the points:</p>
 <p><span class="math display">\[
-      (0,0), (u_1,v_1), \ldots, (u_n,v_n)=(1,1),
-\]</span>
-The Lorenz curve embodies which cum. proportion <span class="math inline">\(v_i\)</span> of the lower edge of the characteristic sum is attributable to which cum. Proportion <span class="math inline">\(u_i\)</span> of the characteristic carriers.</p>
+      (0,0), (u_1,v_1), \ldots, (u_n,v_n)=(1,1).
+\]</span></p>
+</div>
+<p>The Lorenz curve embodies which cum. proportion <span class="math inline">\(v_i\)</span> of the lower edge of the characteristic sum is attributable to which cum. proportion <span class="math inline">\(u_i\)</span> of the characteristic holders.</p>
 <ul>
-<li><p>In the case of an equal distribution <span class="math inline">\(x_1 = \ldots = x_n\)</span>, the characteristic sum is distributed equally among the characteristic carriers. I.e. <span class="math inline">\(u_i=v_i, i=1,\ldots,n\)</span> and the Lorenz curve corresponds to a diagonal line with a 45 degree inclination.</p></li>
-<li><p>In the case of a deviation from the uniform distribution, the feature sum is concentrated on a few feature carriers. This means that <span class="math inline">\(u_i\)</span> is greater than <span class="math inline">\(v_i\)</span> and there is an unequal distribution in which the “poorest” feature carriers receive proportionally less of the feature sum than they would under the uniform distribution. This means that <span class="math inline">\(u_i&gt;v_i\)</span> and the Lorenz curve runs below the diagonal (<span class="math inline">\(u_i=v_i\)</span>).</p></li>
-<li><p>The distance of the Lorenz curve from the diagonal, or the <strong>area</strong> <span class="math inline">\(L\)</span> between the diagonal and the Lorenz curve, is a measure of the concentration in the distribution of <span class="math inline">\(X\)</span>.</p></li>
+<li><p>In the case of an equal (uniform) distribution <span class="math inline">\(x_1 = \ldots = x_n\)</span>, the characteristic sum is distributed equally among the characteristic carriers. I.e. <span class="math inline">\(u_i=v_i, i=1,\ldots,n\)</span> and the Lorenz curve corresponds to a <strong>diagonal line</strong> with a 45 degree inclination.</p></li>
+<li><p>In the case of a deviation from the uniform distribution, the feature sum is concentrated on a few feature carriers. This means that <span class="math inline">\(u_i\)</span> is greater than <span class="math inline">\(v_i\)</span> and there is an unequal distribution in which the “poorest” feature holders receive proportionally less of the feature sum than they would under the uniform distribution. This means that <span class="math inline">\(u_i&gt;v_i\)</span> and the Lorenz curve runs <strong>below the diagonal</strong> (<span class="math inline">\(u_i=v_i\)</span>).</p></li>
+<li><p>The distance of the Lorenz curve from the diagonal, or the <strong>area</strong> <span class="math inline">\(L\)</span> between the diagonal and the Lorenz curve, is a <strong>measure of the concentration</strong> in the distribution of <span class="math inline">\(X\)</span>.</p></li>
 </ul>
 <div class="example">
 <p><span id="exm:markt" class="example"><strong>Example 3.2  (Lorenz curve for market shares) </strong></span>We examine the concentration in a market with few manufacturers.</p>
@@ -341,13 +343,13 @@ Figure 3.1: Lorenz curves for the four market distributions
 <ul>
 <li><p>The Lorenz curve always runs below the diagonal.</p></li>
 <li><p>The area <span class="math inline">\(L\)</span> increases with increasing concentration.</p></li>
-<li><p>In the case of <strong>even distribution</strong> (no concentration), the Lorenz curve is <strong>identical to the diagonal</strong> and the area: <span class="math inline">\(L_{\min}=0\)</span></p></li>
+<li><p>In the case of <strong>a uniform distribution</strong> (no concentration), the Lorenz curve is <strong>identical to the diagonal</strong> and the area: <span class="math inline">\(L_{\min}=0\)</span></p></li>
 <li><p>In the case of <strong>maximum concentration</strong>, the entire feature sum is concentrated on one carrier. The Lorenz curve extends over <span class="math inline">\((0,0), ((n-1)/n,0), (1,1)\)</span> and the area <span class="math inline">\(L=L_{\max}=\displaystyle\frac{n-1}{2n}\)</span>.</p></li>
 </ul>
 </div>
 <div id="lorenz-curve-for-frequency-distributions" class="section level3 hasAnchor" number="3.1.2">
 <h3><span class="header-section-number">3.1.2</span> Lorenz curve for frequency distributions<a href="concentration-measures.html#lorenz-curve-for-frequency-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If the data is already in the form of</p>
+<p>Consider the data is goven in the form of</p>
 <ul>
 <li>a discrete frequency distribution</li>
 </ul>
@@ -367,28 +369,30 @@ or</p>
         K_1 &amp; K_2 &amp; \cdots &amp; K_J\\
         a_1 &amp; a_2 &amp; \cdots &amp; a_J\\
         h_1 &amp; h_2 &amp; \cdots &amp; h_J\\\hline
-      \end{array}\]</span></p>
-<p>are present, ordered in ascending order: <span class="math inline">\(a_{[1]} &lt;a_{[2]} &lt; \cdots &lt; a_{[J]}\)</span>, then the polygon’s grid points are calculated as:</p>
+      \end{array}.\]</span></p>
+<div class="definition">
+<p><span id="def:defLCd" class="definition"><strong>Definition 3.2  (Lorenz curve (frequency distribution)) </strong></span>If the values are ordered in ascending order: <span class="math inline">\(a_{[1]} &lt;a_{[2]} &lt; \cdots &lt; a_{[J]}\)</span>, then the Lorenz curve grid points are calculated as:</p>
 <p><span class="math display">\[\begin{align}
 u_j &amp;= h_{[1]} + \cdots + h_{[j]},\\
 v_j&amp;=\frac{a_{[1]} h_{[1]} + \cdots + a_{[j]} h_{[j]}} {a_{[1]}
           h_{[1]} + \cdots + a_{[J]} h_{[J]}}, \quad j=1,\ldots, J.
 \end{align}\]</span></p>
+</div>
 <div class="example">
-<p><span id="exm:aktionaere" class="example"><strong>Example 3.3  (Lorenz curve for shareholders) </strong></span>We examine the distribution of shares among the shareholders in an AG.</p>
+<p><span id="exm:aktionaere" class="example"><strong>Example 3.3  (Lorenz curve for shareholders) </strong></span>We examine the distribution of shares among the shareholders of an exchange traded firm.</p>
 <ul>
-<li><p>The shares of an AG are held by <span class="math inline">\(n=1000\)</span> shareholders.</p></li>
+<li><p>The shares of the firm are held by <span class="math inline">\(n=1000\)</span> shareholders.</p></li>
 <li><p>Characteristic <span class="math inline">\(X\)</span>: Number of shares</p></li>
 </ul>
 <span class="math display">\[\begin{array}{ccrrrrll}
         \hline
-        &amp; \text{Class} &amp; \text{Number} &amp;\text{relative}&amp; \text{Class mean} &amp;
-                                                            \text{Prop.}
+        &amp; \text{Class} &amp; \text{Number} &amp;\text{relative}&amp; \text{Class} &amp;
+                                                            \text{weighted No}
         &amp; \text{cum.Prop.} &amp; \text{cum.Prop.}\\
-        &amp; &amp; \text{of holders} &amp;\text{Freq.} &amp; \text{mittel} &amp; \text{of shares} &amp;
+        &amp; &amp; \text{of holders} &amp;\text{Freq.} &amp; \text{mean} &amp; \text{of shares} &amp;
         \text{of holders}&amp; \text{of shares}\\
         j &amp; K_j &amp; H_j &amp;h_j&amp; a_j &amp; a_j h_j &amp; u_j &amp; v_j\\\hline
-        1 &amp; [1,50) &amp; 553 &amp;0,553&amp; 13 &amp; 7.189 &amp; 0.5530 &amp; 0.0625\\
+        1 &amp; [1,50) &amp; 553 &amp;0.553&amp; 13 &amp; 7.189 &amp; 0.5530 &amp; 0.0625\\
         2 &amp; [50,100) &amp; 212 &amp;0.212 &amp; 64 &amp; 13.568 &amp; 0.7650 &amp; 0.1805\\
         3 &amp; [100,200) &amp; 104 &amp;0.104&amp; 142 &amp; 14.768 &amp; 0.8690 &amp; 0.3089\\
         4 &amp; [200,500) &amp; 81 &amp;0.081&amp; 325 &amp; 26.325 &amp; 0.9500 &amp; 0.5378\\
@@ -408,8 +412,8 @@ Figure 3.2: Lorenz curve for shareholders
 </div>
 <div id="gini-coefficient-and-concentration-rate" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Gini coefficient and concentration rate<a href="concentration-measures.html#gini-coefficient-and-concentration-rate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The Lorenz curve as a graphical representation quickly makes it clear to what extent the distribution of a characteristic resembles a uniform distribution or is far removed from it. However, it is not always possible to precisely estimate this distance/the area between the diagonal and the Lorenz curve graphically, which is important when comparing several distributions, for example.</p>
-<p>Indicators such as the Gini coefficient and the concentration ratio summarize the degree of concentration in figures and are more practical for analysts.</p>
+<p>The Lorenz curve as a graphical representation makes it clear to what extent the distribution of a characteristic resembles a uniform distribution or how far it is from it. However, it is not always possible to precisely assess this distance/the area between the diagonal and the Lorenz curve graphically by eye.</p>
+<p>Therefore, numeric measures, such as the Gini coefficient and the concentration rate, quantify the degree of concentration and are more practical for comparison purposes.</p>
 <div id="gini-coefficient" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Gini coefficient<a href="concentration-measures.html#gini-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <!-- Gini in a bottle-->
@@ -429,12 +433,14 @@ Figure 3.3: Lorenz curve for shareholders compared to max. concentration
       &amp;= \frac{L}{L_{\max}} = \frac{2n}{n-1}\cdot L,
 \end{align*}\]</span></p>
 <p>with <span class="math inline">\(\displaystyle L_{\max}=\frac{n-1}{2n}\)</span> (maximum concentration). The Gini coefficient <span class="math inline">\(G\)</span> therefore has the property <span class="math inline">\(0\leq G\leq 1\)</span>, where <span class="math inline">\(G=0\)</span> corresponds to the uniform distribution and <span class="math inline">\(G=1\)</span> corresponds to the maximum concentration.</p>
-<p>Calculation:
+<div class="definition">
+<p><span id="def:defGini" class="definition"><strong>Definition 3.3  (Gini coefficient) </strong></span><strong>Gini coefficient</strong>:
 <span class="math display">\[\begin{align*}
       \text{from sample: }G &amp;=\frac{n}{n-1} \left(\left(\sum_{i=1}^n(u_{i-1}+u_i) (v_i - v_{i-1}) \right)-1\right)\\
       \text{ with frequencies: } G&amp;=\frac{n}{n-1} \left(\left(\sum_{j=1}^J(u_{j-1}+u_j) (v_j-v_{j-1})\right)-1\right).
 \end{align*}\]</span>
 with <span class="math inline">\(u_0=v_0=0\)</span>.</p>
+</div>
 <div class="example">
 <p><span id="exm:marktg" class="example"><strong>Example 3.4  (Gini for market shares) </strong></span>Cont. of Example <a href="concentration-measures.html#exm:markt">3.2</a>.</p>
 <p>We calculate the Gini coefficient for the distribution in the 3rd year: <span class="math inline">\(G_3\)</span>
@@ -472,7 +478,6 @@ with <span class="math inline">\(u_0=v_0=0\)</span>.</p>
 <hr />
 <div class="example">
 <p><span id="exm:aktionaereg" class="example"><strong>Example 3.5  (Gini for the shareholders) </strong></span>Cont. of Example <a href="concentration-measures.html#exm:aktionaere">3.3</a>.</p>
-</div>
 <p>Computations:
 <span class="math display">\[
 \begin{array}[t]{cccccc}
@@ -492,6 +497,7 @@ with <span class="math inline">\(u_0=v_0=0\)</span>.</p>
 <p><span class="math display">\[
       G=\frac{1000}{999} (1.7175-1) = 0.7183.
 \]</span></p>
+</div>
 <hr />
 </div>
 <div id="concentration-rate" class="section level3 hasAnchor" number="3.2.2">
@@ -500,20 +506,22 @@ with <span class="math inline">\(u_0=v_0=0\)</span>.</p>
 the question: What percentage of the feature holders share what percentage of the feature sum?</p>
 <p>A simple concentration measure based on an absolute number <span class="math inline">\(a\)</span> of feature holders is the
 <strong>concentration rate</strong> <span class="math inline">\(CR_a\)</span>.</p>
-<p>The concentration rate indicates the percentage of the feature sum that is shared by the <span class="math inline">\(a\)</span> largest feature holders:</p>
+<div class="definition">
+<p><span id="def:defcra" class="definition"><strong>Definition 3.4  (Concentration rate) </strong></span>The <strong>concentration rate</strong>, <span class="math inline">\(CR_a\)</span>, indicates the percentage of the feature sum that is shared by the <span class="math inline">\(a\)</span> largest feature holders:</p>
 <p><span class="math display">\[
       CR_a = \sum_{i=n-a+1}^n q_i\quad\text{ mit } q_i=\frac{x_{[i]}}
         {x_{[1]} + \cdots + x_{[n]}}
 \]</span></p>
+</div>
 <div class="example">
 <p><span id="exm:unlabeled-div-15" class="example"><strong>Example 3.6  (Concentration rate for market shares) </strong></span>Cont. of Example <a href="concentration-measures.html#exm:markt">3.2</a> and <a href="concentration-measures.html#exm:marktg">3.4</a>.
 We calculate the concentration rate <span class="math inline">\(CR_2\)</span> of the market shares
 in each case for the <strong>two</strong> (<span class="math inline">\(a=2\)</span>) largest companies:
 <span class="math display">\[\begin{align*}
-      CR_2(\text{1.Jahr}) &amp;= 0,2 + 0,2=0,4 = 40\\
-      CR_2(\text{2.Jahr}) &amp;= 0,2 + 0,4 = 0,6 = 60\\
-      CR_2(\text{3.Jahr}) &amp;= 0,15 + 0,7 = 0,85 = 85\\
-      CR_2(\text{4.Jahr}) &amp;= 0,0 + 1,0 = 1,0 = 100
+      CR_2(\text{1.Jahr}) &amp;= 0.2 + 0.2=0.4 \rightarrow 40\%\\
+      CR_2(\text{2.Jahr}) &amp;= 0.2 + 0.4 = 0.6 \rightarrow 60\%\\
+      CR_2(\text{3.Jahr}) &amp;= 0.15 + 0.7 = 0.85 \rightarrow 85\%\\
+      CR_2(\text{4.Jahr}) &amp;= 0 + 1 = 1 \rightarrow 100\%
 \end{align*}\]</span></p>
 </div>
 <hr />

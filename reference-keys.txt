@@ -70,13 +70,17 @@ fig:unnamed-chunk-53
 exm:unlabeled-div-12
 exr:unlabeled-div-13
 exm:unlabeled-div-14
+def:defLC
 exm:markt
 fig:unnamed-chunk-60
+def:defLCd
 exm:aktionaere
 fig:unnamed-chunk-61
 fig:unnamed-chunk-62
+def:defGini
 exm:marktg
 exm:aktionaereg
+def:defcra
 exm:unlabeled-div-15
 exr:unlabeled-div-16
 exm:umswet
