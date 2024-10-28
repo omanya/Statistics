@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-22" />
+<meta name="date" content="2024-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -151,7 +151,7 @@
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>4.4.1</b> Empirical covariance and correlation</a></li>
 <li class="chapter" data-level="4.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>4.4.2</b> Rank correlation</a></li>
-<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency coefficient</a></li>
+<li class="chapter" data-level="4.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-based-measures-chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient"><i class="fa fa-check"></i><b>4.4.3</b> Contingency based measures: <span class="math inline">\(\chi^2\)</span> coefficient, contingency coefficient, normalized contingency coefficient</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>5</b> Regression</a>
@@ -365,7 +365,7 @@ Using a joint sample of the terms <span class="math inline">\(X\)</span> and <sp
 <h3><span class="header-section-number">4.1.1</span> Joint frequencies<a href="association-between-two-features.html#joint-frequencies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>the <strong>absolute joint frequency</strong> <span class="math inline">\(H_{jk} = H(a_j,b_k)\)</span> gives the number of pairs from the sample <span class="math inline">\((x_i,y_i)\)</span> that correspond to the combination of the <span class="math inline">\((a_j,b_k)\)</span> expressions.</li>
-<li>the <strong>relative joint frequency</strong><span class="math inline">\(h_{jk} = h(a_j,b_k)\)</span> gives the proportion of such pairs in the sample: <span class="math inline">\(h_{jk}=\frac{H_{jk}}n\)</span>.</li>
+<li>the <strong>relative joint frequency</strong> <span class="math inline">\(h_{jk} = h(a_j,b_k)\)</span> gives the proportion of such pairs in the sample: <span class="math inline">\(h_{jk}=\frac{H_{jk}}n\)</span>.</li>
 <li>is the <strong>joint frequency distribution</strong>:</li>
 </ul>
 <p><span class="math display">\[
@@ -412,13 +412,11 @@ The relative frequencies are:</p>
 <ul>
 <li><p>The <strong>marginal frequencies</strong> are calculated from the joint frequencies as follows
 <span class="math display">\[\begin{align*}
-        H_{j\cdot} &amp;= \sum_{k=1}^K H_{jk} = \text{absolute marginal frequency of }a_j\\\
+        H_{j\cdot} &amp;= \sum_{k=1}^K H_{jk} = \text{absolute marginal frequency of }a_j\\
         H_{\cdot k} &amp;= \sum_{j=1}^J H_{jk} = \text{absolute marginal frequency of }b_k\\
-        h_{j\cdot} &amp;= \sum_{k=1}^K h_{jk} = \text{relative marginal frequency of } a_j\\\
+        h_{j\cdot} &amp;= \sum_{k=1}^K h_{jk} = \text{relative marginal frequency of } a_j\\
         h_{\cdot k} &amp;= \sum_{j=1}^J h_{jk} = \text{relative marginal frequency of } b_k
-\end{align*}\]</span>} &amp;= <em>{k=1}^K h</em>{jk} = a_j\ 
-h_{k} &amp;= <em>{j=1}^J h</em>{jk} = b_k
-\end{align*}</p></li>
+\end{align*}\]</span></p></li>
 <li><p>The <strong>marginal relative frequencies</strong> constitute the <strong>marginal frequency distributions</strong> and are given by
 <span class="math display">\[\begin{align*}
         \mathbf{h}_X&amp;=
@@ -553,8 +551,10 @@ we calculate:</p>
       \begin{pmatrix}
         h_{1|k} &amp; \cdots &amp; h_{J|k}
       \end{pmatrix}.
-\]</span>
-- The <strong>conditional frequency distribution</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=a_j\)</span> is</p>
+\]</span></p>
+<ul>
+<li>The <strong>conditional frequency distribution</strong> of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X=a_j\)</span> is</li>
+</ul>
 <p><span class="math display">\[
       \mathbf{h}_{Y|X=a_j}=
       \begin{pmatrix}
@@ -626,15 +626,15 @@ Interpretation: <span class="math inline">\(h_{D|B}=0.1\)</span> means that <spa
         k=1, \ldots, K
 \end{align}\]</span></p>
 <ul>
-<li><p>If there is no risk of misinterpretation, we write <span class="math inline">\(h_{j|k}\)</span> instead of <span class="math inline">\(h_{X=a_j|Y=b_k}\)</span>.</p></li>
-<li><p>Criterion
-<span class="math display">\[\begin{align*}
-  &amp; X\text{ and } Y \text{ are independent}\\\
-  \iff &amp; h_{jk} = h_{j\cdot} \cdot h_{\cdot k} ~~ \text{ for all} j=1,\ldots, J\text{ and } k=1,\ldots,K\\
-  \iff &amp; \mathbf{h}_{XY} = \mathbf{h}_X^T\cdot \mathbf{h}_Y
-\end{align*}\]</span>thbf{h}_{XY} = _X^T_Y
-\end{align*}</p></li>
+<li>If there is no risk of misinterpretation, we write <span class="math inline">\(h_{j|k}\)</span> instead of <span class="math inline">\(h_{X=a_j|Y=b_k}\)</span>.</li>
 </ul>
+<div class="definition">
+<p><span id="def:defindepemp" class="definition"><strong>Definition 4.1  (Empirical independence criterion) </strong></span><span class="math display">\[\begin{align*}
+    &amp; X\text{ and } Y \text{ are independent}\\
+    \iff &amp; h_{jk} = h_{j\cdot} \cdot h_{\cdot k} ~~ \text{ for all} j=1,\ldots, J\text{ and } k=1,\ldots,K\\
+    \iff &amp; \mathbf{h}_{XY} = \mathbf{h}_X^T\cdot \mathbf{h}_Y
+\end{align*}\]</span></p>
+</div>
 <div class="example">
 <p><span id="exm:fkrating3" class="example"><strong>Example 4.7  (Rating of corporate clients) </strong></span>Because <span class="math inline">\(h_{X=B,Y=D}=0.05\not= 0.5\cdot 0.3=h_{X=B}\cdot h_{X=D}\)</span>, the characteristics
 characteristics <span class="math inline">\(X=\text{rating}\)</span> and <span class="math inline">\(Y=\text{default}\)</span> are <strong>not independent</strong> = <strong>dependent</strong>.</p>
@@ -754,9 +754,8 @@ The evaluation of a year leads to the following empirical distribution:</p>
 </table>
 <p>How can we then assess the direction and strength of the dependence between sales and temperature?</p>
 </div>
-<ol style="list-style-type: decimal">
-<li>For a <strong>sample</strong> <span class="math inline">\((x_1,y_1), \ldots, (x_n,y_n)\)</span> of the metrically scaled characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the <strong>sample covariance</strong> is calculated as</li>
-</ol>
+<div class="definition">
+<p><span id="def:defcov" class="definition"><strong>Definition 4.2  (Covariance and Correlation) </strong></span>For a <strong>sample</strong> <span class="math inline">\((x_1,y_1), \ldots, (x_n,y_n)\)</span> of the metrically scaled characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the <strong>sample covariance</strong> is calculated as</p>
 <p><span class="math display">\[
       \hat\sigma_{XY} = \frac{1}{n-1} \sum_{i=1}^n (x_i-\bar x)
       (y_i-\bar y) = \frac{1}{n-1} \sum_{i=1}^n x_i y_i -
@@ -771,6 +770,7 @@ The evaluation of a year leads to the following empirical distribution:</p>
         \bar y} {\sqrt{\sum_{i=1}^n x_i^2 - n \bar x^2} \cdot
         \sqrt{\sum_{i=1}^n y_i^2 - n \bar y^2}}.
 \]</span></p>
+</div>
 <ul>
 <li>Interpretation: <span class="math inline">\(\hat\sigma_{XY}\)</span> and <span class="math inline">\(\hat\rho_{XY}\)</span> are measures
 for the <strong>linear association</strong> between two characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</li>
@@ -789,7 +789,7 @@ for the <strong>linear association</strong> between two characteristics <span cl
 <li>Sample (<span class="math inline">\(n=10\)</span>)</li>
 </ul>
 <table>
-<caption><span id="tab:umswetdatkor">Table 4.3: </span>Sample size n=10 for the characteristics U sales in EUR and T temperature in °C.</caption>
+<caption><span id="tab:umswetdatkor">Table 4.3: </span>Sample size n=10 for the characteristics S sales in EUR and T temperature in °C.</caption>
 <thead>
 <tr class="header">
 <th align="right">Day</th>
@@ -851,7 +851,7 @@ for the <strong>linear association</strong> between two characteristics <span cl
 </tbody>
 </table>
 <ul>
-<li><p>Calculation of the empirical correlation coefficient <span class="math inline">\(\hat\rho_{TU}\)</span>.</p>
+<li><p>Calculation of the empirical correlation coefficient <span class="math inline">\(\hat\rho_{TS}\)</span>.</p>
 <ul>
 <li><p>The sample means:
 <span class="math display">\[\begin{align*}
@@ -861,11 +861,11 @@ for the <strong>linear association</strong> between two characteristics <span cl
 <li><p>The sample variances:
 <span class="math display">\[\begin{align*}
     \hat\sigma_T^2 &amp;= \frac{1}{9} (13.57^2 + \cdots + 17.35^2 - 10\cdot 17.17^2) = 19.4972\text{ °C}^2\\
-    \hat\sigma_U^2 &amp;= \frac{1}{9} (24.2^2 + \cdots + 23.24^2 - 10\cdot 25.14^2) = 14.0397\text{ MU}^2
+    \hat\sigma_S^2 &amp;= \frac{1}{9} (24.2^2 + \cdots + 23.24^2 - 10\cdot 25.14^2) = 14.0397\text{ MU}^2
 \end{align*}\]</span></p></li>
 <li><p>The sample covariance:
 <span class="math display">\[
-  \hat\sigma_{TU} = \frac{1}{9} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24 - 10\cdot17.17\cdot 25.14 = 14.9706~\text{ °C}\cdot\text{ MU}
+  \hat\sigma_{TS} = \frac{1}{9} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24 - 10\cdot17.17\cdot 25.14 = 14.9706~\text{ °C}\cdot\text{ MU}
 \]</span></p></li>
 <li><p>The correlation coefficient is thus calculated as:
 <span class="math display">\[
@@ -877,7 +877,7 @@ for the <strong>linear association</strong> between two characteristics <span cl
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 4.2  (Correlation) </strong></span></p>
+<p><span id="exr:unlabeled-div-19" class="exercise"><strong>Exercise 4.2  (Correlation) </strong></span>Compute the correlation between two characteristics <span class="math inline">\(X\)</span>, change in 6-month EURIBOR (It determines the price at which banks lend money to each other over a six-month period), and <span class="math inline">\(Y\)</span>, change in 10-year swap rate (the fixed interest rate that the receiver demands in exchange for the uncertainty of having to pay the floating rate over time).</p>
 <iframe title="Aufgabe_Korrelation" src="./htmls/aufgabe_korrelation.html" width="700" height="500"></iframe>
 </div>
 <!--
@@ -956,64 +956,50 @@ $$
         \bar x\cdot \bar y} {\sqrt{\sum_{j=1}^J a_j^2 h_{j\cdot} \!-\!
           \bar x^2} \sqrt{\sum_{k=1}^K b_k^2 h_{\cdot k} \!-\! \bar
           y^2}}
-\]</span>
-<!--
-
-::: {.example #umswetht name="Umsatz vs. Wetter: Häufigkeiten"}
-
-Für das Beispiel haben wir bereits die gemeinsame und bedingte Verteilungen ermittelt. Nun berechnen wir die Korrelation anhand dieser Häufigkeitsverteilung:
-
-$$
+\]</span></p>
+<div class="example">
+<p><span id="exm:umswetht" class="example"><strong>Example 4.11  (Frequencies of U and T) </strong></span>We compute the correlation based on the frequency distribution:</p>
+<p><span class="math display">\[
         \begin{array}{r|ccc|c}
-        \hline 
-        \mathbf h_{TU}& U\in\text{[10,20)}  & \text{[20,30)} & \text{[30,40]} & \mathbf h_T \\\hline
-        T\in\text{[10,15)} & 0,20 & 0,10 &  0,05 & 0,35\\
-        \text{[15,20)} & 0,10 & 0,25 &  0,05 & 0,40\\
-        \text{[20,25]}& 0,00 & 0,05 &  0,20 & 0,25\\\hline
-        \mathbf h_U & 0,30 & 0,40 &  0,30 & 1\\\hline
+        \hline
+        \mathbf h_{TU}&amp; S\in\text{[10,20)}  &amp; \text{[20,30)} &amp; \text{[30,40]} &amp; \mathbf h_T \\\hline
+        T\in\text{[10,15)} &amp; 0.20 &amp; 0.10 &amp;  0.05 &amp; 0.35\\
+        \text{[15,20)} &amp; 0.10 &amp; 0.25 &amp;  0.05 &amp; 0.40\\
+        \text{[20,25]}&amp; 0.00 &amp; 0.05 &amp;  0.20 &amp; 0.25\\\hline
+        \mathbf h_U &amp; 0.30 &amp; 0.40 &amp;  0.30 &amp; 1\\\hline
         \end{array}
-$$
-
-
-- Merkmale:$T=\text{Temperatur}; ~~U=\text{Umsatz}$, $n=100$.
-
-- Klassenmitten: 
-
-$$
+\]</span></p>
+<ul>
+<li><p>Characteristics:<span class="math inline">\(T; ~~U\)</span>, <span class="math inline">\(n=100\)</span>.</p></li>
+<li><p>Class means:</p></li>
+</ul>
+<p><span class="math display">\[
     \begin{array}[t]{lr}
-    a_1=12,5, \quad a_2=17,5, \quad a_3=22,5&\text{(Temperatur)}\\
-    b_1=15, \quad b_2=25, \quad b_3=35 &\text{(Umsatz)}
+    a_1=12.5, \quad a_2=17.5, \quad a_3=22.5&amp;\text{(Temperature)}\\
+    b_1=15, \quad b_2=25, \quad b_3=35 &amp;\text{(Utility)}
     \end{array}
-$$
-
-- Berechnung der empirischen Erwartungswerte:
-
-
-
-
-\begin{align*}
-      \hat \mu_T &= 12,5\cdot 0,35 + 17,5\cdot 0,4 + 22,5\cdot 0,25 = 17,\\
-      \hat \mu_U &= 15\cdot 0,3 + 25\cdot 0,4 + 35\cdot 0,3 =25.
-\end{align*}
-
-- Berechnung der empirischen Varianzen und Kovarianz:
-
-
-
-
-
-\begin{align*}
-    \hat\sigma_T^2 &= \frac{100}{99} (12,5^2\cdot 0,35 + 17,5^2\cdot 0,4 + 22,5^2\cdot 0,25 - 17^2) = 14,899,\\
-    \hat\sigma_U^2 &= \frac{100}{99} (15^2\cdot 0,3 + 25^2\cdot 0,4 + 35^2\cdot 0,3 - 25^2) = 60,6061,\\
-    \hat\sigma_{TU} &= \frac{100}{99} (12,5\cdot 15\cdot 0,2 + 12,5\cdot 25\cdot 0,1 + 12,5\cdot 35\cdot 0,05+\ldots +\\
-    &~+17,5\cdot 15\cdot 0,1+\ldots + 22,5\cdot 35\cdot 0,2 - 17\cdot 25) = 17,6768.
-  \end{align*}
-
-- Berechnung des Korrelationskoeffizienten:
-$\hat\rho_{TU} = \frac{17,6768} {\sqrt{14,899}\cdot \sqrt{60,6061}} =0,5883.$
-
-:::
---></p>
+\]</span></p>
+<ul>
+<li>Sample means:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+      \hat \mu_T &amp;= 12.5\cdot 0.35 + 17.5\cdot 0.4 + 22.5\cdot 0.25 = 17\\
+      \hat \mu_U &amp;= 15\cdot 0.3 + 25\cdot 0.4 + 35\cdot 0.3 =25.
+\end{align*}\]</span></p>
+<ul>
+<li>Sample variance and covariance:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+    \hat\sigma_T^2 &amp;= \frac{100}{99} (12,5^2\cdot 0.35 + 17.5^2\cdot 0.4 + 22.5^2\cdot 0.25 - 17^2) = 14.899,\\
+    \hat\sigma_U^2 &amp;= \frac{100}{99} (15^2\cdot 0.3 + 25^2\cdot 0.4 + 35^2\cdot 0.3 - 25^2) = 60.6061,\\
+    \hat\sigma_{TU} &amp;= \frac{100}{99} (12.5\cdot 15\cdot 0.2 + 12.5\cdot 25\cdot 0.1 + 12.5\cdot 35\cdot 0.05+\ldots +\\
+    &amp;~+17.5\cdot 15\cdot 0.1+\ldots + 22.5\cdot 35\cdot 0.2 - 17\cdot 25) = 17.6768.
+  \end{align*}\]</span></p>
+<ul>
+<li>Correlation:
+<span class="math inline">\(\hat\rho_{TU} = \frac{17.6768} {\sqrt{14.899}\cdot \sqrt{60.6061}} =0.5883.\)</span></li>
+</ul>
+</div>
 <!--
 ::: {.example}
 
@@ -1068,8 +1054,8 @@ $\hat\rho_{XY} = \frac{0,3454} {\sqrt{1,7615}\cdot \sqrt{4,3494}} =0,1248$
 </div>
 <div id="rank-correlation" class="section level3 hasAnchor" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Rank correlation<a href="association-between-two-features.html#rank-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If the characteristics are at least ordinally scaled, an empirical correlation coefficient can be calculated from the <strong>ranks</strong> of the sample values.</p>
-<p>From a sample <span class="math inline">\(x_1, \ldots, x_n\)</span> of an at least ordinally scaled characteristic, a more ordered sample <span class="math inline">\(x_{[1]} \leq x_{[2]} \leq \cdots\leq x_{[n]}\)</span>.</p>
+<p>If the characteristics are at least on the ordinal scale, an empirical correlation coefficient can be calculated from the <strong>ranks</strong> of the sample values.</p>
+<p>Given a sample <span class="math inline">\(x_1, \ldots, x_n\)</span> of a characteristic on at least on the ordinal scale and an ordered sample <span class="math inline">\(x_{[1]} \leq x_{[2]} \leq \cdots\leq x_{[n]}\)</span>, the rank correlation is calculated from the corresponding ranks, which are defined as:</p>
 <ul>
 <li><p>If all values of the sample are different:
 If <span class="math inline">\(x_i=x_{[k]}\)</span>, then the <strong>rank</strong> of <span class="math inline">\(x_i\)</span> is defined as
@@ -1077,23 +1063,22 @@ If <span class="math inline">\(x_i=x_{[k]}\)</span>, then the <strong>rank</stro
 <li><p>If some values occur more than once, the rank is defined as the arithmetic mean of the possible ranks.</p></li>
 </ul>
 <div class="example">
-<p><span id="exm:rankk" class="example"><strong>Example 4.11  (Determining the rank) </strong></span><span class="math display">\[
+<p><span id="exm:rankk" class="example"><strong>Example 4.12  (Determining the rank) </strong></span><span class="math display">\[
 \begin{array}{cccccc}
 \hline
-\text{Kunde}&amp; 1&amp;2&amp;3&amp;4&amp;5\\
-\text{Rating}&amp; A&amp;C&amp;B&amp;C&amp;C\\
-\text{mögl. Rang}&amp;1&amp;3&amp;2&amp;4&amp;5\\\hline
-\text{Rang}&amp;1&amp;4&amp;2&amp;4&amp;4\\\hline
+\text{customer}&amp; 1&amp;2&amp;3&amp;4&amp;5\\
+\text{rating}&amp; A&amp;C&amp;B&amp;C&amp;C\\
+\text{possible rank}&amp;1&amp;3&amp;2&amp;4&amp;5\\\hline
+\text{resulting rank}&amp;1&amp;4&amp;2&amp;4&amp;4\\\hline
 \end{array}
 \]</span></p>
 <p>Since rank(<span class="math inline">\(C\)</span>)<span class="math inline">\(=\frac 13(3+4+5) =4\)</span>.</p>
 </div>
 <hr />
 <p><strong>Rank correlation /Spearman’s Rho</strong></p>
-<ul>
-<li><p>For a sample <span class="math inline">\((x_1,y_1), \ldots, (x_n,y_n)\)</span> of ordinal or metrically scaled characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the associated ranks <span class="math inline">\(R(x_1), \ldots, R(x_n)\)</span> and <span class="math inline">\(R(y_1),\ldots, R(y_n)\)</span> are first assigned the ranks.</p></li>
-<li><p>The <strong>rank correlation coefficient/Spearman’s Rho</strong> is based on the classic correlation coefficient and replaces the sample values with the corresponding ranks:</p></li>
-</ul>
+<p>For a sample <span class="math inline">\((x_1,y_1), \ldots, (x_n,y_n)\)</span> of ordinal or metrically scaled characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, the associated ranks <span class="math inline">\(R(x_1), \ldots, R(x_n)\)</span> and <span class="math inline">\(R(y_1),\ldots, R(y_n)\)</span> are first assigned the ranks.</p>
+<div class="definition">
+<p><span id="def:defrrho" class="definition"><strong>Definition 4.3  (Rank correlation) </strong></span>The <strong>rank correlation coefficient/Spearman’s Rho</strong> is based on the classic correlation coefficient and replaces the sample values with the corresponding ranks:</p>
 <p><span class="math display">\[
     \hat\rho_{XY}^S = \frac{\sum_{i=1}^n R(x_i) R(y_i) - n\cdot
       \overline{R(x)}\cdot \overline{R(y)}} {\sqrt{\sum_{i=1}^n
@@ -1108,9 +1093,10 @@ If <span class="math inline">\(x_i=x_{[k]}\)</span>, then the <strong>rank</stro
       d_i^2}{n(n^2-1)}\quad\text{ mit } d_i=R(x_i)-R(y_i).
 \]</span>
 This formula can also be used as an approximation.</p>
+</div>
 <hr />
 <div class="example">
-<p><span id="exm:rank2" class="example"><strong>Example 4.12  (Comparison of two rating procedures: (1) and (2)) </strong></span></p>
+<p><span id="exm:rank2" class="example"><strong>Example 4.13  (Comparison of two rating procedures: (1) and (2)) </strong></span></p>
 <ul>
 <li>rating classes (best-to-worst): <span class="math inline">\(AAA\)</span>, <span class="math inline">\(AA\)</span>, <span class="math inline">\(A\)</span>, <span class="math inline">\(BBB\)</span>, <span class="math inline">\(BB\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(CCC\)</span>,
 <span class="math inline">\(CC\)</span>, <span class="math inline">\(C\)</span>, <span class="math inline">\(D\)</span></li>
@@ -1149,39 +1135,42 @@ This formula can also be used as an approximation.</p>
 </div>
 <hr />
 </div>
-<div id="contingency-coefficient" class="section level3 hasAnchor" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Contingency coefficient<a href="association-between-two-features.html#contingency-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient" class="section level4 hasAnchor" number="4.4.3.1">
-<h4><span class="header-section-number">4.4.3.1</span> <span class="math inline">\(\chi^2\)</span> coefficient, contingency coefficient, normalized contingency coefficient<a href="association-between-two-features.html#chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="contingency-based-measures-chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Contingency based measures: <span class="math inline">\(\chi^2\)</span> coefficient, contingency coefficient, normalized contingency coefficient<a href="association-between-two-features.html#contingency-based-measures-chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If characteristics are measured on the <strong>nominal scale</strong>, a measure of the correlation cannot be determined on the basis of the values.
+Instead, a measure is derived from the <strong>frequencies</strong> and quantifies the <strong>distance to the case of independence</strong>.</p>
 <ul>
-<li><p>If characteristics are measured on the nominal scale, a measure of the correlation cannot be determined on the basis of the values.</p></li>
-<li><p>Instead, a measure is derived from the frequencies and quantifies the distance to the case of independence.</p></li>
-<li><p>First, the sum of the squared and normalized deviations of the observed frequencies from the frequencies constructed under the assumption of independence is calculated (<span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\chi^2\)</span> coefficient)</p></li>
-<li><p>However, since the size of the <span class="math inline">\(\chi^2\)</span> coefficient depends on the sample size <span class="math inline">\(n\)</span>, it is normalized (<span class="math inline">\(\leadsto\)</span> contingency coefficient <span class="math inline">\(C\)</span>)</p></li>
-<li><p>The <strong>contingency coefficient</strong> is now free of the influence of <span class="math inline">\(n\)</span> but still depends on the number of values of the individual characteristics and must be modified again. (<span class="math inline">\(\leadsto\)</span> normalized contingency coefficient <span class="math inline">\(C^*\)</span>)</p></li>
+<li><p>First, the sum of the squared and normalized deviations of the observed frequencies from the frequencies constructed under the assumption of independence is calculated (<span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\chi^2\)</span> coefficient).</p></li>
+<li><p>Since the size of the <span class="math inline">\(\chi^2\)</span> coefficient depends on the sample size <span class="math inline">\(n\)</span>, it is normalized (<span class="math inline">\(\leadsto\)</span> contingency coefficient <span class="math inline">\(C\)</span>). The resulting <strong>contingency coefficient</strong> is free of the influence of <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Since <span class="math inline">\(C\)</span> still depends on the number of values of the individual characteristics, it must be modified again. (<span class="math inline">\(\leadsto\)</span> normalized contingency coefficient <span class="math inline">\(C^*\)</span>).</p></li>
 <li><p>The <strong>normalized contingency coefficient</strong> then always moves in the interval <span class="math inline">\([0;1]\)</span>, whereby <span class="math inline">\(C^*=0\)</span> determines empirical independence and <span class="math inline">\(C^*=1\)</span> a perfect correlation between the characteristics.</p></li>
+</ul>
+<div class="definition">
+<p><span id="def:defcontmeasures" class="definition"><strong>Definition 4.4  (Contigency measures) </strong></span></p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span> measures the quadratic deviation from independence:</li>
 </ul>
 <p><span class="math display">\[
         \chi^2 = n\sum_{j=1}^J \sum_{k=1}^K \frac{\left(h_{jk} -
             h_{j\cdot}h_{\cdot k}\right)^2} {h_{j\cdot}
             h_{\cdot k}},
 \]</span></p>
-<p><span class="math inline">\(\chi^2\)</span> measures the quadratic deviation from independence.</p>
 <ul>
-<li><p>The <strong>contingency coefficient</strong> is defined as
+<li><p>The <strong>contingency coefficient</strong> is defined as:
 <span class="math display">\[
     C = \sqrt{\frac{\chi^2}{n+\chi^2}},
 \]</span>
 and assumes a value <span class="math inline">\(C\in \left[0,\sqrt{\frac{M-1}{M}}\right]\)</span> with <span class="math inline">\(M=\min(J,K)\)</span>.</p></li>
-<li><p>The <strong>normalized contingency coefficient</strong> is given by</p></li>
+<li><p>The <strong>normalized contingency coefficient</strong> is given by:</p></li>
 </ul>
 <p><span class="math display">\[
       C^\ast = C/\sqrt{\frac{M-1}{M}}
 \]</span>
 and has a value <span class="math inline">\(C^\ast\in [0,1]\)</span>.</p>
+</div>
 <hr />
 <div class="example">
-<p><span id="exm:grfit2" class="example"><strong>Example 4.13  (Grades and Fitness) </strong></span></p>
+<p><span id="exm:grfit2" class="example"><strong>Example 4.14  (Grades and Fitness) </strong></span></p>
 <ul>
 <li>The basic population of HWR students is available for the following
 characteristics:
@@ -1271,7 +1260,6 @@ $$
 <!--knitr::include_app("https://yihui.shinyapps.io/miniUI/",
   height = "600px")-->
 
-</div>
 </div>
 </div>
 </div>
