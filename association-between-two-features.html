@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-28" />
+<meta name="date" content="2024-10-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -391,8 +391,8 @@ Using a joint sample of the terms <span class="math inline">\(X\)</span> and <sp
 <p><span class="math display">\[
 \begin{array}[t]{l|ccc|c}
         \mathbf H_{WS}&amp; b_1=low &amp; b_2=moderate &amp;b_3=high&amp;\\\hline
-        a_1=good &amp; 2 &amp;  2 &amp;  0&amp; \\
-        a_2=bad &amp;  1 &amp;  3 &amp;  2&amp; \\\hline
+        a_1=bad &amp; 2 &amp;  2 &amp;  0&amp; \\
+        a_2=good &amp;  1 &amp;  3 &amp;  2&amp; \\\hline
         &amp;&amp;&amp;&amp;
 \end{array}
 \]</span>
@@ -400,8 +400,8 @@ The relative frequencies are:</p>
 <p><span class="math display">\[
 \begin{array}[t]{l|ccc|c}
         \mathbf h_{WS}&amp; b_1=low &amp; b_2=moderate &amp;b_3=high&amp;\mathbf h_W\\\hline
-        a_1=good &amp; 0.2 &amp;  0.2 &amp;  0&amp; \\
-        a_2=bad &amp;  0.1 &amp;  0.3 &amp;  0.2&amp; \\\hline
+        a_1=bad &amp; 0.2 &amp;  0.2 &amp;  0&amp; \\
+        a_2=good &amp;  0.1 &amp;  0.3 &amp;  0.2&amp; \\\hline
         \mathbf h_S&amp;&amp;&amp;&amp;
 \end{array}
 \]</span></p>
@@ -437,8 +437,8 @@ The relative frequencies are:</p>
 <p><span class="math display">\[
 \begin{array}[t]{l|ccc|c}
         \mathbf h_{WS}&amp; b_1=low &amp; b_2=moderate &amp;b_3=high&amp;\mathbf h_W\\\hline
-        a_1=good &amp; 0.2 &amp;  0.2 &amp;  0&amp; 0.4\\
-        a_2=bad &amp;  0.,1 &amp;  0.3 &amp;  0.2&amp;0.6 \\\hline
+        a_1=bad &amp; 0.2 &amp;  0.2 &amp;  0&amp; 0.4\\
+        a_2=good &amp;  0.1 &amp;  0.3 &amp;  0.2&amp;0.6 \\\hline
         \mathbf h_S&amp;0.3&amp;0.5&amp;0.2&amp;1
 \end{array}
 \]</span></p>
@@ -518,11 +518,11 @@ The relative frequencies are:</p>
 <p><span class="math display">\[
         \begin{array}{r|ccc|c}
         \hline
-        \mathbf H_{TS}&amp; S\in\text{[10,20)}  &amp; \text{[20,30)} &amp; \text{[30,40]} &amp; \mathbf H_T \\\hline
-        T\in\text{[10,15)} &amp; 20 &amp; 10 &amp;  5 &amp; 35\\
-        \text{[15,20)} &amp; 10 &amp; 25 &amp;  5 &amp; 40\\
-        \text{[20,25]}&amp; 0 &amp; 5 &amp;  20 &amp; 25\\\hline
-        \mathbf H_S &amp; 30 &amp; 40 &amp;  30 &amp; 100\\\hline
+        \mathbf h_{TS}&amp; S\in\text{[10,20)}  &amp; \text{[20,30)} &amp; \text{[30,40]} &amp; \mathbf h_T \\\hline
+        T\in\text{[10,15)} &amp; 0.2 &amp; 0.1 &amp;  0.05 &amp; 0.35\\
+        \text{[15,20)} &amp; 0.1 &amp; 0.25 &amp;  0.05 &amp; 0.4\\
+        \text{[20,25]}&amp; 0 &amp; 0.05 &amp;  0.20 &amp; 0.25\\\hline
+        \mathbf h_S &amp; 0.30 &amp; 0.40 &amp;  0.30 &amp; 0.10\\\hline
         \end{array}
 \]</span></p>
 </div>
@@ -606,7 +606,7 @@ Interpretation: <span class="math inline">\(h_{D|B}=0.1\)</span> means that <spa
 <p><span class="math display">\[
     \mathbf{h}_{Y|X=D} =
     \begin{pmatrix}
-      h_{A|D} &amp; h_{K|D}
+      h_{Y=D|X=D} &amp; h_{Y=nD|X=D}
     \end{pmatrix}
     =
     \begin{pmatrix}
@@ -865,11 +865,11 @@ for the <strong>linear association</strong> between two characteristics <span cl
 \end{align*}\]</span></p></li>
 <li><p>The sample covariance:
 <span class="math display">\[
-  \hat\sigma_{TS} = \frac{1}{9} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24 - 10\cdot17.17\cdot 25.14 = 14.9706~\text{ °C}\cdot\text{ MU}
+  \hat\sigma_{TS} = \frac{1}{10-1} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24) - \frac{10}{10-1}\cdot17.17\cdot 25.14 = 14.9706~\text{ °C}\cdot\text{ MU}
 \]</span></p></li>
 <li><p>The correlation coefficient is thus calculated as:
 <span class="math display">\[
-\hat\rho_{TU} = \frac{14.9706}{\sqrt{19.4972\cdot 14.0397}} = 0.9048
+\hat\rho_{TS} = \frac{14.9706}{\sqrt{19.4972\cdot 14.0397}} = 0.9048
 \]</span></p></li>
 <li><p>The characteristics are therefore clearly positively correlated.</p></li>
 </ul></li>
@@ -970,7 +970,7 @@ $$
         \end{array}
 \]</span></p>
 <ul>
-<li><p>Characteristics:<span class="math inline">\(T; ~~U\)</span>, <span class="math inline">\(n=100\)</span>.</p></li>
+<li><p>Characteristics:<span class="math inline">\(T; ~~S\)</span>, <span class="math inline">\(n=100\)</span>.</p></li>
 <li><p>Class means:</p></li>
 </ul>
 <p><span class="math display">\[
@@ -990,9 +990,9 @@ $$
 <li>Sample variance and covariance:</li>
 </ul>
 <p><span class="math display">\[\begin{align*}
-    \hat\sigma_T^2 &amp;= \frac{100}{99} (12,5^2\cdot 0.35 + 17.5^2\cdot 0.4 + 22.5^2\cdot 0.25 - 17^2) = 14.899,\\
-    \hat\sigma_U^2 &amp;= \frac{100}{99} (15^2\cdot 0.3 + 25^2\cdot 0.4 + 35^2\cdot 0.3 - 25^2) = 60.6061,\\
-    \hat\sigma_{TU} &amp;= \frac{100}{99} (12.5\cdot 15\cdot 0.2 + 12.5\cdot 25\cdot 0.1 + 12.5\cdot 35\cdot 0.05+\ldots +\\
+    \hat\sigma_T^2 &amp;= \frac{100}{100-1} (12,5^2\cdot 0.35 + 17.5^2\cdot 0.4 + 22.5^2\cdot 0.25 - 17^2) = 14.899,\\
+    \hat\sigma_U^2 &amp;= \frac{100}{100-1} (15^2\cdot 0.3 + 25^2\cdot 0.4 + 35^2\cdot 0.3 - 25^2) = 60.6061,\\
+    \hat\sigma_{TU} &amp;= \frac{100}{100-1} (12.5\cdot 15\cdot 0.2 + 12.5\cdot 25\cdot 0.1 + 12.5\cdot 35\cdot 0.05+\ldots +\\
     &amp;~+17.5\cdot 15\cdot 0.1+\ldots + 22.5\cdot 35\cdot 0.2 - 17\cdot 25) = 17.6768.
   \end{align*}\]</span></p>
 <ul>
@@ -1202,7 +1202,7 @@ a_2 &amp; 0.052 &amp; 0.254 &amp; 0.094\\\hline
 <span class="math display">\[\begin{align*}
       \chi^2 &amp;= n\cdot\frac{(0.07-0.078)^2}{0.078} + \frac{(0.36-0.381)^2}{0.381} +
                \cdots + \frac{(0.065-0.094)^2}{0.094} =
-               3,9713 \\
+               3.9713 \\
       C&amp;= \sqrt{\frac{\chi^2}{\chi^2+n}} = 0.1395 \in [0;0.7071];\quad C^\ast = 0.1973\in [0.1].
 \end{align*}\]</span>
 This value indicates a slight dependency.</p>
