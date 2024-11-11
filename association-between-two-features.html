@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-10-29" />
+<meta name="date" content="2024-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -855,21 +855,22 @@ for the <strong>linear association</strong> between two characteristics <span cl
 <ul>
 <li><p>The sample means:
 <span class="math display">\[\begin{align*}
-    \bar t&amp;= \frac{1}{10} (13.57 + \cdots + 17.35) = 17.1731\text{ °C}\\
-    \bar s&amp;= \frac{1}{10} (24.2 + \cdots + 23.24) = 25.1373\text{ Monetary Untits (MU)}
+    \bar t&amp;= \frac{1}{10} (13.57 + \cdots + 17.35) = 17.173\text{ °C}\\
+    \bar s&amp;= \frac{1}{10} (24.2 + \cdots + 23.24) = 25.138\text{ Monetary Untits (MU)}
 \end{align*}\]</span></p></li>
 <li><p>The sample variances:
 <span class="math display">\[\begin{align*}
-    \hat\sigma_T^2 &amp;= \frac{1}{9} (13.57^2 + \cdots + 17.35^2 - 10\cdot 17.17^2) = 19.4972\text{ °C}^2\\
-    \hat\sigma_S^2 &amp;= \frac{1}{9} (24.2^2 + \cdots + 23.24^2 - 10\cdot 25.14^2) = 14.0397\text{ MU}^2
+    \hat\sigma_T^2 &amp;= \frac{1}{9} (13.57^2 + \cdots + 17.35^2 - 10\cdot 17.17^2) = 19.4984\text{ °C}^2\\
+    \hat\sigma_S^2 &amp;= \frac{1}{9} (24.2^2 + \cdots + 23.24^2 - 10\cdot 25.14^2) = 14.0488\text{ MU}^2
 \end{align*}\]</span></p></li>
 <li><p>The sample covariance:
 <span class="math display">\[
-  \hat\sigma_{TS} = \frac{1}{10-1} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24) - \frac{10}{10-1}\cdot17.17\cdot 25.14 = 14.9706~\text{ °C}\cdot\text{ MU}
+  \hat\sigma_{TS} = \frac{1}{10-1} (13.57\cdot 24.2 + \cdots + 17.35\cdot23.24) - \frac{10}{10-1}\cdot17.17\cdot 25.14 \\
+  = 14.9797~\text{ °C}\cdot\text{ MU}
 \]</span></p></li>
 <li><p>The correlation coefficient is thus calculated as:
 <span class="math display">\[
-\hat\rho_{TS} = \frac{14.9706}{\sqrt{19.4972\cdot 14.0397}} = 0.9048
+\hat\rho_{TS} = \frac{14.9706}{\sqrt{19.4972\cdot 14.0397}} = 0.9051
 \]</span></p></li>
 <li><p>The characteristics are therefore clearly positively correlated.</p></li>
 </ul></li>
@@ -962,21 +963,21 @@ $$
 <p><span class="math display">\[
         \begin{array}{r|ccc|c}
         \hline
-        \mathbf h_{TU}&amp; S\in\text{[10,20)}  &amp; \text{[20,30)} &amp; \text{[30,40]} &amp; \mathbf h_T \\\hline
+        \mathbf h_{TS}&amp; S\in\text{[10,20)}  &amp; \text{[20,30)} &amp; \text{[30,40]} &amp; \mathbf h_T \\\hline
         T\in\text{[10,15)} &amp; 0.20 &amp; 0.10 &amp;  0.05 &amp; 0.35\\
         \text{[15,20)} &amp; 0.10 &amp; 0.25 &amp;  0.05 &amp; 0.40\\
         \text{[20,25]}&amp; 0.00 &amp; 0.05 &amp;  0.20 &amp; 0.25\\\hline
-        \mathbf h_U &amp; 0.30 &amp; 0.40 &amp;  0.30 &amp; 1\\\hline
+        \mathbf h_S &amp; 0.30 &amp; 0.40 &amp;  0.30 &amp; 1\\\hline
         \end{array}
 \]</span></p>
 <ul>
-<li><p>Characteristics:<span class="math inline">\(T; ~~S\)</span>, <span class="math inline">\(n=100\)</span>.</p></li>
+<li><p>Characteristics: <span class="math inline">\(T~ (Temperature); ~~S~ (Sales)\)</span>, <span class="math inline">\(n=100\)</span>.</p></li>
 <li><p>Class means:</p></li>
 </ul>
 <p><span class="math display">\[
     \begin{array}[t]{lr}
-    a_1=12.5, \quad a_2=17.5, \quad a_3=22.5&amp;\text{(Temperature)}\\
-    b_1=15, \quad b_2=25, \quad b_3=35 &amp;\text{(Utility)}
+    a_1=12.5, \quad a_2=17.5, \quad a_3=22.5&amp;~(Temperature)\\
+    b_1=15, \quad b_2=25, \quad b_3=35 &amp;~(Sales)
     \end{array}
 \]</span></p>
 <ul>
@@ -984,20 +985,20 @@ $$
 </ul>
 <p><span class="math display">\[\begin{align*}
       \hat \mu_T &amp;= 12.5\cdot 0.35 + 17.5\cdot 0.4 + 22.5\cdot 0.25 = 17\\
-      \hat \mu_U &amp;= 15\cdot 0.3 + 25\cdot 0.4 + 35\cdot 0.3 =25.
+      \hat \mu_S &amp;= 15\cdot 0.3 + 25\cdot 0.4 + 35\cdot 0.3 =25.
 \end{align*}\]</span></p>
 <ul>
 <li>Sample variance and covariance:</li>
 </ul>
 <p><span class="math display">\[\begin{align*}
-    \hat\sigma_T^2 &amp;= \frac{100}{100-1} (12,5^2\cdot 0.35 + 17.5^2\cdot 0.4 + 22.5^2\cdot 0.25 - 17^2) = 14.899,\\
-    \hat\sigma_U^2 &amp;= \frac{100}{100-1} (15^2\cdot 0.3 + 25^2\cdot 0.4 + 35^2\cdot 0.3 - 25^2) = 60.6061,\\
-    \hat\sigma_{TU} &amp;= \frac{100}{100-1} (12.5\cdot 15\cdot 0.2 + 12.5\cdot 25\cdot 0.1 + 12.5\cdot 35\cdot 0.05+\ldots +\\
+    \hat\sigma_T^2 &amp;= \frac{100}{100-1} (12.5^2\cdot 0.35 + 17.5^2\cdot 0.4 + 22.5^2\cdot 0.25 - 17^2) = 14.899,\\
+    \hat\sigma_S^2 &amp;= \frac{100}{100-1} (15^2\cdot 0.3 + 25^2\cdot 0.4 + 35^2\cdot 0.3 - 25^2) = 60.6061,\\
+    \hat\sigma_{TS} &amp;= \frac{100}{100-1} (12.5\cdot 15\cdot 0.2 + 12.5\cdot 25\cdot 0.1 + 12.5\cdot 35\cdot 0.05+\ldots +\\
     &amp;~+17.5\cdot 15\cdot 0.1+\ldots + 22.5\cdot 35\cdot 0.2 - 17\cdot 25) = 17.6768.
   \end{align*}\]</span></p>
 <ul>
 <li>Correlation:
-<span class="math inline">\(\hat\rho_{TU} = \frac{17.6768} {\sqrt{14.899}\cdot \sqrt{60.6061}} =0.5883.\)</span></li>
+<span class="math inline">\(\hat\rho_{TS} = \frac{17.6768} {\sqrt{14.899}\cdot \sqrt{60.6061}} =0.5883.\)</span></li>
 </ul>
 </div>
 <!--
