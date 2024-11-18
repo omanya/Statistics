@@ -183,7 +183,7 @@
 <li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
-<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and the Bayes’ formula</a>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and the Bayes formula</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-total-probability"><i class="fa fa-check"></i><b>7.4.1</b> The total probability</a></li>
 <li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> The Bayes formula</a></li>
@@ -248,17 +248,17 @@
 <div id="conditional-probabilities-and-independence" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Conditional probabilities and independence<a href="conditional-probabilities-and-independence.html#conditional-probabilities-and-independence" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Conditional probabilities express the fact that information about the occurrence of an event <span class="math inline">\(B\)</span> can influence the assessment of the probability of an event <span class="math inline">\(A\)</span>.</p>
-<p>Example: The assessment of the probability that a 40-year-old man will suffer a stroke differs depending on whether it is known that he has high blood pressure or whether this information is not available.</p>
+<p>For instance, the assessment of the probability that a 40-year-old man will suffer a stroke differs depending on whether it is known that he has high blood pressure or whether this information is not available.</p>
 <p>In the operational context, too, the focus is often not on joint distribution, but rather on what happens to an event of interest if another related event has already occurred. For example, if it is known that a randomly selected customer uses the app, how many orders per month could be expected from the customer? The chance for the respective number of orders is described by <strong>conditional probabilities</strong>.</p>
-<p>In other situations, some conditional probabilities are known, but you would need the “reverse” conditional probabilities or the total (unconditional) probabilities. For example, if in a rating model you have the information on the chances of being loaded into a rating category in the event of a subsequent default, but you need the inverse of this, i.e. the chance of defaulting if you are sorted into a certain rating category (default probability per rating category). In this case, the <strong>total probability</strong> (total probability of default) is also of interest.</p>
-<p>When assessing probabilities for additional information, the decisive factor is whether the events involved are <strong>dependent</strong> or <strong>independent</strong>.</p>
+<p>In other situations, some conditional probabilities are known, but we need the “reverse” conditional probabilities or the unconditional (total) probabilities. For example, if in a rating model you have the information on the chances of being sorted into a rating category in the event of a subsequent default, but you need the inverse of this, i.e. the chance of defaulting if you are sorted into a certain rating category (default probability per rating category). In this case, the <strong>total probability</strong> (default probability in the whole customer basis) is also of interest.</p>
+<p>Furthermore, when assessing probabilities in presence of additional information, the important factor is whether the events involved are <strong>dependent</strong> or <strong>independent</strong>.</p>
 <hr />
 <p>In this chapter we will learn</p>
 <ul>
 <li>How to calculate and interpret the probabilities for an event under the condition that another event has already occurred (<span class="math inline">\(\leadsto\)</span> <strong>conditional probability</strong>) and</li>
-<li>how to check <strong>independence</strong> of events using conditional probabilities.</li>
+<li>how to check for <strong>independence</strong> of events using conditional probabilities.</li>
 <li>How to calculate unconditional probabilities from conditional probabilities (<span class="math inline">\(\leadsto\)</span> <strong>total probability</strong>) and</li>
-<li>how to “swap” the event of interest and the condition in the conditional probability if necessary (<span class="math inline">\(\leadsto\)</span> <strong>Bayes’ theorem</strong>).</li>
+<li>how to “swap” the event of interest and the condition in the conditional probability if necessary (<span class="math inline">\(\leadsto\)</span> the <strong>Bayes formula</strong>).</li>
 </ul>
 <hr />
 <div id="conditional-probabilities" class="section level2 hasAnchor" number="7.1">
@@ -414,7 +414,7 @@ a_2=Web&amp;0.08&amp;0.09&amp;0.13&amp;0.05&amp;0.03&amp;0.02\\
 <hr />
 </div>
 <div id="total-probability-and-the-bayes-formula" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Total probability and the Bayes’ formula<a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">7.4</span> Total probability and the Bayes formula<a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As already indicated, there are situations where some conditional probabilities are known, but one would need the total (unconditional) probabilities or the “reverse” conditional probabilities. We illustrate the whole thing with an example of product recommendations.</p>
 <hr />
 <div class="example">
