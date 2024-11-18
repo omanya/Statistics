@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2024-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,11 +183,11 @@
 <li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
-<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and the Bayes’ formula</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
-<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
-<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-total-probability"><i class="fa fa-check"></i><b>7.4.1</b> The total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> The Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-methodast"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method<span class="math inline">\(^\ast\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
@@ -413,16 +413,19 @@ a_2=Web&amp;0.08&amp;0.09&amp;0.13&amp;0.05&amp;0.03&amp;0.02\\
 </div>
 <hr />
 </div>
-<div id="total-probability-and-bayes-formula" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Total probability and Bayes’ formula<a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="total-probability-and-the-bayes-formula" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Total probability and the Bayes’ formula<a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As already indicated, there are situations where some conditional probabilities are known, but one would need the total (unconditional) probabilities or the “reverse” conditional probabilities. We illustrate the whole thing with an example of product recommendations.</p>
 <hr />
 <div class="example">
 <p><span id="exm:premf" class="example"><strong>Example 7.4  (Product recommendations) </strong></span>Cont. of Example <a href="conditional-probabilities-and-independence.html#exm:wurf123b">7.1</a>.</p>
-<p>A (purchased) model for product recommendations usually has quality specifications that quantify how well the model sorts customers into the appropriate product recommendation groups. Since these models are trained on the data sets of customers about whom it is already known which product they have bought, there is a measure of the quality of the separation after the model has been created, such as the “true-positive” probabilities that the customers who later bought product <span class="math inline">\(x\)</span> will also be sorted into the product recommendation group <span class="math inline">\(x\)</span>. Or the “false positive” probabilities that the product recommendation will be missed.</p>
+<ul>
+<li><p>A (purchased) model for product recommendations usually has quality specifications that quantify how well the model sorts customers into the appropriate product recommendation groups.</p></li>
+<li><p>The quality of such a model is specified by the “true-positive” probabilities that the customers who later bought product <span class="math inline">\(x\)</span> will also be sorted into the product recommendation group <span class="math inline">\(x\)</span>, as well as by the “false-positive” probabilities that the product recommendation will be missed.</p></li>
+</ul>
 <p>Let’s assume that there are three product groups (<span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span>) for which the model issues recommendations for each customer (<span class="math inline">\(E=\{E_1,E_2,E_3\}\)</span>).</p>
-<p>The basis for the model formation are the groups <span class="math inline">\(G = \{G_1;G_2,G_3\}\)</span> of customers who have purchased the respective product. The algorithm is to derive a “formula” from various customer characteristics to determine which product the customer will choose in the near future based on the characteristics. The model is then tested and it is determined how high the probability is that the model will make the right or wrong recommendation. Ideally, all customers from <span class="math inline">\(G_1\)</span> get the recommendation <span class="math inline">\(E_1\)</span> and so on.</p>
-<p>How well the model (without having the information to which group the customer belongs) assigns the corresponding recommendation can be determined for each product group by calculating the conditional probability:</p>
+<!--The basis for the model formation are the groups $G = \{G_1;G_2,G_3\}$ of customers who have purchased the respective product. The algorithm is to derive a “formula” from various customer characteristics to determine which product the customer will choose in the near future based on the characteristics. The model is then tested and it is determined how high the probability is that the model will make the right or wrong recommendation. Ideally, all customers from $G_1$ get the recommendation $E_1$ and so on.-->
+<p>The quality of a recommendation model (i.e. how well the model assigns the corresponding recommendation) can be determined for each product group by calculating the conditional probabilities:</p>
 <!--
 Ein Ratingmodell hat meistens Qualitätsangaben, die quantifizieren, wie gut das Modell die Kunden, denen die Ausfall droht, von den solventen Kunden trennen. Da diese Modelle an den Datensätzen von Kunden trainiert werden, über die man bereits weiß, ob die Ausfall hatten oder nicht, gibt es nach der Modellbildung ein Maß für die Güte der Trennung, wie etwa die Wahrscheinlichkeiten die jeweilige Kategorie zu bekommen separat für die **Gruppe der  solventen Kunden** und für die **Gruppen der Kunden mit (Teil)Ausfall**.
 
@@ -441,14 +444,14 @@ E_3&amp;0.05&amp;0.2&amp;0.85
 <p>For each group, you can then see quite clearly how much of the classification is correct (e.g. <span class="math inline">\(G_1\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_1)=0.8\)</span>) or incorrect (e.g. <span class="math inline">\(G_2\leadsto\)</span> <span class="math inline">\(\mathbb P(E_1|G_2) + P(E_3|G_2)=0.4\)</span>).</p>
 <p>The important questions here are:</p>
 <ul>
-<li><p>How likely is it that recommendations for the respective product will be offered at all? (In what proportions will they spend the recommendations on the products? KPIs, tussles between the product teams, …)</p></li>
-<li><p>What will be the convergence rates per product? (how many of the customers who are offered a product recommendation actually buy the product? We want high convergence rates).</p></li>
+<li><p>How likely is it that recommendations for the respective product will be offered at all? (In what proportions the different products are going to be recommended to the customers? Important for the sales teams!).</p></li>
+<li><p>What will be the convergence rates for the products? (How many of the customers, who are offered a product recommendation, actually buy the product? <span class="math inline">\(\leadsto\)</span> We want high convergence rates).</p></li>
 </ul>
-<p>The first question could be answered by specifying <span class="math inline">\(\mathbb P(E_i)\)</span>, the second - by specifying <span class="math inline">\(\mathbb P(G_i|E_i)\)</span>. But how do we calculate these probabilities if we only have the conditional probabilities of the form <span class="math inline">\(\mathbb P(E_i|G_i)\)</span>? (and perhaps still have an idea of the customer shares, buy products <span class="math inline">\(1,2,3\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(G_i)\)</span>). The answer is provided by the <strong>formula of total probability</strong> and the <strong>Bayes formula</strong>.</p>
+<p>The first question could be answered by specifying <span class="math inline">\(\mathbb P(E_i)\)</span>, the second - by specifying <span class="math inline">\(\mathbb P(G_i|E_i)\)</span>. But how do we calculate these probabilities if we only have the conditional probabilities of the form <span class="math inline">\(\mathbb P(E_i|G_i)\)</span>? (and perhaps an idea of the customer groups for products <span class="math inline">\(1,2,3\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(G_i)\)</span>). The answer is provided by the <strong>formula of the total probability</strong> and the <strong>Bayes formula</strong>.</p>
 </div>
 <hr />
-<div id="total-probability" class="section level3 hasAnchor" number="7.4.1">
-<h3><span class="header-section-number">7.4.1</span> Total probability<a href="conditional-probabilities-and-independence.html#total-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-total-probability" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> The total probability<a href="conditional-probabilities-and-independence.html#the-total-probability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We investigate how conditional probabilities can be used to determine unconditional probabilities of an event.</p>
 <p>The sets <span class="math inline">\(A_1, \ldots, A_n\)</span> form a <strong>decomposition</strong> (partition) of <span class="math inline">\(\Omega\)</span> if</p>
 <ul>
@@ -498,10 +501,9 @@ Analog:
 </div>
 <hr />
 </div>
-<div id="bayes-formula" class="section level3 hasAnchor" number="7.4.2">
-<h3><span class="header-section-number">7.4.2</span> Bayes formula<a href="conditional-probabilities-and-independence.html#bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The Bayes formula can be used to reverse the conclusion.</p>
-<p>Example: In medicine, we are interested in the probability of a disease in the event that a medical test is positive.</p>
+<div id="the-bayes-formula" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> The Bayes formula<a href="conditional-probabilities-and-independence.html#the-bayes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Bayes formula can be used to exchange the event, for which the probability is computed, and the condition (<span class="math inline">\(\mathbb P(A|B) \leadsto \mathbb P(B|A)\)</span>).</p>
 <p>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be two events with <span class="math inline">\(\mathbb P(B)&gt;0\)</span>. Then the following applies:</p>
 <p><span class="math display">\[\begin{equation*}
         \mathbb P(A|B) = \frac{\mathbb P(B|A)\cdot \mathbb P(A)}{\mathbb P(B)}.
@@ -531,8 +533,8 @@ Analog:
 </div>
 <hr />
 </div>
-<div id="product-recommendations-according-to-the-naive-bayes-method" class="section level3 hasAnchor" number="7.4.3">
-<h3><span class="header-section-number">7.4.3</span> Product recommendations according to the ‘Naive Bayes’ method<a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="product-recommendations-according-to-the-naive-bayes-methodast" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Product recommendations according to the ‘Naive Bayes’ method<span class="math inline">\(^\ast\)</span><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-methodast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to develop a model for the product recommendations yourself, the conditional probabilities and the formulas from this topic will help you again.</p>
 <hr />
 <div class="example">

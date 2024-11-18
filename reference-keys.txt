@@ -228,10 +228,10 @@ conditional-probabilities-and-independence
 conditional-probabilities
 independence
 additional-information-for-sampling
-total-probability-and-bayes-formula
-total-probability
-bayes-formula
-product-recommendations-according-to-the-naive-bayes-method
+total-probability-and-the-bayes-formula
+the-total-probability
+the-bayes-formula
+product-recommendations-according-to-the-naive-bayes-methodast
 random-variables
 discrete-random-variable
 probability-and-distribution-functions

@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2024-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,11 +183,11 @@
 <li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
-<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and the Bayes’ formula</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
-<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
-<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-total-probability"><i class="fa fa-check"></i><b>7.4.1</b> The total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> The Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-methodast"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method<span class="math inline">\(^\ast\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
@@ -273,60 +273,59 @@
 <li><p>An <strong>outcome</strong> or <strong>elementary event</strong> <span class="math inline">\(\omega\)</span> from the set <span class="math inline">\(\Omega\)</span> is</p>
 <ul>
 <li>the possible outcome of a random experiment,</li>
-<li>the future state of the experiment,</li>
+<li>the future state of the associated random process,</li>
 <li>or the characteristic value of a randomly selected object.</li>
 </ul></li>
 <li><p>Examples</p>
 <ul>
-<li>Result of a throw of the dice <span class="math inline">\(\Omega=\{1,\ldots, 6\}\)</span>;</li>
-<li>Price of a share at the end of the coming week: <span class="math inline">\(\Omega=\mathbb R_+\)</span>;</li>
+<li>Throwing a fair die with faces <span class="math inline">\(1,\ldots,6\)</span>: <span class="math inline">\(\Omega=\{1,\ldots, 6\}\)</span>;</li>
+<li>Stock price at the end of the next week: <span class="math inline">\(\Omega=\mathbb R_+\)</span>;</li>
 <li>Height of a randomly selected person: <span class="math inline">\(\Omega=\mathbb R_+\)</span>.</li>
 </ul></li>
-<li><p><strong>Events</strong> are situations of the stochastic process that can occur.
-can occur. Formally, an event is described as a <strong>subset of <span class="math inline">\(\omega\)</span></strong>, which contains all outcomes
-<span class="math inline">\(\omega\)</span> that are favorable for the occurrence of the event.</p></li>
+<li><p><strong>Events</strong> are situations of the stochastic process that can potentially occur. Formally, an event is described as a <strong>subset of <span class="math inline">\(\omega\)</span></strong>, which contains all outcomes <span class="math inline">\(\omega\)</span> that are favorable for the occurrence of the event. Examples:</p>
+<ul>
+<li>Throwing an odd number with a fair die: <span class="math inline">\(A=\{1,3,5\}\)</span>;</li>
+<li>Having a future stock price within a certain range;</li>
+<li>Selecting a person with a height greater than 2 meters;</li>
+</ul></li>
 <li><p>Special events are:</p>
 <ul>
-<li><strong>elementary event</strong> <span class="math inline">\(\{\omega\}\)</span>: consists of only <strong>one</strong> result <span class="math inline">\(\omega\in\Omega\)</span></li>
-<li><strong>safe event</strong> <span class="math inline">\(\Omega\)</span>: consists of all possible results</li>
-<li><strong>impossible event</strong><span class="math inline">\(\emptyset\)</span>: contains no result at all (empty set)</li>
-<li>Describing complex event structures with set-theoretic operations:
+<li>An <strong>elementary event</strong> <span class="math inline">\(\{\omega\}\)</span>: consists of only <strong>one</strong> outcome <span class="math inline">\(\omega\in\Omega\)</span>;</li>
+<li>The <strong>certain event</strong> <span class="math inline">\(\Omega\)</span>: consists of all possible outcomes;</li>
+<li>An <strong>impossible event</strong> <span class="math inline">\(\emptyset\)</span>: contains no valid outcomes at all (an empty set);</li>
+</ul></li>
+<li><p>Describing complex event structures with set-theoretic operations:
 <span class="math display">\[\begin{align*}
   A^c &amp;= \{\omega\in\Omega| \omega\not\in A\} = \text{ event
-  $A$ does not occur }\\\
+      $A$ does not occur }\\
   A\cup B&amp;= \{\omega\in\Omega| \omega\in A \text{ or } \omega\in
-  B\} = \text{ $A$ or $B$ enters }\\\
+  B\} = \text{ $A$ or $B$ enters }\\
   A\cap B&amp;= \{\omega\in \Omega| \omega\in A\text{ and } \omega\in
-  B\} = \text{ $A$ and $B$ enter }\\\
-  A\setminus B &amp;= \{\omega\in\omega|\omega\in A \text{ and }
-  \omega\not\in B\} = \text{ $A$ occurs, but
-  not $B$.}
-\end{align*}\]</span> B &amp;= {|A
-B} =
-\end{align*}</li>
-</ul></li>
-<li><p><strong>Power set</strong> <span class="math inline">\(\mathcal P(\Omega)\)</span> is the set of all subsets of <span class="math inline">\(\Omega\)</span>.</p></li>
+  B\} = \text{ $A$ and $B$ enter }\\
+  A\setminus B &amp;= \{\omega\in\omega|\omega\in A \text{ and }\omega\not\in B\} = \text{ $A$ occurs, but not $B$.}
+\end{align*}\]</span></p></li>
 <li><p>The <strong>power</strong> of <span class="math inline">\(A\)</span> denotes the number of all elements <span class="math inline">\(\omega\)</span> in <span class="math inline">\(A\)</span>; notation: <span class="math inline">\(|A|\)</span>.</p></li>
+<li><p>The <strong>Power set</strong> <span class="math inline">\(\mathcal P(\Omega)\)</span> is the set of all subsets of <span class="math inline">\(\Omega\)</span>.</p></li>
 </ul>
 <hr />
 <div class="example">
-<p><span id="exm:wurf123" class="example"><strong>Example 6.1  (Rolling a dice twice) </strong></span>We conduct the experiment: two-times rolling a fair dice with faces 1, 2 and 3 each on two sides of the dice.</p>
+<p><span id="exm:wurf123" class="example"><strong>Example 6.1  (Rolling a dice twice) </strong></span>We conduct the experiment: rolling two fair dice with faces 1, 2 and 3 each on two sides of the dice.</p>
 <ul>
 <li><p>Outcomes:
 <span class="math display">\[\begin{align*}
       \Omega &amp;= \{(1;1), (1;2), (1;3), (2;1),\ldots, (3;3)\}\\
       &amp;=\{(a,b) | a,b\in \{1; 2; 3\}\},
 \end{align*}\]</span>
-where <span class="math inline">\(a=\text {result in 1st throw}\)</span> and <span class="math inline">\(b=\text {result 2nd in throw}\)</span></p></li>
+where <span class="math inline">\(a=\)</span> outcome of the first die and <span class="math inline">\(b=\)</span> outcome of the second die.</p></li>
 <li><p>The power of <span class="math inline">\(\Omega\)</span> is: <span class="math inline">\(|\Omega| = \text{possibilities}^\text{number of repetitions} = 3^2=9.\)</span></p></li>
-<li><p>Events:</p>
+<li><p>Some events:</p>
 <ul>
-<li>verbal: <span class="math inline">\(A=\)</span>“Die Augensumme beider Würfel beträgt 4”; formal: <span class="math inline">\(A=\{(a,b)\in \Omega | a+b=4\} =\)</span> <span class="math inline">\(\{(1;3), (2;2), (3;1)\}\)</span></li>
-<li>verbal: <span class="math inline">\(B=\)</span>“Die Augenzahlen beider Würfel ungerade”; formal: <span class="math inline">\(B=\{(a,b)\in \Omega | a, b \text{ ungerade}\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (3;1), (3;3)\}\)</span></li>
-<li>verbal: <span class="math inline">\(A\cup B=\)</span>“Die Augensumme beider Würfel beträgt 4 oder die Augenzahlen sind ungerade”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ oder } a,b \text{ ungerade }\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (2;2), (3;1), (3;3)\}\)</span></li>
-<li>verbal: <span class="math inline">\(A\cap B=\)</span>“Die Augensumme beider Würfel beträgt 4 und zugleich die Augenzahlen sind ungerade”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ und } a,b \text{ ungerade }\} =\)</span> <span class="math inline">\(\{(1;3), (3;1)\}\)</span></li>
+<li>verbal: <span class="math inline">\(A=\)</span>“The sum of the dice is 4”; formal: <span class="math inline">\(A=\{(a,b)\in \Omega | a+b=4\} =\)</span> <span class="math inline">\(\{(1;3), (2;2), (3;1)\}\)</span>.</li>
+<li>verbal: <span class="math inline">\(B=\)</span>“The face of both dice show an odd number”; formal: <span class="math inline">\(B=\{(a,b)\in \Omega | a, b \text{ odd}\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (3;1), (3;3)\}\)</span></li>
+<li>verbal: <span class="math inline">\(A\cup B=\)</span>“The sum of the dice is 4 or the numbers are both odd”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ or } a,b \text{ odd }\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (2;2), (3;1), (3;3)\}\)</span></li>
+<li>verbal: <span class="math inline">\(A\cap B=\)</span>“The sum of the dice is 4 and in the same time the numbers are both odd”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ and } a,b \text{ odd }\} =\)</span> <span class="math inline">\(\{(1;3), (3;1)\}\)</span></li>
 </ul></li>
-<li><p>Interactive</p>
+<li><p>Interactive :</p>
 <ul>
 <li>switch to the section “Probability”,</li>
 <li>simulate dice rolls for different <span class="math inline">\(n\)</span>,</li>
@@ -342,9 +341,8 @@ where <span class="math inline">\(a=\text {result in 1st throw}\)</span> and <sp
 <h3><span class="header-section-number">6.1.2</span> Event space<a href="modelling-randomness.html#event-space" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All events for which a probability can be calculated are summarized in the <strong>event space</strong> <span class="math inline">\(\mathcal F\)</span>.</p>
 <ul>
-<li><p>Formally, <span class="math inline">\(\mathcal F\)</span> is a set of subsets
-of <span class="math inline">\(\Omega\)</span>, i.e. a subset of the power set <span class="math inline">\(\mathcal P(\Omega)\)</span>.</p></li>
-<li><p>In the case of a finite and countable result set, <span class="math inline">\(\mathcal F=\mathcal P(\Omega)\)</span> is normally chosen, as this event space then contains all events that can be defined for the random experiment at hand.</p></li>
+<li><p>Formally, <span class="math inline">\(\mathcal F\)</span> is a set of subsets of <span class="math inline">\(\Omega\)</span>.</p></li>
+<li><p>In the case of a finite and countable outcome set, <span class="math inline">\(\mathcal F=\mathcal P(\Omega)\)</span> is normally chosen, as this event space then contains all events that can be defined for the random experiment at hand.</p></li>
 </ul>
 <hr />
 <div class="example">
@@ -412,9 +410,9 @@ $$
 </div>
 <div id="probability-measure" class="section level3 hasAnchor" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> Probability measure<a href="modelling-randomness.html#probability-measure" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Probabilities of events quantify the <strong>uncertainty</strong> associated with the outcome of a random experiment. <strong>The probability measure</strong> assigns a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> to each event.</p>
-<p>For <span class="math inline">\(\omega\in\Omega\)</span>, the mapping is called <span class="math inline">\(\omega\mapsto\mathbb P(\omega)\)</span> <strong>probability measure</strong>. For an event <span class="math inline">\(A\in\mathcal F\)</span>, the probability of <span class="math inline">\(A\)</span> is equal to the sum of the probabilities for the outcomes contained in <span class="math inline">\(A\)</span>: <span class="math inline">\(\mathbb P(A) = \sum_{\omega\in A} \mathbb P(\omega)\)</span>.</p>
-<p>Every probability measure must fulfill the <strong>axioms of Kolmogorov</strong>:</p>
+<p>Probabilities of events quantify the <strong>uncertainty</strong> associated with the associated outcomes of a random experiment. <strong>The probability measure</strong> assigns a number between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> to each event.</p>
+<p>For <span class="math inline">\(\omega\in\Omega\)</span>, the mapping <span class="math inline">\(\omega\mapsto\mathbb P(\omega)\)</span> is called <strong>probability measure</strong>. For an event <span class="math inline">\(A\in\mathcal F\)</span>, the probability of <span class="math inline">\(A\)</span> is equal to the sum of the probabilities for the outcomes contained in <span class="math inline">\(A\)</span>: <span class="math inline">\(\mathbb P(A) = \sum_{\omega\in A} \mathbb P(\omega)\)</span>.</p>
+<p>Every probability measure must fulfill the <strong>Axioms of Kolmogorov</strong>:</p>
 <ul>
 <li><span class="math inline">\(\mathbb P(A)\geq 0\)</span>,</li>
 <li><span class="math inline">\(\mathbb P(\omega )=1\)</span>,</li>
@@ -425,17 +423,17 @@ $$
 <p>With <span class="math inline">\((\Omega, \mathcal F,\mathbb P)\)</span> a <strong>Laplace model</strong> exists if
 the following conditions are met:</p>
 <ul>
-<li><p>The result set <span class="math inline">\(\Omega\)</span> is finite and <strong>all results are equally probable</strong>.</p></li>
-<li><p>The power set <span class="math inline">\(\mathcal P(\Omega)\)</span> is chosen as the <strong>event space</strong>, i.e. each subset <span class="math inline">\(A\subseteq \Omega\)</span> is an event.</p></li>
+<li><p>The set of outcomes <span class="math inline">\(\Omega\)</span> is finite and <strong>all outcomes are equally probable</strong>.</p></li>
+<li><p>The power set <span class="math inline">\(\mathcal P(\Omega)\)</span> is chosen as the <strong>event space</strong> <span class="math inline">\(\mathcal F\)</span>, i.e. each subset <span class="math inline">\(A\subseteq \Omega\)</span> is an event.</p></li>
 </ul>
-<p>The <strong>probability of an event</strong> <span class="math inline">\(A\in\mathcal F\)</span> is then calculated by
+<p>Then, the <strong>probability of an event</strong> <span class="math inline">\(A\in\mathcal F\)</span> is then calculated by
 <span class="math display">\[\begin{equation*}
     \mathbb P(A) = \frac{|A|}{|\Omega|} = \frac{\text{number of favorable outcomes for the occurrence of $A$}} {\text{number of all possible outcomes}}
   \end{equation*}\]</span></p>
 <hr />
 <div class="example">
 <p><span id="exm:wurf123ff" class="example"><strong>Example 6.3  (Rolling a die twice) </strong></span>Cont. of Example <a href="modelling-randomness.html#exm:wurf123">6.1</a> and <a href="modelling-randomness.html#exm:wurf123f">6.2</a>.</p>
-<p>In this experiment, the sample set is finite, the outcomes are equally probable and we have chosen the power set of <span class="math inline">\(\Omega\)</span> as the event space. Consequently, Laplace’s probability model can be applied here.</p>
+<p>In this experiment, the sample space is finite, the outcomes are equally probable and we have chosen the power set of <span class="math inline">\(\Omega\)</span> as the event space. Consequently, Laplace’s probability model can be applied here.</p>
 <p><span class="math display">\[\begin{align}
 \mathbb P(A) &amp;= \frac{|A|}{|\Omega|}=\frac 39 = \frac 13,\\
 \mathbb P(B) &amp;= \frac{|B|}{|\Omega|}=\frac 49.
@@ -447,16 +445,15 @@ the following conditions are met:</p>
 <h4>Finite probability spaces<a href="modelling-randomness.html#finite-probability-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The triple <span class="math inline">\((\Omega,\mathcal F,\mathbb P)\)</span> is a <strong>finite probability space</strong> if the following conditions are met:</p>
 <ul>
-<li><p>The sample set <span class="math inline">\(\Omega\)</span> is finite.</p></li>
-<li><p>The power set <span class="math inline">\(\mathcal P(\Omega)\)</span> is chosen as the event field.</p></li>
-<li><p>The individual probabilities <span class="math inline">\(\mathbb P(\omega)\)</span> of all outcomes <span class="math inline">\(\omega\in\Omega\)</span> are non-negative and add up to
-<span class="math inline">\(1\)</span>.</p></li>
+<li><p>The sample space <span class="math inline">\(\Omega\)</span> is finite.</p></li>
+<li><p>The power set <span class="math inline">\(\mathcal P(\Omega)\)</span> is chosen as the event space.</p></li>
+<li><p>The individual probabilities <span class="math inline">\(\mathbb P(\omega)\)</span> of all outcomes <span class="math inline">\(\omega\in\Omega\)</span> are non-negative and add up to <span class="math inline">\(1\)</span>.</p></li>
 </ul>
-<p>The <strong>probability of an event</strong> <span class="math inline">\(A\subseteq \Omega\)</span> is then calculated by
+<p>Then, the <strong>probability of an event</strong> <span class="math inline">\(A\subseteq \Omega\)</span> is then calculated by
 <span class="math display">\[\begin{equation*}
         \mathbb P(A) = \sum_{\omega\in A} \mathbb P(\omega) = \text{sum of all function values } \mathbb P(\omega)\text{ with } \omega\in A.
 \end{equation*}\]</span>
-If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</span> for all <span class="math inline">\(\omega\in\Omega=\{\omega_1, \ldots, \omega_N\}\)</span>, this is a special case of a Laplace model.</p>
+If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</span> for all <span class="math inline">\(\omega\in\Omega=\{\omega_1, \ldots, \omega_N\}\)</span>, this is a Laplace model (which is a special case of a finite probability space).</p>
 <hr />
 <div class="example">
 <p><span id="exm:wurf123fff" class="example"><strong>Example 6.4  (Sum of the dice faces) </strong></span>Cont. of Example <a href="modelling-randomness.html#exm:wurf123">6.1</a> and <a href="modelling-randomness.html#exm:wurf123ff">6.3</a>.</p>
@@ -472,7 +469,7 @@ If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</spa
 \end{array}
 \]</span></p>
 <p>In this new experiment, the result set is still finite and the power set of <span class="math inline">\(\Omega\)</span> serves as the event space. Nevertheless, the results are <strong>not equally probable</strong>. Consequently, the general finite probability space is used here.</p>
-<p>For the events <span class="math inline">\(S_{&gt;4}: \text{the sum of the numbers of points is greater than 4}\)</span> and <span class="math inline">\(S_{even}: \text{the sum of the number of points is even}\)</span> applies:</p>
+<p>For the events <span class="math inline">\(S_{&gt;4}=\)</span>“the sum of the dice is greater than 4” and <span class="math inline">\(S_{even}=\)</span> “the sum of the dice is even” applies:</p>
 <p><span class="math display">\[\begin{align}
 \mathbb P(S_{&gt;4}) &amp;= \mathbb P(\{5\}) + \mathbb P(\{6\}) = \frac 13,\\
 \mathbb P(S_{even}) &amp;= \mathbb P(\{2\}) + \mathbb P(\{4\}) + \mathbb P(\{6\})=\frac 59.
@@ -504,7 +501,7 @@ If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</spa
 <p><span id="exm:wurf123ffff" class="example"><strong>Example 6.5  (Summe der Augenzahlen) </strong></span>Cont. of Example <a href="modelling-randomness.html#exm:wurf123fff">6.4</a>.</p>
 <ul>
 <li><span class="math inline">\(\Omega = \{2;3;4;5;6\}\)</span>,</li>
-<li><span class="math inline">\(\mathcal F=\mathcal P(\Omega)\)</span>: we still choose the power set as the event space,</li>
+<li><span class="math inline">\(\mathcal F=\mathcal P(\Omega)\)</span>: we still choose the power set to be the event space,</li>
 <li><span class="math inline">\(\mathbb P\)</span>:</li>
 </ul>
 <p><span class="math display">\[
@@ -512,48 +509,46 @@ If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</spa
 \mathbb P(\{\omega_i\})&amp;\frac 19&amp;\frac 29&amp;\frac 39&amp;\frac 29&amp;\frac 19
 \end{array}
 \]</span></p>
-<p>The following applies <span class="math inline">\(S_{&gt;4}: \text{the sum of the point numbers is greater than 4}\)</span> with <span class="math inline">\(\mathbb P(S_{&gt;4}) =\frac 13\)</span>, <span class="math inline">\(S_{even}: \text{the sum of the numbers is even}\)</span> with <span class="math inline">\(\mathbb P(S_{even}) =\frac 59.\)</span></p>
+<p>The following applies <span class="math inline">\(S_{&gt;4}=\)</span> “the sum of the dice is greater than 4” with <span class="math inline">\(\mathbb P(S_{&gt;4}) =\frac 13\)</span>, <span class="math inline">\(S_{even}=\)</span> “the sum of the dice is even” with <span class="math inline">\(\mathbb P(S_{even}) =\frac 59.\)</span></p>
 <ul>
-<li><p>For <span class="math inline">\(S_{&gt;2}:\text{the sum of the point numbers is greater than 2}\)</span> applies:</p>
-<ul>
-<li><span class="math inline">\(S_{&gt;2}^c=\text{the sum of the numbers of points is less than or equal to 2}=\{2\}\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(S_{&gt;2}^c)=\mathbb P(\{2\})=\frac 19\)</span>. Then <span class="math inline">\(\mathbb P(S_{&gt;2})=1-\mathbb P(S_{&gt;2}^c) = \frac 89.\)</span></li>
-<li>since <span class="math inline">\(S_{&gt;4}\subset S_{&gt;2}\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(S_{&gt;2}\setminus S_{&gt;4})=\mathbb P(S_{&gt;2}) - \mathbb P(S_{&gt;4}) =\frac 59,\)</span> where <span class="math inline">\(S_{&gt;2}\setminus S_{&gt;4} = S_{&gt;2}\cap S_{&gt;4}^c =\)</span> $. $</li>
-</ul></li>
-<li><p>For <span class="math inline">\(S_{&gt;4}\cap S_{even}: \text{the sum of the numbers is greater than 4 and even}\)</span> applies:</p>
-<ul>
-<li><span class="math inline">\(\mathbb P(S_{&gt;4}\cap S_{even}) = \mathbb P(\{6\}) = \frac 19.\)</span></li>
-</ul></li>
-<li><p>For <span class="math inline">\(S_{&gt;4}\cup S_{even}: \text{the sum of the point numbers is greater than 4 or even}\)</span> applies:</p>
-<ul>
-<li><span class="math inline">\(\mathbb P(S_{&gt;4}\cup S_{even}) = \mathbb P(S_{&gt;4}) + \mathbb P(S_{even}) - \mathbb P(S_{&gt;4}\cap S_{even}) = \frac 13 + \frac 59 - \frac 19 = \frac 79.\)</span></li>
-</ul></li>
+<li><p>For <span class="math inline">\(S_{&gt;2}=\)</span> “the sum of the dice is greater than 2”, we have <span class="math inline">\(S_{&gt;2}^c=\)</span> “the sum of the dice is less than or equal to 2” <span class="math inline">\(=\{2\}\)</span> <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(S_{&gt;2}^c)=\mathbb P(\{2\})=\frac 19\)</span>. Then
+<span class="math display">\[\mathbb P(S_{&gt;2})=1-\mathbb P(S_{&gt;2}^c) = \frac 89.\]</span></p></li>
+<li><p>For <span class="math inline">\(S_{&gt;4}\subset S_{&gt;2}\)</span> applies: <span class="math display">\[\mathbb P(S_{&gt;2}\setminus S_{&gt;4})=\mathbb P(S_{&gt;2}) - \mathbb P(S_{&gt;4}) =\frac 59.\]</span></p></li>
+<li><p>For <span class="math inline">\(S_{&gt;4}\cap S_{even}=\)</span> “the sum of the dice is greater than 4 and even” applies:
+<span class="math display">\[\mathbb P(S_{&gt;4}\cap S_{even}) = \mathbb P(\{6\}) = \frac 19.\]</span></p></li>
+<li><p>For <span class="math inline">\(S_{&gt;4}\cup S_{even}: \text{the sum of the point numbers is greater than 4 or even}\)</span> applies:
+<span class="math display">\[\mathbb P(S_{&gt;4}\cup S_{even}) = \mathbb P(S_{&gt;4}) + \mathbb P(S_{even}) - \mathbb P(S_{&gt;4}\cap S_{even}) = \frac 13 + \frac 59 - \frac 19 = \frac 79.\]</span></p></li>
 </ul>
 </div>
 <hr />
-<p>The calculation of probabilities in the Laplace model therefore only requires <strong>counting</strong> the favorable or possible results. For large quantities, however, this is hardly feasible <strong>without a system</strong>.</p>
-<p>Formulas of combinatorics:</p>
+<p>The calculation of probabilities in the Laplace model therefore only requires <strong>counting</strong> the favorable outcomes. For large quantities, however, this is hardly feasible <strong>without a system</strong>.</p>
+<p>Formulas:</p>
 <ul>
-<li>Choose <span class="math inline">\(k\)</span> times from <span class="math inline">\(n\)</span> possibilities…</li>
+<li><p>Permutations: different arrangements of <span class="math inline">\(k\)</span> possibilities on <span class="math inline">\(k\)</span> places (without repetitions): <span class="math display">\[k! = 1\cdot 2\cdot 3\cdot \ldots \cdot k\]</span>.</p></li>
+<li><p>Ordered selection outcomes: select <span class="math inline">\(k\)</span> times from <span class="math inline">\(n\)</span> possibilities…</p>
+<pre><code>- with repetitions: $n^k$;
+- without repetitions: $\frac{n!}{(n-k)!}$.</code></pre></li>
 </ul>
-<p><span class="math display">\[
+<!--
+$$
 \begin{array}{c|c|c}\hline
-\text{draws} &amp;\text{with array} &amp; \text{without array}\\\hline
-\text{with repetition} &amp;n^k &amp;\binom{n+k-1}{k}\\
-\text{without repetition}&amp;\frac{n!}{(n-k)!}&amp;\binom{n}{k}=\frac{n!}{(n-k)!\cdot k!}\\\hline
+\text{draws} &\text{with ordering} & \text{without ordering}\\\hline
+\text{with repetition} &n^k &\binom{n+k-1}{k}\\
+\text{without repetition}&\frac{n!}{(n-k)!}&\binom{n}{k}=\frac{n!}{(n-k)!\cdot k!}\\\hline
 \end{array}
-\]</span></p>
-<ul>
-<li>Different arrangements of <span class="math inline">\(k\)</span> possibilities on <span class="math inline">\(k\)</span> places (without repetitions) <span class="math inline">\(\leadsto\)</span> permutations: <span class="math inline">\(k\)</span>!</li>
-</ul>
+$$
+-->
 <hr />
 <div class="example">
 <p><span id="exm:ziehung" class="example"><strong>Example 6.6  (Sampling Customers) </strong></span>We draw <span class="math inline">\(3\)</span> customers at random from the customer pool consisting of a total of <span class="math inline">\(5\)</span> customers. I.e. <span class="math inline">\(n=5\)</span>, <span class="math inline">\(k=3\)</span>.</p>
 <ul>
-<li><p>There are <span class="math inline">\(5^3=125\)</span> variants (results) for the random selection with repetition (with backing up) and with consideration of the arrangement (order) of <span class="math inline">\(3\)</span> from <span class="math inline">\(5\)</span> customers.</p></li>
-<li><p>There are <span class="math inline">\(\binom{5+3-1}{3}=\binom{7}{3}= \frac{7!}{(7-3)!\cdot 3!}=35\)</span> variants for the random selection with weighing (with putting back) but without taking into account the arrangement (order) of <span class="math inline">\(3\)</span> from <span class="math inline">\(5\)</span> customers.</p></li>
-<li><p>There are <span class="math inline">\(\frac{5!}{(5-3)!}=60\)</span> variants for the random selection without weighing (without putting back) but with consideration of the arrangement (order) of <span class="math inline">\(3\)</span> out of <span class="math inline">\(5\)</span> customers.</p></li>
-<li><p>There are <span class="math inline">\(\binom{5}{3}= \frac{5!}{(5-3)!\cdot 3!}=10\)</span> variants for the random selection without weighing (without putting back) and without taking into account the arrangement (the order) of <span class="math inline">\(3\)</span> from <span class="math inline">\(5\)</span> customers.</p></li>
+<li><p>There are <span class="math inline">\(5^3=125\)</span> outcomes for the random selection with repetitions (same customer can be drawn more than once) of <span class="math inline">\(3\)</span> from <span class="math inline">\(5\)</span> customers.</p></li>
+<li><p>There are <span class="math inline">\(\frac{5!}{(5-3)!}=60\)</span> variants for the random selection without repetitions (same customer can NOT be drawn more than once) of <span class="math inline">\(3\)</span> out of <span class="math inline">\(5\)</span> customers.</p></li>
 </ul>
+<!-- 
+ - There are $\binom{5+3-1}{3}=\binom{7}{3}= \frac{7!}{(7-3)!\cdot 3!}=35$ variants for the random selection with weighing (with putting back) but without taking into account the arrangement (order) of $3$ from $5$ customers.
+ 
+ - There are $\binom{5}{3}= \frac{5!}{(5-3)!\cdot 3!}=10$ variants for the random selection without weighing (without putting back) and without taking into account the arrangement (the order) of $3$ from $5$ customers.-->
 </div>
 <hr />
 </div>
@@ -630,10 +625,10 @@ Usage~a_i&amp;App&amp;Web&amp;App&amp;App&amp;Web\\\hline
 <li><p>Probability measure: Equal probabilities</p></li>
 <li><p>Events:</p>
 <ul>
-<li><p><span class="math inline">\(A_3=\)</span> 3 times app: only customers 1, 3 and 4 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_3|=3^3=27\)</span> and <span class="math inline">\(\mathbb P(A_3)=\frac{27}{125}.\)</span></p></li>
-<li><p><span class="math inline">\(A_0=\)</span> 0-times app: only customers 2 and 5 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_0|=2^3=8\)</span> and <span class="math inline">\(\mathbb P(A)=\frac{8}{125}.\)</span></p></li>
-<li><p><span class="math inline">\(A_1=\)</span> 1-time app: one seat is occupied by customer 1, 3 or 4; two other seats - by customer 2 or 5 <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_1|=3\cdot 3\cdot 2^2=36\)</span> and <span class="math inline">\(\mathbb P(A_1)=\frac{36}{125}.\)</span></p></li>
-<li><p><span class="math inline">\(A_2=\)</span> 2 times App <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(A_2)=1-\mathbb P(A_2^c) = 1-(P(A_0) + P(A_1) + P(A_3))= 1-\frac{71}{125} = \frac{54}{125}.\)</span></p></li>
+<li><p><span class="math inline">\(A_3=\)</span> “3 times App”: only customers 1, 3 and 4 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_3|=3^3=27\)</span> and <span class="math inline">\(\mathbb P(A_3)=\frac{27}{125}.\)</span></p></li>
+<li><p><span class="math inline">\(A_0=\)</span> “no App”: only customers 2 and 5 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_0|=2^3=8\)</span> and <span class="math inline">\(\mathbb P(A)=\frac{8}{125}.\)</span></p></li>
+<li><p><span class="math inline">\(A_1=\)</span> “App just once”: one place is occupied by customers 1, 3 or 4; two other places - by customers 2 or 5 <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_1|=3\cdot 3\cdot 2^2=36\)</span> and <span class="math inline">\(\mathbb P(A_1)=\frac{36}{125}.\)</span></p></li>
+<li><p><span class="math inline">\(A_2=\)</span> “2 times App” <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(A_2)=1-\mathbb P(A_2^c) = 1-(P(A_0) + P(A_1) + P(A_3))= 1-\frac{71}{125} = \frac{54}{125}.\)</span></p></li>
 </ul></li>
 </ul>
 <p><strong>What is expected on average (across all sample outocmes)?</strong></p>
@@ -643,7 +638,7 @@ Usage~a_i&amp;App&amp;Web&amp;App&amp;App&amp;Web\\\hline
 or as a proportion <span class="math inline">\(\frac{1.8}{3}=0.6\)</span> <span class="math inline">\(\leadsto\)</span> so on average we have the same proportion (60%) of app users as in the entire customer base!</p>
 </div>
 <hr />
-<p>Sometimes two or more characteristics are of interest: based on our example “number of orders” (see <a href="sample-measures.html#exm:best2">2.7</a>), we could now model in connection with an additional characteristic such as “use of app or web interface”. What then happens during sampling?</p>
+<p>Sometimes two or more characteristics are of interest: based on our example “number of orders” (see <a href="sample-measures.html#exm:best2">2.7</a>), we could now model in connection with an additional characteristic such as “use of app or web interface”. What does then happen during the sampling?</p>
 <hr />
 <div class="example">
 <p><span id="exm:ziehungbest" class="example"><strong>Example 6.9  (Orders and Usage) </strong></span>Here, too, we simplify the whole thing a little and assume that we already know the <strong>common probabilities</strong>. Now we randomly select user accounts and determine how many order transactions there were in the last month and via which system (app or web) they were made.</p>
@@ -670,11 +665,11 @@ a_2=Web&amp;0.08&amp;0.09&amp;0.13&amp;0.05&amp;0.03&amp;0.02\\
 <ul>
 <li><p>Events:</p>
 <ul>
-<li><p><span class="math inline">\(A_1 =\)</span> Orders via app <span class="math inline">\(\leadsto\)</span>
+<li><p><span class="math inline">\(A_1 =\)</span> “Orders via the App” <span class="math inline">\(\leadsto\)</span>
 <span class="math display">\[\begin{align}\mathbb P(A_1)&amp;=\mathbb P((App;1),\ldots,(App;6)) =\\&amp;~~~0.02 + \ldots + 0.08 = 0.6.\end{align}\]</span></p></li>
-<li><p><span class="math inline">\(B_{\geq 3}=\)</span> At least 3 orders <span class="math inline">\(\leadsto\)</span>
+<li><p><span class="math inline">\(B_{\geq 3}=\)</span> “At least 3 orders” <span class="math inline">\(\leadsto\)</span>
 <span class="math display">\[\begin{align}\mathbb P(B_{\geq 3})&amp;=\mathbb P((App;3),\ldots,(App;6),(Web;3),\ldots,(Web;6)) =\\&amp;~~0.12 + \ldots + 0.08 + 0.13 + \ldots + 0.02 = 0.75.\end{align}\]</span></p></li>
-<li><p><span class="math inline">\(A_1\cap B_{\geq 3}=\)</span> At least 3 orders via app <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(A_1\cap B_{\geq 3}=\{(App;3),(App;4),(App;5),(App;6)\}\)</span>
+<li><p><span class="math inline">\(A_1\cap B_{\geq 3}=\)</span> “At least 3 orders via the App” <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(A_1\cap B_{\geq 3}=\{(App;3),(App;4),(App;5),(App;6)\}\)</span>
 <span class="math display">\[\begin{align}\mathbb P(A_1\cap B_{\geq 3})&amp;=\mathbb P((App;3),(App;4),(App;5),(App;6)) =\\&amp;~~~0.12 + 0.2 + 0.12 + 0.08 = 0.52.\end{align}\]</span></p></li>
 </ul></li>
 </ul>

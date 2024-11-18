@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-11-11" />
+<meta name="date" content="2024-11-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -183,11 +183,11 @@
 <li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>7.3</b> Additional information for sampling</a></li>
-<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and Bayes’ formula</a>
+<li class="chapter" data-level="7.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>7.4</b> Total probability and the Bayes’ formula</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability"><i class="fa fa-check"></i><b>7.4.1</b> Total probability</a></li>
-<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> Bayes formula</a></li>
-<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-method"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method</a></li>
+<li class="chapter" data-level="7.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-total-probability"><i class="fa fa-check"></i><b>7.4.1</b> The total probability</a></li>
+<li class="chapter" data-level="7.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-bayes-formula"><i class="fa fa-check"></i><b>7.4.2</b> The Bayes formula</a></li>
+<li class="chapter" data-level="7.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-methodast"><i class="fa fa-check"></i><b>7.4.3</b> Product recommendations according to the ‘Naive Bayes’ method<span class="math inline">\(^\ast\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>8</b> Random variables</a>
@@ -247,22 +247,22 @@
             <section class="normal" id="section-">
 <div id="ii-probability-theory" class="section level1 unnumbered hasAnchor">
 <h1>II Probability theory<a href="ii-probability-theory.html#ii-probability-theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In Part I, we learned how to summarize, visualize and analyze the data from an <strong>existing</strong> sample (from a partial survey, that is) for one or more characteristics. However, our goal has not yet been achieved at this point, because what we <em>really</em> want to achieve are valid <strong>inferences</strong> about the distribution in the population based on this <strong>sample realization</strong>. At present, it is not yet clear</p>
+<p>In Part I, we learned how to summarize, visualize and analyze the data based on a concrete <strong>sample</strong> for one or more characteristics (a small part of the population). However, our goal has not yet been achieved at this point, because what we want to achieve are valid <strong>inferences</strong> about the distribution in the population based on this sample. At present, it is not yet clear</p>
 <ul>
 <li>whether such inferences are permissible at all,</li>
 <li>and if so, what must be taken into account?</li>
-<li>Which key figures from Part I provide information about which parameters of the population and</li>
-<li>why did we calculate the key figures the way we did? (Where do the formulas come from?)</li>
+<li>Which <strong>sample measures</strong> from Part I provide information about which <strong>parameters of the population</strong> and</li>
+<li>why did we calculate the sample measures the way we did? (where did the corresponding formulas come from?)</li>
 </ul>
-<p>In order to answer these and other questions in this regard, we must first understand how a possible sample realization can be modeled as the result of a <strong>random selection</strong> from a population, i.e. a <strong>random process</strong>.</p>
-<p>Probability theory describes <strong>stochastic processes</strong> such as:</p>
+<p>In order to answer these and other questions, we must first understand how a possible sample realization can be modeled as the result of a <strong>random selection</strong> from a population, i.e. as a <strong>random experiment</strong> or a <strong>random process</strong>.</p>
+<p>Probability theory describes <strong>random processes</strong> such as:</p>
 <ul>
 <li>the roll of a 6 on a dice,</li>
 <li>the price development of a share,</li>
 <li>the default of a borrower</li>
 </ul>
-<p>as well as sampling using suitable <strong>stochastic models</strong>. The term characteristic from Part I now corresponds to the new term <strong>random variable</strong> from the point of view of probability theory. As with characteristics with empirical distributions, we are primarily interested in the now modeled <strong>distributions of random variables</strong>.</p>
-<p>In this section, we deal with the probabilistic background and start with the <strong>model of the random process</strong>.</p>
+<p>as well as sampling using suitable <strong>stochastic models</strong>. The term characteristic or feature from Part I now corresponds to the new term <strong>random variable</strong> in probability theory. As with characteristics with their empirical distributions, we are primarily interested in the now modeled <strong>distributions of random variables</strong>.</p>
+<p>In this section, we deal with the probabilistic background and start with the <strong>model of random processes</strong>.</p>
 </div>
             </section>
 
