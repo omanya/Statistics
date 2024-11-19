@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-11-18" />
+<meta name="date" content="2024-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -247,6 +247,76 @@
             <section class="normal" id="section-">
 <div id="modelling-randomness" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Modelling randomness<a href="modelling-randomness.html#modelling-randomness" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script>
+function checkAnswer_mmc(q) {
+  const selectedOptions = document.querySelectorAll('input[name="option'+q.id+'"]:checked');
+  if (selectedOptions.length === 2) {
+    const userAnswers = Array.from(selectedOptions).map(option => option.value);
+    const correctAnswers = q.answer;
+    const isCorrect = userAnswers.every(answer => correctAnswers.includes(answer));
+    
+    if (isCorrect) {
+      document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+    } else {
+      document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+    }
+  } else {
+    document.getElementById('result'+q.id).textContent = 'Please select two options.';
+  }
+}
+// numeric
+function generateQuestion_num(id) {
+  // Generate two random numbers between 2 and 10
+  const num1 = Math.floor(Math.random() * 10) + 2;
+  const num2 = Math.floor(Math.random() * 10) + 2;
+  const x1 = Math.floor(Math.random() * 100) + 2;
+  const x2 = Math.floor(Math.random() * 100) + 2;
+  const x3 = Math.floor(Math.random() * 100) + 2;
+  const x4 = Math.floor(Math.random() * 100) + 2;
+  const x5 = Math.floor(Math.random() * 100) + 2;
+  const x6 = Math.floor(Math.random() * 100) + 2;
+  
+  // Calculate the correct answer
+  let answer = num1*Math.sqrt(x1) + num2*Math.sqrt(x2);
+  
+  
+  // Return the question and answer as an object
+  return {
+    // question: num1 + "\\(\\sqrt{x}+\\)"+ num2 + "\\(\\sqrt{y}\\)" + " for \\(x=\\)" + x1 + " and \\(y=\\)" + x2,
+    question: [num1,num2,x1,x2,x3,x4,x5,x6],
+    answer: answer,
+    id: id
+  };
+}
+
+function checkAnswer_num(q) {
+  const userAnswer = document.getElementById('answer'+q.id).value;
+  const isCorrect = Math.round(parseFloat(userAnswer)*100)/100 === Math.round(q.answer*100)/100;
+  
+  if (isCorrect) {
+    document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+  } else {
+    document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+  }
+}
+
+// plain multiple choice
+function checkAnswer_match(q) {
+  const selectedOption = document.querySelector('input[name="option'+q.id+'"]:checked');
+  if (selectedOption) {
+    const userAnswer = selectedOption.value;
+    const isCorrect = userAnswer === q.answer;
+    
+    if (isCorrect) {
+      document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
+    } else {
+      document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
+    }
+  } else {
+    document.getElementById('result'+q.id).textContent = 'Please select an option.';
+  }
+}
+</script>
 <p>A <strong>random process</strong> or (if repeatable) <strong>random experiment</strong> is a process characterized by several possible, different, mutually exclusive <strong>outcomes</strong>. The result is unknown before it is carried out. The uncertainty associated with the occurrence of a specific result is described by <strong>probabilities</strong>.</p>
 <p>Each random process can be described by a <strong>probability space</strong>.</p>
 <hr />
@@ -685,6 +755,55 @@ a_2=Web&amp;0.08&amp;0.09&amp;0.13&amp;0.05&amp;0.03&amp;0.02\\
 <iframe title="Wortwolke" src="http://learning-dashboard.lehre.hwr-berlin.de:3838/Apps_RBook/#section-wortwolke" width="760" height="600"></iframe>
 ```
 -->
+<div id="q14" class="quiz">
+<p id="question">
+<span id="question-text14"></span>
+</p>
+<input type="number" id="answer14" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj14)">Submit</button>
+<p id="result14">
+</p>
+<script>
+        
+        // Generate a random question
+        const questionObj14 = generateQuestion_num(14);
+        // Display the question
+        document.getElementById('question-text14').textContent = "Assume you roll two fair dice with faces \\(1,2,3,4,5,6\\). Compute the probability of getting a sum of two dice equal or greater than \\(10.\\)";
+        questionObj14.answer = 6/36
+</script>
+<hr />
+<p id="question">
+<span id="question-text24"></span>
+</p>
+<input type="number" id="answer24" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj24)">Submit</button>
+<p id="result24">
+</p>
+<script>
+        
+        // Generate a random question
+        const questionObj24 = generateQuestion_num(24);
+        // Display the question
+        document.getElementById('question-text24').textContent = "Assume you roll two fair dice with faces \\(1,2,3,4,5,6\\). Compute the probability of getting a sum of two dice smaller than \\(10.\\)"
+        questionObj24.answer = 1-6/36
+</script>
+<hr />
+<p id="question">
+<span id="question-text34"></span>
+</p>
+<input type="number" id="answer34" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj34)">Submit</button>
+<p id="result34">
+</p>
+<script>
+        
+        // Generate a random question
+        const questionObj34 = generateQuestion_num(34);
+        // Display the question
+        document.getElementById('question-text34').textContent = "Assume you roll two fair dice with faces \\(1,2,3,4,5,6\\). Compute the probability of getting a sum of two dice equal to or greater than \\(10\\), when known that the first die shows the face with the number \\(5.\\)";
+        questionObj34.answer = 2/36/(6/36)
+</script>
+</div>
 
 </div>
 </div>
