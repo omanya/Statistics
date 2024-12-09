@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-11-25" />
+<meta name="date" content="2024-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -195,13 +195,13 @@
 <li class="chapter" data-level="8.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>8.1</b> Discrete random variable</a>
 <ul>
 <li class="chapter" data-level="8.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>8.1.1</b> Probability and distribution functions</a></li>
-<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-for-discrete-random-variables"><i class="fa fa-check"></i><b>8.1.2</b> Expected value and variance for discrete random variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>8.2</b> Continuous random variables</a>
 <ul>
 <li class="chapter" data-level="8.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>8.2.1</b> Density function</a></li>
 <li class="chapter" data-level="8.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>8.2.2</b> Distribution function</a></li>
-<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-1"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance</a></li>
+<li class="chapter" data-level="8.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-for-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.3</b> Expected value and variance for continuous random variables</a></li>
 <li class="chapter" data-level="8.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>8.2.4</b> Quantiles of continuous random variables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>8.3</b> Some important distributions</a>
@@ -642,8 +642,8 @@ p_i&amp;0.08&amp;0.11&amp;0.13&amp;0.11&amp;0.03&amp;0.14&amp;0.4
 <hr />
 </div>
 </div>
-<div id="expected-value-and-variance" class="section level3 hasAnchor" number="8.1.2">
-<h3><span class="header-section-number">8.1.2</span> Expected value and variance<a href="random-variables.html#expected-value-and-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="expected-value-and-variance-for-discrete-random-variables" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Expected value and variance for discrete random variables<a href="random-variables.html#expected-value-and-variance-for-discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in the descriptive statistics, it makes sense to define some meaningful <strong>parameters</strong>, that essentially describe the distribution of a random variable. For both types of random variables, we define the mean value <span class="math inline">\(\leadsto\)</span> <strong>expected value</strong>, a measure for the spread <span class="math inline">\(\leadsto\)</span> <strong>variance</strong> and <strong>standard deviation</strong>.
 <!--For two discrete random variables, we also define **covariance** and  **correlation**.--></p>
 <p>Expected value and variance are the most important metrics, as many families of distributions (more on this later) are clearly defined by these two metrics. The two key metrics give us information about the mean position and variability of the values of random variables.</p>
@@ -686,7 +686,7 @@ p_i&amp;0.08&amp;0.11&amp;0.13&amp;0.11&amp;0.03&amp;0.14&amp;0.4
 </div>
 </div>
 <div id="properties-of-variance" class="section level4 unnumbered hasAnchor">
-<h4>Properties of Variance<a href="random-variables.html#properties-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<h4>Properties of variance<a href="random-variables.html#properties-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li><span class="math inline">\(\text{Var}(aX+b)= a^2\text{Var}(X)\)</span> (linear transformation)</li>
 <li><span class="math inline">\(\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y)\)</span> if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are stochastically independent.</li>
@@ -896,7 +896,7 @@ Yuhu! We have a positive association between the app usage and the number of ord
 </div>
 <div id="continuous-random-variables" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Continuous random variables<a href="random-variables.html#continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We have seen how to model discrete random variables. However, there are certainly cases where the framework of discrete random variables is not sufficient. For example, when we look at sizes, lengths, volumes, but also when we examine sales, times in spend in our online shop, waiting times or asset returns. These variables take on many different values, which makes modeling difficult for us because we have to take all their probabilities into account 🤔. In addition, due to varying measurement precision, we usually cannot distinguish between the online shopping time of <span class="math inline">\(12\)</span> minutes and <span class="math inline">\(12,01\)</span> minutes. Then why not just look at a range, e.g. <span class="math inline">\((11,5, 12.5)\)</span> minutes directly? In this case, instead of looking at fixed values, it makes sense to look at entire <strong>regions/ intervals</strong> (<span class="math inline">\(\leadsto\)</span> <strong>continuous random variables</strong>) and at the <strong>density</strong> of these regions as the basis for the probability calculation, with the probabilities represented as areas under this density on the corresponding interval. This implies that the probability of hitting a very specific value (the point probability) becomes zero.</p>
+<p>We have seen how to model discrete random variables. However, there are certainly cases where the framework of discrete random variables is not sufficient. For example, when we look at sizes, lengths, volumes, but also when we examine sales, times in spend in our online shop, waiting times or asset returns. These variables take on many different values, which makes modeling difficult for us because we have to take all their probabilities into account 🤔. In addition, due to varying measurement precision, we usually cannot distinguish between the online shopping time of <span class="math inline">\(12\)</span> minutes and <span class="math inline">\(12.01\)</span> minutes. Then why not just look at a range, e.g. <span class="math inline">\((11.5, 12.5)\)</span> minutes directly? In this case, instead of looking at fixed values, it makes sense to look at entire <strong>regions/ intervals</strong> (<span class="math inline">\(\leadsto\)</span> <strong>continuous random variables</strong>) and at the <strong>density</strong> of these regions as the basis for the probability calculation, with the probabilities represented as areas under this density on the corresponding interval. This implies that the probability of hitting a very specific value (the point probability) becomes zero.</p>
 <p>A random variable <span class="math inline">\(X\)</span> is said to be <strong>continuous</strong> if there is a function (<strong>density function</strong>) <span class="math inline">\(x\mapsto f(x)\geq 0\)</span>,
 so that for every interval <span class="math inline">\([a,b]\)</span> we have:
 <span class="math display">\[\begin{equation*}
@@ -1011,7 +1011,7 @@ Figure 8.6: Probability density of X=Time in online shop with probabilities as a
 </div>
 </div>
 <p><span class="math display">\[\begin{align}
-F(x) &amp;= \int_{{0}}^x f(t)~ dt = \int_{0}^x 0.01~ dt=\left[0.01\cdot t 0\right]_{0}^x \\
+F(x) &amp;= \int_{{0}}^x f(t)~ dt = \int_{0}^x 0.01~ dt=\left[0.01\cdot t \right]_{0}^x \\
 &amp; = 0.01\cdot x  - \left(0.01\cdot 0 \right)\\
 &amp;=0.005x.
 \end{align}\]</span></p>
@@ -1035,7 +1035,7 @@ Figure 8.7: Cumulative distribution function of X=Time in online shop
 <p>Using the cumulative distribution function, we can calculate the event probabilities:</p>
 <ul>
 <li><p><span class="math inline">\(\{X&lt;20\}=\text{&quot;Time in shop less than 20 minutes&quot;}\)</span>: <span class="math display">\[\begin{align}\mathbb P(X&lt;20)&amp;= \mathbb P(X\leq20)=F(20) = 0\cdot 20= 0.2.\end{align}\]</span></p></li>
-<li><p><span class="math inline">\(\{X&lt;60\}=\text{&quot;Time in shop less than 60 minuts&quot;}\)</span>:<span class="math display">\[\begin{align}\mathbb P(X&lt;60)&amp;=\mathbb P(X\leq60)=F(60) = 0.6.\end{align}\]</span></p></li>
+<li><p><span class="math inline">\(\{X&lt;60\}=\text{&quot;Time in shop less than 60 minutes&quot;}\)</span>:<span class="math display">\[\begin{align}\mathbb P(X&lt;60)&amp;=\mathbb P(X\leq60)=F(60) = 0.6.\end{align}\]</span></p></li>
 <li><p><span class="math inline">\(\{X &gt;30\}=\text{&quot;Time in shop more than 30 minutes&quot;}\)</span>:<span class="math display">\[\begin{align}
   \mathbb P(X&gt;30)&amp;=1-\mathbb P(X\leq30)= 1-F(30) \\
   &amp;= 0.7.\end{align}\]</span></p></li>
@@ -1156,8 +1156,8 @@ Hint: use conditional probability and note that \(\mathbb P((0.1 \leq X \leq 0.3
 :::-->
 <hr />
 </div>
-<div id="expected-value-and-variance-1" class="section level3 hasAnchor" number="8.2.3">
-<h3><span class="header-section-number">8.2.3</span> Expected value and variance<a href="random-variables.html#expected-value-and-variance-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="expected-value-and-variance-for-continuous-random-variables" class="section level3 hasAnchor" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Expected value and variance for continuous random variables<a href="random-variables.html#expected-value-and-variance-for-continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Expected value and variance are the most important metrics, as many families of distributions (more on this later) are clearly defined by these two metrics. The two measures give us information about the mean position and variability of the values of random variables.</p>
 <div id="expected-value-1" class="section level4 unnumbered hasAnchor">
 <h4>Expected value<a href="random-variables.html#expected-value-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1213,7 +1213,7 @@ Hint: use conditional probability and note that \(\mathbb P((0.1 \leq X \leq 0.3
 <div class="row">
 <div class="column" style="width:60%;">
 <p><span class="math display">\[
-f(x) = \begin{cases}0, &amp;\text{ for } 0\leq x\leq 100,\\
+f(x) = \begin{cases}0.01, &amp;\text{ for } 0\leq x\leq 100,\\
                       0, &amp;\text{ else }.\end{cases}
 \]</span></p>
 </div>
@@ -1286,13 +1286,13 @@ f(x) = \begin{cases}0, &amp;\text{ for } 0\leq x\leq 100,\\
 </div>
 <div id="quantiles-of-continuous-random-variables" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Quantiles of continuous random variables<a href="random-variables.html#quantiles-of-continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In the first part of statistics course, we determined empirical quantiles. They helped us to understand which value divides the ordered observations so that at least a proportion <span class="math inline">\(p\)</span> of the observations are less than or equal and at least a proportion <span class="math inline">\(1-p\)</span> - greater or equal. In other words, <span class="math inline">\(\hat q_p\)</span> has answered the question: which value is fallen below with frequency <span class="math inline">\(p\)</span> or exceeded with frequency <span class="math inline">\(1-p\)</span>? The same logic is used to define <strong>quantiles</strong> for random variables, except that it is now about the probability of falling below or exceeding this value.</p>
+<p>In the first part of statistics course, we determined the empirical quantiles. They helped us to understand which value divides the ordered observations so that at least a proportion <span class="math inline">\(p\)</span> of the observations are less than or equal and at least a proportion <span class="math inline">\(1-p\)</span> - greater or equal. In other words, <span class="math inline">\(\hat q_p\)</span> has answered the question: which value is fallen below with frequency <span class="math inline">\(p\)</span> or exceeded with frequency <span class="math inline">\(1-p\)</span>? The same logic is used to define <strong>quantiles</strong> for random variables, except that it is now about the probability of falling below or exceeding this value.</p>
 <div class="definition">
-<p><span id="def:defquant" class="definition"><strong>Definition 8.5  (Quantile (continuous rv)) </strong></span>The <strong><span class="math inline">\(p\)</span>-quantile</strong> of a <strong>continuous</strong> random variable <span class="math inline">\(X\)</span> with density <span class="math inline">\(f(x)&gt;0\)</span> on an interval in <span class="math inline">\(\mathbb R\)</span> is the number <span class="math inline">\(q_p\)</span> with <span class="math inline">\(0&lt;p&lt; 1\)</span>, for which applies:
+<p><span id="def:defquant" class="definition"><strong>Definition 8.5  (Quantile for continuous rv) </strong></span>The <strong><span class="math inline">\(p\)</span>-quantile</strong> of a <strong>continuous</strong> random variable <span class="math inline">\(X\)</span> with density <span class="math inline">\(f(x)&gt;0\)</span> on an interval in <span class="math inline">\(\mathbb R\)</span> is the number <span class="math inline">\(q_p\)</span> with <span class="math inline">\(0&lt;p&lt; 1\)</span>, for which applies:
 <span class="math display">\[\begin{equation*}
       \mathbb P(X&lt;q_p)=\mathbb P(X\leq q_p)=F(q_p)=p.
 \end{equation*}\]</span></p>
-<p>The quantile is (for continuous random variables) clearly determined by the inverse of the distribution function,
+<p>The quantile for continuous random variables is uniquely determined by the inverse of the distribution function,
 <span class="math display">\[\begin{equation*}
     q_p=F^{(-1)}(p).
 \end{equation*}\]</span></p>
@@ -1383,8 +1383,8 @@ The distribution function takes the value <span class="math inline">\(0.9\)</spa
 </div>
 <div id="some-important-distributions" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Some important distributions<a href="random-variables.html#some-important-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We have already modeled some random variables and it was always quite time-consuming to derive the distribution of random variables. We had to look at the original random process and determine for each result what value the random variable takes on for this result and derive the probability of the values based on that. Or with the continuous random variables, we had to laboriously calculate the distribution function, the expected value and the variance based on the density 💩.</p>
-<p>Luckily 😍 there are some pretty universal <strong>distribution models</strong> with variable parameters for which nice properties are already known and key figures can be determined using the parameters, so you don’t have to use them every time must be derived again.</p>
+<p>We have already modeled some random variables and it was always quite time-consuming to derive their distribution. We had to look at the original random process and determine for each outcome what value the random variable takes on, and derive the probability of the values based on that. Or with the continuous random variables, we had to laboriously calculate the distribution function, the expected value and the variance based on the density 💩.</p>
+<p>Luckily 😍 there are some pretty universal <strong>distribution models</strong> with variable parameters for which nice properties are already known and <span class="math inline">\(\mathbb E(X)\)</span> and <span class="math inline">\(\text{Var}(X)\)</span> can be determined using known formulas and the parameters of the models, so you don’t have to derive them yourself.</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-159"></span>
 <img src="_main_files/figure-html/unnamed-chunk-159-1.png" alt="Distributional models: Bernoulli, Binomial, and Normal distributions for random variables" width="672" />
 <p class="caption">
@@ -1407,7 +1407,7 @@ is <strong>Bernoulli distributed</strong> with parameter <span class="math inlin
 <p>Examples of <span class="math inline">\(A\)</span>:</p>
 <ul>
 <li>an even number is obtained when rolling the dice;</li>
-<li>a loan customer does not repay his loan;</li>
+<li>a loan customer does not repay the loan;</li>
 <li>a patient is cured by a specific therapy;</li>
 <li>the product of a delivery of goods is defective.</li>
 </ul>
@@ -1466,7 +1466,8 @@ binomially distributed with parameters <span class="math inline">\(n\)</span> an
       \mathbb P(X=k) = f(k) = \binom{n}{k} p^k\,
       (1-p)^{n-k},\quad\text{ for } k=0,1,\ldots, n,
 \end{equation*}\]</span>
-and <span class="math inline">\(f(k)=0\)</span> otherwise.Remember: Binomial coefficient: <span class="math inline">\(\displaystyle\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> with <span class="math inline">\(n!=1\cdot 2\cdot \ldots \cdot n\)</span> and <span class="math inline">\(0!=1\)</span>.</p>
+and <span class="math inline">\(f(k)=0\)</span> otherwise.</p>
+<p>Remember - the binomial coefficient: <span class="math inline">\(\displaystyle\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</span> with <span class="math inline">\(n!=1\cdot 2\cdot \ldots \cdot n\)</span> and <span class="math inline">\(0!=1\)</span>.</p>
 <ul>
 <li><p>Parameters:
 <span class="math display">\[\begin{equation*}
@@ -1672,7 +1673,7 @@ Figure 8.13: Binomial distribution with n=500 and p=0.01
 <div id="normal-distribution" class="section level3 hasAnchor" number="8.3.3">
 <h3><span class="header-section-number">8.3.3</span> Normal distribution<a href="random-variables.html#normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <strong>normal distribution</strong> is the best known and most important distribution. In many applications, the empirical distribution of a feature can be approximated sufficiently well using a normal distribution.</p>
-<p>In particular, the normal distribution is a good model if the underlying variable results from the additive overlap of a large number of independent, random individual effects. The theoretical justification for this empirically observable phenomenon is provided by the <strong>Central Limit Theorem</strong> (<span class="math inline">\(\leadsto\)</span> next chapter)</p>
+<p>In particular, the normal distribution is a good model if the underlying variable results from the additive overlap of a large number of independent, random individual effects. The theoretical justification for this empirically observable phenomenon is provided by the <strong>Central Limit Theorem</strong> (<span class="math inline">\(\leadsto\)</span> next semester)</p>
 <p>The normal distribution is often called the <strong>Gauss distribution</strong>, named after the mathematician Carl Friedrich Gauß (1777–1855).</p>
 <p>A random variable <span class="math inline">\(X\)</span> is said to be <strong>normally distributed</strong> with parameters <span class="math inline">\(\mu\in \mathbb R\)</span> and <span class="math inline">\(\sigma&gt;0\)</span>, for short <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>, if it has the has the following density:
 <span class="math display">\[\begin{equation*}
@@ -1848,7 +1849,7 @@ and the standardized sample mean:
 <script>
   // Generate a random question
     const questionObj317 = {
-      question: "Now we are interested in the random variable \\(Z=\\) 'Number of weeks in the year when the inventory is not sufficient' (hint: \\(52\\) weeks in the year). How is \\(Z\\) distributed?",
+      question: "Now we are interested in the random variable \\(Z=\\) 'Number of weeks in the year when the inventory (60 pieces) is not sufficient' (hint: \\(52\\) weeks in the year). How is \\(Z\\) distributed?",
       options: ['\\(B(50,0.0228)\\)' ,'\\(B(52;0.0228)\\)','\\(N(50,25)\\)', '\\(N(52,25)\\)'],
       answer: '2',
       id: 317

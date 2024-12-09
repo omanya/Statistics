@@ -235,11 +235,11 @@ product-recommendations-according-to-the-naive-bayes-methodast
 random-variables
 discrete-random-variable
 probability-and-distribution-functions
-expected-value-and-variance
+expected-value-and-variance-for-discrete-random-variables
 continuous-random-variables
 density-function
 distribution-function-1
-expected-value-and-variance-1
+expected-value-and-variance-for-continuous-random-variables
 quantiles-of-continuous-random-variables
 some-important-distributions
 bernoulli-distribution
