@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-12-09" />
+<meta name="date" content="2024-12-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1796,8 +1796,8 @@ and the standardized sample mean:
  // Generate a random question
     const questionObj313 = generateQuestion_num(313);
 // Display the question
-    document.getElementById('question-text313').textContent = "If \\(X\\sim N(\\mu="+ questionObj310.question[0]+ ";\\sigma^2=" + Math.pow(questionObj312.question[0],2)+ ")\\) then \\(\\mathbb P(X>" + questionObj313.question[0] + ")=\\)";
-    questionObj313.answer = 1-normalCDF(questionObj313.question[0],questionObj310.question[0],questionObj312.question[0])
+    document.getElementById('question-text313').textContent = "If \\(X\\sim N(\\mu="+ questionObj313.question[0]+ ";\\sigma^2=" + Math.pow(questionObj313.question[1],2)+ ")\\) then \\(\\mathbb P(X>" + questionObj313.question[0] + ")=\\)";
+    questionObj313.answer = 1-normalCDF(questionObj313.question[0],questionObj313.question[0],questionObj313.question[1])
 </script>
 <hr />
 <p id="question">
