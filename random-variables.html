@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-12-17" />
+<meta name="date" content="2024-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1013,7 +1013,7 @@ Figure 8.6: Probability density of X=Time in online shop with probabilities as a
 <p><span class="math display">\[\begin{align}
 F(x) &amp;= \int_{{0}}^x f(t)~ dt = \int_{0}^x 0.01~ dt=\left[0.01\cdot t \right]_{0}^x \\
 &amp; = 0.01\cdot x  - \left(0.01\cdot 0 \right)\\
-&amp;=0.005x.
+&amp;=0.01x.
 \end{align}\]</span></p>
 <div class="row">
 <p>That is:</p>
@@ -1034,7 +1034,7 @@ Figure 8.7: Cumulative distribution function of X=Time in online shop
 </div>
 <p>Using the cumulative distribution function, we can calculate the event probabilities:</p>
 <ul>
-<li><p><span class="math inline">\(\{X&lt;20\}=\text{&quot;Time in shop less than 20 minutes&quot;}\)</span>: <span class="math display">\[\begin{align}\mathbb P(X&lt;20)&amp;= \mathbb P(X\leq20)=F(20) = 0\cdot 20= 0.2.\end{align}\]</span></p></li>
+<li><p><span class="math inline">\(\{X&lt;20\}=\text{&quot;Time in shop less than 20 minutes&quot;}\)</span>: <span class="math display">\[\begin{align}\mathbb P(X&lt;20)&amp;= \mathbb P(X\leq20)=F(20) = 0.01\cdot 20= 0.2.\end{align}\]</span></p></li>
 <li><p><span class="math inline">\(\{X&lt;60\}=\text{&quot;Time in shop less than 60 minutes&quot;}\)</span>:<span class="math display">\[\begin{align}\mathbb P(X&lt;60)&amp;=\mathbb P(X\leq60)=F(60) = 0.6.\end{align}\]</span></p></li>
 <li><p><span class="math inline">\(\{X &gt;30\}=\text{&quot;Time in shop more than 30 minutes&quot;}\)</span>:<span class="math display">\[\begin{align}
   \mathbb P(X&gt;30)&amp;=1-\mathbb P(X\leq30)= 1-F(30) \\
@@ -1236,7 +1236,7 @@ f(x) = \begin{cases}0.01, &amp;\text{ for } 0\leq x\leq 100,\\
 <p><span class="math display">\[\begin{align}
 \text{Var}(X) &amp;= \mathbb E(X^2) - (\mathbb E(X))^2 = \int_{-\infty}^{\infty}x^2\cdot f(x)dx  - (50)^2\\
 &amp;\ldots \text{ (analogous to the expectation calculations above) }\\
-&amp;=\int_{0}^{100}0.01\cdot x^2 dx=\Big[0.01\cdot \frac{x^3}3\Big]_{0}^{100} - (50)^2\\
+&amp;=\int_{0}^{100}0.01\cdot x^2 dx - (50)^2 =\Big[0.01\cdot \frac{x^3}3\Big]_{0}^{100} - (50)^2\\
 &amp;=3333.3333 - (50)^2= 833.3333 = (28.8675)^2.
 \end{align}\]</span></p>
 </div>
