@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2024-12-18" />
+<meta name="date" content="2025-01-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -222,7 +222,8 @@
 <li class="chapter" data-level="9.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>9.2</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
 <ul>
 <li class="chapter" data-level="9.2.1" data-path="parameter-estimation.html"><a href="parameter-estimation.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>9.2.1</b> Distribution of the sample mean for a normal population</a></li>
-<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast"><i class="fa fa-check"></i><b>9.2.2</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span></a></li>
+<li class="chapter" data-level="9.2.2" data-path="parameter-estimation.html"><a href="parameter-estimation.html#inference-based-on-the-sample-mean-distribution"><i class="fa fa-check"></i><b>9.2.2</b> Inference based on the sample mean distribution</a></li>
+<li class="chapter" data-level="9.2.3" data-path="parameter-estimation.html"><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast"><i class="fa fa-check"></i><b>9.2.3</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -452,17 +453,44 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 <h4>Properties of Estimators<a href="parameter-estimation.html#properties-of-estimators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Since the estimators are random variables and their values vary with each particular sample, we need to ensure, that the values calculated from a sample make sense. The following properties are the properties of <em>good</em> estimators, which allow valid inference based on a sample.</p>
 <ul>
-<li><p><strong>Unbiasedness</strong>: An estimator should tend to deliver the correct value, i.e. neither systematically overestimate nor underestimate. An estimator is called unbiased, if <em>its expectations is equal to the true parameter</em> it attempts to estimate.</p></li>
-<li><p><strong>Consistency</strong>: This property states that the estimator converges to the quantity being estimated. This definition takes into account the variance and the bias of the estimator; the two sizes should shrink as the sample size <span class="math inline">\(n\)</span> increases.</p></li>
+<li><strong>Unbiasedness</strong>: An estimator should tend to deliver the correct value, i.e. neither systematically overestimate nor underestimate. An estimator is called unbiased, if <em>its expectations is equal to the true parameter</em> it attempts to estimate.</li>
 </ul>
 <div class="figure">
-<img src="images/unbiased.png" alt="" />
-<p class="caption">Illustration for unbiasedness and consistency of estimators</p>
+<img src="images/unbiased1.png" alt="" />
+<p class="caption">(Un)biasedness of estimators</p>
+</div>
+<div class="example">
+<p><span id="exm:unbiased" class="example"><strong>Example 9.4  (Some unbiased and biased estimators) </strong></span></p>
+<ul>
+<li><span class="math inline">\(\overline X\)</span> is an unbiased estimator for <span class="math inline">\(\mathbb E(X).\)</span></li>
+<li><span class="math inline">\(\hat\sigma^2 = \frac 1{n-1}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (sample variance) is an unbiased estimator for <span class="math inline">\(\text{Var}(X).\)</span></li>
+<li><span class="math inline">\(\overline X\)</span> and <span class="math inline">\(X_{med}\)</span> are both unbiased estimators for <span class="math inline">\(\mu\)</span> of a normal distribution.</li>
+<li><span class="math inline">\(\tilde\sigma^2 = \frac 1{n}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (mean squared deviation) is a biased estimator for <span class="math inline">\(\text{Var}(X).\)</span> It systematically underestimates the true variance. One can show that <span class="math inline">\(\text{Bias}(\tilde\sigma^2) = -\frac 1n\sigma^2.\)</span></li>
+</ul>
+</div>
+<ul>
+<li><strong>Consistency</strong>: This property states that the estimator converges to the true parameter being estimated. The definition is based on the mean squared error (MSE), which takes into account the variance and the bias of the estimator (e.g. <span class="math inline">\(\text{MSE}(\overline X)=\text{Var}(\overline X) + \text{Bias}(\overline X)^2\)</span>), and should diminish as the sample size <span class="math inline">\(n\)</span> increases (<span class="math inline">\(\text{MSE}(\overline X)\stackrel{n\rightarrow \infty}{\rightarrow} 0\)</span>.</li>
+</ul>
+<div class="figure">
+<img src="images/consistent1.png" alt="" />
+<p class="caption">Consistency of estimators</p>
+</div>
+<div class="example">
+<p><span id="exm:consist" class="example"><strong>Example 9.5  (Some consistent estimators) </strong></span></p>
+<ul>
+<li><span class="math inline">\(\overline X\)</span> is an unbiased estimator for <span class="math inline">\(\mathbb E(X).\)</span></li>
+<li><span class="math inline">\(\hat\sigma^2 = \frac 1{n-1}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (sample variance) is an unbiased estimator for <span class="math inline">\(\text{Var}(X).\)</span></li>
+<li><span class="math inline">\(\tilde\sigma^2 = \frac 1{n}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (mean squared deviation) is a biased estimator for <span class="math inline">\(\text{Var}(X).\)</span> Its bias diminishes with increasing <span class="math inline">\(n\)</span>.</li>
+</ul>
 </div>
 <ul>
 <li><strong>Efficiency</strong>: An unbiased estimator is more efficient than another unbiased estimator if it has the <em>smaller variance</em>.</li>
 </ul>
-<p>The formulas, that we learned in the descriptive statistics, constitute estimators, which exhibit the properties above. That is, they are unbiased, consistent and efficient estimators of the corresponding unknown paramters of the population.</p>
+<div class="example">
+<p><span id="exm:eff" class="example"><strong>Example 9.6  (Efficiency) </strong></span><span class="math inline">\(\overline X\)</span> is more efficient than <span class="math inline">\(X_{med}\)</span> for estimating <span class="math inline">\(\mu\)</span> of a normal population.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+</div>
+<p>Overall, the formulas, that we learned in the descriptive statistics, constitute estimators, which exhibit the nice properties above. That is, they are unbiased, consistent and efficient estimators of the corresponding unknown parameters of the population.</p>
 </div>
 </div>
 <div id="parameter-estimation-practically" class="section level3 hasAnchor" number="9.1.2">
@@ -470,11 +498,14 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 <p>Let us return to our estimation problem. Assume the proportion of app users is <span class="math inline">\(0.6\)</span> and the mean sales amount in the population of all potential new customers is <span class="math inline">\(25\)</span> Euro. In the reality we do not know those values and we have to estimate them.</p>
 <p>So imagine, we conduct a survey among the potential new customers and ask the survey participants to indicate whether they would use the app or not, and how high would be their willingness to pay.</p>
 <div class="example">
-<p><span id="exm:sampling4" class="example"><strong>Example 9.4  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling3">9.3</a> cont.</p>
+<p><span id="exm:sampling4" class="example"><strong>Example 9.7  (New customers) </strong></span>Example <a href="parameter-estimation.html#exm:sampling3">9.3</a> cont.</p>
 <p>We need to set the sample size (<span class="math inline">\(n\)</span>) and then conduct a survey to get concrete sample values (<span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span> for <span class="math inline">\(i=1,\ldots,n\)</span>).</p>
 </div>
-<p>In the animation you can see what happens when a sample is taken:</p>
-<iframe title="GGZ" src="./htmls/Stichprobe.html" width="760" height="500"></iframe>
+<!--In the animation you can see what happens when a sample is taken:
+
+
+
+-->
 <script>
 function sample01(p){
   let unif = Math.random();
@@ -776,8 +807,8 @@ Submit
 <ul>
 <li><p><span class="math inline">\(X_i\sim N(\mu_X,\sigma_X^2)\)</span> by assumption, since we are selecting from a normally distributed population.</p></li>
 <li><p><span class="math inline">\(X_i\)</span> independent, as you move with replacement</p></li>
-<li><p><span class="math inline">\(\overline X = \frac 1n\sum_{i=1}^n\)</span> using the additive property of the normal distribution,</p></li>
-<li><p><span class="math inline">\(\overline X\sim N(\mu_X,\frac{\sigma_X^2}n)\)</span>, since <span class="math inline">\(\mathbb E(\overline X) = \frac 1n\cdot n\cdot \mu_X=\color{blue}{\mu_X}\)</span>, <span class="math inline">\({\text{Var}(\overline X)}=\frac 1{n^2}\cdot n\cdot \sigma_X^2=\color{red}{\frac {\sigma^2_X}{n}}\)</span>, and <span class="math inline">\(\sqrt{\text{Var}(\overline X)} = \color{red}{\frac {\sigma_X}{\sqrt n}}\)</span>.</p></li>
+<li><p><span class="math inline">\(\overline X = \frac 1n\sum_{i=1}^n X_i\)</span> using the additive property of the normal distribution,</p></li>
+<li><p><span class="math inline">\(\overline X\sim N(\mu_X,\frac{\sigma_X^2}n)\)</span>, since (using the properties of expectation and variance from the last chapter) <span class="math inline">\(\mathbb E(\overline X) = \frac 1n\cdot n\cdot \mu_X=\color{blue}{\mu_X}\)</span>, <span class="math inline">\({\text{Var}(\overline X)}=\frac 1{n^2}\cdot n\cdot \sigma_X^2=\color{red}{\frac {\sigma^2_X}{n}}\)</span>, and <span class="math inline">\(\sqrt{\text{Var}(\overline X)} = \color{red}{\frac {\sigma_X}{\sqrt n}}\)</span>.</p></li>
 <li><p>Hence the sample mean is distributed as follows:
 <span class="math display">\[\overline X\sim N\left (\color{blue}{\mu_X};\color{red}{\frac {\sigma^2_X}{n}}\right),\]</span>
 and the standardized sample mean:
@@ -831,8 +862,73 @@ and the standardized sample mean:
 </script>
 </div>
 </div>
-<div id="constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="section level3 hasAnchor" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="inference-based-on-the-sample-mean-distribution" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Inference based on the sample mean distribution<a href="parameter-estimation.html#inference-based-on-the-sample-mean-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The derived distribution for the sample mean can be used for further inference on the population parameters, namely for:</p>
+<div id="interval-estimation" class="section level4 unnumbered hasAnchor">
+<h4>Interval estimation<a href="parameter-estimation.html#interval-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\leadsto\)</span> construction of <strong>confidence intervals</strong> covering the true population parameter with high probability (e.g. <span class="math inline">\(90\% = 0.9\)</span>)</p>
+<img src="_main_files/figure-html/unnamed-chunk-191-1.png" width="672" />
+<details>
+<summary>
+A quick example with a normal distribution
+</summary>
+<ul>
+<li>
+Assume <span class="math inline">\(N(\color{blue}{\mu_X},\color{red}{\sigma^2_X})\)</span> in the population,
+</li>
+<li>
+and a sample with sample size <span class="math inline">\(n\)</span>.
+<li>
+Use <span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}} \sim N(0;1)\)</span>,
+</li>
+<li>
+in probability terms: <span class="math inline">\(\mathbb P\left(\color{magenta}{-1.65}\leq \frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}}\leq \color{magenta}{1.65}\right) = 0.9\)</span>.
+</li>
+<li>
+solve for <span class="math inline">\(\color{blue}{\mu_X}\)</span>:<span class="math display">\[\mathbb P\left(\overline X\color{magenta}{-1.65}\cdot {\color{red}{\frac {\sigma_X}{\sqrt n}}}\leq \color{blue}{\mu_X}\leq \overline X+\color{magenta}{1.65}\cdot {\color{red}{\frac {\sigma_X}{\sqrt n}}}\right) = 0.9.\]</span>
+</li>
+<li>
+Realised confidence interval for <span class="math inline">\(\color{purple}{\overline x=26},\sigma_X=10,n=25\)</span>:
+<span class="math display">\[\color{purple}{26} - \color{magenta}{1.65}\cdot\color{red}{\frac{10}{\sqrt{25}}}\leq \color{blue}{\mu_X}\leq \color{purple}{26} + \color{magenta}{1.65}\cdot\color{red}{\frac{10}{\sqrt{25}}}\]</span>
+<span class="math display">\[\rightarrow 22.7\leq \color{blue}{\mu_X}\leq 29.3\]</span>
+</li>
+</ul>
+</details>
+</div>
+<div id="hypothesis-testing" class="section level4 unnumbered hasAnchor">
+<h4>Hypothesis testing<a href="parameter-estimation.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(\leadsto\)</span> <strong>verify an assumption</strong> (Null hypothesis, <span class="math inline">\(H_0\)</span>) about parameters in the population using data (e.g. the average sales volume in the population <span class="math inline">\(\mu=25\)</span> Euro.)</p>
+<ul>
+<li>use <span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}} \sim N(0;1)\)</span> in case of <strong>known</strong> <span class="math inline">\(\sigma^2_X\)</span></li>
+<li>use <span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\hat\sigma_X}{\sqrt n}}} \sim t(n-1)\)</span> in case of <strong>unknown</strong> <span class="math inline">\(\sigma^2_X\)</span> (estimated with sample variance <span class="math inline">\(\hat\sigma^2_X\)</span>)</li>
+</ul>
+<p><img src="_main_files/figure-html/unnamed-chunk-192-1.png" width="672" /></p>
+<details>
+<summary>
+A quick example with a normal distribution and known variance
+</summary>
+<ul>
+<li>
+Assume <span class="math inline">\(N(\color{blue}{\mu_X},\color{red}{\sigma^2_X})\)</span> in the population,
+</li>
+<li>
+<span class="math inline">\(\color{red}{\sigma^2_X=100}\)</span>, <span class="math inline">\(n=25\)</span>, <span class="math inline">\(\overline x=26\)</span>
+<li>
+<span class="math inline">\(H_0: \mu_X=25\)</span> versus <span class="math inline">\(H_1: \mu_X\not=25\)</span>
+</li>
+<li>
+<span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}} = \frac{\overline X-\color{blue}{25}}{\color{red}{\frac {10}{\sqrt {25}}}}=\frac{\overline X-\color{blue}{25}}{\color{red}{2}} \sim N(0;1)\)</span>
+</li>
+<li>
+Realized: <span class="math inline">\(\frac{26-\color{blue}{25}}{\color{red}{2}} = 0.5\)</span> does not belong to the rejection region <span class="math inline">\(\leadsto\)</span> do not reject <span class="math inline">\(H_0\)</span>.
+</li>
+</ul>
+</details>
+</div>
+</div>
+<div id="constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span><a href="parameter-estimation.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have figured out that our estimator <span class="math inline">\(\bar X\)</span> for <span class="math inline">\(\mu\)</span> is a random variable and its values vary from sample to sample. This means, that whenever we have a fixed sample, we should still anticipate this variability in our conclusions. One way to do it, is to construct a confidence interval for <span class="math inline">\(\mu\)</span>, which covers the true parameter with a high probability. An interval means, that besides the estimate <span class="math inline">\(\bar x\)</span>, we can calculate a lower and an upper bound (realized confidence interval) for <span class="math inline">\(\mu\)</span>.</p>
 <p>Confidence intervals cover the true parameter with a certain high probability, chosen by the person conducting the analysis. Normally this probability is <span class="math inline">\(90\%,95\%,99\%.\)</span> The remaining probability of a failure to cover is denoted as <span class="math inline">\(\alpha\)</span> and takes on values <span class="math inline">\(10\%,5\%,1\%\)</span> respectively. The coverage probability is then <span class="math inline">\(1-\alpha\)</span>.</p>
 <p>Again, we assume that we sample from a normally distributed population with unknown <span class="math inline">\(\mu\)</span> but <strong>known</strong> variance <span class="math inline">\(\sigma^2\)</span>. Thus, we would like to conduct interval estimation for <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>.</p>
@@ -865,7 +961,7 @@ and the <span class="math inline">\((1-\alpha)\)</span> confidence interval is g
 \end{equation*}\]</span>
 where <span class="math inline">\(\overline x\)</span> and <span class="math inline">\(n\)</span> are taken from the given sample.</p>
 <div class="example">
-<p><span id="exm:intsch2" class="example"><strong>Example 9.5  (Monthly returns) </strong></span>Compute the <span class="math inline">\(95\%\)</span>-confidence interval for the mean of monthly stock returns.</p>
+<p><span id="exm:intsch2" class="example"><strong>Example 9.8  (Monthly returns) </strong></span>Compute the <span class="math inline">\(95\%\)</span>-confidence interval for the mean of monthly stock returns.</p>
 <ul>
 <li><p>random monthly return <span class="math inline">\(X\sim N(\mu,\sigma^2)\)</span> with known <span class="math inline">\(\sigma^2 = 0.25\)</span></p></li>
 <li><p>Data: <span class="math inline">\(12\)</span> monthly returns in <span class="math inline">\(\%\)</span></p></li>

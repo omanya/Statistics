@@ -170,6 +170,9 @@ exr:grundideen
 exm:sampling
 exm:sampling2
 exm:sampling3
+exm:unbiased
+exm:consist
+exm:eff
 exm:sampling4
 exm:intsch2
 features-frequencies-empirical-distribution
@@ -251,4 +254,5 @@ parameter-estimation-theoretically
 parameter-estimation-practically
 estimating-the-expectation-mu-of-a-normal-population
 distribution-of-the-sample-mean-for-a-normal-population
+inference-based-on-the-sample-mean-distribution
 constructing-a-confidence-interval-for-mu-of-a-normal-populationast
