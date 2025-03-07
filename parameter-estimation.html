@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-01-06" />
+<meta name="date" content="2025-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -478,9 +478,9 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 <div class="example">
 <p><span id="exm:consist" class="example"><strong>Example 9.5  (Some consistent estimators) </strong></span></p>
 <ul>
-<li><span class="math inline">\(\overline X\)</span> is an unbiased estimator for <span class="math inline">\(\mathbb E(X).\)</span></li>
-<li><span class="math inline">\(\hat\sigma^2 = \frac 1{n-1}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (sample variance) is an unbiased estimator for <span class="math inline">\(\text{Var}(X).\)</span></li>
-<li><span class="math inline">\(\tilde\sigma^2 = \frac 1{n}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (mean squared deviation) is a biased estimator for <span class="math inline">\(\text{Var}(X).\)</span> Its bias diminishes with increasing <span class="math inline">\(n\)</span>.</li>
+<li><span class="math inline">\(\overline X\)</span> is a consistent estimator for <span class="math inline">\(\mathbb E(X).\)</span></li>
+<li><span class="math inline">\(\hat\sigma^2 = \frac 1{n-1}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (sample variance) is a consistent estimator for <span class="math inline">\(\text{Var}(X).\)</span></li>
+<li><span class="math inline">\(\tilde\sigma^2 = \frac 1{n}\sum_{i=1}^n(x_i-\overline x)^2\)</span> (mean squared deviation) is also a consistent estimator for <span class="math inline">\(\text{Var}(X).\)</span> Its bias and variance diminish with increasing <span class="math inline">\(n\)</span>.</li>
 </ul>
 </div>
 <ul>
@@ -827,7 +827,8 @@ and the standardized sample mean:
  // Generate a random question
     const questionObj53 = generateQuestion_num(53);
 // Display the question
-    document.getElementById('question-text53').textContent = "Assume the mean age of your customers is \\(" +  (questionObj53.question[0]*5) + "\\) years with a standard deviation of \\(" + (questionObj53.question[1]*2) + "\\) years. Further assume, that the customer age is approximately normal distributed. Determine the distribution of the sample mean for a sample of customers with size \\(n=20\\)! \\[\\] The distribution is normal with \\(\\mu=\\)";
+
+    document.getElementById('question-text53').textContent = "Assume the mean age of your customers is \\(" +  (questionObj53.question[0]*5) + "\\) years with a standard deviation of \\(" + (questionObj53.question[1]*2) + "\\) years. Further assume, that the customer age is approximately normal distributed. Determine the distribution of the sample mean for a sample of customers with size \\(n=20\\)! \\[\\] The distribution is normal with \\(\\mu_{\\overline X}=\\)";
     questionObj53.answer = questionObj53.question[0]*5
 </script>
 <p id="question">
@@ -842,7 +843,7 @@ and the standardized sample mean:
  // Generate a random question
     const questionObj54 = generateQuestion_num(54);
 // Display the question
-    document.getElementById('question-text54').textContent = "\\(\\sigma^2=\\)";
+    document.getElementById('question-text54').textContent = "\\(\\sigma^2_{\\overline X}=\\)";
     questionObj54.answer = Math.pow((questionObj53.question[1]*2),2)/20
 </script>
 <p id="question">
@@ -857,7 +858,7 @@ and the standardized sample mean:
  // Generate a random question
     const questionObj55 = generateQuestion_num(55);
 // Display the question
-    document.getElementById('question-text55').textContent = "How does the variance of the sample mean changes, if the new sample size is \\(n=500\\)? \\[\\]\\(\\sigma^2_{n=500}=\\)";
+    document.getElementById('question-text55').textContent = "How does the variance of the sample mean changes, if the new sample size is \\(n=500\\)? \\[\\]\\(\\sigma^2_{\\overline X}=\\)";
     questionObj55.answer = Math.pow((questionObj53.question[1]*2),2)/500
 </script>
 </div>

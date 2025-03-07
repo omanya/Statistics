@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-01-06" />
+<meta name="date" content="2025-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -504,13 +504,13 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 </tbody>
 </table>
 <ul>
-<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar u= 25.1373\)</span>; <span class="math inline">\(\bar t=17.1731\)</span>; <span class="math inline">\(s_U^2=14.0397\)</span>, <span class="math inline">\(s_T^2 = 19.4972\)</span> and
-<span class="math inline">\(\hat\sigma_{TU}=14.9706.\)</span></p></li>
-<li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9706}{19.4972} = 0.7678\)</span></p></li>
-<li><p>and <span class="math inline">\(\hat a=25.1373+ 0.7678\cdot 17.1731 = 11.9511.\)</span></p></li>
+<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar u= 25.138\)</span>; <span class="math inline">\(\bar t=17.173\)</span>; <span class="math inline">\(s_U^2=14.0488\)</span>, <span class="math inline">\(s_T^2 = 19.4984\)</span> and
+<span class="math inline">\(\hat\sigma_{TU}=14.9797.\)</span></p></li>
+<li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9797}{19.4984} = 0.7683\)</span></p></li>
+<li><p>and <span class="math inline">\(\hat a=25.138+ 0.7683\cdot 17.173 = 11.9448.\)</span></p></li>
 <li><p>Sales as a function of temperature:
-<span class="math inline">\(u= 11.9511 + 0.7678\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
-<li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{UT}^2=(0.9048)^2=0.8187.\)</span></p></li>
+<span class="math inline">\(u= 11.9448 + 0.7683\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
+<li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{UT}^2=(0.905)^2=0.819.\)</span></p></li>
 <li><p>Graphically:</p></li>
 </ul>
 <p><img src="_main_files/figure-html/unnamed-chunk-82-1.png" width="70%" /></p>
@@ -583,7 +583,7 @@ specific consumer good as a function of the price <span class="math inline">\(p\
 <li>Demand function:</li>
 </ul>
 <p><span class="math display">\[
-    \hat q=9.323\cdot \text e^{-0.2084\cdot x}
+    \hat q=9.323\cdot \text e^{-0.2084\cdot p}
 \]</span></p>
 <iframe title="App log-linearisierte Nachfrage" src="https://rshiny.f4.htw-berlin.de/users/mo//Apps_RBook/#section-log-linearized-demand" width="700" height="900"></iframe>
 </div>
@@ -765,7 +765,7 @@ Submit
 <script>
   // Generate a random question
     const questionObj77 = {
-      question: 'Consider demand \\(v\\) for a specific consumer good as a function of income \\(u\\): \\[v=\\alpha e^{\\beta\\cdot u}.\\] Apply an appropriate transformation (see the transformation table above) to transform the demand function into a linear form. What is the resulting expression for transforming \\(u\\) to \\(x\\)?',
+      question: 'Consider demand \\(v\\) for a specific consumer good as a function of income \\(u\\): \\[v=\\alpha e^{\\frac{\\beta}{u}}.\\] Apply an appropriate transformation (see the transformation table above) to transform the demand function into a linear form. What is the resulting expression for transforming \\(u\\) to \\(x\\)?',
       options: ['\\(x=\\frac 1{\\ln(u)}\\)','\\(x=u\\)' ,'\\(x=\\ln(u)\\)', '\\(x=\\frac1u\\)', '\\(x=e^u\\)'],
       answer: '4',
       id: 77
