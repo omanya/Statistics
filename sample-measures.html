@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Sample Measures | Statistics I</title>
+  <title>Chapter 3 Sample Measures | Statistics I</title>
   <meta name="description" content="This is the script for the Statistics course." />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Sample Measures | Statistics I" />
+  <meta property="og:title" content="Chapter 3 Sample Measures | Statistics I" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This is the script for the Statistics course." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Sample Measures | Statistics I" />
+  <meta name="twitter:title" content="Chapter 3 Sample Measures | Statistics I" />
   
   <meta name="twitter:description" content="This is the script for the Statistics course." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-03-07" />
+<meta name="date" content="2025-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="features-frequencies-empirical-distribution.html"/>
-<link rel="next" href="concentration-measures.html"/>
+<link rel="next" href="association-between-two-features.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -78,63 +78,48 @@
 <li><a href="./">Statistics I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>2</b> Features, frequencies, empirical distribution</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction"><i class="fa fa-check"></i>Introduction</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<li class="chapter" data-level="2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>2.1</b> Features</a>
 <ul>
 <li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
 <li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<li class="chapter" data-level="2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>2.2</b> Frequencies</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
-<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+<li class="chapter" data-level="2.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>2.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="2.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>2.2.2</b> Frequencies with class formation</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<li class="chapter" data-level="2.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>2.3</b> Empirical distribution</a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
-<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+<li class="chapter" data-level="2.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>2.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="2.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>2.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<li class="chapter" data-level="3" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>3</b> Sample Measures</a>
 <ul>
 <li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
-<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<li class="chapter" data-level="3.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>3.1</b> Measures of Central Tendency</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
-<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
-<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
-<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+<li class="chapter" data-level="3.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>3.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="3.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>3.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="3.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>3.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="3.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>3.1.4</b> Empirical Modal Value</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<li class="chapter" data-level="3.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>3.2</b> Measures of Variability</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="3.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>3.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
 <li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
-<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
-<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>3.2.2</b> Range</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>3.2.3</b> Coefficient of variation</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<li class="chapter" data-level="3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>3.3</b> Quantile and Boxplots</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
-<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
-<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="concentration-measures.html"><a href="concentration-measures.html"><i class="fa fa-check"></i><b>3</b> Concentration measures</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve"><i class="fa fa-check"></i><b>3.1</b> Lorenz curve</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-a-sample"><i class="fa fa-check"></i><b>3.1.1</b> Lorenz curve for a sample</a></li>
-<li class="chapter" data-level="3.1.2" data-path="concentration-measures.html"><a href="concentration-measures.html#lorenz-curve-for-frequency-distributions"><i class="fa fa-check"></i><b>3.1.2</b> Lorenz curve for frequency distributions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient-and-concentration-rate"><i class="fa fa-check"></i><b>3.2</b> Gini coefficient and concentration rate</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="concentration-measures.html"><a href="concentration-measures.html#gini-coefficient"><i class="fa fa-check"></i><b>3.2.1</b> Gini coefficient</a></li>
-<li class="chapter" data-level="3.2.2" data-path="concentration-measures.html"><a href="concentration-measures.html#concentration-rate"><i class="fa fa-check"></i><b>3.2.2</b> Concentration rate</a></li>
+<li class="chapter" data-level="3.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>3.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>3.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>3.3.3</b> Quantiles with continuous frequency distribution</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>4</b> Association between two features</a>
@@ -246,8 +231,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sample-measures" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Sample Measures<a href="sample-measures.html#sample-measures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sample-measures" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Sample Measures<a href="sample-measures.html#sample-measures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <script>
 window.onload=function(){window.scrollTo(0,0);}
 </script>
@@ -285,9 +270,9 @@ window.onload=function(){window.scrollTo(0,0);}
 <li>raw <strong>sample values</strong> (measured/ observed values): <span class="math inline">\(x_1,x_2,\ldots, x_n\)</span></li>
 </ul>
 <div class="example">
-<p><span id="exm:umsatz" class="example"><strong>Example 2.1  (Sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p><span id="exm:umsatz" class="example"><strong>Example 3.1  (Sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-30">Table 2.1: </span>Sample of the size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(Y:\)</span> Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-30">Table 3.1: </span>Sample of the size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(Y:\)</span> Sales amount.</caption>
 <colgroup>
 <col width="14%" />
 <col width="9%" />
@@ -336,9 +321,9 @@ window.onload=function(){window.scrollTo(0,0);}
 <li><strong>ordered sample values</strong> (sorted in ascending order): <span class="math inline">\(x_{[1]}\leq x_{[2]}\leq\ldots\leq x_{[n]}\)</span></li>
 </ul>
 <div class="example">
-<p><span id="exm:zeit" class="example"><strong>Example 2.2  (Time in Online-Shop.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p><span id="exm:zeit" class="example"><strong>Example 3.2  (Time in Online-Shop.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-31">Table 2.2: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(X:\)</span> Time spent in the online store.</caption>
+<caption><span id="tab:unnamed-chunk-31">Table 3.2: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(X:\)</span> Time spent in the online store.</caption>
 <colgroup>
 <col width="9%" />
 <col width="8%" />
@@ -396,9 +381,9 @@ window.onload=function(){window.scrollTo(0,0);}
 </ul></li>
 </ul>
 <div class="example">
-<p><span id="exm:best" class="example"><strong>Example 2.3  (Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">1.3</a>.</p>
+<p><span id="exm:best" class="example"><strong>Example 3.3  (Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-32">Table 2.3: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(C\)</span>: Number of orders.</caption>
+<caption><span id="tab:unnamed-chunk-32">Table 3.3: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(C\)</span>: Number of orders.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Orders</td>
@@ -433,9 +418,9 @@ window.onload=function(){window.scrollTo(0,0);}
 \end{array}
 \]</span></p>
 <div class="example">
-<p><span id="exm:eink" class="example"><strong>Example 2.4  (monthly Income) </strong></span>Frequencies of income groups according to an online survey with <span class="math inline">\(n=10\)</span>.</p>
+<p><span id="exm:eink" class="example"><strong>Example 3.4  (monthly Income) </strong></span>Frequencies of income groups according to an online survey with <span class="math inline">\(n=10\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-33">Table 2.4: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income (TEUR).</caption>
+<caption><span id="tab:unnamed-chunk-33">Table 3.4: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income (TEUR).</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income</td>
@@ -456,31 +441,31 @@ window.onload=function(){window.scrollTo(0,0);}
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 2.1  (Form of Data) </strong></span></p>
+<p><span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 3.1  (Form of Data) </strong></span></p>
 <iframe title="Datendarstellung" src="./htmls/datendarstellungen.html" width="700" height="500"></iframe>
 </div>
 <!--
 -->
 
 </div>
-<div id="measures-of-central-tendency" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Measures of Central Tendency<a href="sample-measures.html#measures-of-central-tendency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="measures-of-central-tendency" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Measures of Central Tendency<a href="sample-measures.html#measures-of-central-tendency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <script>
 window.onload=function(){window.scrollTo(0,0);}
 </script>
-<div id="sample-mean" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Sample Mean<a href="sample-measures.html#sample-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sample-mean" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Sample Mean<a href="sample-measures.html#sample-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <strong>sample mean</strong> aka the sample average or the empirical expectation (referred to as <span class="math inline">\(\bar x\)</span> or <span class="math inline">\(\hat\mu\)</span>) reflects the average position of the values of a feature, so that if you add all deviations of the values to the sample mean, the result is zero.</p>
 <iframe title="GGZ" src="./htmls/mittelwert.html" height="60%"></iframe>
 <p>The sample mean of a <strong>sample</strong>, <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, is:</p>
 <p><span class="math display" id="eq:barx">\[\begin{align}
 \overline x = \frac1n(x_1 + x_2 + \ldots + x_n) = \frac 1n\sum_{i=1}^nx_i
-\tag{2.1}
+\tag{3.1}
 \end{align}\]</span></p>
 <div class="example">
-<p><span id="exm:umsatz2" class="example"><strong>Example 2.5  (Sales amount.) </strong></span>Cont. Example <a href="sample-measures.html#exm:umsatz">2.1</a>.</p>
+<p><span id="exm:umsatz2" class="example"><strong>Example 3.5  (Sales amount.) </strong></span>Cont. Example <a href="sample-measures.html#exm:umsatz">3.1</a>.</p>
 <table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-37">Table 2.5: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-37">Table 3.5: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
 <colgroup>
 <col width="14%" />
 <col width="9%" />
@@ -527,10 +512,10 @@ window.onload=function(){window.scrollTo(0,0);}
 </div>
 <hr />
 <div class="example">
-<p><span id="exm:zeit2" class="example"><strong>Example 2.6  (Time in the online store by time of day.) </strong></span>If you have two samples for the same characteristic but under the influence of other factors (here: time of day), you can compare the sample means of the two samples.</p>
+<p><span id="exm:zeit2" class="example"><strong>Example 3.6  (Time in the online store by time of day.) </strong></span>If you have two samples for the same characteristic but under the influence of other factors (here: time of day), you can compare the sample means of the two samples.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-38">Table 2.6: </span><span id="tab:unnamed-chunk-38">Table 2.7: </span>Sample size n=10 for the characteristic: time spent in the online store in two periods of the day: midday and evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-38">Table 3.6: </span><span id="tab:unnamed-chunk-38">Table 3.7: </span>Sample size n=10 for the characteristic: time spent in the online store in two periods of the day: midday and evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -714,9 +699,9 @@ Time_WE
 \hat\mu= a_1h_1+a_2h_2+\ldots+a_Jh_J = \sum_{j=1}^Ja_jh_j
 \]</span></p>
 <div class="example">
-<p><span id="exm:best2" class="example"><strong>Example 2.7  (Orders.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:best">2.3</a>.</p>
+<p><span id="exm:best2" class="example"><strong>Example 3.7  (Orders.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:best">3.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-39">Table 2.8: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(B\)</span>: Number of orders.</caption>
+<caption><span id="tab:unnamed-chunk-39">Table 3.8: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(B\)</span>: Number of orders.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Number</td>
@@ -738,13 +723,13 @@ Time_WE
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\hat\mu_B = a_1\cdot h_1 + a_2\cdot h_2 + \ldots + a_{6}\cdot h_{6} = 1\cdot0.1 + 2\cdot0.3 + \ldots + 6\cdot0.1 = 3.3\)</span></p>
+<p><span class="math inline">\(\hat\mu_B = a_1\cdot h_1 + a_2\cdot h_2 + \ldots + a_{6}\cdot h_{6} = 1\cdot0.1  + 2\cdot0.3 + \ldots + 6\cdot0.1 = 3.3\)</span></p>
 </div>
 <hr />
 <div class="example">
-<p><span id="exm:eink2" class="example"><strong>Example 2.8  (monthly income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink">2.4</a>.</p>
+<p><span id="exm:eink2" class="example"><strong>Example 3.8  (monthly income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink">3.4</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-40">Table 2.9: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
+<caption><span id="tab:unnamed-chunk-40">Table 3.9: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income group</td>
@@ -763,12 +748,12 @@ Time_WE
 </tbody>
 </table>
 <p>The class centers are: <span class="math inline">\(a_1 = 0.5\)</span>, <span class="math inline">\(a_2 = 1.5\)</span>, <span class="math inline">\(a_3 = 3\)</span> und <span class="math inline">\(a_4 = 4.5\)</span>. Also:</p>
-<p><span class="math inline">\(\hat\mu_Z = a_1\cdot h_1 + a_2\cdot h_2 + a_{3}\cdot h_{3} + a_{4}\cdot h_{4}= 0.5\cdot0.1 + 1.5\cdot0.1 + 3\cdot0.5 + 4.5\cdot0.3 = 3.05.\)</span></p>
+<p><span class="math inline">\(\hat\mu_Z = a_1\cdot h_1 + a_2\cdot h_2 + a_{3}\cdot h_{3} + a_{4}\cdot h_{4}=  0.5\cdot0.1  + 1.5\cdot0.1 + 3\cdot0.5 + 4.5\cdot0.3 = 3.05.\)</span></p>
 </div>
 <hr />
 </div>
-<div id="sample-median" class="section level3 hasAnchor" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Sample Median<a href="sample-measures.html#sample-median" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sample-median" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Sample Median<a href="sample-measures.html#sample-median" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The sample median is another measure that represents the central value of given sample values. The sample median is defined in such a way that at least 50% of the sample values are above and below the median value.</p>
 <p>The animation shows how the median differs from the sample mean:</p>
 <iframe title="GGZ" src="./htmls/median.html" height="60%"></iframe>
@@ -780,7 +765,7 @@ x_{med}=\begin{cases}x_{[\frac{n+1}2]},&amp; \text{if }n \text{ odd},\\
 \]</span></p>
 <hr />
 <div class="example">
-<p><span id="exm:umsatz2med" class="example"><strong>Example 2.9  (Sales amount.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:umsatz2">2.5</a>.</p>
+<p><span id="exm:umsatz2med" class="example"><strong>Example 3.9  (Sales amount.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:umsatz2">3.5</a>.</p>
 <p>An ordered sample is required to calculate the empirical median, i.e:</p>
 <p><span class="math inline">\(\begin{array}{ccccccccccc}\hline [i]&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10\\\hline y_{[i]}&amp; 5.08&amp;6.1&amp;6.29&amp;7.89&amp;8.77&amp;19.06&amp;26.34&amp;46.75&amp;64.63&amp;99.48\\\hline\end{array}.\)</span></p>
 <p>Since <span class="math inline">\(n=10\)</span> even <span class="math inline">\(y_{med}=\frac 12 (y_{[5]} + y_{[6]}) = \frac 12(8.77 + 19.06) = 13.915.\)</span></p>
@@ -790,13 +775,13 @@ x_{med}=\begin{cases}x_{[\frac{n+1}2]},&amp; \text{if }n \text{ odd},\\
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-5" class="exercise"><strong>Exercise 2.2  (The sample Median for the number of orders.) </strong></span>The same calculation logic can be applied to data with a given discrete frequency distribution. Write out the data (<span class="math inline">\(n=10\)</span>) in the example <a href="sample-measures.html#exm:best2">2.7</a> as an ordered sample (e.g. 1 has a relative frequency of 0.1, i.e. this value only occurred once in the original sample. It is similar with the other values: 2 occurred 3 times, 3 occurred 2 times, 4 - once, 5 - 2 times and 6 - only once).</p>
+<p><span id="exr:unlabeled-div-5" class="exercise"><strong>Exercise 3.2  (The sample Median for the number of orders.) </strong></span>The same calculation logic can be applied to data with a given discrete frequency distribution. Write out the data (<span class="math inline">\(n=10\)</span>) in the example <a href="sample-measures.html#exm:best2">3.7</a> as an ordered sample (e.g. 1 has a relative frequency of 0.1, i.e. this value only occurred once in the original sample. It is similar with the other values: 2 occurred 3 times, 3 occurred 2 times, 4 - once, 5 - 2 times and 6 - only once).</p>
 <p>Can you come up with <span class="math inline">\(x_{med}=3\)</span>?</p>
 </div>
 <hr />
-<p>In the case of a <strong>continuous frequency distribution</strong> as in the example <a href="sample-measures.html#exm:eink2">2.8</a>, the sample median can be determined using the empirical distribution function. Here, <span class="math inline">\(x_{med}\)</span> is a number so that: <span class="math inline">\(\hat F(x_{med}) = 0.5.\)</span> Therefore, <span class="math inline">\(x_{med} = \hat F^{-1}(0.5)\)</span>.</p>
+<p>In the case of a <strong>continuous frequency distribution</strong> as in the example <a href="sample-measures.html#exm:eink2">3.8</a>, the sample median can be determined using the empirical distribution function. Here, <span class="math inline">\(x_{med}\)</span> is a number so that: <span class="math inline">\(\hat F(x_{med}) = 0.5.\)</span> Therefore, <span class="math inline">\(x_{med} = \hat F^{-1}(0.5)\)</span>.</p>
 <div class="example">
-<p><span id="exm:eink2med" class="example"><strong>Example 2.10  (Z=monthly income) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">2.8</a></p>
+<p><span id="exm:eink2med" class="example"><strong>Example 3.10  (Z=monthly income) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">3.8</a></p>
 <p>The empirical distribution function for the data (income class) is (try to understand for yourself how this comes about):</p>
 <p><span class="math display">\[
 \hat F(x) = \begin{cases}
@@ -812,17 +797,17 @@ x_{med}=\begin{cases}x_{[\frac{n+1}2]},&amp; \text{if }n \text{ odd},\\
 </div>
 <hr />
 </div>
-<div id="geometric-mean" class="section level3 hasAnchor" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Geometric Mean<a href="sample-measures.html#geometric-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="geometric-mean" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Geometric Mean<a href="sample-measures.html#geometric-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes the data is not provided in its original form but in a transformed version, e.g. as <strong>growth factors</strong>. The mean value of these growth factors can be <em>misleading</em> as a key figure for average growth. In this case, <strong>the geometric mean</strong> is used.</p>
 <p>For a sample of growth factors <span class="math inline">\(q_1,q_2,\ldots,q_n\)</span>, the geometric mean <span class="math inline">\(q_{geom}\)</span> is defined as:</p>
 <p><span class="math display">\[
 q_{geom} = (q_1\cdot q_2\cdot \ldots \cdot q_n)^{\frac 1n} = \sqrt[n]{q_1\cdot q_2\cdot \ldots \cdot q_n}.
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 2.11  (Customer growth.) </strong></span>New customer figures over four quarters with the growth factors <span class="math inline">\(q_i\)</span>.</p>
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 3.11  (Customer growth.) </strong></span>New customer figures over four quarters with the growth factors <span class="math inline">\(q_i\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-44">Table 2.10: </span>A sample with sample size <span class="math inline">\(n=3\)</span> with growth factors <span class="math inline">\(q_i\)</span> as values.</caption>
+<caption><span id="tab:unnamed-chunk-44">Table 3.10: </span>A sample with sample size <span class="math inline">\(n=3\)</span> with growth factors <span class="math inline">\(q_i\)</span> as values.</caption>
 <thead>
 <tr class="header">
 <th align="right"><span class="math inline">\(Q_i\)</span></th>
@@ -875,25 +860,25 @@ q_{geom} = (0.9221 \cdot 1.2248 \cdot 0.8616)^{\frac 13} = 0.9909
 </div>
 <hr />
 </div>
-<div id="empirical-modal-value" class="section level3 hasAnchor" number="2.1.4">
-<h3><span class="header-section-number">2.1.4</span> Empirical Modal Value<a href="sample-measures.html#empirical-modal-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="empirical-modal-value" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Empirical Modal Value<a href="sample-measures.html#empirical-modal-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In contrast to the above measures, <strong>modal value</strong> can be calculated for characteristics with <em>any scale</em>, as only the frequencies are taken into account when determining the modal value.</p>
 <p>The characteristic with the highest frequency is taken as <strong>the modal value</strong>:</p>
 <p><span class="math display">\[
 x_{mod} = a_m \text{ with } h(a_m)=h_m=\max (h_1, h_2, \ldots, h_J)
 \]</span></p>
 <div class="example">
-<p><span id="exm:best2mod" class="example"><strong>Example 2.12  (Orders.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:best">2.3</a>.</p>
+<p><span id="exm:best2mod" class="example"><strong>Example 3.12  (Orders.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:best">3.3</a>.</p>
 <p>Here, the modal value <span class="math inline">\(b_{mod}=2\)</span>, as the relative frequency of this characteristic is <span class="math inline">\(0.3\)</span> and therefore the highest frequency in the frequency distribution for the characteristic: number of orders.</p>
 </div>
 <hr />
 <div class="example">
-<p><span id="exm:zahl2mod" class="example"><strong>Example 2.13  (Means of payment.) </strong></span>Cont. of Example <a href="features-frequencies-empirical-distribution.html#exm:zahl">1.4</a>.</p>
+<p><span id="exm:zahl2mod" class="example"><strong>Example 3.13  (Means of payment.) </strong></span>Cont. of Example <a href="features-frequencies-empirical-distribution.html#exm:zahl">2.4</a>.</p>
 <p>Here, the modal value is equal to the “PayPal” attribute, as this attribute has the highest frequency of <span class="math inline">\(0.4\)</span>.</p>
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 2.3  (Measures of central tendency.) </strong></span></p>
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 3.3  (Measures of central tendency.) </strong></span></p>
 <iframe title="Lagekennzahlen" src="./htmls/quiz_lagekennzahlen.html" width="700" height="500"></iframe>
 </div>
 <hr />
@@ -932,11 +917,11 @@ $$
 
 </div>
 </div>
-<div id="measures-of-variability" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Measures of Variability<a href="sample-measures.html#measures-of-variability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="measures-of-variability" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Measures of Variability<a href="sample-measures.html#measures-of-variability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Often, not only the mean position of the values of a characteristic but also the <em>extent of the dispersion</em> in the values is helpful for an empirical analysis. This is particularly useful when comparing two different samples that relate to the same characteristic but were obtained under different conditions. The differences, which can be attributed to customer groups, times of year, week or day, for example, can be seen not only in the mean value but also in the dispersion of the data. Even by similar mean values, such factors often impact data variability.</p>
-<div id="sample-variance-and-sample-standard-deviation" class="section level3 hasAnchor" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Sample Variance and Sample Standard Deviation<a href="sample-measures.html#sample-variance-and-sample-standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="sample-variance-and-sample-standard-deviation" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Sample Variance and Sample Standard Deviation<a href="sample-measures.html#sample-variance-and-sample-standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <strong>sample variance</strong> (<span class="math inline">\(\hat\sigma^2\)</span> or <span class="math inline">\(s^2\)</span>) of a <strong>sample</strong> <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span> is given by:</p>
 <p><span class="math display">\[
 s^2 = \frac 1{n-1}\left((x_1 - \bar x)^2 + (x_2 - \bar x)^2 + \ldots + (x_n - \bar x)^2\right)=\frac 1{n-1}\sum_{i=1}^n(x_i - \bar x)^2
@@ -948,11 +933,11 @@ s^2 = \frac 1{n-1}\sum_{i=1}^nx_i^2 - \frac n{n-1}(\bar x)^2.
 \]</span>
 Since the sample variance has the squared units of the feature, one usually calculates the <strong>sample standard deviation</strong> <span class="math inline">\(s=\sqrt{s^2}\)</span> to get a “feel” for the variability in the data.</p>
 <div class="example">
-<p><span id="exm:zeit3" class="example"><strong>Example 2.14  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit2">2.6</a>.</p>
+<p><span id="exm:zeit3" class="example"><strong>Example 3.14  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit2">3.6</a>.</p>
 <p>We have already established that, on average, people spend more time in our online store in the evening than at lunchtime. What happens if we now compare the times in the evening during the week and at the weekend? (Here we can not only compare the sample averages of the two samples, but also compare the variability contained in the data.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-46">Table 2.11: </span><span id="tab:unnamed-chunk-46">Table 2.12: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(X\)</span>: Time spent in the online store at lunchtime and in the evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-46">Table 3.11: </span><span id="tab:unnamed-chunk-46">Table 3.12: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(X\)</span>: Time spent in the online store at lunchtime and in the evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -1158,9 +1143,9 @@ time_WE
       \hat\sigma_X = \sqrt{\hat\sigma_X^2}.
 \end{equation*}\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 2.15  (Monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">2.8</a>.</p>
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 3.15  (Monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">3.8</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-47">Table 2.13: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
+<caption><span id="tab:unnamed-chunk-47">Table 3.13: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income group</td>
@@ -1196,12 +1181,12 @@ time_WE
 <li>The sample variance and standard deviation are <span class="math inline">\(s_Y^2=b^2s_X^2\)</span> and <span class="math inline">\(s_Y=|b|s_X\)</span> respectively.</li>
 </ul>
 <div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 2.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 3.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
 <p>The payoff of the derivative <span class="math inline">\(d_i\)</span> is therefore a linear transformation of the stock return <span class="math inline">\(r_i\)</span>: <span class="math inline">\(d_i = 500\cdot r_i -10\)</span>. From this information, we can deduce that the average payoff is <span class="math inline">\(\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\)</span> and <span class="math inline">\(\hat\sigma_D = |500|\cdot \hat\sigma_R=5\)</span>.</p>
 </div>
 </div>
-<div id="range" class="section level3 hasAnchor" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Range<a href="sample-measures.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="range" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Range<a href="sample-measures.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>The range</strong> <span class="math inline">\(r\)</span> measures the difference between the largest and the smallest sample value and is therefore another way of representing the variability in the data. For a <strong>sample</strong> the range is defined by:</p>
 <p><span class="math display">\[
 r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
@@ -1211,7 +1196,7 @@ r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
 r=x_{[n]} - x_{[1]}
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 2.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">2.14</a>.</p>
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
 <ul>
 <li><p>midday: <span class="math inline">\(r_1=51.65 - 0.57 = 51.08\)</span></p></li>
 <li><p>evening: <span class="math inline">\(r_2=110.81 - 22.41 = 88.4\)</span></p></li>
@@ -1221,8 +1206,8 @@ r=x_{[n]} - x_{[1]}
 </div>
 <hr />
 </div>
-<div id="coefficient-of-variation" class="section level3 hasAnchor" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Coefficient of variation<a href="sample-measures.html#coefficient-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="coefficient-of-variation" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Coefficient of variation<a href="sample-measures.html#coefficient-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In our example: Time on the website, we found that the times at the weekend did not vary as much as the times in the evening. However, the mean values were also very different. How can we adjust for this effect? Well, we can use another key figure to help us, namely the <strong>coefficient of variation</strong>.</p>
 <p>The coefficient of variation <span class="math inline">\(cv\)</span> measures the variability in the units of the mean value:</p>
 <p><span class="math display">\[
@@ -1230,7 +1215,7 @@ cv = \frac{s}{\bar x}
 \]</span>
 The standard deviation is therefore scaled by the sample mean. This answers the question: “How large is the standard deviation ‘measured in the mean values’”.</p>
 <div class="example">
-<p><span id="exm:zeit3f" class="example"><strong>Example 2.18  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">2.14</a>.</p>
+<p><span id="exm:zeit3f" class="example"><strong>Example 3.18  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
 <ul>
 <li><p>midday: <span class="math inline">\(cv_1=\frac{16.4934}{29.354} = 0.5619\)</span></p></li>
 <li><p>evening: <span class="math inline">\(cv_2=\frac{32.7952}{54.558} = 0.6011\)</span></p></li>
@@ -1240,7 +1225,7 @@ The standard deviation is therefore scaled by the sample mean. This answers the 
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 2.4  (Measures of variability.) </strong></span></p>
+<p><span id="exr:unlabeled-div-11" class="exercise"><strong>Exercise 3.4  (Measures of variability.) </strong></span></p>
 <iframe title="Quiz_Quantile" src="./htmls/quiz_streuungskennzahlen.html" width="700" height="500"></iframe>
 </div>
 <!--
@@ -1361,11 +1346,11 @@ $$
 
 </div>
 </div>
-<div id="quantile-and-boxplots" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> Quantile and Boxplots<a href="sample-measures.html#quantile-and-boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quantile-and-boxplots" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Quantile and Boxplots<a href="sample-measures.html#quantile-and-boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When looking at a sample or comparing two samples, it is sometimes not enough to calculate just a few numbers to get an informative picture of the data. Sometimes it is necessary to record and compare the <strong>entire empirical distributions</strong> but in a way, that still enables us to compare the samples. In this case, the empirical quantiles as additional measures and a simple graphical representation - <strong>Boxplot</strong> - should be used.</p>
-<div id="quantiles" class="section level3 hasAnchor" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Quantiles<a href="sample-measures.html#quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantiles" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Quantiles<a href="sample-measures.html#quantiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A number <span class="math inline">\(\hat q_p\)</span> with the property that at least the proportion <span class="math inline">\(p\)</span> of the values from the sample is below this number and at least the proportion <span class="math inline">\(1-p\)</span> is above it is called the empirical <span class="math inline">\(p\)</span> quantile.</p>
 <iframe title="Qs" src="./htmls/quantile.html" height="60%"></iframe>
 <p>For an <strong>ordered sample</strong> of a metrically scaled characteristic, the empirical <span class="math inline">\(p\)</span>-quantile is calculated as:</p>
@@ -1378,11 +1363,11 @@ $$
 <p>where <span class="math inline">\(int(np)\)</span> denotes the integer part of <span class="math inline">\(np\)</span>.</p>
 <p><img src="images/qp.png" style="width:50.0%" /></p>
 <div class="example">
-<p><span id="exm:zeit4" class="example"><strong>Example 2.19  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">2.14</a>.
+<p><span id="exm:zeit4" class="example"><strong>Example 3.19  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.
 We calculate some quantiles for the times on our website.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-51">Table 2.14: </span><span id="tab:unnamed-chunk-51">Table 2.15: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: Time on the website at lunchtime and in the evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-51">Table 3.14: </span><span id="tab:unnamed-chunk-51">Table 3.15: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: Time on the website at lunchtime and in the evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -1573,8 +1558,8 @@ time_WE
 </ul>
 <p>Together with the maximum and minimum values of the sample, these quantiles form the basis for the graphical representation of the distribution - <strong>Boxplot</strong>.</p>
 </div>
-<div id="boxplot" class="section level3 hasAnchor" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Boxplot<a href="sample-measures.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="boxplot" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Boxplot<a href="sample-measures.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The boxplot is a simple but informative representation of the empirical distribution with the following elements:</p>
 <ul>
 <li>a line marking <span class="math inline">\(x_{med}=\hat q_{0.5}\)</span>,</li>
@@ -1583,12 +1568,12 @@ time_WE
 </ul>
 <p><img src="images/boxplotirrtum_1.jpeg" width="50%" /></p>
 <div class="example">
-<p><span id="exm:zeit41" class="example"><strong>Example 2.20  (Time in the online store by time of day.) </strong></span>Cont of Example <a href="sample-measures.html#exm:zeit4">2.19</a>.
+<p><span id="exm:zeit41" class="example"><strong>Example 3.20  (Time in the online store by time of day.) </strong></span>Cont of Example <a href="sample-measures.html#exm:zeit4">3.19</a>.
 The empirical distributions of the times on the website can be compared at a glance with the help of boxplots.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-53"></span>
 <img src="_main_files/figure-html/unnamed-chunk-53-1.png" alt="Boxplots for the times in the online store." width="80%" />
 <p class="caption">
-Figure 2.1: Boxplots for the times in the online store.
+Figure 3.1: Boxplots for the times in the online store.
 </p>
 </div>
 </div>
@@ -1608,15 +1593,15 @@ The empirical distributions of two different stocks as investment opportunities 
 -->
 <hr />
 </div>
-<div id="quantiles-with-continuous-frequency-distribution" class="section level3 hasAnchor" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> Quantiles with continuous frequency distribution<a href="sample-measures.html#quantiles-with-continuous-frequency-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="quantiles-with-continuous-frequency-distribution" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Quantiles with continuous frequency distribution<a href="sample-measures.html#quantiles-with-continuous-frequency-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With a <strong>continuous frequency distribution</strong>, quantiles can be approximated using the empirical distribution function <span class="math inline">\(\hat F(x)\)</span>.</p>
 <p>The following applies for <span class="math inline">\(\hat q_p\)</span>:</p>
 <p><span class="math display">\[
 \hat F(q_p) = p \rightarrow \hat q_p = \hat F^{-1}(p).
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 2.21  (Z=monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2med">2.10</a></p>
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 3.21  (Z=monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2med">3.10</a></p>
 <p>The empirical distribution function for the data (income class) is:</p>
 <p><span class="math display">\[
 \hat F(x) = \begin{cases}
@@ -1637,7 +1622,7 @@ The empirical distributions of two different stocks as investment opportunities 
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 2.5  (Quantile und Boxplot.) </strong></span></p>
+<p><span id="exr:unlabeled-div-13" class="exercise"><strong>Exercise 3.5  (Quantile und Boxplot.) </strong></span></p>
 <iframe title="Quiz_Quantile" src="./htmls/quiz_quantile.html" width="700" height="500"></iframe>
 </div>
 <hr />
@@ -1660,7 +1645,7 @@ The empirical distributions of two different stocks as investment opportunities 
         </div>
       </div>
 <a href="features-frequencies-empirical-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="concentration-measures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="association-between-two-features.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1674,42 +1659,42 @@ The empirical distributions of two different stocks as investment opportunities 
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-kennz.rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-kennz.rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
