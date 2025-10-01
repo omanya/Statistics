@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Solution | Statistics I</title>
+  <meta name="description" content="This is the script for the Statistics course." />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Solution | Statistics I" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is the script for the Statistics course." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Solution | Statistics I" />
+  
+  <meta name="twitter:description" content="This is the script for the Statistics course." />
+  
+
+<meta name="author" content="Maria Osipenko" />
+
+
+<meta name="date" content="2025-09-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="question.html"/>
+<link rel="next" href="meta-information.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Statistics I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
+<li class="chapter" data-level="1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>1</b> Features, frequencies, empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>1.1</b> Features</a>
+<ul>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#scale-types"><i class="fa fa-check"></i>Scale types</a></li>
+<li class="chapter" data-level="" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#turn-nominal-into-metric"><i class="fa fa-check"></i>Turn “nominal” into “metric”…</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies"><i class="fa fa-check"></i><b>1.2</b> Frequencies</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-without-class-formation"><i class="fa fa-check"></i><b>1.2.1</b> Frequencies without class formation</a></li>
+<li class="chapter" data-level="1.2.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#frequencies-with-class-formation"><i class="fa fa-check"></i><b>1.2.2</b> Frequencies with class formation</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-distribution"><i class="fa fa-check"></i><b>1.3</b> Empirical distribution</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-probability-and-distribution-functions-discrete-case"><i class="fa fa-check"></i><b>1.3.1</b> Empirical probability and distribution functions (discrete case)</a></li>
+<li class="chapter" data-level="1.3.2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#empirical-density-and-distribution-functions-continuous-case"><i class="fa fa-check"></i><b>1.3.2</b> Empirical density and distribution functions (continuous case)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sample-measures.html"><a href="sample-measures.html"><i class="fa fa-check"></i><b>2</b> Sample Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#data-representation"><i class="fa fa-check"></i>Data Representation</a></li>
+<li class="chapter" data-level="2.1" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>2.1</b> Measures of Central Tendency</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>2.1.1</b> Sample Mean</a></li>
+<li class="chapter" data-level="2.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>2.1.2</b> Sample Median</a></li>
+<li class="chapter" data-level="2.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>2.1.3</b> Geometric Mean</a></li>
+<li class="chapter" data-level="2.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>2.1.4</b> Empirical Modal Value</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>2.2</b> Measures of Variability</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>2.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>2.2.2</b> Range</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>2.2.3</b> Coefficient of variation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>2.3</b> Quantile and Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="sample-measures.html"><a href="sample-measures.html#quantiles"><i class="fa fa-check"></i><b>2.3.1</b> Quantiles</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sample-measures.html"><a href="sample-measures.html#boxplot"><i class="fa fa-check"></i><b>2.3.2</b> Boxplot</a></li>
+<li class="chapter" data-level="2.3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantiles-with-continuous-frequency-distribution"><i class="fa fa-check"></i><b>2.3.3</b> Quantiles with continuous frequency distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#rückblick"><i class="fa fa-check"></i>Rückblick</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="association-between-two-features.html"><a href="association-between-two-features.html"><i class="fa fa-check"></i><b>3</b> Association between two features</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#frequency-distribution-for-two-features"><i class="fa fa-check"></i><b>3.1</b> Frequency distribution for two features</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#joint-frequencies"><i class="fa fa-check"></i><b>3.1.1</b> Joint frequencies</a></li>
+<li class="chapter" data-level="3.1.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#marginal-frequencies"><i class="fa fa-check"></i><b>3.1.2</b> Marginal frequencies</a></li>
+<li class="chapter" data-level="3.1.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-table"><i class="fa fa-check"></i><b>3.1.3</b> Contingency table</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#conditional-frequency-distribution"><i class="fa fa-check"></i><b>3.2</b> Conditional frequency distribution</a></li>
+<li class="chapter" data-level="3.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-independence"><i class="fa fa-check"></i><b>3.3</b> Empirical independence</a></li>
+<li class="chapter" data-level="3.4" data-path="association-between-two-features.html"><a href="association-between-two-features.html#dependence-measures"><i class="fa fa-check"></i><b>3.4</b> Dependence measures</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="association-between-two-features.html"><a href="association-between-two-features.html#empirical-covariance-and-correlation"><i class="fa fa-check"></i><b>3.4.1</b> Empirical covariance and correlation</a></li>
+<li class="chapter" data-level="3.4.2" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rank-correlation"><i class="fa fa-check"></i><b>3.4.2</b> Rank correlation</a></li>
+<li class="chapter" data-level="3.4.3" data-path="association-between-two-features.html"><a href="association-between-two-features.html#contingency-based-measures-chi2-coefficient-contingency-coefficient-normalized-contingency-coefficient"><i class="fa fa-check"></i><b>3.4.3</b> Contingency based measures: <span class="math inline">\(\chi^2\)</span> coefficient, contingency coefficient, normalized contingency coefficient</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="association-between-two-features.html"><a href="association-between-two-features.html#rückblick-1"><i class="fa fa-check"></i>Rückblick</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>4</b> Regression</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="regression.html"><a href="regression.html#linear-regression"><i class="fa fa-check"></i><b>4.1</b> Linear regression</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>4.1.1</b> Calculation of the regression coefficients</a></li>
+<li class="chapter" data-level="4.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>4.1.2</b> Coefficient of determination</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>4.2</b> Non-linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a>
+<ul>
+<li class="chapter" data-level="4.3" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#probability-space"><i class="fa fa-check"></i><b>4.3</b> Probability space</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#outcomes"><i class="fa fa-check"></i><b>4.3.1</b> Outcomes</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#event-space"><i class="fa fa-check"></i><b>4.3.2</b> Event space</a></li>
+<li class="chapter" data-level="4.3.3" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#probability-measure"><i class="fa fa-check"></i><b>4.3.3</b> Probability measure</a></li>
+<li class="chapter" data-level="4.3.4" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#calculating-with-probabilities"><i class="fa fa-check"></i><b>4.3.4</b> Calculating with probabilities</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#sampling-as-a-random-process"><i class="fa fa-check"></i><b>4.4</b> Sampling as a random process</a></li>
+<li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html#rückblick-2"><i class="fa fa-check"></i>Rückblick</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html"><i class="fa fa-check"></i><b>5</b> Conditional probabilities and independence</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#conditional-probabilities"><i class="fa fa-check"></i><b>5.1</b> Conditional probabilities</a></li>
+<li class="chapter" data-level="5.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#independence"><i class="fa fa-check"></i><b>5.2</b> Independence</a>
+<ul>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#criteria-for-independence"><i class="fa fa-check"></i>Criteria for independence</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#additional-information-for-sampling"><i class="fa fa-check"></i><b>5.3</b> Additional information for sampling</a></li>
+<li class="chapter" data-level="5.4" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#total-probability-and-the-bayes-formula"><i class="fa fa-check"></i><b>5.4</b> Total probability and the Bayes formula</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-total-probability"><i class="fa fa-check"></i><b>5.4.1</b> The total probability</a></li>
+<li class="chapter" data-level="5.4.2" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#the-bayes-formula"><i class="fa fa-check"></i><b>5.4.2</b> The Bayes formula</a></li>
+<li class="chapter" data-level="5.4.3" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#product-recommendations-according-to-the-naive-bayes-methodast"><i class="fa fa-check"></i><b>5.4.3</b> Product recommendations according to the ‘Naive Bayes’ method<span class="math inline">\(^\ast\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conditional-probabilities-and-independence.html"><a href="conditional-probabilities-and-independence.html#rückblick-3"><i class="fa fa-check"></i>Rückblick</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="random-variables.html"><a href="random-variables.html"><i class="fa fa-check"></i><b>6</b> Random variables</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="random-variables.html"><a href="random-variables.html#discrete-random-variable"><i class="fa fa-check"></i><b>6.1</b> Discrete random variable</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="random-variables.html"><a href="random-variables.html#probability-and-distribution-functions"><i class="fa fa-check"></i><b>6.1.1</b> Probability and distribution functions</a></li>
+<li class="chapter" data-level="6.1.2" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-for-discrete-random-variables"><i class="fa fa-check"></i><b>6.1.2</b> Expected value and variance for discrete random variables</a></li>
+<li class="chapter" data-level="6.1.3" data-path="random-variables.html"><a href="random-variables.html#covariance-and-correlation"><i class="fa fa-check"></i><b>6.1.3</b> Covariance and correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="random-variables.html"><a href="random-variables.html#continuous-random-variables"><i class="fa fa-check"></i><b>6.2</b> Continuous random variables</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="random-variables.html"><a href="random-variables.html#density-function"><i class="fa fa-check"></i><b>6.2.1</b> Density function</a></li>
+<li class="chapter" data-level="6.2.2" data-path="random-variables.html"><a href="random-variables.html#distribution-function-1"><i class="fa fa-check"></i><b>6.2.2</b> Distribution function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="random-variables.html"><a href="random-variables.html#expected-value-and-variance-for-continuous-random-variables"><i class="fa fa-check"></i><b>6.2.3</b> Expected value and variance for continuous random variables</a></li>
+<li class="chapter" data-level="6.2.4" data-path="random-variables.html"><a href="random-variables.html#quantiles-of-continuous-random-variables"><i class="fa fa-check"></i><b>6.2.4</b> Quantiles of continuous random variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="random-variables.html"><a href="random-variables.html#some-important-distributions"><i class="fa fa-check"></i><b>6.3</b> Some important distributions</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>6.3.1</b> Bernoulli distribution</a></li>
+<li class="chapter" data-level="6.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>6.3.2</b> Binomial distribution</a></li>
+<li class="chapter" data-level="6.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>6.3.3</b> Normal distribution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a>
+<ul>
+<li class="chapter" data-level="6.4" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#basic-ideas-of-inductive-statistics"><i class="fa fa-check"></i><b>6.4</b> Basic ideas of inductive statistics</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#parameter-estimation-theoretically"><i class="fa fa-check"></i><b>6.4.1</b> Parameter estimation theoretically</a></li>
+<li class="chapter" data-level="6.4.2" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#parameter-estimation-practically"><i class="fa fa-check"></i><b>6.4.2</b> Parameter estimation practically</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#estimating-the-expectation-mu-of-a-normal-population"><i class="fa fa-check"></i><b>6.5</b> Estimating the expectation <span class="math inline">\(\mu\)</span> of a normal population</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#distribution-of-the-sample-mean-for-a-normal-population"><i class="fa fa-check"></i><b>6.5.1</b> Distribution of the sample mean for a normal population</a></li>
+<li class="chapter" data-level="6.5.2" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#inference-based-on-the-sample-mean-distribution"><i class="fa fa-check"></i><b>6.5.2</b> Inference based on the sample mean distribution</a></li>
+<li class="chapter" data-level="6.5.3" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html#constructing-a-confidence-interval-for-mu-of-a-normal-populationast"><i class="fa fa-check"></i><b>6.5.3</b> Constructing a confidence interval for <span class="math inline">\(\mu\)</span> of a normal population<span class="math inline">\(^\ast\)</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="question.html"><a href="question.html"><i class="fa fa-check"></i><b>7</b> Question</a></li>
+<li class="chapter" data-level="8" data-path="solution.html"><a href="solution.html"><i class="fa fa-check"></i><b>8</b> Solution</a></li>
+<li class="chapter" data-level="9" data-path="meta-information.html"><a href="meta-information.html"><i class="fa fa-check"></i><b>9</b> Meta-information</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistics I</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="solution" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Solution<a href="solution.html#solution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><span class="math inline">\(H_2 = 7\)</span>
+<span class="math inline">\(h_2 = 0.6363636\)</span></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="question.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="meta-information.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/Bonus-Quiz1-3.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
