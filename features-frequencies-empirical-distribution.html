@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-10-01" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -843,6 +843,53 @@ Figure 2.3: Histogram for Y: unequal class width
 <iframe title="Aufgabe_Klasseneinteilung_Mitarbeiteralter" src="./htmls/klasseneinteilung_mitarbeiter_alter.html" width="700" height="500"></iframe>
 </div>
 <hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-4" class="exercise"><strong>Exercise 2.4  (Data Experiment: Choosing Your Trip Time Budget) </strong></span>Imagine you’re looking at the uncertain travel times from your home to the university. Your task is to pick a departure time that works best for you, so that the chances of being too early or too late stay low.</p>
+<!--:::::: {.columns}
+:::{.column width="50%"}
+
+**tight time budget**:
+
+**Pros**
+
+* More sleep 😴
+* Extra breakfast time 🥐☕
+* No awkward waiting around 🙄
+* Maximum home chill 🛋️
+
+**Cons**
+
+* Risk: epic late entrance 🚪😬
+* Grumpy lecturer glare 👀
+* Miss the important first bits (maybe exam tips!) 📚
+* No time to settle in & breathe 😵‍💫
+
+:::
+:::{.column width="50%"}
+
+**relaxed time budget**:
+
+**Pros**
+
+* Always on time ⏰✨
+* Chill before class, “arrive & breathe” 😌
+* Catch all the important bits (exam hints!) 📖
+* Lecturer is happy 👩‍🏫
+
+**Cons**
+
+* Less sleep 😴➡️😵
+* Breakfast in turbo mode 🥐💨
+* Extra waiting = extra boredom 🕰️😑
+* Feels like wasted time 🙃
+
+:::
+
+::::::-->
+<p><img src="images/pros_cons.png" /></p>
+<p>We’ll explore different travel time distributions with varying levels of uncertainty. Based on these, you’ll choose the departure time you prefer. Afterwards, we’ll look at the dataset together to see what travel time choices everyone made.</p>
+<p><a href="https://rshiny.f4.htw-berlin.de/upload/dtime/">Data Experiment: Choosing Your Trip Time Budget</a></p>
+</div>
 
 
 </div>
@@ -896,8 +943,8 @@ Figure 2.3: Histogram for Y: unequal class width
                         0.7 &amp;\text{for}~4\leq x&lt;5,\\
                         0.9 &amp;\text{for}~5\leq x&lt;6,\\
                         1 &amp;\text{for}~x\geq 6.\\\end{cases}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-19"></span>
-<img src="_main_files/figure-html/unnamed-chunk-19-1.png" alt="Empirical probability and distribution functions for \(C\): Orders" width="672" height="60%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-20"></span>
+<img src="_main_files/figure-html/unnamed-chunk-20-1.png" alt="Empirical probability and distribution functions for \(C\): Orders" width="672" height="60%" />
 <p class="caption">
 Figure 2.4: Empirical probability and distribution functions for <span class="math inline">\(C\)</span>: Orders
 </p>
@@ -926,7 +973,7 @@ Figure 2.4: Empirical probability and distribution functions for <span class="ma
 <div class="example">
 <p><span id="exm:umsatzf" class="example"><strong>Example 2.9  (Density and distribution functions for the sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-20">Table 2.6: </span>Relative frequencies and cumulative frequencies for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-21">Table 2.6: </span>Relative frequencies and cumulative frequencies for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -969,17 +1016,17 @@ Figure 2.4: Empirical probability and distribution functions for <span class="ma
                         0.7 + 0.005\cdot(x-30) = 0.55 + 0.005\cdot x &amp;\text{for}~30\leq x&lt; 50,\\
                         0.8 + 0.004\cdot(x-50) = 0.6 + 0.004\cdot x &amp;\text{for}~50\leq x&lt; 100,\\
                         1&amp;\text{for}~x\geq 100.\end{cases}\]</span></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-21"></span>
-<img src="_main_files/figure-html/unnamed-chunk-21-1.png" alt="Empirical density and distribution functions for \(Y\): Sales amount" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="_main_files/figure-html/unnamed-chunk-22-1.png" alt="Empirical density and distribution functions for \(Y\): Sales amount" width="80%" />
 <p class="caption">
 Figure 2.5: Empirical density and distribution functions for <span class="math inline">\(Y\)</span>: Sales amount
 </p>
 </div>
 </div>
 <div class="exercise">
-<p><span id="exr:zeitf" class="exercise"><strong>Exercise 2.4  (Density and distribution functions for time spent in the online store.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
+<p><span id="exr:zeitf" class="exercise"><strong>Exercise 2.5  (Density and distribution functions for time spent in the online store.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-22">Table 2.7: </span>Relative frequencies and cumulative frequencies for the feature <span class="math inline">\(X\)</span>: Time spent in the online store.</caption>
+<caption><span id="tab:unnamed-chunk-23">Table 2.7: </span>Relative frequencies and cumulative frequencies for the feature <span class="math inline">\(X\)</span>: Time spent in the online store.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
