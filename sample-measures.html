@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-10-07" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -106,7 +106,8 @@
 <li class="chapter" data-level="3.1.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-mean"><i class="fa fa-check"></i><b>3.1.1</b> Sample Mean</a></li>
 <li class="chapter" data-level="3.1.2" data-path="sample-measures.html"><a href="sample-measures.html#sample-median"><i class="fa fa-check"></i><b>3.1.2</b> Sample Median</a></li>
 <li class="chapter" data-level="3.1.3" data-path="sample-measures.html"><a href="sample-measures.html#geometric-mean"><i class="fa fa-check"></i><b>3.1.3</b> Geometric Mean</a></li>
-<li class="chapter" data-level="3.1.4" data-path="sample-measures.html"><a href="sample-measures.html#empirical-modal-value"><i class="fa fa-check"></i><b>3.1.4</b> Empirical Modal Value</a></li>
+<li class="chapter" data-level="3.1.4" data-path="sample-measures.html"><a href="sample-measures.html#sample-mode"><i class="fa fa-check"></i><b>3.1.4</b> Sample Mode</a></li>
+<li class="chapter" data-level="3.1.5" data-path="sample-measures.html"><a href="sample-measures.html#using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution"><i class="fa fa-check"></i><b>3.1.5</b> Using Mean, Median and Mode to determine the shape of the frequency distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="sample-measures.html"><a href="sample-measures.html#measures-of-variability"><i class="fa fa-check"></i><b>3.2</b> Measures of Variability</a>
 <ul>
@@ -860,10 +861,10 @@ q_{geom} = (0.9221 \cdot 1.2248 \cdot 0.8616)^{\frac 13} = 0.9909
 </div>
 <hr />
 </div>
-<div id="empirical-modal-value" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Empirical Modal Value<a href="sample-measures.html#empirical-modal-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In contrast to the above measures, <strong>modal value</strong> can be calculated for characteristics with <em>any scale</em>, as only the frequencies are taken into account when determining the modal value.</p>
-<p>The characteristic with the highest frequency is taken as <strong>the modal value</strong>:</p>
+<div id="sample-mode" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Sample Mode<a href="sample-measures.html#sample-mode" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In contrast to the above measures, <strong>mode or modal value</strong> can be calculated for characteristics with <em>any scale</em>, as only the frequencies are taken into account when determining the modal value.</p>
+<p>The characteristic with the highest frequency is taken as <strong>the mode</strong>:</p>
 <p><span class="math display">\[
 x_{mod} = a_m \text{ with } h(a_m)=h_m=\max (h_1, h_2, \ldots, h_J)
 \]</span></p>
@@ -876,7 +877,18 @@ x_{mod} = a_m \text{ with } h(a_m)=h_m=\max (h_1, h_2, \ldots, h_J)
 <p><span id="exm:zahl2mod" class="example"><strong>Example 3.13  (Means of payment.) </strong></span>Cont. of Example <a href="features-frequencies-empirical-distribution.html#exm:zahl">2.4</a>.</p>
 <p>Here, the modal value is equal to the “PayPal” attribute, as this attribute has the highest frequency of <span class="math inline">\(0.4\)</span>.</p>
 </div>
-<hr />
+</div>
+<div id="using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Using Mean, Median and Mode to determine the shape of the frequency distribution<a href="sample-measures.html#using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The shape of a sample distribution can be assessed by comparing its <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>.
+In a <strong>right-skewed (positively skewed)</strong> distribution, a long tail extends toward higher values, pulling the mean to the right of the median and mode (<span class="math inline">\(\text{mean} &gt; \text{median} &gt; \text{mode}\)</span>). This pattern often occurs when a few large values raise the average.
+Conversely, in a <strong>left-skewed (negatively skewed)</strong> distribution, a long tail extends toward lower values, pulling the mean to the left of the median and mode (<span class="math inline">\(\text{mean} &lt; \text{median} &lt; \text{mode}\)</span>).
+In a <strong>symmetric</strong> distribution, such as the normal distribution, the mean, median, and mode coincide (<span class="math inline">\(\text{mean} = \text{median} = \text{mode}\)</span>).
+Comparing these measures provides an intuitive way to detect asymmetry and identify potential outliers that may influence the overall shape of the distribution.</p>
+<div class="float">
+<img src="images/mmm.png" style="width:80.0%" alt="Source: https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598" />
+<div class="figcaption">Source: <a href="https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598" class="uri">https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598</a></div>
+</div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 3.3  (Measures of central tendency.) </strong></span></p>
 <iframe title="Lagekennzahlen" src="./htmls/quiz_lagekennzahlen.html" width="700" height="500"></iframe>

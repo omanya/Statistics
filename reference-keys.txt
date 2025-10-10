@@ -175,7 +175,8 @@ measures-of-central-tendency
 sample-mean
 sample-median
 geometric-mean
-empirical-modal-value
+sample-mode
+using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution
 measures-of-variability
 sample-variance-and-sample-standard-deviation
 range
