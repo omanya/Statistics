@@ -99,6 +99,7 @@ exr:unlabeled-div-17
 exm:linreg0
 exm:umswetreg
 tab:umswetdatzz
+exm:multilinreg
 exm:lognachfr
 exm:wurf123
 exm:wurf123f
@@ -201,6 +202,7 @@ regression
 linear-regression
 calculation-of-the-regression-coefficients
 coefficient-of-determination
+multivariate-linear-regression
 non-linear-regression
 modelling-randomness
 probability-space

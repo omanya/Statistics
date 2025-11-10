@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-11-03" />
+<meta name="date" content="2025-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,7 +147,8 @@
 <li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
 <li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#multivariate-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Multivariate linear regression</a></li>
+<li class="chapter" data-level="5.3" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.3</b> Non-linear regression</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
 <li class="chapter" data-level="6" data-path="modelling-randomness.html"><a href="modelling-randomness.html"><i class="fa fa-check"></i><b>6</b> Modelling randomness</a>
@@ -373,7 +374,7 @@ month~i&amp; market ~return ~x_i&amp; stock~return~y_i\\\hline
 <h3><span class="header-section-number">5.1.1</span> Calculation of the regression coefficients<a href="regression.html#calculation-of-the-regression-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>The regression coefficients, the <strong>intercept</strong> <span class="math inline">\(a\)</span> and the <strong>slope</strong> of the regression line <span class="math inline">\(b\)</span>, are to be determined.</p></li>
-<li><p>The <strong>method of least squares (MkQ)</strong> determines <span class="math inline">\(a\)</span>
+<li><p>The <strong>method of ordinary least squares (OLS)</strong> determines <span class="math inline">\(a\)</span>
 and <span class="math inline">\(b\)</span> by minimizing the sum of the squared error terms:</p></li>
 </ul>
 <p><span class="math display">\[
@@ -423,7 +424,7 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 <ul>
 <li><p>Characteristics:</p>
 <ul>
-<li><p><span class="math inline">\(U=\text{sales per customer}\)</span></p></li>
+<li><p><span class="math inline">\(S=\text{sales per customer}\)</span></p></li>
 <li><p><span class="math inline">\(T=\text{average temperature}\)</span></p></li>
 </ul></li>
 </ul>
@@ -490,22 +491,109 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 </tbody>
 </table>
 <ul>
-<li><p>Estimate the coefficients of the regression line <span class="math inline">\(u=a+bt\)</span> from the data, where <span class="math inline">\(\bar u= 25.138\)</span>; <span class="math inline">\(\bar t=17.173\)</span>; <span class="math inline">\(s_U^2=14.0488\)</span>, <span class="math inline">\(s_T^2 = 19.4984\)</span> and
-<span class="math inline">\(\hat\sigma_{TU}=14.9797.\)</span></p></li>
+<li><p>Estimate the coefficients of the regression line <span class="math inline">\(s=a+bt\)</span> from the data, where <span class="math inline">\(\bar s= 25.138,\)</span> <span class="math inline">\(\bar t=17.173,\)</span> <span class="math inline">\(s_S^2=14.0488,\)</span> <span class="math inline">\(s_T^2 = 19.4984,\)</span> and
+<span class="math inline">\(\hat\sigma_{TS}=14.9797.\)</span></p></li>
 <li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9797}{19.4984} = 0.7683\)</span></p></li>
 <li><p>and <span class="math inline">\(\hat a=25.138+ 0.7683\cdot 17.173 = 11.9448.\)</span></p></li>
 <li><p>Sales as a function of temperature:
-<span class="math inline">\(u= 11.9448 + 0.7683\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
-<li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{UT}^2=(0.905)^2=0.819.\)</span></p></li>
+<span class="math inline">\(s= 11.9448 + 0.7683\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
+<li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{ST}^2=(0.905)^2=0.819.\)</span></p></li>
 <li><p>Graphically:</p></li>
 </ul>
 <p><img src="_main_files/figure-html/unnamed-chunk-74-1.png" width="70%" /></p>
+<ul>
+<li>in gretl (Model -&gt; Ordinary Least Squares):</li>
+</ul>
+<p><img src="images/gretl0.png" style="width:70.0%" /></p>
+<p><img src="images/gretl_lr1.png" style="width:70.0%" /></p>
 </div>
-<hr />
 </div>
 </div>
-<div id="non-linear-regression" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="multivariate-linear-regression" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Multivariate linear regression<a href="regression.html#multivariate-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using the <strong>univariate linear regression</strong> (only one explanatory variable) above, we found a functional relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
+<p><strong>Can we take other influences into account (e.g. rainfall, day of week)?</strong></p>
+<p>Multivariate linear regression:</p>
+<ul>
+<li><p>Approach: <span class="math inline">\(y=\beta_0 + \beta_1\, x_1 + \beta_2\, x_2 + \cdots + \beta_L\, x_L,\)</span></p></li>
+<li><p>with the regressand or dependent variable <span class="math inline">\(y\)</span> and <span class="math inline">\(L\)</span> regressors
+<span class="math inline">\(x_1, \ldots, x_L\)</span> (multivariate regression);</p></li>
+<li><p>Sample:</p></li>
+</ul>
+<p><span class="math display">\[
+      ((x_{11}, \ldots, x_{L1}), y_1), \ldots, ((x_{1n}, \ldots, x_{Ln}), y_n)
+\]</span></p>
+<ul>
+<li>System of linear equations:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+        y_1 &amp;= \beta_0 + \beta_1\, x_{11} + \beta_2\, x_{21} + \cdots + \beta_L\, x_{L1}
+              + \varepsilon_1\\\vdots\\y_n &amp;= \beta_0+  \beta_1\, x_{1n} + \beta_2\, x_{2n} + \cdots + \beta_L\, x_{Ln}
+              + \varepsilon_n
+\end{align*}\]</span></p>
+<ul>
+<li>Representation in matrix form:</li>
+</ul>
+<p><span class="math display">\[
+      \bf{y} = \bf{X}\bf{\beta} + \bf{\varepsilon},
+\]</span></p>
+<p>with the design matrix</p>
+<p><span class="math display">\[
+        \bf{X}=
+        \begin{pmatrix}
+          1 &amp; x_{11} &amp; x_{21} &amp; \cdots &amp; x_{L1}\\
+          \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots\\
+          1 &amp; x_{1n} &amp; x_{2n} &amp; \cdots &amp; x_{Ln}
+        \end{pmatrix}
+\]</span></p>
+<ul>
+<li>OLS-Solution:</li>
+</ul>
+<p><span class="math display">\[
+        \bf{\hat\beta} = (\bf{X}^T \bf{X})^{-1}\, \bf{X}^T\, \bf{y}
+\]</span></p>
+<div class="example">
+<p><span id="exm:multilinreg" class="example"><strong>Example 5.3  (Sales vs Weather II) </strong></span>example <a href="association-between-two-features.html#exm:umswetkor">4.9</a> cont.</p>
+<ul>
+<li><p>Design matrix <span class="math inline">\(\bf X\)</span> with columns:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>constant (vector of ones),</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>temperature,</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>rain indicator</li>
+</ol></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\bf{X} =
+        \begin{pmatrix}
+          1&amp; 13.57&amp; 1\\
+          1&amp; 14.77&amp; 1\\
+          1&amp; 14.2&amp;0\\
+          1&amp; 17.65&amp;0\\
+          1&amp; 24.79&amp;0\\
+          \ldots &amp; \ldots &amp;\ldots\\
+          \\
+\end{pmatrix}\]</span></p>
+<ul>
+<li>OLS-Solution:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+    \hat\beta&amp;=(\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{Y}
+\end{align*}\]</span></p>
+<p><img src="images/gretl_lr2.png" style="width:70.0%" /></p>
+<ul>
+<li><p>Function to forecast the sales:
+<span class="math display">\[sales\approx 16.0503 + 0.5887\cdot t - 2.5551\cdot r.\]</span></p></li>
+<li><p>Which number of order would you forecast for a rainy day with an average of <span class="math inline">\(15°C\)</span>?</p></li>
+</ul>
+</div>
+</div>
+<div id="non-linear-regression" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If the relationship is not linear, such as <span class="math inline">\(v=\alpha\cdot \beta^u\)</span>: convert <span class="math inline">\(\rightarrow\)</span> into a linear relationship using a suitable transformation, e.g. by logarithmizing:
 <span class="math inline">\(\ln v = \ln \alpha + (\ln \beta)\cdot u\)</span>.</p>
 <ul>
@@ -521,7 +609,7 @@ coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\
 </ul></li>
 </ul>
 <div class="example">
-<p><span id="exm:lognachfr" class="example"><strong>Example 5.3  (Nonlinear (log-linearised) Demand function) </strong></span></p>
+<p><span id="exm:lognachfr" class="example"><strong>Example 5.4  (Nonlinear (log-linearised) Demand function) </strong></span></p>
 <ul>
 <li>Econometric relation: exponential demand <span class="math inline">\(q\)</span> for a certain consumer good
 specific consumer good as a function of the price <span class="math inline">\(p\)</span></li>

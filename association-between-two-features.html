@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-11-03" />
+<meta name="date" content="2025-11-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,7 +147,8 @@
 <li class="chapter" data-level="5.1.1" data-path="regression.html"><a href="regression.html#calculation-of-the-regression-coefficients"><i class="fa fa-check"></i><b>5.1.1</b> Calculation of the regression coefficients</a></li>
 <li class="chapter" data-level="5.1.2" data-path="regression.html"><a href="regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>5.1.2</b> Coefficient of determination</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Non-linear regression</a></li>
+<li class="chapter" data-level="5.2" data-path="regression.html"><a href="regression.html#multivariate-linear-regression"><i class="fa fa-check"></i><b>5.2</b> Multivariate linear regression</a></li>
+<li class="chapter" data-level="5.3" data-path="regression.html"><a href="regression.html#non-linear-regression"><i class="fa fa-check"></i><b>5.3</b> Non-linear regression</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="ii-probability-theory.html"><a href="ii-probability-theory.html"><i class="fa fa-check"></i>II Probability theory</a></li>
 <li class="chapter" data-level="6" data-path="modelling-randomness.html"><a href="modelling-randomness.html"><i class="fa fa-check"></i><b>6</b> Modelling randomness</a>
@@ -946,7 +947,7 @@ $$
           y^2}}
 \]</span></p>
 <div class="example">
-<p><span id="exm:umswetht" class="example"><strong>Example 4.11  (Frequencies of U and T) </strong></span>We compute the correlation based on the frequency distribution:</p>
+<p><span id="exm:umswetht" class="example"><strong>Example 4.11  (Frequencies of S and T) </strong></span>We compute the correlation based on the frequency distribution:</p>
 <p><span class="math display">\[
         \begin{array}{r|ccc|c}
         \hline
@@ -1158,42 +1159,44 @@ and has a value <span class="math inline">\(C^\ast\in [0,1]\)</span>.</p>
 </div>
 <hr />
 <div class="example">
-<p><span id="exm:grfit2" class="example"><strong>Example 4.14  (Grades and Fitness) </strong></span></p>
+<p><span id="exm:grfit2" class="example"><strong>Example 4.14  (Payments versus Usage) </strong></span></p>
 <ul>
-<li>The basic population of HWR students is available for the following
-characteristics:
-<span class="math inline">\(A=\text{level of fitness}\)</span> with the values
-<span class="math inline">\(s=\text{athletic}\)</span> and <span class="math inline">\(u=\text{unathletic}\)</span>
-and <span class="math inline">\(B=\text{exam grade}\)</span> with the values
-<span class="math inline">\(e=\text{excellent}\)</span>, <span class="math inline">\(g=\text{good}\)</span> and <span class="math inline">\(s=\text{sufficient}\)</span>
-a sample with a size of <span class="math inline">\(n=200\)</span> with frequency distribution:</li>
+<li>We consider the following customer
+characteristics form the sample data (<a href="features-frequencies-empirical-distribution.html#exm:merk">2.1</a>):
+<span class="math inline">\(A=\text{Payment}\)</span> with the values
+<span class="math inline">\(a_1=\text{PayPal}\)</span>, <span class="math inline">\(a_2=\text{CreditCard}\)</span> and <span class="math inline">\(a_3=\text{other}\)</span> (Bill and debit payments).
+and <span class="math inline">\(D=\text{usage}\)</span> with the values
+<span class="math inline">\(b_1=\text{Web}\)</span>, <span class="math inline">\(b_2=\text{app}\)</span> in a sample with a size of <span class="math inline">\(n=10\)</span> with frequency distribution:</li>
 </ul>
 <p><span class="math display">\[
-      \begin{array}[t]{c|ccc|c}
-      h_{j,k} &amp; b_1=e &amp; b_2=g &amp; b_3=s &amp; h_{j\cdot}\\\hline
-      a_1=s &amp; 0.07 &amp; 0.36 &amp; 0.17 &amp; 0.6\\
-      a_2=u &amp; 0.06 &amp; 0.275 &amp; 0.065 &amp; 0.4\\\hline
-      h_{\cdot k} &amp; 0.13 &amp; 0.635 &amp; 0.235 &amp; 1\\\hline
+      \begin{array}[t]{c|cc|c}
+      h_{j,k} &amp; b_1=Web &amp; b_2=App&amp; h_{j\cdot}\\\hline
+      a_1=PayPal &amp; 0.2 &amp; 0.2 &amp; 0.4\\
+      a_2=CreditCard &amp; 0.1 &amp; 0.1  &amp; 0.2\\
+      a_3=Other &amp; 0.0 &amp; 0.4  &amp; 0.4\\\hline
+      h_{\cdot k} &amp; 0.3 &amp; 0.7 &amp; 1\\\hline
       \end{array}
 \]</span></p>
 <ul>
 <li>the frequencies under independence would be:</li>
 </ul>
 <p><span class="math display">\[
-\begin{array}[t]{c|ccc}
-h_{j,\cdot}\cdot h_{\cdot,k} &amp; b_1 &amp; b_2 &amp; b_3 \\\hline
-a_1 &amp; 0.078 &amp; 0.381 &amp; 0.141\\
-a_2 &amp; 0.052 &amp; 0.254 &amp; 0.094\\\hline
-\end{array}
+\begin{array}[t]{c|cc|c}
+      h_{j,k} &amp; b_1=Web &amp; b_2=App&amp; h_{j\cdot}\\\hline
+      a_1=PayPal &amp; 0.12 &amp; 0.28 &amp; 0.4\\
+      a_2=CreditCard &amp; 0.06 &amp; 0.14  &amp; 0.2\\
+      a_3=Other &amp; 0.12 &amp; 0.28  &amp; 0.4\\\hline
+      h_{\cdot k} &amp; 0.3 &amp; 0.7 &amp; 1\\\hline
+      \end{array}
 \]</span></p>
-<p>We use this to calculate:
+<p>We use the above to calculate:
 <span class="math display">\[\begin{align*}
-      \chi^2 &amp;= n\cdot\frac{(0.07-0.078)^2}{0.078} + \frac{(0.36-0.381)^2}{0.381} +
-               \cdots + \frac{(0.065-0.094)^2}{0.094} =
-               3.9713 \\
-      C&amp;= \sqrt{\frac{\chi^2}{\chi^2+n}} = 0.1395 \in [0;0.7071];\quad C^\ast = 0.1973\in [0; 1].
+      \chi^2 &amp;= n\cdot\frac{(0.2-0.12)^2}{0.12} + \frac{(0.2-0.28)^2}{0.28} +
+               \cdots + \frac{(0.4-0.28)^2}{0.28} =
+               2.8571 \\
+      C&amp;= \sqrt{\frac{\chi^2}{\chi^2+n}} = 0.2222 \in [0;0.7071];\quad C^\ast = \frac{C}{\sqrt{\frac{M-1}M}} = 0.3143\in [0; 1].
 \end{align*}\]</span>
-This value indicates a slight dependency.</p>
+This value indicates a moderate dependency.</p>
 </div>
 <hr />
 <div class="exercise">
