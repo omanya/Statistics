@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-11-10" />
+<meta name="date" content="2025-11-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -319,7 +319,7 @@ function checkAnswer_match(q) {
 <h2><span class="header-section-number">6.1</span> Probability space<a href="modelling-randomness.html#probability-space" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>probability space</strong> consists of the following elements:</p>
 <ul>
-<li><p><span class="math inline">\(\Omega\)</span>: Outcomes set or sample space</p></li>
+<li><p><span class="math inline">\(\Omega\)</span>: Outcome set or sample space</p></li>
 <li><p><span class="math inline">\(\mathcal F\)</span>: Event space and</p></li>
 <li><p><span class="math inline">\(\mathbb P\)</span>: Probability measure.</p></li>
 </ul>
@@ -357,9 +357,9 @@ function checkAnswer_match(q) {
   A^c &amp;= \{\omega\in\Omega| \omega\not\in A\} = \text{ event
       $A$ does not occur }\\
   A\cup B&amp;= \{\omega\in\Omega| \omega\in A \text{ or } \omega\in
-  B\} = \text{ $A$ or $B$ enters }\\
+  B\} = \text{ $A$ or $B$ (or both) occur }\\
   A\cap B&amp;= \{\omega\in \Omega| \omega\in A\text{ and } \omega\in
-  B\} = \text{ $A$ and $B$ enter }\\
+  B\} = \text{ $A$ and $B$ occur in the same time}\\
   A\setminus B &amp;= \{\omega\in\omega|\omega\in A \text{ and }\omega\not\in B\} = \text{ $A$ occurs, but not $B$.}
 \end{align*}\]</span></p></li>
 <li><p>The <strong>power</strong> of <span class="math inline">\(A\)</span> denotes the number of all elements <span class="math inline">\(\omega\)</span> in <span class="math inline">\(A\)</span>; notation: <span class="math inline">\(|A|\)</span>.</p></li>
@@ -367,7 +367,7 @@ function checkAnswer_match(q) {
 </ul>
 <hr />
 <div class="example">
-<p><span id="exm:wurf123" class="example"><strong>Example 6.1  (Rolling a dice twice) </strong></span>We conduct the experiment: rolling two fair dice with faces 1, 2 and 3 each on two sides of the dice.</p>
+<p><span id="exm:wurf123" class="example"><strong>Example 6.1  (Rolling dice) </strong></span>We conduct the experiment: rolling two fair dice with faces 1, 2 and 3 each on two sides of the dice.</p>
 <ul>
 <li><p>Outcomes:
 <span class="math display">\[\begin{align*}
@@ -379,9 +379,9 @@ where <span class="math inline">\(a=\)</span> outcome of the first die and <span
 <li><p>Some events:</p>
 <ul>
 <li>verbal: <span class="math inline">\(A=\)</span>“The sum of the dice is 4”; formal: <span class="math inline">\(A=\{(a,b)\in \Omega | a+b=4\} =\)</span> <span class="math inline">\(\{(1;3), (2;2), (3;1)\}\)</span>.</li>
-<li>verbal: <span class="math inline">\(B=\)</span>“The face of both dice show an odd number”; formal: <span class="math inline">\(B=\{(a,b)\in \Omega | a, b \text{ odd}\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (3;1), (3;3)\}\)</span></li>
+<li>verbal: <span class="math inline">\(B=\)</span>“Both dice show an odd number”; formal: <span class="math inline">\(B=\{(a,b)\in \Omega | a, b \text{ odd}\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (3;1), (3;3)\}\)</span></li>
 <li>verbal: <span class="math inline">\(A\cup B=\)</span>“The sum of the dice is 4 or the numbers are both odd”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ or } a,b \text{ odd }\} =\)</span> <span class="math inline">\(\{(1;1), (1;3), (2;2), (3;1), (3;3)\}\)</span></li>
-<li>verbal: <span class="math inline">\(A\cap B=\)</span>“The sum of the dice is 4 and in the same time the numbers are both odd”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ and } a,b \text{ odd }\} =\)</span> <span class="math inline">\(\{(1;3), (3;1)\}\)</span></li>
+<li>verbal: <span class="math inline">\(A\cap B=\)</span>“The sum of the dice is 4 and (in the same time) the numbers are both odd”; formal: <span class="math inline">\(A\cup B=\{(a,b)\in \Omega | a+b=4 \text{ and } a,b \text{ odd }\} =\)</span> <span class="math inline">\(\{(1;3), (3;1)\}\)</span></li>
 </ul></li>
 <li><p>Interactive :</p>
 <ul>
@@ -473,7 +473,7 @@ $$
 <p>Every probability measure must fulfill the <strong>Axioms of Kolmogorov</strong>:</p>
 <ul>
 <li><span class="math inline">\(\mathbb P(A)\geq 0\)</span>,</li>
-<li><span class="math inline">\(\mathbb P(\omega )=1\)</span>,</li>
+<li><span class="math inline">\(\mathbb P(\Omega )=1\)</span>,</li>
 <li>If <span class="math inline">\(A\cap B=\emptyset\)</span>, then <span class="math inline">\(\mathbb P(A\cup B)=\mathbb P(A)+\mathbb P(B)\)</span>.</li>
 </ul>
 <div id="laplaces-probability-model" class="section level4 unnumbered hasAnchor">
@@ -579,7 +579,7 @@ If <span class="math inline">\(\mathbb P(\omega)=\displaystyle\frac{1}{N}\)</spa
 </ul>
 </div>
 <hr />
-<p>The calculation of probabilities in the Laplace model therefore only requires <strong>counting</strong> the favorable outcomes. For large quantities, however, this is hardly feasible <strong>without a system</strong>.</p>
+<p>The calculation of probabilities in the Laplace model therefore only requires <strong>counting</strong> the favorable outcomes. For large quantities, however, this is hardly feasible without a <strong>system</strong>.</p>
 <p>Formulas:</p>
 <ul>
 <li><p>Permutations: different arrangements of <span class="math inline">\(k\)</span> possibilities on <span class="math inline">\(k\)</span> places (without repetitions): <span class="math display">\[k! = 1\cdot 2\cdot 3\cdot \ldots \cdot k.\]</span></p></li>
@@ -635,12 +635,14 @@ $$
 \mathcal F = \mathcal P(\Omega).
 \]</span></p>
 <ul>
-<li><p>Probabilities: each result is equally probable (we draw with backing), i.e. <span class="math inline">\(\mathbb P(\{(x_i,x_j,x_k)\} = \frac 1{|\Omega|} = \frac 1{125}\)</span>. The Laplace probability model therefore applies.</p>
+<li><p>Probabilities: each result is equally probable (we draw with repetitions), i.e. <span class="math inline">\(\mathbb P(\{(x_i,x_j,x_k)\} = \frac 1{|\Omega|} = \frac 1{125}\)</span>. The Laplace probability model therefore applies.</p>
 <ul>
-<li><p>For <span class="math inline">\(A\)</span>: The combination of customers 1, 2 and 3 is selected, <span class="math inline">\(A = \{(x_1,x_2,x_3),(x_2,x_1,x_3),\ldots,(x_3,x_2,x_1)\}\)</span>) <span class="math inline">\(|A|=3!\)</span> and <span class="math inline">\(\mathbb P(A) = \frac{|A|}{|\Omega|} = \frac 6{125}.\)</span></p></li>
-<li><p>For <span class="math inline">\(B\)</span>: Customer 1 is selected at least once at random, <span class="math inline">\(B = \{(x_1,x_1,x_1),\ldots, (x_5,x_1,x_2),\ldots, (x_5,x_5,x_1)\}\)</span>) applies <span class="math inline">\(\mathbb P(B) = 1-\mathbb P(B^c)\)</span> with <span class="math inline">\(|B^c|=4^3 = 64.\)</span>
-<span class="math inline">\(\mathbb P(B) = 1-\frac{|B^c|}{|\Omega|} = \frac {61}{125}.\)</span></p></li>
-<li><p>For <span class="math inline">\(C\)</span>: Three different customers are chosen at random (without repetition), <span class="math inline">\(C = \{(x_1,x_2,x_3),(x_2,x_4,x_3),\ldots,(x_3,x_2,x_5)\}\)</span>), <span class="math inline">\(|C|=\frac{5!}{(5-3)!} = 60\)</span> and <span class="math inline">\(\mathbb P(C) = \frac{|C|}{|\Omega|} = \frac {12}{25}.\)</span></p></li>
+<li><p>Consider event <span class="math inline">\(A\)</span>: The combination of customers 1, 2 and 3 is selected:
+<span class="math inline">\(A = \{(x_1,x_2,x_3),(x_2,x_1,x_3),\ldots,(x_3,x_2,x_1)\},\)</span> <span class="math inline">\(|A|=3!=6,\)</span> and <span class="math inline">\(\mathbb P(A) = \frac{|A|}{|\Omega|} = \frac 6{125}.\)</span></p></li>
+<li><p>Consider event <span class="math inline">\(B\)</span>: Customer 1 is selected at least once:
+<span class="math inline">\(B = \{(x_1,x_1,x_1),\ldots, (x_5,x_1,x_2),\ldots, (x_5,x_5,x_1)\},\)</span> it applies <span class="math inline">\(\mathbb P(B) = 1-\mathbb P(B^c)\)</span> with <span class="math inline">\(|B^c|=4^3 = 64.\)</span> So, <span class="math inline">\(\mathbb P(B) = 1-\frac{|B^c|}{|\Omega|} = \frac {61}{125}.\)</span></p></li>
+<li><p>Consider event <span class="math inline">\(C\)</span>: Three <strong>different</strong> customers are chosen (without repetition):
+<span class="math inline">\(C = \{(x_1,x_2,x_3),(x_2,x_4,x_3),\ldots,(x_3,x_2,x_5)\},\)</span> <span class="math inline">\(|C|=\frac{5!}{(5-3)!} = 60\)</span> and <span class="math inline">\(\mathbb P(C) = \frac{|C|}{|\Omega|} = \frac {12}{25}.\)</span></p></li>
 </ul></li>
 </ul>
 </div>
@@ -673,7 +675,7 @@ Usage~a_i&amp;App&amp;Web&amp;App&amp;App&amp;Web\\\hline
 <p>I.e. <span class="math inline">\(\mathbb P(App) = 0.6\)</span> and <span class="math inline">\(\mathbb P(Web)=0.4.\)</span></p>
 <p><strong>Which different sample outcomes with what probability can we draw?</strong></p>
 <ul>
-<li>Result set: <span class="math inline">\(x_i\)</span> get the corresponding values (e.g. <span class="math inline">\(x_1=App\)</span>, <span class="math inline">\(x_2=Web\)</span>)</li>
+<li>Outcome set: each <span class="math inline">\(x_i\)</span> now gets the corresponding value (e.g. <span class="math inline">\(x_1=App\)</span>, <span class="math inline">\(x_2=Web\)</span>)</li>
 </ul>
 <p><span class="math display">\[\begin{align}
 \Omega &amp;= \{(App; App; App), (App; Web; Web),\ldots, (App; Web; App),\ldots, \\
@@ -682,29 +684,29 @@ Usage~a_i&amp;App&amp;Web&amp;App&amp;App&amp;Web\\\hline
 \end{align}\]</span></p>
 <ul>
 <li><p>Event space: <span class="math inline">\(\mathcal F=\mathcal P(\Omega).\)</span></p></li>
-<li><p>Probability measure: Equal probabilities</p></li>
+<li><p>Probability measure: equal probabilities.</p></li>
 <li><p>Events:</p>
 <ul>
 <li><p><span class="math inline">\(A_3=\)</span> “3 times App”: only customers 1, 3 and 4 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_3|=3^3=27\)</span> and <span class="math inline">\(\mathbb P(A_3)=\frac{27}{125}.\)</span></p></li>
 <li><p><span class="math inline">\(A_0=\)</span> “no App”: only customers 2 and 5 may be selected <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_0|=2^3=8\)</span> and <span class="math inline">\(\mathbb P(A)=\frac{8}{125}.\)</span></p></li>
 <li><p><span class="math inline">\(A_1=\)</span> “App just once”: one place is occupied by customers 1, 3 or 4; two other places - by customers 2 or 5 <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(|A_1|=3\cdot 3\cdot 2^2=36\)</span> and <span class="math inline">\(\mathbb P(A_1)=\frac{36}{125}.\)</span></p></li>
-<li><p><span class="math inline">\(A_2=\)</span> “2 times App” <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(A_2)=1-\mathbb P(A_2^c) = 1-(P(A_0) + P(A_1) + P(A_3))= 1-\frac{71}{125} = \frac{54}{125}.\)</span></p></li>
+<li><p><span class="math inline">\(A_2=\)</span> “2 times App” <span class="math inline">\(\leadsto\)</span> <span class="math inline">\(\mathbb P(A_2)=1-\mathbb P(A_2^c) = 1-(\mathbb P(A_0) + \mathbb P(A_1) + \mathbb P(A_3))= 1-\frac{71}{125} = \frac{54}{125}.\)</span></p></li>
 </ul></li>
 </ul>
 <p><strong>What is expected on average (across all sample outocmes)?</strong></p>
 <p><span class="math display">\[
 0\cdot \frac{8}{125} + 1\cdot \frac{36}{125}+2\cdot \frac{54}{125}+3\cdot \frac{27}{125} = 1.8
 \]</span>
-or as a proportion <span class="math inline">\(\frac{1.8}{3}=0.6\)</span> <span class="math inline">\(\leadsto\)</span> so on average we have the same proportion (60%) of app users as in the entire customer base!</p>
+or as a proportion <span class="math inline">\(\frac{1.8}{3}=0.6\)</span> <span class="math inline">\(\leadsto\)</span> <strong>on average</strong> of all possible samples, we have the same proportion (60%) of app users as in the entire customer base!</p>
 </div>
 <hr />
-<p>Sometimes two or more characteristics are of interest: based on our example “number of orders” (see <a href="sample-measures.html#exm:best2">3.7</a>), we could now model in connection with an additional characteristic such as “use of app or web interface”. What does then happen during the sampling?</p>
+<p>Sometimes two or more characteristics are of interest. Based on our example “number of orders” (see <a href="sample-measures.html#exm:best2">3.7</a>), we could now model its connection with an additional characteristic such as “use of app or web interface”. What does then happen during the sampling?</p>
 <hr />
 <div class="example">
 <p><span id="exm:ziehungbest" class="example"><strong>Example 6.9  (Orders and Usage) </strong></span>Here, too, we simplify the whole thing a little and assume that we already know the <strong>common probabilities</strong>. Now we randomly select user accounts and determine how many order transactions there were in the last month and via which system (app or web) they were made.</p>
 <p><strong>Which different sample outcomes with what probability can we draw?</strong></p>
 <ul>
-<li>Result set:</li>
+<li>Outcome set:</li>
 </ul>
 <p><span class="math display">\[\begin{align}
 \Omega &amp;= \{(App; 1), (App; 2),\ldots, (App; 6),\ldots, \\
@@ -713,7 +715,7 @@ or as a proportion <span class="math inline">\(\frac{1.8}{3}=0.6\)</span> <span 
 \end{align}\]</span></p>
 <ul>
 <li><p>Event space: <span class="math inline">\(\mathcal F=\mathcal P(\Omega).\)</span></p></li>
-<li><p>Probability measure: (assumption that we know the joint probabilities).</p></li>
+<li><p>Probability measure: (assuming that we know the joint probabilities).</p></li>
 </ul>
 <p><span class="math display">\[
 \begin{array}{c|cccccc}
