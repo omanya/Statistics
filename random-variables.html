@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2025-11-17" />
+<meta name="date" content="2025-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -196,6 +196,7 @@
 <li class="chapter" data-level="8.3.1" data-path="random-variables.html"><a href="random-variables.html#bernoulli-distribution"><i class="fa fa-check"></i><b>8.3.1</b> Bernoulli distribution</a></li>
 <li class="chapter" data-level="8.3.2" data-path="random-variables.html"><a href="random-variables.html#binomial-distribution"><i class="fa fa-check"></i><b>8.3.2</b> Binomial distribution</a></li>
 <li class="chapter" data-level="8.3.3" data-path="random-variables.html"><a href="random-variables.html#normal-distribution"><i class="fa fa-check"></i><b>8.3.3</b> Normal distribution</a></li>
+<li class="chapter" data-level="8.3.4" data-path="random-variables.html"><a href="random-variables.html#approximation-of-binomially-distributed-random-variables"><i class="fa fa-check"></i><b>8.3.4</b> Approximation of binomially distributed random variables</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="iii-introduction-to-inferential-statistics.html"><a href="iii-introduction-to-inferential-statistics.html"><i class="fa fa-check"></i>III Introduction to inferential statistics</a></li>
@@ -1512,7 +1513,7 @@ Figure 8.12: Binomial distribution with n=10 and p=0.6
         \mathbb E(P) &amp;= \color{green}{n}\color{blue}{p} = \color{green}{500}\cdot \color{blue}{0.01} = 5,\\
         \text{Var}(P) &amp;=\color{green}{n}\color{blue}{p}(1-\color{blue}{p})=\color{green}{500}\cdot \color{blue}{0.01}\cdot (1-\color{blue}{0.01}) = 4.95,\\
         \mathbb P(P&gt;1) &amp;=1-\mathbb P(P\leq 1) =1-\sum_{k=0}^1\binom{n}{k}p^k(1-p)^{n-k} \\
-        &amp;=1- \Big(\frac{500!}{0!500!}(\color{blue}{0,01})^0(1-\color{blue}{0.01})^{500} + \frac{500!}{1!499!}(\color{blue}{0.01})^1(1-\color{blue}{0.01})^{499}\Big)=0,9602.
+        &amp;=1- \Big(\frac{500!}{0!500!}(\color{blue}{0,01})^0(1-\color{blue}{0.01})^{500} + \frac{500!}{1!499!}(\color{blue}{0.01})^1(1-\color{blue}{0.01})^{499}\Big)=0.9602.
 \end{align*}\]</span></p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-154"></span>
 <img src="_main_files/figure-html/unnamed-chunk-154-1.png" alt="Binomial distribution with n=500 and p=0.01" width="672" />
@@ -1698,6 +1699,7 @@ In particular in the case <span class="math inline">\(\mu=0\)</span>: <span clas
 <li><span class="math inline">\(X\)</span> is <span class="math inline">\(N(\mu,\sigma^2)\)</span>-distributed <span class="math inline">\(\iff\)</span> <span class="math inline">\(\displaystyle\frac{X-\mu}{\sigma}\)</span> is <span class="math inline">\(N(0,1)\)</span>-distributed .</li>
 <li><span class="math inline">\(Y\)</span> is <span class="math inline">\(N(0,1)\)</span>-distributed <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mu + \sigma Y\)</span> is <span class="math inline">\(N(\mu,\sigma^2)\)</span>-distributed.</li>
 </ul></li>
+<li><p><strong>Linear transformation</strong>: if <span class="math inline">\(X\sim \mathcal N(\mu, \sigma^2),\)</span> and <span class="math inline">\(Y = a +bX,\)</span> then <span class="math inline">\(Y\sim N(a+b\mu, b^2\sigma^2).\)</span></p></li>
 </ul>
 <p><br></p>
 <ul>
@@ -1875,9 +1877,91 @@ and the standardized sample mean:
     document.getElementById('question-text317').textContent = questionObj317.question;
 </script>
 </div>
-<hr />
-
 </div>
+</div>
+<div id="approximation-of-binomially-distributed-random-variables" class="section level3 hasAnchor" number="8.3.4">
+<h3><span class="header-section-number">8.3.4</span> Approximation of binomially distributed random variables<a href="random-variables.html#approximation-of-binomially-distributed-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider a binomially distributed random variable <span class="math inline">\(X\sim B(n,p)\)</span> with sufficiently large <span class="math inline">\(n\)</span> (rule of thumb: <span class="math inline">\(n&gt;30\)</span>).
+In this case (<span class="math inline">\(n\)</span> is large), the binomial distribution can be approximated by a normal distribution with the same mean and variance:
+<span class="math display">\[X\stackrel{approx.}{\sim} N\big(\mu=np, \sigma^2=np(1-p)\big)\]</span></p>
+<div class="example">
+<p><span id="exm:zgs1" class="example"><strong>Example 8.13  (Normal probabilities for a loan portfolio) </strong></span>In example <a href="random-variables.html#exm:dbinvertKredit">8.11</a>, <span class="math inline">\(n=500\)</span> and the corresponding binomial distribution for the number of portfolio losses <span class="math inline">\(P\sim B(500, 0.01)\)</span> can be approximated as:</p>
+<p><span class="math display">\[P\stackrel{approx.}{\sim} N\big(\mu=5, \sigma^2=4.95\big).\]</span></p>
+<ul>
+<li><p>Binomial probability: <span class="math inline">\(\mathbb P(P&gt;1) = 1-\mathbb P(P\leq 1)=1- 0.0398 = 0.9602.\)</span></p></li>
+<li><p>Normal approximation: <span class="math inline">\(\displaystyle \mathbb P(P&gt;1)\approx 1-N\left(1, \mu=5, \sigma^2=4.95\right) = 1-0.0361= 0.9639\)</span></p></li>
+</ul>
+</div>
+<hr />
+<div id="q34" class="quiz">
+<script>
+  // Generate a random question
+    const questionObj318 = {
+      question: "You plan a survey to analyse your customer satisfaction. The answers of \\(n=100\\) randomly selected customers 'yes, I am satisfied with service' or 'no, I am not' should be recorded. Suppose that, in general, \\(70\\%\\) of your customers are satisfied with the service.\\[\\] What is the exact distribution for the variable \\(X\\):'The number of satisfied respondents in the survey'?",
+      options: ['\\(B(100,0.07)\\)' ,'\\(N(70,49\\)','\\(N(7,70)\\)', '\\(B(100,0.7)\\)'],
+      answer: '4',
+      id: 318
+    };
+</script>
+<p class="question">
+<span id="question-text318"></span>
+</p>
+<div class="options">
+<label>
+<input type="radio" name="option318" value=1> \(B(100,0.07)\)
+</label>
+<label>
+<input type="radio" name="option318" value=2> \(N(70,49)\)
+</label>
+<label>
+<input type="radio" name="option318" value=3> \(N(7,70)\)
+</label>
+<label>
+<input type="radio" name="option318" value=4> \(B(100,0.7)\)
+</label>
+</div>
+<button onclick="checkAnswer_match(questionObj318)">Submit</button>
+<p id="result318">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text318').textContent = questionObj318.question;
+</script>
+<script>
+  // Generate a random question
+    const questionObj319 = {
+      question: "Which distribution can be used for computing probabilities for \\(X\\) approximately?",
+      options: ['\\(B(100,0.07)\\)' ,'\\(N(70,49\\)','\\(N(7,70)\\)', '\\(B(100,0.7)\\)'],
+      answer: '2',
+      id: 319
+    };
+</script>
+<p class="question">
+<span id="question-text319"></span>
+</p>
+<div class="options">
+<label>
+<input type="radio" name="option319" value=1> \(B(100,0.07)\)
+</label>
+<label>
+<input type="radio" name="option319" value=2> \(N(70,49)\)
+</label>
+<label>
+<input type="radio" name="option319" value=3> \(N(7,70)\)
+</label>
+<label>
+<input type="radio" name="option319" value=4> \(B(100,0.7)\)
+</label>
+</div>
+<button onclick="checkAnswer_match(questionObj319)">Submit</button>
+<p id="result319">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text319').textContent = questionObj319.question;
+</script>
+</div>
+
 </div>
 </div>
 </div>

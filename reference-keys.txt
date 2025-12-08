@@ -154,6 +154,7 @@ exm:dbinvertKredit
 fig:unnamed-chunk-154
 exm:normverttemp
 fig:unnamed-chunk-163
+exm:zgs1
 exr:grundideen
 exm:sampling
 exm:sampling2
@@ -232,6 +233,7 @@ some-important-distributions
 bernoulli-distribution
 binomial-distribution
 normal-distribution
+approximation-of-binomially-distributed-random-variables
 parameter-estimation
 basic-ideas-of-inductive-statistics
 parameter-estimation-theoretically
