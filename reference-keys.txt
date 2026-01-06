@@ -233,7 +233,7 @@ some-important-distributions
 bernoulli-distribution
 binomial-distribution
 normal-distribution
-approximation-of-binomially-distributed-random-variables
+approximation-of-binomially-distributed-random-variablesast
 parameter-estimation
 basic-ideas-of-inductive-statistics
 parameter-estimation-theoretically
