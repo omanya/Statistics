@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-01-06" />
+<meta name="date" content="2026-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -364,7 +364,7 @@ function normalCDF(x, mean, std) {
 <hr />
 <div id="basic-ideas-of-inductive-statistics" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Basic ideas of inductive statistics<a href="parameter-estimation.html#basic-ideas-of-inductive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In inductive statistics, we want to generalize our findings, which are based on a single sample, on the whole population of interest. With the help of random sampling and appropriate estimators, we conduct inference for parameters of interest in the population.</p>
+<p>In inductive statistics, we want to generalize our findings, which are based on a single sample, to the whole population of interest. With the help of random sampling and appropriate estimators, we conduct inference for parameters of interest in the population.</p>
 <div class="exercise">
 <p><span id="exr:grundideen" class="exercise"><strong>Exercise 9.1  (Basic Concepts) </strong></span></p>
 <iframe title="" src="./htmls/grundideen_eng.html" width="720" height="700"></iframe>
@@ -794,10 +794,10 @@ Submit
 <p>If we make a random selection (with replacement) from a normally distributed population and write down a possible result as <span class="math inline">\(n\)</span> random variable “placeholders” as <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>, or calculate the mean <span class="math inline">\(\bar X\)</span> , then:</p>
 <ul>
 <li><p><span class="math inline">\(X_i\sim N(\mu_X,\sigma_X^2)\)</span> by assumption, since we are selecting from a normally distributed population.</p></li>
-<li><p><span class="math inline">\(X_i\)</span> independent, as you move with replacement</p></li>
-<li><p><span class="math inline">\(\overline X = \frac 1n\sum_{i=1}^n X_i\)</span> using the additive property of the normal distribution,</p></li>
-<li><p><span class="math inline">\(\overline X\sim N(\mu_X,\frac{\sigma_X^2}n)\)</span>, since (using the properties of expectation and variance from the last chapter) <span class="math inline">\(\mathbb E(\overline X) = \frac 1n\cdot n\cdot \mu_X=\color{blue}{\mu_X}\)</span>, <span class="math inline">\({\text{Var}(\overline X)}=\frac 1{n^2}\cdot n\cdot \sigma_X^2=\color{red}{\frac {\sigma^2_X}{n}}\)</span>, and <span class="math inline">\(\sqrt{\text{Var}(\overline X)} = \color{red}{\frac {\sigma_X}{\sqrt n}}\)</span>.</p></li>
-<li><p>Hence the sample mean is distributed as follows:
+<li><p><span class="math inline">\(X_i\)</span> independent, as we sample with replacement.</p></li>
+<li><p><span class="math inline">\(\overline X = \frac 1n\sum_{i=1}^n X_i\)</span> is then also normally distributed (see the additive property of the normal distribution) with:</p></li>
+<li><p><span class="math inline">\(\mu_{\overline X} = \mathbb E(\overline X) = \frac 1n\cdot n\cdot \mu_X=\color{blue}{\mu_X}\)</span>, <span class="math inline">\({\sigma^2_{\overline X}=\text{Var}(\overline X)}=\frac 1{n^2}\cdot n\cdot \sigma_X^2=\color{red}{\frac {\sigma^2_X}{n}}\)</span>, and <span class="math inline">\(\sigma_{\overline X} = \sqrt{\text{Var}(\overline X)} = \color{red}{\frac {\sigma_X}{\sqrt n}}\)</span>.</p></li>
+<li><p>Hence the sample mean of a normal population is distributed as follows:
 <span class="math display">\[\overline X\sim N\left (\color{blue}{\mu_X};\color{red}{\frac {\sigma^2_X}{n}}\right),\]</span>
 and the standardized sample mean:
 <span class="math display">\[\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}}\sim N(0;1).\]</span></p></li>
