@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Parameter estimation | Statistics I</title>
   <meta name="description" content="This is the script for the Statistics course." />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Parameter estimation | Statistics I" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-01-12" />
+<meta name="date" content="2026-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -78,8 +78,8 @@
 <li><a href="./">Statistics I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="i-descriptive-statistics.html"><a href="i-descriptive-statistics.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
 <li class="chapter" data-level="2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>2</b> Features, frequencies, empirical distribution</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>2.1</b> Features</a>
@@ -476,7 +476,7 @@ where <span class="math inline">\(X_i\)</span> represents the estimate of the bi
 </ul>
 <div class="example">
 <p><span id="exm:eff" class="example"><strong>Example 9.6  (Efficiency) </strong></span><span class="math inline">\(\overline X\)</span> is more efficient than <span class="math inline">\(X_{med}\)</span> for estimating <span class="math inline">\(\mu\)</span> of a normal population.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" alt="" width="672" /></p>
 </div>
 <p>Overall, the formulas, that we learned in the descriptive statistics, constitute estimators, which exhibit the nice properties above. That is, they are unbiased, consistent and efficient estimators of the corresponding unknown parameters of the population.</p>
 </div>
@@ -857,7 +857,7 @@ and the standardized sample mean:
 <div id="interval-estimation" class="section level4 unnumbered hasAnchor">
 <h4>Interval estimation<a href="parameter-estimation.html#interval-estimation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><span class="math inline">\(\leadsto\)</span> construction of <strong>confidence intervals</strong> covering the true population parameter with high probability (e.g. <span class="math inline">\(90\% = 0.9\)</span>)</p>
-<img src="_main_files/figure-html/unnamed-chunk-187-1.png" width="672" />
+<img src="_main_files/figure-html/unnamed-chunk-187-1.png" alt="" width="672" />
 <details>
 <summary>
 A quick example with a normal distribution
@@ -892,7 +892,7 @@ Realised confidence interval for <span class="math inline">\(\color{purple}{\ove
 <li>use <span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\sigma_X}{\sqrt n}}} \sim N(0;1)\)</span> in case of <strong>known</strong> <span class="math inline">\(\sigma^2_X\)</span></li>
 <li>use <span class="math inline">\(\frac{\overline X-\color{blue}{\mu_X}}{\color{red}{\frac {\hat\sigma_X}{\sqrt n}}} \sim t(n-1)\)</span> in case of <strong>unknown</strong> <span class="math inline">\(\sigma^2_X\)</span> (estimated with sample variance <span class="math inline">\(\hat\sigma^2_X\)</span>)</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-188-1.png" alt="" width="672" /></p>
 <details>
 <summary>
 A quick example with a normal distribution and known variance

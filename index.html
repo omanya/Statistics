@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Statistics I</title>
   <meta name="description" content="This is the script for the Statistics course." />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Statistics I" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-01-12" />
+<meta name="date" content="2026-10-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="introduction.html"/>
+<link rel="next" href="i-descriptive-statistics.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -78,8 +78,8 @@
 <li><a href="./">Statistics I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="" data-path="i-descriptive-statistics.html"><a href="i-descriptive-statistics.html"><i class="fa fa-check"></i>I Descriptive Statistics</a></li>
 <li class="chapter" data-level="2" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html"><i class="fa fa-check"></i><b>2</b> Features, frequencies, empirical distribution</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="features-frequencies-empirical-distribution.html"><a href="features-frequencies-empirical-distribution.html#features"><i class="fa fa-check"></i><b>2.1</b> Features</a>
@@ -237,162 +237,295 @@
 <div id="header">
 <h1 class="title">Statistics I</h1>
 <p class="author"><em>Maria Osipenko</em></p>
-<p class="date"><em>2026-01-12</em></p>
+<p class="date"><em>2026-10-05</em></p>
 </div>
-<div id="i-descriptive-statistics" class="section level1 unnumbered hasAnchor">
-<h1>I Descriptive Statistics<a href="index.html#i-descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<script>src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"</script>
-<script>
-
-
-(async function() {
-  const data = [
-    { year: 2010, count: 10 },
-    { year: 2011, count: 20 },
-    { year: 2012, count: 15 },
-    { year: 2013, count: 25 },
-    { year: 2014, count: 22 },
-    { year: 2015, count: 30 },
-    { year: 2016, count: 28 },
-  ];
-
-  new Chart(
-    document.getElementById('acquisitions'),
-    {
-      type: 'bar',
-      data: {
-        labels: data.map(row => row.year),
-        datasets: [
-          {
-            label: 'Acquisitions by year',
-            data: data.map(row => row.count)
-          }
-        ]
-      }
-    }
-  );
-})();
-</script>
-<div id="acquisitions" style="width:600px;height:250px;">
-
+<div id="introduction" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h3>
+Why Statistics?
+</h3>
+<!--<h3>Why Statistics?<a href="https://wall.sli.do/event/sZPybqmgAKDPBCMC6pmayb/?section=8d32e938-e3ba-4f46-9b9f-937620fccb4f"> Go to the survey.</a></h3>-->
+<div class="example">
+<p><span id="exm:needs" class="example"><strong>Example 1.1  (Main example: Customer behavior in an online shop) </strong></span>Imaging that you work in a data analysts team for some company running online shops. Your customers order online using either a mobile application (app) or web interface (web). They login, spend some time in the shop and then they (hopefully) buy a lot of your products.</p>
+<p>Your task is to improve customer experience in order to boost the sales. You may need to answer the following questions:</p>
+<ul>
+<li>Do the customers order more, if they are using the app or the web? (<span class="math inline">\(\leadsto\)</span> analyse <strong>features</strong> <em>orders</em> and <em>app usage</em> in the <strong>population</strong> of all customers or in a <strong>sample</strong> if the data on the whole population is not available)</li>
+<li>Does the time spend in the shop by a person has anything to do with the amount of her orders? (<span class="math inline">\(\leadsto\)</span> analyse <strong>features</strong> <em>time spent</em> and <em>orders</em> in the <strong>population</strong> of all customers or in a <strong>sample</strong> if the data on the whole population is not available)</li>
+<li>Is the current discount campaign successful (meaning that it persistently increases the mean sales)? (<span class="math inline">\(\leadsto\)</span> analyse <strong>feature</strong> <em>sales</em> in a <strong>sample</strong> (pilot group of campaign customers) to conclude on the same feature in the whole <strong>population</strong> (all customers))</li>
+<li>Can we predict app usage/ sales amount in a new market segment based on a customer survey in this new market segment? (<span class="math inline">\(\leadsto\)</span> analyse <em>app usage</em> and <em>sales</em> in a <strong>sample</strong> (survey) to conclude on the <strong>population</strong> of potential customers in the new market segment)</li>
+</ul>
+</div>
+<hr />
+<p>Data analysis with statistical methods:</p>
+<ul>
+<li><p>Specify or confirm your assumptions data-based</p></li>
+<li><p>Uncover correlations, determine influencing factors</p></li>
+<li><p>Predict measures, develop strategies, quantify risks, …</p></li>
+</ul>
+<hr />
+<div class="definition">
+<p><span id="def:defkeyconcepts" class="definition"><strong>Definition 1.1  (Key Concepts) </strong></span></p>
+<!--- $\Omega$: **Population**, is a set of uniform objects, also referred to as statistical units $\omega\in\Omega$, which are characterized by the same **characteristics**.-->
+<ul>
+<li><p><strong>Population</strong> <span class="math inline">\(\Omega\)</span> is the set of all statistical <strong>objects</strong> or
+realizable <strong>situations</strong> generated by the underlying random process under consideration.</p>
+<p>Each element <span class="math inline">\(\omega\in\Omega\)</span> is characterized by the same <strong>features</strong> whose values may vary across units.</p></li>
+<li><p><span class="math inline">\(X\)</span>: <strong>feature</strong> or <strong>characteristic</strong>, is an observable property of the elements of <span class="math inline">\(\Omega\)</span>. Each feature can take on different <strong>feature values</strong>.</p></li>
+<li><p><span class="math inline">\(A_X\)</span>: Set of <strong>values</strong> of the characteristic <span class="math inline">\(X\)</span>.</p></li>
+<li><p><span class="math inline">\(X_1, X_2, \ldots , X_n\)</span>: <strong>Sample</strong> is the <strong>random</strong> selection
+of objects from the population. After drawing a sample, the measurement series (the determination of the respective characteristics of one or more features) is created on the randomly selected
+objects.</p>
+<ul>
+<li><span class="math inline">\(n\)</span>: <strong>sample size</strong></li>
+<li><span class="math inline">\(x_i\)</span>: <span class="math inline">\(i\)</span>-th <strong>sample value</strong>/ <strong>measurement</strong></li>
+</ul></li>
+</ul>
+</div>
+<p>Besides the main example of a simulated online shop, we will use the following real-world bike-rental dataset as a recurring case study throughout the course. The dataset is available from the <a href="https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset">UCI Machine Learning Repository</a> and on our Moodle course page.</p>
+<div class="example">
+<p><span id="exm:bikeren" class="example"><strong>Example 1.2  (Practical Challenge: Bike Rentals) </strong></span><br>
+Imagine that you are working as a junior data analyst for a <strong>bike-sharing company</strong>.</p>
+<p>The company operates a large fleet of rental bikes with thousands of customers who use the service. However, their demand is not constant.</p>
+<p>Some days, many more bikes are rented than on others. Demand appears to depend on factors such as:</p>
+<ul>
+<li>temperature and weather,</li>
+<li>rainfall,</li>
+<li>season,</li>
+<li>day of the week,</li>
+<li>whether it is a working day or a weekend,</li>
+<li>and other factors that are not directly observed in the data.</li>
+</ul>
+<p>The company currently has a practical problem of demand uncertainty:</p>
+<p><strong>How many bikes should be available at a certain rental location?</strong></p>
+<ul>
+<li>If too few bikes are available, customers cannot rent a bike and the company loses potential revenue.</li>
+<li>If too many bikes are available in the wrong locations, the company incurs unnecessary costs for redistribution, maintenance and unused capacity.</li>
+</ul>
+<!--The company therefore wants to use its historical data ($\leadsto$ a **sample** with multiple **features**) to understand ($\leadsto$ **associate** with other known **features**) and predict future rental demand ($\leadsto$ **population** property) as precise as possible ($\leadsto$ **quantify the uncertainty**).-->
+<p>The company therefore wants to use its historical data (<span class="math inline">\(\leadsto\)</span> a <strong>sample</strong> with multiple <strong>features</strong>) to understand (<span class="math inline">\(\leadsto\)</span> <strong>associate</strong> it with other known <strong>features</strong>) and predict future rental demand (<span class="math inline">\(\leadsto\)</span> a <strong>population</strong> property) as precise as possible (<span class="math inline">\(\leadsto\)</span> <strong>quantifying the uncertainty</strong>).</p>
+<p>Overall: Using historical bike-rental data and the statistical tools developed in this course, make an evidence-based recommendation about tomorrow’s bike demand and quantify the uncertainty surrounding your recommendation (<span class="math inline">\(\leadsto\)</span> <strong>statistical inference</strong>: infer population properties based on the available <strong>sample</strong>).</p>
+<p>The final business problem therefore brings together:</p>
+<p><strong>1. Descriptive statistics: marginal and joint frequency distribution → association → regression → prediction → </strong></p>
+<p><strong>2. Probability modelling: randomness → conditional probability → independence → random variables → probability distributions → unknown parameters → </strong></p>
+<p><strong>3. Statistical Inference: parameter estimation → hypothesis testing.</strong></p>
+</div>
+<p>Why do we need statistical inference?</p>
+<div class="example">
+<p><span id="exm:bstich" class="example"><strong>Example 1.3  (Sampling in a customer survey) </strong></span>The plan is to randomly select <span class="math inline">\(n\)</span> customers and survey them. The following characteristics are of interest:</p>
+<ul>
+<li><strong>App Usage</strong>:</li>
+</ul>
+<p>The sample values are: <span class="math inline">\(\color{blue}{y_1, y_2,\ldots,y_n},\)</span> where <span class="math inline">\(y_i\)</span> represents the app usage of the <span class="math inline">\(i\)</span>th selected person.</p>
+<ul>
+<li><strong>Sales</strong>:</li>
+</ul>
+<p>The sample values are: <span class="math inline">\({\color{red}{x_1, x_2,\ldots,x_n}},\)</span>
+where <span class="math inline">\(x_i\)</span> represents the estimate of the sales amount of the <span class="math inline">\(i\)</span>th selected person.</p>
 </div>
 <script>
-function checkAnswer_mmc(q) {
-      const selectedOptions = document.querySelectorAll('input[name="option'+q.id+'"]:checked');
-      if (selectedOptions.length === 2) {
-        const userAnswers = Array.from(selectedOptions).map(option => option.value);
-        const correctAnswers = q.answer;
-        const isCorrect = userAnswers.every(answer => correctAnswers.includes(answer));
+function sample01(p){
+  let unif = Math.random();
+  let value = 0;
+  if(unif>p){
+    value=1;
+  }
+  return value;
+}
 
-if (isCorrect) {
-          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
-          document.getElementById('result'+q.id).style.color = "green";
-        } else {
-          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
-          document.getElementById('result'+q.id).style.color = "red";
+function sampleUnif(min=10,max=50,dec=2){
+  let value = Math.random()*(max-min)+min;
+  value = Math.round(value*Math.pow(10,dec))/Math.pow(10,dec);
+  return value;
+}
+
+function generateSample(n=10,p=0.4,min=10,max=40,dec=2) {
+      // Generate n random samples for bernoulli and unif
+      let sample1 = [];
+      let sample2 = [];
+      let sample3 = [];
+      
+      let mean1 = 0;
+      let mean2 = 0;
+      let sig2 = 0;
+      
+      for(var i = 0; i < (n); i++){
+        sample1[i]=sample01(p=p);
+        mean1 = mean1 + 1/n*sample1[i];
+        if(sample1[i]>0) {
+          sample3[i]="yes";
         }
-      } else {
-        document.getElementById('result'+q.id).textContent = 'Please select two options.';
-      }
-    }
-// numeric
-function generateQuestion_num(id) {
-      // Generate two random numbers between 2 and 10
-      const num1 = Math.floor(Math.random() * 10) + 2;
-      const num2 = Math.floor(Math.random() * 10) + 2;
-      const x1 = Math.floor(Math.random() * 100) + 2;
-      const x2 = Math.floor(Math.random() * 100) + 2;
-      const x3 = Math.floor(Math.random() * 100) + 2;
-      const x4 = Math.floor(Math.random() * 100) + 2;
-      const x5 = Math.floor(Math.random() * 100) + 2;
-      const x6 = Math.floor(Math.random() * 100) + 2;
+        else {
+          sample3[i]="no";
+        }
+        sample2[i]=sampleUnif(min=min, max=max, dec=dec);
+        mean2 = mean2 + 1/n*sample2[i];
+      };
+      mean1 = Math.round(mean1*Math.pow(10,dec))/Math.pow(10,dec);
+      mean2 = Math.round(mean2*Math.pow(10,dec))/Math.pow(10,dec);
+      
+       for(var i = 0; i < (n); i++){
+          sig2 = sig2 + Math.pow(sample2[i]-mean2,2)
+       };
+       
+      sig2 = 1/(n-1)*sig2;
 
-       // Calculate the correct answer
-      let answer = num1*Math.sqrt(x1) + num2*Math.sqrt(x2);
-
-      // Return the question and answer as an object
+      // Return the sample as an object
       return {
-       // question: num1 + "\\(\\sqrt{x}+\\)"+ num2 + "\\(\\sqrt{y}\\)" + " for \\(x=\\)" + x1 + " and \\(y=\\)" + x2,
-        question: [num1,num2,x1,x2,x3,x4,x5,x6],
-        answer: answer,
-        id: id
+        sample1: sample1,
+        sample2: sample2,
+        sample3: sample3,
+        mean1: mean1,
+        mean2: mean2,
+        sig2: sig2
       };
     }
-
-function checkAnswer_num(q) {
-      const userAnswer = document.getElementById('answer'+q.id).value;
-      const isCorrect = Math.round(parseFloat(userAnswer)*10000)/10000 === Math.round(q.answer*10000)/10000;
-
-      if (isCorrect) {
-        document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
-        document.getElementById('result'+q.id).style.color = "green";
-      } else {
-        document.getElementById('result'+q.id).textContent = `Sorry, incorrect. The correct answer is ` + Math.round(q.answer*10000)/10000 + '.';
-        document.getElementById('result'+q.id).style.color = "red";
-      }
-  }
-
-// plain multiple choice
-  function checkAnswer_match(q) {
-      const selectedOption = document.querySelector('input[name="option'+q.id+'"]:checked');
-      if (selectedOption) {
-        const userAnswer = selectedOption.value;
-        const isCorrect = userAnswer === q.answer;
-
-        if (isCorrect) {
-          document.getElementById('result'+q.id).textContent = 'Congratulations! Your answer is correct.';
-          document.getElementById('result'+q.id).style.color = "green";
-        } else {
-          document.getElementById('result'+q.id).textContent = `Sorry, incorrect.`;
-          document.getElementById('result'+q.id).style.color = "red";
-        }
-      } else {
-        document.getElementById('result'+q.id).textContent = 'Please select an option.';
-      }
-    }
     
-function factorial(n){
-  let answer = 1;
-  if (n == 0 || n == 1){
-    return answer;
-  }
-  else if(n > 1){
-    for(var i = n; i >= 1; i--){
-      answer = answer * i;
-    }
-    return answer;
-  }
-  else{
-    return "number has to be positive."
-  }  
+function showSample(id){
+
+      // get n
+      //let n= 10;
+      var n = document.getElementById("myn"+id).value;  
+      //generate a sample
+      let mysample = generateSample(n=n);
+      
+      //set up the ids
+      let textid1 = "app-text-1" + id;
+      let textid2  = "app-text-2" + id;
+      let textid3  = "app-text-3" + id;
+      let textid4  = "app-text-4" + id;
+      let textid5  = "app-text-5" + id;
+      let textid6  = "app-text-6" + id;
+      let textid7  = "app-text-7" + id;
+      
+      // impute the texts
+      let sample1 = mysample.sample1;
+      let sample2 = mysample.sample2;
+      let sample3 = mysample.sample3;
+      let mean1 = mysample.mean1;
+      let mean2 = mysample.mean2;
+      let interv = [];
+      interv[0]=mean2 - 1.96*10/Math.sqrt(n);
+      interv[1]=mean2 + 1.96*10/Math.sqrt(n);
+      
+      document.getElementById(textid1).textContent = "{" + sample3.join(", ") + "}";
+      document.getElementById(textid2).textContent = "{"+sample1.join(", ") + "}";
+      document.getElementById(textid3).textContent = "{"+sample2.join(", ") + "}";
+      document.getElementById(textid4).textContent = mean1;
+      document.getElementById(textid5).textContent = mean2;
+
+      
+      //style
+      document.getElementById(textid1).style.color = "blue";
+      document.getElementById(textid2).style.color = "blue";
+      document.getElementById(textid3).style.color = "red";
+      document.getElementById(textid4).style.color = "blue";
+      document.getElementById(textid5).style.color = "red";
+
 }
 
-function binomial(n, k) {
-     if ((typeof n !== 'number') || (typeof k !== 'number')) 
-  return false; 
-    var coeff = 1;
-    for (var x = n-k+1; x <= n; x++) coeff *= x;
-    for (x = 1; x <= k; x++) coeff /= x;
-    return coeff;
-}
+function showInterv(id){
 
-function binomialCDF(k,n,p) {
-    let answer = 0;
+      // get n
+      //let n= 10;
+      var n = document.getElementById("myn"+id).value;  
+      //generate a sample
+      let mysample = generateSample(n=n);
+      
+      //set up the ids
+      let textid1 = "app-text-1" + id;
+      let textid2  = "app-text-2" + id;
+      let textid3  = "app-text-3" + id;
+      let textid4  = "app-text-4" + id;
+      let textid5  = "app-text-5" + id;
+      let textid6  = "app-text-6" + id;
+      let textid7  = "app-text-7" + id;
+      
+      // impute the texts
+      let sample1 = mysample.sample1;
+      let sample2 = mysample.sample2;
+      let sample3 = mysample.sample3;
+      let mean1 = mysample.mean1;
+      let mean2 = mysample.mean2;
+      let interv = [];
+      interv[0]=Math.round((mean2 - 1.96*10/Math.sqrt(n))*100)/100;
+      interv[1]=Math.round((mean2 + 1.96*10/Math.sqrt(n))*100)/100;
+      
+    
+      document.getElementById(textid3).textContent = "{"+sample2.join(", ") + "}";
+      document.getElementById(textid5).textContent = mean2;
+      document.getElementById(textid6).textContent = interv.join(", ");
 
-    for(var i = 0; i <= k; i++){
-      answer = answer + binomial(n,i)*Math.pow(p,i)*Math.pow((1-p),(n-i));
-    }
-    return answer;
+      
+      //style
+    
+      document.getElementById(textid3).style.color = "red";
+     document.getElementById(textid5).style.color = "red";
+      document.getElementById(textid6).style.color = "blue";
+
 }
-function normalCDF(x, mean, std) {
-  var x = (x - mean) / std
-  var t = 1 / (1 + .2315419 * Math.abs(x))
-  var d =.3989423 * Math.exp( -x * x / 2)
-  var prob = d * t * (.3193815 + t * ( -.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))))
-  if( x > 0 ) prob = 1 - prob
-  return prob
-}
+    
+  
 </script>
+<div id="app100" class="app">
+<h3>
+Sample size \(n\):
+</h3>
+<form>
+<select id = "myn100" onchange = "showSample(100)" ><br />
+<option value="10">10</option><br />
+<option value="20">20</option><br />
+<option value="50">50</option><br />
+<option value="100">100</option><br />
+</select>
+</form>
+<h3>
+Sample realizations:
+</h3>
+<ul>
+<li>
+The survey results for App usage (yes/no) as realized sample values:
+<p id="sample1">
+\(\color{blue}{\{1,2,\ldots, n\}=} ~\)<span id="app-text-1100"></span>
+</p>
+</li>
+<li>
+As realizations of the corresponding 0-1 Bernoulli random variable:
+<p id="sample12">
+\(\color{blue}{\{y_1,y_2,\ldots,y_n\}=}~\)<span id="app-text-2100"></span>
+</p>
+</li>
+<li>
+Willingness to pay in form of self-estimated sales amount with sample values:
+<p id="sample2">
+\(\color{red}{\{x_1,x_2,\ldots,x_n\}=}~\)<span id="app-text-3100"></span>
+</p>
+</li>
+</ul>
+<h3>
+Calculation of the resulting estimates:
+</h3>
+<ul>
+<li>
+The estimate for the proportion of app users:
+<p id="mean1">
+\(\color{blue}{\bar y=\frac 1n(y_1+y_2 + \ldots + y_n)=}\) <span id="app-text-4100"></span>
+</p>
+</li>
+<li>
+The estimate for the average sales amount:
+<p id="mean1">
+\(\color{red}{\bar x=\frac 1n(x_1+x_2 + \ldots + x_n)= }\)<span id="app-text-5100"></span>
+</p>
+</li>
+</ul>
+<button onclick="showSample(100)">
+draw a new sample
+</button>
+<script>
+showSample(100)
+</script>
+</div>
+
 </div>
             </section>
 
@@ -400,7 +533,7 @@ function normalCDF(x, mean, std) {
         </div>
       </div>
 
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="i-descriptive-statistics.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
