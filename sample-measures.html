@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-10-05" />
+<meta name="date" content="2026-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -239,22 +239,21 @@
 <script>
 window.onload=function(){window.scrollTo(0,0);}
 </script>
-<p>You often want to summarize larger data sets in a few meaningful numbers in order to get an idea of the data distribution and to determine patterns in the data.</p>
-<p>For example, if you want to compare empirical distributions of the number of orders for two different customer groups:</p>
+<p>We often want to summarize larger data sets in a few meaningful numbers in order to get an idea of a typical value or a typical deviations of values in the data.</p>
+<p>Our previous representation in form of frequency distributions alone does not provide this kind of high level summary. For example, it is not obvious how to compare several empirical distributions for two different customer groups or time periods:</p>
 <p><span class="math display">\[\begin{array}{r|llllll} a_j&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
-\text{group 1: }h_j&amp;0.1&amp;0.3&amp;0.2&amp;0.1&amp;0.2&amp;0.1\\\
-\text{group 2: }h_j&amp;0.1&amp;0.25&amp;0.1&amp;0.25&amp;0.1&amp;0.2
+\text{dist. 1: }h_j&amp;0.1&amp;0.3&amp;0.2&amp;0.1&amp;0.2&amp;0.1\\\
+\text{dist. 2: }h_j&amp;0.1&amp;0.2&amp;0.2&amp;0.2&amp;0.2&amp;0.1
 \end{array}\]</span></p>
-<p>How can you determine, which empirical distribution is better for the business?</p>
 <hr />
 <p>In this chapter we will learn</p>
 <ul>
-<li>How to select meaningful <strong>measures</strong> for a sample that summarize its distribution ,</li>
+<li>How to select meaningful <strong>measures</strong> for a sample that summarize its distribution,</li>
 <li>What <strong>types</strong> of such measures exist and <strong>how to calculate and interpret them</strong>.</li>
 <li>How the whole empirical distribution can be described by <strong>quantiles and boxplots</strong>.</li>
 </ul>
 <hr />
-<p>Our guiding example for this is the question: What characterizes our typical customer?</p>
+<p>Our leading example for this chapter is the question: What characterizes our typical customer?</p>
 <ul>
 <li>Distributions of several customer characteristics should be summarized, so that the product development team has an idea of the customer base.</li>
 </ul>
@@ -275,7 +274,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <div class="example">
 <p><span id="exm:umsatz" class="example"><strong>Example 3.1  (Sales amount.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-33">Table 3.1: </span>Sample of the size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(Y:\)</span> Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-30">Table 3.1: </span>Sample of the size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(Y:\)</span> Sales amount.</caption>
 <colgroup>
 <col width="14%" />
 <col width="9%" />
@@ -326,7 +325,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <div class="example">
 <p><span id="exm:zeit" class="example"><strong>Example 3.2  (Time in Online-Shop.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-34">Table 3.2: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(X:\)</span> Time spent in the online store.</caption>
+<caption><span id="tab:unnamed-chunk-31">Table 3.2: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: <span class="math inline">\(X:\)</span> Time spent in the online store.</caption>
 <colgroup>
 <col width="9%" />
 <col width="8%" />
@@ -386,7 +385,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <div class="example">
 <p><span id="exm:best" class="example"><strong>Example 3.3  (Orders.) </strong></span>See Table <a href="features-frequencies-empirical-distribution.html#tab:data0">2.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-35">Table 3.3: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(C\)</span>: Number of orders.</caption>
+<caption><span id="tab:unnamed-chunk-32">Table 3.3: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(C\)</span>: Number of orders.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Orders</td>
@@ -423,7 +422,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <div class="example">
 <p><span id="exm:eink" class="example"><strong>Example 3.4  (monthly Income) </strong></span>Frequencies of income groups according to an online survey with <span class="math inline">\(n=10\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-36">Table 3.4: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income (TEUR).</caption>
+<caption><span id="tab:unnamed-chunk-33">Table 3.4: </span>Frequencies for a sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income (TEUR).</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income</td>
@@ -468,7 +467,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <div class="example">
 <p><span id="exm:umsatz2" class="example"><strong>Example 3.5  (Sales amount.) </strong></span>Cont. Example <a href="sample-measures.html#exm:umsatz">3.1</a>.</p>
 <table style="width:100%;">
-<caption><span id="tab:unnamed-chunk-40">Table 3.5: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
+<caption><span id="tab:unnamed-chunk-37">Table 3.5: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Y\)</span>: Sales amount.</caption>
 <colgroup>
 <col width="14%" />
 <col width="9%" />
@@ -518,7 +517,7 @@ window.onload=function(){window.scrollTo(0,0);}
 <p><span id="exm:zeit2" class="example"><strong>Example 3.6  (Time in the online store by time of day.) </strong></span>If you have two samples for the same characteristic but under the influence of other factors (here: time of day), you can compare the sample means of the two samples.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-41">Table 3.6: </span><span id="tab:unnamed-chunk-41">Table 3.7: </span>Sample size n=10 for the characteristic: time spent in the online store in two periods of the day: midday and evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-38">Table 3.6: </span><span id="tab:unnamed-chunk-38">Table 3.7: </span>Sample size n=10 for the characteristic: time spent in the online store in two periods of the day: midday and evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -699,15 +698,15 @@ Time_WE
 <hr />
 <p>Using a <strong>frequency distribution</strong> form for a sample, the empirical expectation or the sample mean is calculated as follows:</p>
 <p><span class="math display">\[
-\hat\mu= a_1h_1+a_2h_2+\ldots+a_Jh_J = \sum_{j=1}^Ja_jh_j
+\bar x= \frac1n (a_1H_1 + a_2 H_2+ \ldots + a_nH_n)=a_1h_1+a_2h_2+\ldots+a_Jh_J = \sum_{j=1}^Ja_jh_j
 \]</span></p>
 <div class="example">
 <p><span id="exm:best2" class="example"><strong>Example 3.7  (Orders.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:best">3.3</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-42">Table 3.8: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(B\)</span>: Number of orders.</caption>
+<caption><span id="tab:unnamed-chunk-39">Table 3.8: </span>Sample of size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(B\)</span>: Number of orders.</caption>
 <tbody>
 <tr class="odd">
-<td align="left">Number</td>
+<td align="left">Value <span class="math inline">\(b_i\)</span></td>
 <td align="right">1</td>
 <td align="right">2</td>
 <td align="right">3</td>
@@ -716,7 +715,7 @@ Time_WE
 <td align="right">6</td>
 </tr>
 <tr class="even">
-<td align="left">rel.frequency</td>
+<td align="left">rel.frequency <span class="math inline">\(h_i\)</span></td>
 <td align="right">0.1</td>
 <td align="right">0.3</td>
 <td align="right">0.2</td>
@@ -726,13 +725,17 @@ Time_WE
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\hat\mu_B = a_1\cdot h_1 + a_2\cdot h_2 + \ldots + a_{6}\cdot h_{6} = 1\cdot0.1  + 2\cdot0.3 + \ldots + 6\cdot0.1 = 3.3\)</span></p>
+<p><span class="math inline">\(\overline b = a_1\cdot h_1 + a_2\cdot h_2 + \ldots + a_{6}\cdot h_{6} = 1\cdot0.1  + 2\cdot0.3 + \ldots + 6\cdot0.1 = 3.3\)</span></p>
 </div>
 <hr />
+<p>In the continuous case, we denote the mean as <span class="math inline">\(\hat \mu_X\)</span> and compute as above substituting <strong>class means</strong> (if available) or <strong>class centers</strong> in place of <span class="math inline">\(a_1,a_2,\ldots,a_n\)</span> into the formula:</p>
+<p><span class="math display">\[
+\hat\mu_X=a_1h_1+a_2h_2+\ldots+a_Jh_J = \sum_{j=1}^Ja_jh_j.
+\]</span></p>
 <div class="example">
 <p><span id="exm:eink2" class="example"><strong>Example 3.8  (monthly income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink">3.4</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-43">Table 3.9: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
+<caption><span id="tab:unnamed-chunk-40">Table 3.9: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income group</td>
@@ -801,6 +804,11 @@ x_{med}=\begin{cases}x_{[\frac{n+1}2]},&amp; \text{if }n \text{ odd},\\
 <p>Since <span class="math inline">\(\hat F(x)\)</span> takes the value 0.5 in the section where <span class="math inline">\(2\leq x &lt;4\)</span>, set <span class="math inline">\(0.2+0.25\cdot(x_{med} - 2) = 0.5\)</span> and solve for <span class="math inline">\(x_{med}\)</span>. The result is <span class="math inline">\(x_{med} = 3.2.\)</span></p>
 </div>
 <hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 3.3  (Measures of central tendency.) </strong></span></p>
+<iframe title="Lagekennzahlen" src="./htmls/quiz_lagekennzahlen.html" width="700" height="500"></iframe>
+</div>
+<hr />
 </div>
 <div id="geometric-mean" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Geometric Mean<a href="sample-measures.html#geometric-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -810,9 +818,9 @@ x_{med}=\begin{cases}x_{[\frac{n+1}2]},&amp; \text{if }n \text{ odd},\\
 q_{geom} = (q_1\cdot q_2\cdot \ldots \cdot q_n)^{\frac 1n} = \sqrt[n]{q_1\cdot q_2\cdot \ldots \cdot q_n}.
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-7" class="example"><strong>Example 3.11  (Customer growth.) </strong></span>New customer figures over four quarters with the growth factors <span class="math inline">\(q_i\)</span>.</p>
+<p><span id="exm:unlabeled-div-8" class="example"><strong>Example 3.11  (Customer growth.) </strong></span>New customer figures over four quarters with the growth factors <span class="math inline">\(q_i\)</span>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-47">Table 3.10: </span>A sample with sample size <span class="math inline">\(n=3\)</span> with growth factors <span class="math inline">\(q_i\)</span> as values.</caption>
+<caption><span id="tab:unnamed-chunk-45">Table 3.10: </span>A sample with sample size <span class="math inline">\(n=3\)</span> with growth factors <span class="math inline">\(q_i\)</span> as values.</caption>
 <thead>
 <tr class="header">
 <th align="right"><span class="math inline">\(Q_i\)</span></th>
@@ -885,23 +893,54 @@ h(a_m)=h_m=\max (h_1, h_2, \ldots, h_J).
 <p><span id="exm:zahl2mod" class="example"><strong>Example 3.13  (Means of payment.) </strong></span>Cont. of Example <a href="features-frequencies-empirical-distribution.html#exm:zahl">2.4</a>.</p>
 <p>Here, the modal value is equal to the “PayPal” attribute, as this attribute has the highest frequency of <span class="math inline">\(0.4\)</span>.</p>
 </div>
+<hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-9" class="exercise"><strong>Exercise 3.4  (The mode for monthly incomes.) </strong></span>Cont. of Examples <a href="sample-measures.html#exm:eink">3.4</a>-<a href="sample-measures.html#exm:eink2med">3.10</a>.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-46">Table 3.11: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Income group</td>
+<td align="right">[0,1)</td>
+<td align="right">[1,2)</td>
+<td align="right">[2,4)</td>
+<td align="right">[4,5]</td>
+</tr>
+<tr class="even">
+<td align="left">rel.frequency</td>
+<td align="right">0.1</td>
+<td align="right">0.1</td>
+<td align="right">0.5</td>
+<td align="right">0.3</td>
+</tr>
+</tbody>
+</table>
+<p>The class centers are: <span class="math inline">\(a_1 = 0.5\)</span>, <span class="math inline">\(a_2 = 1.5\)</span>, <span class="math inline">\(a_3 = 3\)</span> and <span class="math inline">\(a_4 = 4.5\)</span>. The mean value is: <span class="math inline">\(\hat\mu_Z = 3.05.\)</span> The median corresponds to <span class="math inline">\(x_{med} = 3.2.\)</span></p>
+<p>What is the mode or the modal value for the monthly income distribution?</p>
+</div>
 </div>
 <div id="using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution" class="section level3 hasAnchor" number="3.1.5">
 <h3><span class="header-section-number">3.1.5</span> Using Mean, Median and Mode to determine the shape of the frequency distribution<a href="sample-measures.html#using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The shape of a sample distribution can be assessed by comparing its <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>.
-In a <strong>right-skewed (positively skewed)</strong> distribution, a long tail extends toward higher values, pulling the mean to the right of the median and mode (<span class="math inline">\(\text{mean} &gt; \text{median} &gt; \text{mode}\)</span>). This pattern often occurs when a few large values raise the average.
-Conversely, in a <strong>left-skewed (negatively skewed)</strong> distribution, a long tail extends toward lower values, pulling the mean to the left of the median and mode (<span class="math inline">\(\text{mean} &lt; \text{median} &lt; \text{mode}\)</span>).
-In a <strong>symmetric</strong> distribution, such as the normal distribution, the mean, median, and mode coincide (<span class="math inline">\(\text{mean} = \text{median} = \text{mode}\)</span>).
-Comparing these measures provides an intuitive way to detect asymmetry and identify potential outliers that may influence the overall shape of the distribution.</p>
+<p>The shape of a sample distribution can be assessed by comparing its <strong>mean</strong>, <strong>median</strong>, and <strong>mode</strong>.</p>
+<ul>
+<li><p>In a <strong>right-skewed (positively skewed)</strong> distribution, a long tail extends toward higher values, pulling the mean to the right of the median and mode (<span class="math inline">\(\text{mean} &gt; \text{median} &gt; \text{mode}\)</span>). This pattern often occurs when a few large values raise the average.</p></li>
+<li><p>Conversely, in a <strong>left-skewed (negatively skewed)</strong> distribution, a long tail extends toward lower values, pulling the mean to the left of the median and mode (<span class="math inline">\(\text{mean} &lt; \text{median} &lt; \text{mode}\)</span>).</p></li>
+<li><p>In a <strong>symmetric</strong> distribution, such as the normal distribution, the mean, median, and mode coincide (<span class="math inline">\(\text{mean} = \text{median} = \text{mode}\)</span>, empirically: <span class="math inline">\(\text{mean} \approx \text{median} \approx \text{mode}\)</span>).</p></li>
+</ul>
+<p>Comparing these measures provides an intuitive way to detect asymmetry and identify potential outliers that may influence the overall shape of the distribution.</p>
 <div class="float">
 <img src="images/mmm.png" style="width:80.0%" alt="Source: https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598" />
 <div class="figcaption">Source: <a href="https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598" class="uri">https://medium.com/geekculture/what-are-right-skewed-and-left-skewed-distributions-a29b3def7598</a></div>
 </div>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-8" class="exercise"><strong>Exercise 3.3  (Measures of central tendency.) </strong></span></p>
-<iframe title="Lagekennzahlen" src="./htmls/quiz_lagekennzahlen.html" width="700" height="500"></iframe>
-</div>
 <hr />
+<div class="exercise">
+<p><span id="exr:unlabeled-div-10" class="exercise"><strong>Exercise 3.5  (Comparing the shape if the group distributions.) </strong></span>Compare the averages of the empirical distributions for two different customer groups:</p>
+<p><span class="math display">\[\begin{array}{r|llllll} a_j&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\\hline
+\text{dist. 1: }h_j&amp;0.1&amp;0.3&amp;0.2&amp;0.1&amp;0.2&amp;0.1\\\
+\text{dist. 2: }h_j&amp;0.1&amp;0.2&amp;0.2&amp;0.2&amp;0.2&amp;0.1
+\end{array}\]</span></p>
+<p>Use the means, the medians and the modes to conclude for the shape of the distribution (right- or left-skewed, or symmetric).</p>
+</div>
 <!--
 Gegeben ist die Häufigkeitsverteilung zu einem Merkmal $X$:
 
@@ -957,7 +996,7 @@ Since the sample variance has the squared units of the feature, one usually calc
 <p>We have already established that, on average, people spend more time in our online store in the evening than at lunchtime. What happens if we now compare the times in the evening during the week and at the weekend? (Here we can not only compare the sample averages of the two samples, but also compare the variability contained in the data.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-49">Table 3.11: </span><span id="tab:unnamed-chunk-49">Table 3.12: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(X\)</span>: Time spent in the online store at lunchtime and in the evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-47">Table 3.12: </span><span id="tab:unnamed-chunk-47">Table 3.13: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(X\)</span>: Time spent in the online store at lunchtime and in the evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -1163,9 +1202,9 @@ time_WE
       \hat\sigma_X = \sqrt{\hat\sigma_X^2}.
 \end{equation*}\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 3.15  (Monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">3.8</a>.</p>
+<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 3.15  (Monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2">3.8</a>.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-50">Table 3.13: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
+<caption><span id="tab:unnamed-chunk-48">Table 3.14: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic <span class="math inline">\(Z\)</span>: monthly income of customers.</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Income group</td>
@@ -1201,7 +1240,7 @@ time_WE
 <li>The sample variance and standard deviation are <span class="math inline">\(s_Y^2=b^2s_X^2\)</span> and <span class="math inline">\(s_Y=|b|s_X\)</span> respectively.</li>
 </ul>
 <div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 3.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Example 3.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
 <p>The payoff of the derivative <span class="math inline">\(d_i\)</span> is therefore a linear transformation of the stock return <span class="math inline">\(r_i\)</span>: <span class="math inline">\(d_i = 500\cdot r_i -10\)</span>. From this information, we can deduce that the average payoff is <span class="math inline">\(\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\)</span> and <span class="math inline">\(\hat\sigma_D = |500|\cdot \hat\sigma_R=5\)</span>.</p>
 </div>
 </div>
@@ -1216,7 +1255,7 @@ r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
 r=x_{[n]} - x_{[1]}
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-11" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
+<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
 <ul>
 <li><p>midday: <span class="math inline">\(r_1=51.65 - 0.57 = 51.08\)</span></p></li>
 <li><p>evening: <span class="math inline">\(r_2=110.81 - 22.41 = 88.4\)</span></p></li>
@@ -1245,7 +1284,7 @@ The standard deviation is therefore scaled by the sample mean. This answers the 
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 3.4  (Measures of variability.) </strong></span></p>
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 3.6  (Measures of variability.) </strong></span></p>
 <iframe title="Quiz_Quantile" src="./htmls/quiz_streuungskennzahlen.html" width="700" height="500"></iframe>
 </div>
 <!--
@@ -1387,7 +1426,7 @@ $$
 We calculate some quantiles for the times on our website.</p>
 <table class="table" style="font-size: 9px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:unnamed-chunk-54">Table 3.14: </span><span id="tab:unnamed-chunk-54">Table 3.15: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: Time on the website at lunchtime and in the evening on weekdays and at weekends (WE).
+<span id="tab:unnamed-chunk-52">Table 3.15: </span><span id="tab:unnamed-chunk-52">Table 3.16: </span>Sample size <span class="math inline">\(n=10\)</span> for the characteristic: Time on the website at lunchtime and in the evening on weekdays and at weekends (WE).
 </caption>
 <thead>
 <tr>
@@ -1590,8 +1629,8 @@ time_WE
 <div class="example">
 <p><span id="exm:zeit41" class="example"><strong>Example 3.20  (Time in the online store by time of day.) </strong></span>Cont of Example <a href="sample-measures.html#exm:zeit4">3.19</a>.
 The empirical distributions of the times on the website can be compared at a glance with the help of boxplots.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-56"></span>
-<img src="_main_files/figure-html/unnamed-chunk-56-1.png" alt="Boxplots for the times in the online store." width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-54"></span>
+<img src="_main_files/figure-html/unnamed-chunk-54-1.png" alt="Boxplots for the times in the online store." width="80%" />
 <p class="caption">
 Figure 3.1: Boxplots for the times in the online store.
 </p>
@@ -1621,7 +1660,7 @@ The empirical distributions of two different stocks as investment opportunities 
 \hat F(q_p) = p \rightarrow \hat q_p = \hat F^{-1}(p).
 \]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.21  (Z=monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2med">3.10</a></p>
+<p><span id="exm:unlabeled-div-15" class="example"><strong>Example 3.21  (Z=monthly Income.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:eink2med">3.10</a></p>
 <p>The empirical distribution function for the data (income class) is:</p>
 <p><span class="math display">\[
 \hat F(x) = \begin{cases}
@@ -1642,7 +1681,7 @@ The empirical distributions of two different stocks as investment opportunities 
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 3.5  (Quantile und Boxplot.) </strong></span></p>
+<p><span id="exr:unlabeled-div-16" class="exercise"><strong>Exercise 3.7  (Quantile und Boxplot.) </strong></span></p>
 <iframe title="Quiz_Quantile" src="./htmls/quiz_quantile.html" width="700" height="500"></iframe>
 </div>
 <hr />
