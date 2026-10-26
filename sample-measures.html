@@ -1283,7 +1283,7 @@ r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
 <p><span class="math display">\[
 r=x_{[n]} - x_{[1]}
 \]</span></p>
-<p>In case of class-based frequency distribution (<span class="math inline">\([b_0,b_1),\)</span> <span class="math inline">\([b_1,b_2),\ldots\)</span>, <span class="math inline">\([b_{J-1},b_J]\)</span>), the range is determined as:</p>
+<p>In case of a <strong>class-based</strong> frequency distribution with <span class="math inline">\(J\)</span> classes <span class="math inline">\([b_0,b_1),\)</span> <span class="math inline">\([b_1,b_2),\ldots\)</span>, <span class="math inline">\([b_{J-1},b_J]\)</span>, the range is determined as:</p>
 <p><span class="math display">\[
 r= b_{J} - b_0
 \]</span></p>
@@ -1615,12 +1615,13 @@ time_WE
 <li>midday:</li>
 </ul>
 <p><span class="math display">\[\begin{align}
-\hat q_{0.05} &amp;\stackrel{np=0.05\cdot 10 =0.5}{=}x_{\left[int(0,5) + 1\right]} = x_{[1]} = 0.57,\\
+\hat q_{0.1} &amp;\stackrel{np=0.1\cdot 10 =1}{=}\frac 12\left(x_{[1]} + x_{[1+1]}\right) = 3.695,\\
 \hat q_{0.25} &amp;\stackrel{np=0.25\cdot 10 =2.5}{=}x_{\left[int(2,5) + 1\right]} = x_{[3]} = 13.95,\\
 \hat q_{0.5} &amp;\stackrel{np=0.5\cdot 10 =5}{=}\frac 12\left(x_{[5]} + x_{[5+1]}\right) = 36.95,\\
 \hat q_{0.75} &amp;\stackrel{np=0.75\cdot 10 =7.5 }{=}x_{\left[int(7,5) + 1\right]} = x_{[8]} = 38.42,\\
-\hat q_{0.8} &amp;\stackrel{np=0.8\cdot 10 =8}{=}\frac 12\left(x_{[8]} + x_{[8+1]}\right) = 39.195.
+\hat q_{0.9} &amp;\stackrel{np=0.9\cdot 10 =9}{=}\frac 12\left(x_{[9]} + x_{[9+1]}\right) = 45.81.
 \end{align}\]</span></p>
+<p><img src="images/qp_template.png" style="width:50.0%" /></p>
 </div>
 <hr />
 <p>Some of the calculated quantiles have special names:</p>
@@ -1639,7 +1640,6 @@ time_WE
 <li>a box between <span class="math inline">\(\hat q_{0.25}\)</span> and <span class="math inline">\(\hat q_{0.75}\)</span> and</li>
 <li>two arrows from the box to <span class="math inline">\(x_{min}\)</span> and <span class="math inline">\(x_{max}\)</span> respectively.</li>
 </ul>
-<p><img src="images/boxplotirrtum_1.jpeg" alt="" width="50%" /></p>
 <div class="example">
 <p><span id="exm:zeit41" class="example"><strong>Example 3.20  (Time in the online store by time of day.) </strong></span>Cont of Example <a href="sample-measures.html#exm:zeit4">3.19</a>.
 The empirical distributions of the times on the website can be compared at a glance with the help of boxplots.</p>
