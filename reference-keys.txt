@@ -66,8 +66,8 @@ tab:unnamed-chunk-48
 exm:unlabeled-div-11
 tab:unnamed-chunk-49
 exm:unlabeled-div-12
-exm:unlabeled-div-13
 exm:zeit3f
+exm:unlabeled-div-13
 exr:unlabeled-div-14
 exm:zeit4
 tab:unnamed-chunk-53
@@ -186,8 +186,8 @@ sample-mode
 using-mean-median-and-mode-to-determine-the-shape-of-the-frequency-distribution
 measures-of-variability
 sample-variance-and-sample-standard-deviation
-range
 coefficient-of-variation
+range
 quantile-and-boxplots
 quantiles
 boxplot

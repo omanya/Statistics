@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-10-20" />
+<meta name="date" content="2026-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -113,8 +113,8 @@
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="sample-measures.html"><a href="sample-measures.html#sample-variance-and-sample-standard-deviation"><i class="fa fa-check"></i><b>3.2.1</b> Sample Variance and Sample Standard Deviation</a></li>
 <li class="chapter" data-level="" data-path="sample-measures.html"><a href="sample-measures.html#linear-transformations-rule"><i class="fa fa-check"></i>Linear Transformations Rule</a></li>
-<li class="chapter" data-level="3.2.2" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>3.2.2</b> Range</a></li>
-<li class="chapter" data-level="3.2.3" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>3.2.3</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sample-measures.html"><a href="sample-measures.html#coefficient-of-variation"><i class="fa fa-check"></i><b>3.2.2</b> Coefficient of variation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sample-measures.html"><a href="sample-measures.html#range"><i class="fa fa-check"></i><b>3.2.3</b> Range</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="sample-measures.html"><a href="sample-measures.html#quantile-and-boxplots"><i class="fa fa-check"></i><b>3.3</b> Quantile and Boxplots</a>
 <ul>
@@ -1168,6 +1168,14 @@ time_WE
 </tbody>
 </table>
 <ul>
+<li>midday:</li>
+</ul>
+<p><span class="math display">\[\begin{align}s_1^2 &amp;= \frac 1{10-1}(z^2_{1,1} + z^2_{1,2} + \ldots + z^2_{1,10}) - \frac {10}{10-1}\cdot \overline z_1^2 \\
+                    &amp;= \frac 1{9}(0.57^2 + 6.82^2 + \ldots + 51.65^2) - \frac {10}{10-1}\cdot 29.354^2\\
+                    &amp;= 272.0328,\\
+            s_1&amp;=\sqrt{s_1^2} = 16.4934.
+\end{align}\]</span></p>
+<ul>
 <li>evening:</li>
 </ul>
 <p><span class="math display">\[\begin{align}s_2^2 &amp;= \frac 1{10-1}(z^2_{2,1} + z^2_{2,2} + \ldots + z^2_{2,10}) - \frac {10}{10-1}\cdot \overline z_2^2 \\
@@ -1241,11 +1249,32 @@ time_WE
 </ul>
 <div class="example">
 <p><span id="exm:unlabeled-div-12" class="example"><strong>Example 3.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
-<p>The payoff of the derivative <span class="math inline">\(d_i\)</span> is therefore a linear transformation of the stock return <span class="math inline">\(r_i\)</span>: <span class="math inline">\(d_i = 500\cdot r_i -10\)</span>. From this information, we can deduce that the average payoff is <span class="math inline">\(\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\)</span> and <span class="math inline">\(\hat\sigma_D = |500|\cdot \hat\sigma_R=5\)</span>.</p>
+<p>The payoff of the derivative <span class="math inline">\(d_i\)</span> is therefore a linear transformation of the stock return <span class="math inline">\(r_i\)</span>: <span class="math display">\[d_i = 500\cdot r_i -10.\]</span></p>
+<p>From this information, we can deduce that the average payoff is</p>
+<p><span class="math inline">\(\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\)</span> and <span class="math inline">\(\hat\sigma_D = |500|\cdot \hat\sigma_R=5\)</span>.</p>
 </div>
 </div>
-<div id="range" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Range<a href="sample-measures.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="coefficient-of-variation" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Coefficient of variation<a href="sample-measures.html#coefficient-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In our example: time on the website, we found that the times at the weekend vary more as the times in the midday. However, the mean values were also very different. How can we adjust for this effect? Well, we can use another key figure to help us, namely the <strong>coefficient of variation</strong>.</p>
+<p>The coefficient of variation <span class="math inline">\(cv\)</span> measures the variability in the units of the mean value:</p>
+<p><span class="math display">\[
+cv = \frac{s}{\bar x}
+\]</span>
+The standard deviation is therefore scaled by the sample mean. This answers the question: “How large is the standard deviation ‘measured in the mean values’”.</p>
+<div class="example">
+<p><span id="exm:zeit3f" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
+<ul>
+<li><p>midday: <span class="math inline">\(cv_1=\frac{16.4934}{29.354} = 0.5619\)</span></p></li>
+<li><p>evening: <span class="math inline">\(cv_2=\frac{32.7952}{54.558} = 0.6011\)</span></p></li>
+<li><p>WE: <span class="math inline">\(cv_3=\frac{29.9244}{57.486} = 0.5206\)</span></p></li>
+</ul>
+<p>How do you interpret the results?</p>
+</div>
+<hr />
+</div>
+<div id="range" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Range<a href="sample-measures.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>The range</strong> <span class="math inline">\(r\)</span> measures the difference between the largest and the smallest sample value and is therefore another way of representing the variability in the data. For a <strong>sample</strong> the range is defined by:</p>
 <p><span class="math display">\[
 r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
@@ -1254,31 +1283,16 @@ r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
 <p><span class="math display">\[
 r=x_{[n]} - x_{[1]}
 \]</span></p>
+<p>In case of class-based frequency distribution (<span class="math inline">\([b_0,b_1),\)</span> <span class="math inline">\([b_1,b_2),\ldots\)</span>, <span class="math inline">\([b_{J-1},b_J]\)</span>), the range is determined as:</p>
+<p><span class="math display">\[
+r= b_{J} - b_0
+\]</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
+<p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.18  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
 <ul>
 <li><p>midday: <span class="math inline">\(r_1=51.65 - 0.57 = 51.08\)</span></p></li>
 <li><p>evening: <span class="math inline">\(r_2=110.81 - 22.41 = 88.4\)</span></p></li>
 <li><p>WE: <span class="math inline">\(r_3=102.32 - 23.6 = 78.72\)</span></p></li>
-</ul>
-<p>How do you interpret the results?</p>
-</div>
-<hr />
-</div>
-<div id="coefficient-of-variation" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Coefficient of variation<a href="sample-measures.html#coefficient-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In our example: Time on the website, we found that the times at the weekend did not vary as much as the times in the evening. However, the mean values were also very different. How can we adjust for this effect? Well, we can use another key figure to help us, namely the <strong>coefficient of variation</strong>.</p>
-<p>The coefficient of variation <span class="math inline">\(cv\)</span> measures the variability in the units of the mean value:</p>
-<p><span class="math display">\[
-cv = \frac{s}{\bar x}
-\]</span>
-The standard deviation is therefore scaled by the sample mean. This answers the question: “How large is the standard deviation ‘measured in the mean values’”.</p>
-<div class="example">
-<p><span id="exm:zeit3f" class="example"><strong>Example 3.18  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
-<ul>
-<li><p>midday: <span class="math inline">\(cv_1=\frac{16.4934}{29.354} = 0.5619\)</span></p></li>
-<li><p>evening: <span class="math inline">\(cv_2=\frac{32.7952}{54.558} = 0.6011\)</span></p></li>
-<li><p>WE: <span class="math inline">\(cv_3=\frac{29.9244}{57.486} = 0.5206\)</span></p></li>
 </ul>
 <p>How do you interpret the results?</p>
 </div>
