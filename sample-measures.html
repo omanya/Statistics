@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-10-26" />
+<meta name="date" content="2026-10-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1168,26 +1168,26 @@ time_WE
 </tbody>
 </table>
 <ul>
-<li>midday:</li>
+<li>midday <span class="math inline">\((\bar z_1 = 29.354)\)</span>:</li>
 </ul>
 <p><span class="math display">\[\begin{align}s_1^2 &amp;= \frac 1{10-1}(z^2_{1,1} + z^2_{1,2} + \ldots + z^2_{1,10}) - \frac {10}{10-1}\cdot \overline z_1^2 \\
-                    &amp;= \frac 1{9}(0.57^2 + 6.82^2 + \ldots + 51.65^2) - \frac {10}{10-1}\cdot 29.354^2\\
+                    &amp;= \frac 1{9}(0.57^2 + 6.82^2 + \ldots + 51.65^2) - \frac {10}{9}\cdot 29.354^2\\
                     &amp;= 272.0328,\\
             s_1&amp;=\sqrt{s_1^2} = 16.4934.
 \end{align}\]</span></p>
 <ul>
-<li>evening:</li>
+<li>evening <span class="math inline">\((\bar z_2 = 54.558)\)</span>:</li>
 </ul>
-<p><span class="math display">\[\begin{align}s_2^2 &amp;= \frac 1{10-1}(z^2_{2,1} + z^2_{2,2} + \ldots + z^2_{2,10}) - \frac {10}{10-1}\cdot \overline z_2^2 \\
-                    &amp;= \frac 1{9}(22.41^2 + 27.87^2 + \ldots + 110.81^2) - \frac {10}{10-1}\cdot 54.558^2\\
+<p><span class="math display">\[\begin{align}s_2^2 &amp;= \frac 1{10-1}(z^2_{2,1} + z^2_{2,2} + \ldots + z^2_{2,10}) - \frac {10}{9}\cdot \overline z_2^2 \\
+                    &amp;= \frac 1{9}(22.41^2 + 27.87^2 + \ldots + 110.81^2) - \frac {10}{9}\cdot 54.558^2\\
                     &amp;= 1075.525,\\
             s_2&amp;=\sqrt{s_2^2} = 32.7952.
 \end{align}\]</span></p>
 <ul>
-<li>WE:</li>
+<li>WE <span class="math inline">\((\bar z_3 = 57.486)\)</span>:</li>
 </ul>
 <p><span class="math display">\[\begin{align}s_3^2  &amp;= \frac 1{10-1}(z^2_{3,1} + z^2_{3,2} + \ldots + z^2_{3,10}) - \frac {10}{10-1}\cdot \overline z_3^2 \\
-                    &amp;= \frac 1{9}(23.6^2 + 24.12^2 + \ldots + 102.32^2) - \frac {10}{10-1}\cdot 57.486^2\\
+                    &amp;= \frac 1{9}(23.6^2 + 24.12^2 + \ldots + 102.32^2) - \frac {10}{9}\cdot 57.486^2\\
                     &amp;= 895.4695,\\
               s_3&amp;=\sqrt{s_3^2} = 29.9244.
 \end{align}\]</span></p>
@@ -1195,15 +1195,17 @@ time_WE
 </div>
 <hr />
 <p>If <strong>frequencies</strong> are given, the empirical variance can be calculated as follows:</p>
-<p><span class="math display">\[\begin{equation*}
-      \hat\sigma_X^2 = \frac{n}{n-1}\big[ (a_1-\overline x)^2 h_1 + \cdots +
-      (a_n-\overline x)^2 h_n\big] = \frac{n}{n-1} \sum_{j=1}^J
+<p><span class="math display">\[\begin{align*}
+      \hat\sigma_X^2 &amp;= \frac{1}{n-1}\big[ (a_1-\overline x)^2 H_1 + \cdots +
+      (a_J-\overline x)^2 H_J\big]\\
+      &amp;=\frac{n}{n-1}\big[ (a_1-\overline x)^2 h_1 + \cdots +
+      (a_J-\overline x)^2 h_J\big] = \frac{n}{n-1} \sum_{j=1}^J
     (a_j-\overline x)^2 h_j.
-\end{equation*}\]</span></p>
+\end{align*}\]</span></p>
 <p>The following <strong>alternative formula</strong> makes the calculations “by hand” somewhat easier, even in the case of frequencies:</p>
 <p><span class="math display">\[\begin{align*}
-      \hat\sigma_X^2 &amp;= \frac{n}{n-1} \sum_{j=1}^J a_j^2 h_j -
-                       \frac{n}{n-1} \mu_X^2
+      \hat\sigma_X^2 &amp;= \frac{n}{n-1} \left(\sum_{j=1}^J a_j^2 h_j -
+                       \mu_X^2\right)
 \end{align*}\]</span></p>
 <p>The corresponding <strong>empirical standard deviation</strong> is also the square root of the empirical variance:</p>
 <p><span class="math display">\[\begin{equation*}
@@ -1244,24 +1246,26 @@ time_WE
 <h3>Linear Transformations Rule<a href="sample-measures.html#linear-transformations-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For a linear transformation of the data <span class="math inline">\(y_i = a + bx_i, i=1,\ldots,n\)</span> applies:</p>
 <ul>
-<li>The sample mean of the transformed data is <span class="math inline">\(\bar y=a+b\bar x\)</span> and</li>
-<li>The sample variance and standard deviation are <span class="math inline">\(s_Y^2=b^2s_X^2\)</span> and <span class="math inline">\(s_Y=|b|s_X\)</span> respectively.</li>
+<li>The <strong>sample mean of the transformed data</strong> is <span class="math display">\[\bar y=a+b\bar x\]</span></li>
+<li>The <strong>sample variance and standard deviation of the transformed data</strong> are <span class="math display">\[s_Y^2=b^2s_X^2\]</span> and <span class="math display">\[s_Y=|b|s_X\]</span> respectively.</li>
 </ul>
 <div class="example">
 <p><span id="exm:unlabeled-div-12" class="example"><strong>Example 3.16  (Financial derivative) </strong></span>A financial instrument whose value depends on the price of another security is called a (financial) derivative. For example, you purchase a derivative (<span class="math inline">\(D\)</span>) on the return (<span class="math inline">\(R\)</span>) of a share with <span class="math inline">\(\hat\mu_R = 0.05\)</span> and standard deviation <span class="math inline">\(\hat\sigma_R=0.01\)</span>. The payoff of the derivative is <span class="math inline">\(500\)</span> times the realized return, and the price of the derivative is <span class="math inline">\(10\)</span> euros.</p>
 <p>The payoff of the derivative <span class="math inline">\(d_i\)</span> is therefore a linear transformation of the stock return <span class="math inline">\(r_i\)</span>: <span class="math display">\[d_i = 500\cdot r_i -10.\]</span></p>
-<p>From this information, we can deduce that the average payoff is</p>
-<p><span class="math inline">\(\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\)</span> and <span class="math inline">\(\hat\sigma_D = |500|\cdot \hat\sigma_R=5\)</span>.</p>
+<p>From this information, we can deduce that the mean payoff is</p>
+<p><span class="math display">\[\hat\mu_D = 500\cdot \hat\mu_R - 10 = 15\]</span></p>
+<p>with the standard deviation of</p>
+<p><span class="math display">\[\hat\sigma_D = |500|\cdot \hat\sigma_R=5.\]</span></p>
 </div>
 </div>
 <div id="coefficient-of-variation" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Coefficient of variation<a href="sample-measures.html#coefficient-of-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In our example: time on the website, we found that the times at the weekend vary more as the times in the midday. However, the mean values were also very different. How can we adjust for this effect? Well, we can use another key figure to help us, namely the <strong>coefficient of variation</strong>.</p>
-<p>The coefficient of variation <span class="math inline">\(cv\)</span> measures the variability in the units of the mean value:</p>
+<p>The coefficient of variation <span class="math inline">\(cv_X\)</span> measures the variability in the units of the mean value of <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
-cv = \frac{s}{\bar x}
+cv_X = \frac{s_X}{\bar x}
 \]</span>
-The standard deviation is therefore scaled by the sample mean. This answers the question: “How large is the standard deviation ‘measured in the mean values’”.</p>
+The standard deviation is therefore scaled by the sample mean. It expresses variability as a proportion of the mean. It is useful for comparing the relative variability of datasets with different units or different magnitudes of the sample means.</p>
 <div class="example">
 <p><span id="exm:zeit3f" class="example"><strong>Example 3.17  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
 <ul>
@@ -1269,23 +1273,22 @@ The standard deviation is therefore scaled by the sample mean. This answers the 
 <li><p>evening: <span class="math inline">\(cv_2=\frac{32.7952}{54.558} = 0.6011\)</span></p></li>
 <li><p>WE: <span class="math inline">\(cv_3=\frac{29.9244}{57.486} = 0.5206\)</span></p></li>
 </ul>
-<p>How do you interpret the results?</p>
 </div>
 <hr />
 </div>
 <div id="range" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Range<a href="sample-measures.html#range" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>The range</strong> <span class="math inline">\(r\)</span> measures the difference between the largest and the smallest sample value and is therefore another way of representing the variability in the data. For a <strong>sample</strong> the range is defined by:</p>
+<p><strong>The sample range</strong> <span class="math inline">\(\hat r_X\)</span> measures the difference between the largest and the smallest sample value and is therefore another way of representing the variability in the data. For a <strong>sample</strong> the range is defined by:</p>
 <p><span class="math display">\[
-r=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n)
+\hat r_X=\max(x_1,x_2,\ldots, x_n) - \min(x_1,x_2,\ldots, x_n).
 \]</span></p>
 <p>In the case of an <strong>ordered sample</strong>, the range is determined as:</p>
 <p><span class="math display">\[
-r=x_{[n]} - x_{[1]}
+\hat r_X=x_{[n]} - x_{[1]}.
 \]</span></p>
-<p>In case of a <strong>class-based</strong> frequency distribution with <span class="math inline">\(J\)</span> classes <span class="math inline">\([b_0,b_1),\)</span> <span class="math inline">\([b_1,b_2),\ldots\)</span>, <span class="math inline">\([b_{J-1},b_J]\)</span>, the range is determined as:</p>
+<p>In case of a <strong>class-based</strong> frequency distribution for a feature <span class="math inline">\(Y\)</span> with <span class="math inline">\(J\)</span> classes <span class="math inline">\([b_0,b_1),\)</span> <span class="math inline">\([b_1,b_2),\ldots\)</span>, <span class="math inline">\([b_{J-1},b_J]\)</span>, the range is determined as:</p>
 <p><span class="math display">\[
-r= b_{J} - b_0
+\hat r_Y= b_{J} - b_0.
 \]</span></p>
 <div class="example">
 <p><span id="exm:unlabeled-div-13" class="example"><strong>Example 3.18  (Time in the online store by time of day.) </strong></span>Cont. of Example <a href="sample-measures.html#exm:zeit3">3.14</a>.</p>
@@ -1294,11 +1297,16 @@ r= b_{J} - b_0
 <li><p>evening: <span class="math inline">\(r_2=110.81 - 22.41 = 88.4\)</span></p></li>
 <li><p>WE: <span class="math inline">\(r_3=102.32 - 23.6 = 78.72\)</span></p></li>
 </ul>
-<p>How do you interpret the results?</p>
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 3.6  (Measures of variability.) </strong></span></p>
+<p><span id="exr:unlabeled-div-14" class="exercise"><strong>Exercise 3.6  (Measures of variability.) </strong></span><br>
+Recall the sample mean values, we have computed in the previous exercise:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\bar x_{short} =  0.66\)</span> and <span class="math inline">\(\bar x_{long} =  1.2714\)</span></p></li>
+<li><p><span class="math inline">\(\bar x = 5\)</span></p></li>
+<li><p><span class="math inline">\(\hat\mu_Y = 20\)</span></p></li>
+</ol>
 <iframe title="Quiz_Quantile" src="./htmls/quiz_streuungskennzahlen.html" width="700" height="500"></iframe>
 </div>
 <!--
@@ -1627,8 +1635,9 @@ time_WE
 <p>Some of the calculated quantiles have special names:</p>
 <ul>
 <li><span class="math inline">\(\hat q_{0.5}\)</span> corresponds to the sample median <span class="math inline">\(x_{med}\)</span>.</li>
-<li><span class="math inline">\(\hat q_{0.25}\)</span> is called <strong>the lower quartile</strong> and <span class="math inline">\(\hat q_{0.75}\)</span> is called <strong>the upper quartile</strong>.</li>
-<li>The distance <span class="math inline">\(\hat q = \hat q_{0.75} - \hat q_{0.25}\)</span> is called the <strong>quartile distance</strong>.</li>
+<li><span class="math inline">\(\hat q_{0.25}\)</span> is called <strong>the lower quartile</strong> and</li>
+<li><span class="math inline">\(\hat q_{0.75}\)</span> is called <strong>the upper quartile</strong>.</li>
+<li>The range between the upper and the lower quartiles: <span class="math display">\[\hat r_q = \hat q_{0.75} - \hat q_{0.25}\]</span> is called the <strong>interquartile range</strong>.</li>
 </ul>
 <p>Together with the maximum and minimum values of the sample, these quantiles form the basis for the graphical representation of the distribution - <strong>Boxplot</strong>.</p>
 </div>
