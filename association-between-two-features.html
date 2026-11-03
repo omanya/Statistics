@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-10-27" />
+<meta name="date" content="2026-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,12 +412,12 @@ The relative frequencies are:</p>
                       \begin{pmatrix}
                         h_{1\cdot} &amp; h_{2\cdot} &amp; \cdots &amp; h_{J\cdot}
                       \end{pmatrix}
-        &amp;\textbf{marginal relative frequency of } X\\
+        &amp;\textbf{marginal frequency distribution of } X\\
         \mathbf{h}_Y&amp;=
                       \begin{pmatrix}
                         h_{\cdot 1} &amp; h_{\cdot 2} &amp; \cdots &amp; h_{\cdot K}
                       \end{pmatrix}
-        &amp;\textbf{marginal relative frequency of } Y
+        &amp;\textbf{marginal frequency distribution of } Y
 \end{align*}\]</span></p></li>
 </ul>
 <div class="example">
@@ -466,20 +466,20 @@ The relative frequencies are:</p>
 <li><p>Characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> of a bank’s low-performing corporate customers:</p>
 <ul>
 <li><span class="math inline">\(X\)</span>=rating at the beginning of the period with the characteristics: <span class="math inline">\(B\)</span>=weak, <span class="math inline">\(C\)</span>=medium, <span class="math inline">\(D\)</span>=severely low-performing.</li>
-<li><span class="math inline">\(Y\)</span>=situation at the end of the period with the values: <span class="math inline">\(D\)</span>=default, <span class="math inline">\(N\)</span>=no default.</li>
+<li><span class="math inline">\(Y\)</span>=situation at the end of the period with the values: <span class="math inline">\(Df\)</span>=default, <span class="math inline">\(nDf\)</span>=no default.</li>
 </ul></li>
 <li><p>Joint frequency distribution:</p></li>
 </ul>
 <p><span class="math display">\[
       \begin{array}[t]{c|cc|c}
-        \mathbf{h}_{XY} &amp; Y=D &amp; Y=nD &amp; \mathbf{h}_X\\\hline
+        \mathbf{h}_{XY} &amp; Y=Df &amp; Y=nDf &amp; \mathbf{h}_X\\\hline
         X=B &amp; 0.05 &amp; 0.45 &amp; \\
         \phantom{X=}C &amp; 0.04 &amp; 0.16 &amp; \\
         \phantom{X=}D &amp; 0.21 &amp; 0.09 &amp; \\\hline
         \mathbf{h}_Y &amp; &amp;&amp;
       \end{array}
 \]</span></p>
-<p><span class="math inline">\(h_{1,1} = 0.05\)</span> (the joint relative frequency of <span class="math inline">\(X=B\)</span> and <span class="math inline">\(Y=D\)</span>) means that 5% of the customers initially received the rating <span class="math inline">\(B\)</span> and defaulted at the end of the period. <span class="math inline">\(h_{1,2} = 0.16\)</span> means that 16% of the customers initially received the rating <span class="math inline">\(C\)</span> and did not report a default at the end of the period. <span class="math inline">\(h_{3,1} = 0.21\)</span> means that 21% of the customers initially received the rating <span class="math inline">\(D\)</span> and defaulted at the end of the period.</p>
+<p><span class="math inline">\(h_{1,1} = 0.05\)</span> (the joint relative frequency of <span class="math inline">\(X=B\)</span> and <span class="math inline">\(Y=Df\)</span>) means that 5% of the customers initially received the rating <span class="math inline">\(B\)</span> and defaulted at the end of the period. <span class="math inline">\(h_{1,2} = 0.16\)</span> means that 16% of the customers initially received the rating <span class="math inline">\(C\)</span> and did not report a default at the end of the period. <span class="math inline">\(h_{3,1} = 0.21\)</span> means that 21% of the customers initially received the rating <span class="math inline">\(D\)</span> and defaulted at the end of the period.</p>
 <ul>
 <li>Marginal frequency distributions:</li>
 </ul>
@@ -489,11 +489,11 @@ The relative frequencies are:</p>
       0.5 &amp; 0.2 &amp; 0.3
     \end{bmatrix}~~~~
    \mathbf{h}_Y = \begin{bmatrix}
-      D &amp; nD\\
+      Df &amp; nDf\\
       0.3 &amp; 0.7
     \end{bmatrix}
 \]</span></p>
-<p><span class="math inline">\(h_{2,\cdot}=0.2 = h_{X=C}\)</span> (the marginal frequency of <span class="math inline">\(X=C\)</span>) means that 20% of the customers were rated C. <span class="math inline">\(h_{\cdot,1}=0.3 = h_{Y=D}\)</span> (the marginal frequency of <span class="math inline">\(Y=D\)</span>) means that 30% of the customers had defaulted at the end of the period.</p>
+<p><span class="math inline">\(h_{2,\cdot}=0.2 = h_{X=C}\)</span> (the marginal frequency of <span class="math inline">\(X=C\)</span>) means that 20% of the customers were rated C. <span class="math inline">\(h_{\cdot,1}=0.3 = h_{Y=Df}\)</span> (the marginal frequency of <span class="math inline">\(Y=Df\)</span>) means that 30% of the customers had defaulted at the end of the period.</p>
 </div>
 </div>
 </div>
@@ -557,7 +557,7 @@ we calculate:</p>
 </ul>
 <p><span class="math display">\[
       \begin{array}[t]{c|cc|c}
-        \mathbf{h}_{XY} &amp; Y=D &amp; Y=nD &amp; \mathbf{h}_X\\\hline
+        \mathbf{h}_{XY} &amp; Y=Df &amp; Y=nDf &amp; \mathbf{h}_X\\\hline
         X=B &amp; 0.05 &amp; 0.45 &amp; 0.5\\
         \phantom{X=}C &amp; 0.04 &amp; 0.16 &amp; 0.2\\
         \phantom{X=}D &amp; 0.21 &amp; 0.09 &amp; 0.3\\\hline
@@ -568,21 +568,21 @@ we calculate:</p>
 <li>Conditional frequencies:</li>
 </ul>
 <p><span class="math display">\[
-      h_{B|D} = h(X=B|Y=D) = \frac{h_{BD}}{h_{\cdot D}} = \frac{0.05}{0.3} = 0.1667
+      h_{B|Df} = h(X=B|Y=Df) = \frac{h_{B,Df}}{h_{\cdot Df}} = \frac{0.05}{0.3} = 0.1667
 \]</span>
-Interpretation: <span class="math inline">\(h_{B|D}=0.1667\)</span> means that among the corporate customers who defaulted at the end of the period, <span class="math inline">\(16.67\%\)</span> were initially given rating B.</p>
+Interpretation: <span class="math inline">\(h_{B|Df}=0.1667\)</span> means that among the corporate customers who defaulted at the end of the period, <span class="math inline">\(16.67\%\)</span> were initially given rating B.</p>
 <p><span class="math display">\[
-    h_{D|B} = h(Y=D|X=B) = \frac{h_{BD}}{h_{B\cdot}} =
+    h_{Df|B} = h(Y=Df|X=B) = \frac{h_{B,Df}}{h_{B\cdot}} =
     \frac{0.05}{0.5} = 0.1
 \]</span>
-Interpretation: <span class="math inline">\(h_{D|B}=0.1\)</span> means that <span class="math inline">\(10\%\)</span> of the corporate customers with rating B defaulted at the end of the period. Note: <span class="math inline">\(h_{BD}=0.05\)</span> means that <span class="math inline">\(5\%\)</span> of the considered corporate customers were rated as B <strong>and</strong> eventually defaulted.</p>
+Interpretation: <span class="math inline">\(h_{Df|B}=0.1\)</span> means that <span class="math inline">\(10\%\)</span> of the corporate customers with rating B defaulted at the end of the period. Note: <span class="math inline">\(h_{B,Df}=0.05\)</span> means that <span class="math inline">\(5\%\)</span> of the considered corporate customers were rated as B <strong>and</strong> eventually defaulted.</p>
 <ul>
-<li>Conditional frequency distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=nD\)</span>:</li>
+<li>Conditional frequency distribution of <span class="math inline">\(X\)</span> given <span class="math inline">\(Y=nDf\)</span>:</li>
 </ul>
 <p><span class="math display">\[
 \mathbf{h}_{X|Y=nD} =
     \begin{pmatrix}
-      h_{B|nD} &amp; h_{C|nD} &amp; h_{D|nD}
+      h_{B|nDf} &amp; h_{C|nDf} &amp; h_{D|nDf}
     \end{pmatrix}
     =
     \begin{pmatrix}
@@ -595,7 +595,7 @@ Interpretation: <span class="math inline">\(h_{D|B}=0.1\)</span> means that <spa
 <p><span class="math display">\[
     \mathbf{h}_{Y|X=D} =
     \begin{pmatrix}
-      h_{Y=D|X=D} &amp; h_{Y=nD|X=D}
+      h_{Y=Df|X=D} &amp; h_{Y=nDf|X=D}
     \end{pmatrix}
     =
     \begin{pmatrix}
