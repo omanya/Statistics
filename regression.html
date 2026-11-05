@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-11-03" />
+<meta name="date" content="2026-11-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -355,22 +355,276 @@ Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</sp
 where <span class="math inline">\(\varepsilon_1, \ldots, \varepsilon_n\)</span> are the so-called <strong>error terms</strong> or <strong>residuals</strong>.</p></li>
 </ul>
 <hr />
-<div class="example">
-<p><span id="exm:linreg0" class="example"><strong>Example 5.1  (Linear regression for stock returns on market returns.) </strong></span>We consider the data from <a href="association-between-two-features.html#exr:exrankkor">4.3</a>:</p>
-<p><span class="math display">\[
+<!--::: {.example #linreg0 name="Linear regression for stock returns on market returns."}
+
+We consider the data from \@ref(exr:exrankkor):
+
+$$
 \begin{array}{r|rr}
-month~i&amp; market ~return ~x_i&amp; stock~return~y_i\\\hline
-1&amp;0.4&amp;0.4\\
-2&amp;0.9&amp;1.5\\
-3&amp;1.2&amp;1.8\\
-4&amp;0.2&amp;1.0\\
-5&amp;-0.4&amp;-1.1\\
-6&amp;-0.5&amp;0.6
+month~i& market ~return ~x_i& stock~return~y_i\\\hline
+1&0.4&0.4\\
+2&0.9&1.5\\
+3&1.2&1.8\\
+4&0.2&1.0\\
+5&-0.4&-1.1\\
+6&-0.5&0.6
 \end{array}
-\]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-74-1.png" alt="" width="672" /></p>
+$$
+
+<img src="_main_files/figure-html/unnamed-chunk-74-1.png" alt="" width="672" />
+
+
+```{=html}
 <iframe title="App Regression" src="https://rshiny.f4.htw-berlin.de/users/mo//Apps_RBook/#section-regression" width="700" height="500"></iframe>
+```
+:::
+-->
+<div class="example">
+<p><span id="exm:linreg0" class="example"><strong>Example 5.1  (Linear Regression for Bike Rentals.) </strong></span><br>
+<strong>Can temperature predict bike rentals?</strong></p>
 </div>
+<!-- Load Plotly -->
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+#bike-app {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+#bike-app label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#bike-app input {
+  width: 100%;
+  max-width: 450px;
+}
+
+#bike-app .result {
+  margin: 12px 0;
+  padding: 10px;
+  background: #f2f5f7;
+  border-radius: 5px;
+}
+
+#bike-plot {
+  width: 100%;
+  height: 450px;
+}
+</style>
+<div id="bike-app">
+<p>
+Each point represents one day. The explanatory variable is
+temperature (°C), and the response variable is the number
+of bike rentals (total bike rentals count per day for selected days).
+</p>
+<div id="bike-plot">
+
+</div>
+<p>
+<strong>Explore:</strong> Change the temperature or rental
+count of a day. Observe how the regression line and R² change.
+</p>
+<div class="result">
+<p><strong>Regression equation:</strong>
+<span id="equation"></span>
+<br>
+<strong>R-squared:</strong>
+<span id="r2"></span></p>
+</div>
+<p><label for="day">Select a day to modify:</label>
+<select id="day"></select></p>
+<p><label for="temp">
+Temperature: <span id="temp-value"></span> °C
+</label>
+<input id="temp" type="range" min="5" max="30"
+       step="1" value="15"></p>
+<p><label for="rentals">
+Bike rentals: <span id="rentals-value"></span>
+</label>
+<input id="rentals" type="range" min="2500" max="5500"
+       step="100" value="4000"></p>
+<div class="result">
+<strong>Selected observation</strong>
+<p id="prediction">
+</p>
+<p id="residual">
+</p>
+</div>
+</div>
+<script>
+(function() {
+
+
+   const data = [
+    { day: "Monday", x: 23, y: 4581 },
+    { day: "Tuesday", x: 19, y: 4051 },
+    { day: "Wednesday", x: 8, y: 2633 },
+    { day: "Thursday", x: 16, y: 3351 },
+    { day: "Friday", x: 20, y: 4608 },
+    { day: "Saturday", x: 21, y: 5114 },
+    { day: "Sunday", x: 18, y: 4833 },
+    { day: "Day 8", x: 17, y: 4158 },
+    { day: "Day 9", x: 10, y: 2508 },
+    { day: "Day 10", x: 15, y: 3141}
+  ];
+
+  const app = document.getElementById("bike-app");
+  if (!app || typeof Plotly === "undefined") {
+    console.error("Bike app or Plotly could not be loaded.");
+    return;
+  }
+
+  const daySelect = app.querySelector("#day");
+  const tempSlider = app.querySelector("#temp");
+  const rentalsSlider = app.querySelector("#rentals");
+
+  data.forEach((d, i) => {
+    const option = document.createElement("option");
+    option.value = i;
+    option.textContent = d.day;
+    daySelect.appendChild(option);
+  });
+
+  let selected = 0;
+
+  function regression() {
+    const n = data.length;
+
+    const meanX = data.reduce((s, d) => s + d.x, 0) / n;
+    const meanY = data.reduce((s, d) => s + d.y, 0) / n;
+
+    let numerator = 0;
+    let denominator = 0;
+
+    data.forEach(d => {
+      numerator += (d.x - meanX) * (d.y - meanY);
+      denominator += (d.x - meanX) ** 2;
+    });
+
+    const slope = numerator / denominator;
+    const intercept = meanY - slope * meanX;
+
+    const predictions = data.map(
+      d => intercept + slope * d.x
+    );
+
+    const ssRes = data.reduce(
+      (s, d, i) => s + (d.y - predictions[i]) ** 2, 0
+    );
+
+    const ssTot = data.reduce(
+      (s, d) => s + (d.y - meanY) ** 2, 0
+    );
+
+    const r2 = 1 - ssRes / ssTot;
+
+    return { slope, intercept, r2 };
+  }
+
+  function update() {
+    const d = data[selected];
+
+    tempSlider.value = d.x;
+    rentalsSlider.value = d.y;
+
+    app.querySelector("#temp-value").textContent = d.x;
+    app.querySelector("#rentals-value").textContent = d.y;
+
+    const model = regression();
+
+    const predicted = model.intercept + model.slope * d.x;
+    const residual = d.y - predicted;
+
+    app.querySelector("#equation").textContent =
+      ` rentals = ${model.intercept.toFixed(1)} + ` +
+      `${model.slope.toFixed(1)} × temperature`;
+
+    app.querySelector("#r2").textContent =
+      model.r2.toFixed(3);
+
+    app.querySelector("#prediction").textContent =
+      `Predicted rentals: ${predicted.toFixed(1)}`;
+
+    app.querySelector("#residual").textContent =
+      `Residual (observed − predicted): ${residual.toFixed(1)}`;
+
+    const minX = Math.min(...data.map(d => d.x));
+    const maxX = Math.max(...data.map(d => d.x));
+
+    const lineX = [minX, maxX];
+    const lineY = lineX.map(
+      x => model.intercept + model.slope * x
+    );
+
+    Plotly.react("bike-plot", [
+      {
+        x: data.map(d => d.x),
+        y: data.map(d => d.y),
+        mode: "markers",
+        type: "scatter",
+        name: "Observed rentals",
+        marker: { size: 10 }
+      },
+      {
+        x: lineX,
+        y: lineY,
+        mode: "lines",
+        type: "scatter",
+        name: "Regression line"
+      },
+      {
+        x: [d.x, d.x],
+        y: [d.y, predicted],
+        mode: "lines",
+        type: "scatter",
+        name: "Selected residual",
+        line: { dash: "dash", width: 3 }
+      },
+      {
+        x: [d.x],
+        y: [d.y],
+        mode: "markers",
+        type: "scatter",
+        name: "Selected day",
+        marker: { size: 15, symbol: "circle-open" }
+      }
+    ], {
+      title: "Temperature (°C) vs. daily bike rentals",
+      xaxis: { title: " " },
+      yaxis: { title: "Number of rentals" },
+      legend: { orientation: "h" },
+      margin: { t: 50, b: 60, l: 70, r: 20 }
+    }, {
+      responsive: true
+    });
+  }
+
+  daySelect.addEventListener("change", () => {
+    selected = Number(daySelect.value);
+    update();
+  });
+
+  tempSlider.addEventListener("input", () => {
+    data[selected].x = Number(tempSlider.value);
+    update();
+  });
+
+  rentalsSlider.addEventListener("input", () => {
+    data[selected].y = Number(rentalsSlider.value);
+    update();
+  });
+
+  update();
+
+})();
+</script>
 <div id="calculation-of-the-regression-coefficients" class="section level3 hasAnchor" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Calculation of the regression coefficients<a href="regression.html#calculation-of-the-regression-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
@@ -501,199 +755,14 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 <li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{ST}^2=(0.905)^2=0.819.\)</span></p></li>
 <li><p>Graphically:</p></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" alt="" width="70%" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-77-1.png" alt="" width="70%" /></p>
 <ul>
 <li>in gretl (Model -&gt; Ordinary Least Squares):</li>
 </ul>
 <p><img src="images/gretl0.png" style="width:70.0%" /></p>
 <p><img src="images/gretl_lr1.png" style="width:70.0%" /></p>
 </div>
-</div>
-</div>
-<div id="multivariate-linear-regression" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Multivariate linear regression<a href="regression.html#multivariate-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Using the <strong>univariate linear regression</strong> (only one explanatory variable) above, we found a functional relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
-<p><strong>Can we take other influences into account (e.g. rainfall, day of week)?</strong></p>
-<p>Multivariate linear regression:</p>
-<ul>
-<li><p>Approach: <span class="math inline">\(y=\beta_0 + \beta_1\, x_1 + \beta_2\, x_2 + \cdots + \beta_L\, x_L,\)</span></p></li>
-<li><p>with the regressand or dependent variable <span class="math inline">\(y\)</span> and <span class="math inline">\(L\)</span> regressors
-<span class="math inline">\(x_1, \ldots, x_L\)</span> (multivariate regression);</p></li>
-<li><p>Sample:</p></li>
-</ul>
-<p><span class="math display">\[
-      ((x_{11}, \ldots, x_{L1}), y_1), \ldots, ((x_{1n}, \ldots, x_{Ln}), y_n)
-\]</span></p>
-<ul>
-<li>System of linear equations:</li>
-</ul>
-<p><span class="math display">\[\begin{align*}
-        y_1 &amp;= \beta_0 + \beta_1\, x_{11} + \beta_2\, x_{21} + \cdots + \beta_L\, x_{L1}
-              + \varepsilon_1\\\vdots\\y_n &amp;= \beta_0+  \beta_1\, x_{1n} + \beta_2\, x_{2n} + \cdots + \beta_L\, x_{Ln}
-              + \varepsilon_n
-\end{align*}\]</span></p>
-<ul>
-<li>Representation in matrix form:</li>
-</ul>
-<p><span class="math display">\[
-      \bf{y} = \bf{X}\bf{\beta} + \bf{\varepsilon},
-\]</span></p>
-<p>with the design matrix</p>
-<p><span class="math display">\[
-        \bf{X}=
-        \begin{pmatrix}
-          1 &amp; x_{11} &amp; x_{21} &amp; \cdots &amp; x_{L1}\\
-          \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots\\
-          1 &amp; x_{1n} &amp; x_{2n} &amp; \cdots &amp; x_{Ln}
-        \end{pmatrix}
-\]</span></p>
-<ul>
-<li>OLS-Solution:</li>
-</ul>
-<p><span class="math display">\[
-        \bf{\hat\beta} = (\bf{X}^T \bf{X})^{-1}\, \bf{X}^T\, \bf{y}
-\]</span></p>
-<div class="example">
-<p><span id="exm:multilinreg" class="example"><strong>Example 5.3  (Sales vs Weather II) </strong></span>example <a href="association-between-two-features.html#exm:umswetkor">4.9</a> cont.</p>
-<ul>
-<li><p>Design matrix <span class="math inline">\(\bf X\)</span> with columns:</p>
-<ul>
-<li><ol style="list-style-type: decimal">
-<li>constant (vector of ones),</li>
-</ol></li>
-<li><ol start="2" style="list-style-type: decimal">
-<li>temperature,</li>
-</ol></li>
-<li><ol start="3" style="list-style-type: decimal">
-<li>rain indicator</li>
-</ol></li>
-</ul></li>
-</ul>
-<p><span class="math display">\[\bf{X} =
-        \begin{pmatrix}
-          1&amp; 13.57&amp; 1\\
-          1&amp; 14.77&amp; 1\\
-          1&amp; 14.2&amp;0\\
-          1&amp; 17.65&amp;0\\
-          1&amp; 24.79&amp;0\\
-          \ldots &amp; \ldots &amp;\ldots\\
-          \\
-\end{pmatrix}\]</span></p>
-<ul>
-<li>OLS-Solution:</li>
-</ul>
-<p><span class="math display">\[\begin{align*}
-    \hat\beta&amp;=(\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{Y}
-\end{align*}\]</span></p>
-<p><img src="images/gretl_lr2.png" style="width:70.0%" /></p>
-<ul>
-<li><p>Function to forecast the sales:
-<span class="math display">\[sales\approx 16.0503 + 0.5887\cdot t - 2.5551\cdot r.\]</span></p></li>
-<li><p>Which sales would you forecast for a rainy day with an average of <span class="math inline">\(15°C\)</span>?</p></li>
-</ul>
-</div>
-</div>
-<div id="non-linear-regression" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If the relationship is not linear, such as <span class="math inline">\(v=\alpha\cdot \beta^u\)</span>: convert <span class="math inline">\(\rightarrow\)</span> into a linear relationship using a suitable transformation, e.g. by logarithmizing:
-<span class="math inline">\(\ln v = \ln \alpha + (\ln \beta)\cdot u\)</span>.</p>
-<ul>
-<li><p>Set: <span class="math inline">\(y=\ln v\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\ln \beta\)</span> and <span class="math inline">\(x=u\)</span>
-<span class="math inline">\(\Rightarrow\)</span> The transformed function <span class="math inline">\(y=a+bx\)</span> is a straight line with the coefficients
-coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>.</p></li>
-<li><p>The further procedure:</p>
-<ul>
-<li><p>Transform the data <span class="math inline">\((u_i, v_i)\)</span> of the sample accordingly</p></li>
-<li><p>Calculate the regression coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with the OLS</p></li>
-<li><p>Transform backwards <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> from <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>; here <span class="math inline">\(\hat\alpha=\text e^a\)</span> and <span class="math inline">\(\hat\beta=\text e^b\)</span></p></li>
-<li><p>Obtain the estimated functional equation; here <span class="math inline">\(v=\hat\alpha\cdot \hat\beta^u\)</span></p></li>
-</ul></li>
-</ul>
-<div class="example">
-<p><span id="exm:lognachfr" class="example"><strong>Example 5.4  (Nonlinear (log-linearised) Demand function) </strong></span></p>
-<ul>
-<li>Econometric relation: exponential demand <span class="math inline">\(q\)</span> for a certain consumer good
-specific consumer good as a function of the price <span class="math inline">\(p\)</span></li>
-</ul>
-<p><span class="math display">\[
-    q = \alpha\text e^{\beta \cdot p}, \beta&lt;0
-\]</span></p>
-<ul>
-<li>Transformation:</li>
-</ul>
-<p><span class="math display">\[
-      q=\alpha \, \text e^{\beta\cdot p} \quad\Rightarrow\quad \ln q = \ln\alpha
-      + \beta\cdot p \quad\iff\quad y=a+b\, x,
-\]</span></p>
-<p>so: <span class="math inline">\(y=\ln q\)</span>, <span class="math inline">\(x=p\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\beta\)</span></p>
-<ul>
-<li>the original data (<span class="math inline">\(q,p\)</span>) and the transformed data (<span class="math inline">\(x,y\)</span>):</li>
-</ul>
-<p><span class="math display">\[
-    \begin{array}[t]{rrrrr}
-      \hline
-      i &amp; q_i &amp; p_i &amp; x_i &amp; y_i\\\hline
-      1 &amp; 2.5224 &amp; 5.75 &amp; 5.75 &amp; 0.9252\\
-      2 &amp; 1.6603 &amp; 15.77 &amp; 15.77 &amp; 0.507\\
-      3 &amp; 2.1616 &amp; 8.18 &amp; 8.18 &amp; 0.7708\\
-      4 &amp; 0.0578 &amp; 17.66 &amp; 17.66 &amp; -2.8508\\
-      5 &amp; 0.0818 &amp; 18.81 &amp; 18.81 &amp; -2.5035\\
-      6 &amp; 3.7369 &amp; 0.91 &amp; 0.91 &amp; 1.3183\\
-      7 &amp; 2.8806 &amp; 10.56 &amp; 10.56 &amp; 1.058\\
-      8 &amp; 0.2824 &amp; 17.85 &amp; 17.85 &amp; -1.2644\\\hline
-    \end{array}
-\]</span></p>
-<ul>
-<li><p>Least-Squares estimates for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (<span class="math inline">\(\hat\sigma_{XY} = -9.0957\)</span>, <span class="math inline">\(\hat\sigma_X^2 = 43.6473\)</span>, <span class="math inline">\(\bar x= 11.9362\)</span> and <span class="math inline">\(\bar y =-0.2549\)</span>:
-<span class="math display">\[\begin{align*}
-    \hat b&amp;= \frac{-9.0957} {43.6473} =-0.2084\\
-    \hat a&amp;= -0.2549 -0.2084 \cdot 11.9362 = 2.2325
-\end{align*}\]</span></p></li>
-<li><p>Transformation back into the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p></li>
-</ul>
-<p><span class="math display">\[
-   \hat  \alpha = \text e^{\hat a} = 9.323 \text{ und   } \quad \hat \beta=\hat b = -0.2084
-\]</span></p>
-<ul>
-<li>Demand function:</li>
-</ul>
-<p><span class="math display">\[
-    \hat q=9.323\cdot \text e^{-0.2084\cdot p}
-\]</span></p>
-<iframe title="App log-linearisierte Nachfrage" src="https://rshiny.f4.htw-berlin.de/users/mo//Apps_RBook/#section-log-linearized-demand" width="700" height="900"></iframe>
-</div>
-<hr />
-<p><strong>Transformation table</strong></p>
-<p>For the transformation <span class="math inline">\(v=f(u,\alpha\beta)\rightarrow y=a+b\,x\)</span>
-there are further examples of non-linear problems that can be
-can be transformed to a linear regression approach,
-are:</p>
-<p><span class="math display">\[
-      \begin{array}[t]{c|ccccc}
-        \hline
-        No&amp;v=f(u) &amp; y=T(v) &amp; a &amp; b &amp; x=g(u)\\\hline
-        1&amp;v=\alpha + \beta\, u^k &amp; v=\alpha + \beta\cdot u^k &amp; \alpha &amp;
-                                                                      \beta
-                                &amp; u^k\\[5pt]
-        2&amp;v=\frac{\alpha\, u}{\beta+u} &amp; \frac{1}{v} = \frac{1}{\alpha}
-                                       + \frac{\beta}{\alpha}\, \frac{1}{u} &amp;
-                                                                    \frac{1}{\alpha}
-                            &amp; \frac{\beta}{\alpha} &amp; \frac{1}{u}\\[5pt]
-        3&amp;v = \frac{u}{\alpha + \beta\, u} &amp; \frac{u}{v} = \alpha +
-                                           \beta\, u &amp; \alpha &amp; \beta
-                                &amp; u\\[5pt]
-        4&amp;v = \alpha \, \beta^u &amp; \ln v = \ln \alpha + (\ln\beta) u &amp;
-                                                                     \ln
-                                                                     \alpha
-                            &amp; \ln \beta &amp; u\\[5pt]
-        5&amp;v = \alpha\, u^\beta &amp; \ln v = \ln \alpha + \beta\, \ln u &amp;
-                                                                    \ln
-                                                                    \alpha
-                            &amp; \beta &amp; \ln u\\[5pt]\hline
-      \end{array}
-\]</span></p>
-<hr />
-<div id="q71" class="quiz">
+<div id="q711" class="quiz">
 <script>
 
 
@@ -836,7 +905,195 @@ Submit
     document.getElementById('question-text76').textContent = "What is the coefficient of determination if the correlation of the dependent and the independent variables is \\("+ questionObj76.question[0]*10/100 + "\\)";
     questionObj76.answer = Math.pow(questionObj76.question[0]*10/100,2)
 </script>
+</div>
+</div>
+</div>
+<div id="multivariate-linear-regression" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Multivariate linear regression<a href="regression.html#multivariate-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Using the <strong>univariate linear regression</strong> (only one explanatory variable) above, we found a functional relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
+<p><strong>Can we take other influences into account (e.g. rainfall, day of week)?</strong></p>
+<p>Multivariate linear regression:</p>
+<ul>
+<li><p>Approach: <span class="math inline">\(y=\beta_0 + \beta_1\, x_1 + \beta_2\, x_2 + \cdots + \beta_L\, x_L,\)</span></p></li>
+<li><p>with the regressand or dependent variable <span class="math inline">\(y\)</span> and <span class="math inline">\(L\)</span> regressors
+<span class="math inline">\(x_1, \ldots, x_L\)</span> (multivariate regression);</p></li>
+<li><p>Sample:</p></li>
+</ul>
+<p><span class="math display">\[
+      ((x_{11}, \ldots, x_{L1}), y_1), \ldots, ((x_{1n}, \ldots, x_{Ln}), y_n)
+\]</span></p>
+<ul>
+<li>System of linear equations:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+        y_1 &amp;= \beta_0 + \beta_1\, x_{11} + \beta_2\, x_{21} + \cdots + \beta_L\, x_{L1}
+              + \varepsilon_1\\\vdots\\y_n &amp;= \beta_0+  \beta_1\, x_{1n} + \beta_2\, x_{2n} + \cdots + \beta_L\, x_{Ln}
+              + \varepsilon_n
+\end{align*}\]</span></p>
+<ul>
+<li>Representation in matrix form:</li>
+</ul>
+<p><span class="math display">\[
+      \bf{y} = \bf{X}\bf{\beta} + \bf{\varepsilon},
+\]</span></p>
+<p>with the design matrix</p>
+<p><span class="math display">\[
+        \bf{X}=
+        \begin{pmatrix}
+          1 &amp; x_{11} &amp; x_{21} &amp; \cdots &amp; x_{L1}\\
+          \vdots &amp; \vdots &amp; \vdots &amp; &amp; \vdots\\
+          1 &amp; x_{1n} &amp; x_{2n} &amp; \cdots &amp; x_{Ln}
+        \end{pmatrix}
+\]</span></p>
+<ul>
+<li>OLS-Solution:</li>
+</ul>
+<p><span class="math display">\[
+        \bf{\hat\beta} = (\bf{X}^T \bf{X})^{-1}\, \bf{X}^T\, \bf{y}
+\]</span></p>
+<div class="example">
+<p><span id="exm:multilinreg" class="example"><strong>Example 5.3  (Sales vs Weather II) </strong></span>example <a href="association-between-two-features.html#exm:umswetkor">4.9</a> cont.</p>
+<ul>
+<li><p>Design matrix <span class="math inline">\(\bf X\)</span> with columns:</p>
+<ul>
+<li><ol style="list-style-type: decimal">
+<li>constant (vector of ones),</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: decimal">
+<li>temperature,</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: decimal">
+<li>rain indicator</li>
+</ol></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\bf{X} =
+        \begin{pmatrix}
+          1&amp; 13.57&amp; 1\\
+          1&amp; 14.77&amp; 1\\
+          1&amp; 14.2&amp;0\\
+          1&amp; 17.65&amp;0\\
+          1&amp; 24.79&amp;0\\
+          \ldots &amp; \ldots &amp;\ldots\\
+          \\
+\end{pmatrix}\]</span></p>
+<ul>
+<li>OLS-Solution:</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+    \hat\beta&amp;=(\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{Y}
+\end{align*}\]</span></p>
+<p><img src="images/gretl_lr2.png" style="width:70.0%" /></p>
+<ul>
+<li><p>Function to forecast the sales:
+<span class="math display">\[sales\approx 16.0503 + 0.5887\cdot t - 2.5551\cdot r.\]</span></p></li>
+<li><p>Which sales would you forecast for a rainy day with an average of <span class="math inline">\(15°C\)</span>?</p></li>
+</ul>
+</div>
+</div>
+<div id="non-linear-regression" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If the relationship is not linear, such as <span class="math inline">\(v=\alpha\cdot \beta^u\)</span>: convert <span class="math inline">\(\rightarrow\)</span> into a linear relationship using a suitable transformation, e.g. by logarithmizing:
+<span class="math inline">\(\ln v = \ln \alpha + (\ln \beta)\cdot u\)</span>.</p>
+<ul>
+<li><p>Set: <span class="math inline">\(y=\ln v\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\ln \beta\)</span> and <span class="math inline">\(x=u\)</span>
+<span class="math inline">\(\Rightarrow\)</span> The transformed function <span class="math inline">\(y=a+bx\)</span> is a straight line with the coefficients
+coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>.</p></li>
+<li><p>The further procedure:</p>
+<ul>
+<li><p>Transform the data <span class="math inline">\((u_i, v_i)\)</span> of the sample accordingly</p></li>
+<li><p>Calculate the regression coefficients <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> with the OLS</p></li>
+<li><p>Transform backwards <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> from <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>; here <span class="math inline">\(\hat\alpha=\text e^a\)</span> and <span class="math inline">\(\hat\beta=\text e^b\)</span></p></li>
+<li><p>Obtain the estimated functional equation; here <span class="math inline">\(v=\hat\alpha\cdot \hat\beta^u\)</span></p></li>
+</ul></li>
+</ul>
+<div class="example">
+<p><span id="exm:lognachfr" class="example"><strong>Example 5.4  (Nonlinear (log-linearised) Demand function) </strong></span></p>
+<ul>
+<li>Econometric relation: exponential demand <span class="math inline">\(q\)</span> for a certain consumer good
+specific consumer good as a function of the price <span class="math inline">\(p\)</span></li>
+</ul>
+<p><span class="math display">\[
+    q = \alpha\text e^{\beta \cdot p}, \beta&lt;0
+\]</span></p>
+<ul>
+<li>Transformation:</li>
+</ul>
+<p><span class="math display">\[
+      q=\alpha \, \text e^{\beta\cdot p} \quad\Rightarrow\quad \ln q = \ln\alpha
+      + \beta\cdot p \quad\iff\quad y=a+b\, x,
+\]</span></p>
+<p>so: <span class="math inline">\(y=\ln q\)</span>, <span class="math inline">\(x=p\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\beta\)</span></p>
+<ul>
+<li>the original data (<span class="math inline">\(q,p\)</span>) and the transformed data (<span class="math inline">\(x,y\)</span>):</li>
+</ul>
+<p><span class="math display">\[
+    \begin{array}[t]{rrrrr}
+      \hline
+      i &amp; q_i &amp; p_i &amp; x_i &amp; y_i\\\hline
+      1 &amp; 3.4031 &amp; 5.75 &amp; 5.75 &amp; 1.2247\\
+      2 &amp; 0.3353 &amp; 15.77 &amp; 15.77 &amp; -1.0927\\
+      3 &amp; 0.9937 &amp; 8.18 &amp; 8.18 &amp; -0.0063\\
+      4 &amp; 0.1724 &amp; 17.66 &amp; 17.66 &amp; -1.7579\\
+      5 &amp; 0.1455 &amp; 18.81 &amp; 18.81 &amp; -1.9276\\
+      6 &amp; 7.9243 &amp; 0.91 &amp; 0.91 &amp; 2.0699\\
+      7 &amp; 0.9267 &amp; 10.56 &amp; 10.56 &amp; -0.0761\\
+      8 &amp; 0.2179 &amp; 17.85 &amp; 17.85 &amp; -1.5237\\
+      9 &amp; 0.7926 &amp; 11.03 &amp; 11.03 &amp; -0.2324\\
+      10 &amp; 0.9811 &amp; 9.13 &amp; 9.13 &amp; -0.0191\\\hline
+    \end{array}
+\]</span></p>
+<ul>
+<li><p>Least-Squares estimates for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (<span class="math inline">\(\hat\sigma_{XY} = -7.5288\)</span>, <span class="math inline">\(\hat\sigma_X^2 = 34.761\)</span>, <span class="math inline">\(\bar x= 11.565\)</span> and <span class="math inline">\(\bar y =-0.3341\)</span>:
+<span class="math display">\[\begin{align*}
+    \hat b&amp;= \frac{-7.5288} {34.761} =-0.2166\\
+    \hat a&amp;= -0.3341 -0.2166 \cdot 11.565 = 2.1707
+\end{align*}\]</span></p></li>
+<li><p>Transformation back into the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[
+   \hat  \alpha = \text e^{\hat a} = 8.7644 \text{ und   } \quad \hat \beta=\hat b = -0.2166
+\]</span></p>
+<ul>
+<li>Demand function:</li>
+</ul>
+<p><span class="math display">\[
+    \hat q=8.7644\cdot \text e^{-0.2166\cdot p}
+\]</span></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" alt="" width="672" /></p>
+</div>
 <hr />
+<p><strong>Transformation table</strong></p>
+<p>For the transformation <span class="math inline">\(v=f(u,\alpha\beta)\rightarrow y=a+b\,x\)</span>
+there are further examples of non-linear problems that can be
+can be transformed to a linear regression approach,
+are:</p>
+<p><span class="math display">\[
+      \begin{array}[t]{c|ccccc}
+        \hline
+        No&amp;v=f(u) &amp; y=T(v) &amp; a &amp; b &amp; x=g(u)\\\hline
+        1&amp;v=\alpha + \beta\, u^k &amp; v=\alpha + \beta\cdot u^k &amp; \alpha &amp;
+                                                                      \beta
+                                &amp; u^k\\[5pt]
+        2&amp;v=\frac{\alpha\, u}{\beta+u} &amp; \frac{1}{v} = \frac{1}{\alpha}
+                                       + \frac{\beta}{\alpha}\, \frac{1}{u} &amp;
+                                                                    \frac{1}{\alpha}
+                            &amp; \frac{\beta}{\alpha} &amp; \frac{1}{u}\\[5pt]
+        3&amp;v = \frac{u}{\alpha + \beta\, u} &amp; \frac{u}{v} = \alpha +
+                                           \beta\, u &amp; \alpha &amp; \beta
+                                &amp; u\\[5pt]
+        4&amp;v = \alpha \, \beta^u &amp; \ln v = \ln \alpha + (\ln\beta) u &amp;
+                                                                     \ln
+                                                                     \alpha
+                            &amp; \ln \beta &amp; u\\[5pt]
+        5&amp;v = \alpha\, u^\beta &amp; \ln v = \ln \alpha + \beta\, \ln u &amp;
+                                                                    \ln
+                                                                    \alpha
+                            &amp; \beta &amp; \ln u\\[5pt]\hline
+      \end{array}
+\]</span></p>
+<hr />
+<div id="q71" class="quiz">
 <script>
   // Generate a random question
     const questionObj77 = {
