@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-11-05" />
+<meta name="date" content="2026-11-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -311,6 +311,41 @@ function checkAnswer_num(q) {
       }
     }
 </script>
+<script>
+// Dropdown multiple choice
+function checkAnswer_dd(q) {
+
+    // Get selected value from dropdown
+    const selectedOption =
+        document.getElementById('option' + q.id);
+
+    const userAnswer = selectedOption.value;
+
+    if (userAnswer !== "") {
+
+        const isCorrect = userAnswer === q.answer;
+
+        if (isCorrect) {
+            document.getElementById('result' + q.id).textContent =
+                'Congratulations! Your answer is correct.';
+
+            document.getElementById('result' + q.id).style.color = "green";
+
+        } else {
+            document.getElementById('result' + q.id).textContent =
+                'Sorry, incorrect.';
+
+            document.getElementById('result' + q.id).style.color = "red";
+        }
+
+    } else {
+        document.getElementById('result' + q.id).textContent =
+            'Please select an option.';
+
+        document.getElementById('result' + q.id).style.color = "red";
+    }
+}
+</script>
 <p>We have empirically established a linear relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
 <p><strong>Can we now predict the expected sales for a given temperature level?</strong></p>
 <p><span class="math inline">\(\leadsto\)</span> correlation calculation vs. regression calculation:</p>
@@ -371,7 +406,7 @@ month~i& market ~return ~x_i& stock~return~y_i\\\hline
 \end{array}
 $$
 
-<img src="_main_files/figure-html/unnamed-chunk-74-1.png" alt="" width="672" />
+<img src="_main_files/figure-html/unnamed-chunk-75-1.png" alt="" width="672" />
 
 
 ```{=html}
@@ -755,7 +790,7 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 <li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{ST}^2=(0.905)^2=0.819.\)</span></p></li>
 <li><p>Graphically:</p></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-77-1.png" alt="" width="70%" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-78-1.png" alt="" width="70%" /></p>
 <ul>
 <li>in gretl (Model -&gt; Ordinary Least Squares):</li>
 </ul>
@@ -1060,7 +1095,7 @@ specific consumer good as a function of the price <span class="math inline">\(p\
 <p><span class="math display">\[
     \hat q=8.7644\cdot \text e^{-0.2166\cdot p}
 \]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" alt="" width="672" /></p>
 </div>
 <hr />
 <p><strong>Transformation table</strong></p>
@@ -1130,6 +1165,385 @@ are:</p>
   // Display the question
     document.getElementById('question-text77').textContent = questionObj77.question;
 </script>
+</div>
+<div class="exercise">
+<p><span id="exr:mengenop" class="exercise"><strong>Exercise 5.1  (Linear Regression for Bike Rentals in gretl) </strong></span></p>
+<ol>
+<li>
+Open the bike rentals data in gretl. (Hint: File-&gt;open Data -&gt; Sample file -&gt; bikesharing)
+Transform the variables atemp (multiply by 50), hum (multiply by 100), and windspeed (multiply by 67) to their original scale (°C, %, km/h). Use Add -&gt; Define new variable -&gt; e.g., atempC = atemp*50
+</li>
+<li>
+Compute and interpret the correlation coefficients between the variables casual and holiday, workingday, weathersit, atemp, hum, and windspeed (view-&gt; correlation matrix).
+<br><br>What can you say about the potential utility of the variables for explaining fluctuations in the casual demand by looking at the correlations?
+<!-- Question 1-->
+<script>
+  // Generate a random question
+    const questionObj771 = {
+      question: 'Which of the following variables has the strongest positive linear association with the casual demand?',
+      options: ['holiday','workingday' ,'weathersit', 'atemp', 'hum', 'windspeed'],
+      answer: '4',
+      id: 771
+    };
+</script>
+<p class="question">
+<span id="question-text771"></span>
+</p>
+<div class="options">
+<p><select id="option771" name="option771">
+<option value="">Select an answer</option>
+<option value=1>Holiday</option>
+<option value=2>Working day</option>
+<option value=3>Weather situation</option>
+<option value=4>Ambient temperature</option>
+<option value=5>Humidity</option>
+<option value=6>Wind speed</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj771)">
+Check
+</button>
+<p id="result771">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text771').textContent = questionObj771.question;
+</script>
+<!-- Question 2-->
+<script>
+  // Generate a random question
+    const questionObj772 = {
+      question: 'Which of the following variables has the strongest negative linear association with the casual demand?',
+      options: ['holiday','workingday' ,'weathersit', 'atemp', 'hum', 'windspeed'],
+      answer: '2',
+      id: 772
+    };
+</script>
+<p class="question">
+<span id="question-text772"></span>
+</p>
+<div class="options">
+<p><select id="option772" name="option772">
+<option value="">Select an answer</option>
+<option value=1>Holiday</option>
+<option value=2>Working day</option>
+<option value=3>Weather situation</option>
+<option value=4>Ambient temperature</option>
+<option value=5>Humidity</option>
+<option value=6>Wind speed</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj772)">
+Check
+</button>
+<p id="result772">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text772').textContent = questionObj772.question;
+</script>
+</li>
+<li>
+Estimate a simple linear regression using the casual demand as the dependent variable and using the ambient temperature (in °C) as the independent variable. Interpret the estimated coefficients.
+<!--Question 3-->
+<p id="question">
+<span id="question-text773"></span>
+</p>
+<input type="number" id="answer773" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj773)">Check</button>
+<p id="result773">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj773 = generateQuestion_num(773);
+// Display the question
+    document.getElementById('question-text773').textContent = "For each °C increase in temperature, the predicted value of the casual demand increases by ____ units";
+    questionObj773.answer = 45.8304
+</script>
+<br>What can you say about the goodness-of-fit of this linear model?
+<!-- Question 4-->
+<p id="question">
+<span id="question-text774"></span>
+</p>
+<input type="number" id="answer774" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj774)">Check</button>
+<p id="result774">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj774 = generateQuestion_num(774);
+// Display the question
+    document.getElementById('question-text774').textContent = "The goodness-of-fit for the simple linear regression can be measured by \\(R^2\\) which is equal to";
+    questionObj774.answer = 0.295788
+</script>
+<!-- Question 14-->
+<p id="question">
+<span id="question-text7714"></span>
+</p>
+<input type="number" id="answer7714" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj7714)">Check</button>
+<p id="result7714">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj7714 = generateQuestion_num(7714);
+// Display the question
+    document.getElementById('question-text7714').textContent = "Which value of the casual demand (\\(casual_{pred}\\)) does the model predict for the temperature of 25°C?";
+    questionObj7714.answer = 906.944
+</script>
+Compute the residuals (in the model menu: save residuals) and find their 5% and 95% quantiles. Based on the results, give the 5% and 95% conditional quantiles for the casual demand if the temperature is 25°C. (Hint: use \(q_p(casual)\approx casual_{pred} + q_p(residuals)\))
+<!-- Question 15-->
+<p id="question">
+<span id="question-text7715"></span>
+</p>
+<input type="number" id="answer7715" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj7715)">Check</button>
+<p id="result7715">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj7715 = generateQuestion_num(7715);
+// Display the question
+    document.getElementById('question-text7715').textContent = "The 5% conditional quantile for the predicted casual demand for the temperature of 25°C equals approx. to";
+    questionObj7715.answer = 906.944-652.85
+</script>
+<!-- Question 16-->
+<p id="question">
+<span id="question-text7716"></span>
+</p>
+<input type="number" id="answer7716" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj7716)">Check</button>
+<p id="result7716">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj7716 = generateQuestion_num(7716);
+// Display the question
+    document.getElementById('question-text7716').textContent = "The 95% conditional quantile for the predicted casual demand (temperature = 25°C) equals approx. to";
+    questionObj7716.answer = 906.944+1358.8
+</script>
+</li>
+<li>
+Estimate a multivariate linear regression using the casual demand as the dependent variable and the other variables (holiday, workingday, weathersit, atemp (in °C), hum (in %), windspeed (in km/h)) as the independent variables. Interpret the resulting coefficients.
+<!-- Question 5-->
+<p id="question">
+<span id="question-text775"></span>
+</p>
+<input type="number" id="answer775" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj775)">Check</button>
+<p id="result775">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj775 = generateQuestion_num(775);
+// Display the question
+    document.getElementById('question-text775').textContent = "For each °C increase in temperature, the predicted value of the casual demand increases by ____ units";
+    questionObj775.answer =  47.3332
+</script>
+<!-- Question 6-->
+<p id="question">
+<span id="question-text776"></span>
+</p>
+<input type="number" id="answer776" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj776)">Check</button>
+<p id="result776">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj776 = generateQuestion_num(776);
+// Display the question
+    document.getElementById('question-text776').textContent = "For each percentage increase in humidity, the predicted value of casual decreases by ____ units";
+    questionObj776.answer = 6.2554
+</script>
+<br>
+What can you say about the goodness-of-fit of this multivariate linear model?
+<!-- Question 7-->
+<p id="question">
+<span id="question-text777"></span>
+</p>
+<input type="number" id="answer777" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj777)">Check</button>
+<p id="result777">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj777 = generateQuestion_num(777);
+// Display the question
+    document.getElementById('question-text777').textContent = "The goodness-of-fit for the multivariate linear regression can be measured by \\(R^2\\) which is equal to";
+    questionObj777.answer = 0.635812
+</script>
+<!-- Question 8-->
+<script>
+  // Generate a random question
+    const questionObj778 = {
+      question: 'Compared to the simple linear regression, the goodness-of-fit of the multivariate regression specification has ',
+      options: ['improved','worsened' ,'not changed'],
+      answer: '1',
+      id: 778
+    };
+</script>
+<p class="question">
+<span id="question-text778"></span>
+</p>
+<div class="options">
+<p><select id="option778" name="option778">
+<option value="">Select an answer</option>
+<option value=1>improved</option>
+<option value=2>worsened</option>
+<option value=3>not changed</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj778)">
+Check
+</button>
+<p id="result778">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text778').textContent = questionObj778.question;
+</script>
+</li>
+<li>
+<p>Estimate a multivariate linear regression using the registered demand as the dependent variable and the other variables (holiday, workingday, weathersit, atemp (in °C), hum (in %), windspeed (in km/h))) as the independent variables. Interpret the resulting coefficients.</p>
+<!-- Question 9-->
+<p id="question">
+<span id="question-text779"></span>
+</p>
+<input type="number" id="answer779" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj779)">Check</button>
+<p id="result779">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj779 = generateQuestion_num(779);
+// Display the question
+    document.getElementById('question-text779').textContent = "For each °C increase in temperature, the predicted value of the registered demand increases by ____ units";
+    questionObj779.answer =  96.1833
+</script>
+<!-- Question 10-->
+<p id="question">
+<span id="question-text7710"></span>
+</p>
+<input type="number" id="answer7710" placeholder="Enter your answer"></input>
+<button onclick="checkAnswer_num(questionObj7710)">Check</button>
+<p id="result7710">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj7710 = generateQuestion_num(7710);
+// Display the question
+    document.getElementById('question-text7710').textContent = "For each percentage increase in humidity, the predicted value of the registered demand decreases by ____ units";
+    questionObj7710.answer =  13.3807
+</script>
+<p>Why and in which way does this “registered model” differ from the “casual model”?</p>
+<p>Whereas the effect directions for the weather variables are the same in both models, the effect directions of working day variable are opposed.</p>
+<!-- Question 11-->
+<script>
+  // Generate a random question
+    const questionObj7711 = {
+      question: 'On a working day, the number of bikes rented by the registered users',
+      options: ['remains unchanged','decreases' ,'increases'],
+      answer: '3',
+      id: 7711
+    };
+</script>
+<p class="question">
+<span id="question-text7711"></span>
+</p>
+<div class="options">
+<p><select id="option7711" name="option7711">
+<option value="">Select an answer</option>
+<option value=1>remains unchanged</option>
+<option value=2>decreases</option>
+<option value=3>increases</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj7711)">
+Check
+</button>
+<p id="result7711">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text7711').textContent = questionObj7711.question;
+</script>
+<!-- Question 12-->
+<script>
+  // Generate a random question
+    const questionObj7712 = {
+      question: 'On a working day, the number of bikes rented by the casual clients',
+      options: ['remains unchanged','decreases' ,'increases'],
+      answer: '2',
+      id: 7712
+    };
+</script>
+<p class="question">
+<span id="question-text7712"></span>
+</p>
+<div class="options">
+<p><select id="option7712" name="option7711">
+<option value="">Select an answer</option>
+<option value=1>remains unchanged</option>
+<option value=2>decreases</option>
+<option value=3>increases</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj7712)">
+Check
+</button>
+<p id="result7712">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text7712').textContent = questionObj7712.question;
+</script>
+<p>What can you say about the goodness-of-fit of this linear model?</p>
+<!-- Question 13-->
+<script>
+  // Generate a random question
+    const questionObj7713 = {
+      question: 'Compared to the casual model, the goodness-of-fit of the registered model is ',
+      options: ['better','worse' ,'unchanged'],
+      answer: '2',
+      id: 7713
+    };
+</script>
+<p class="question">
+<span id="question-text7713"></span>
+</p>
+<div class="options">
+<p><select id="option7713" name="option7713">
+<option value="">Select an answer</option>
+<option value=1>better</option>
+<option value=2>worse</option>
+<option value=3>unchanged</option>
+</select></p>
+</div>
+<button onclick="checkAnswer_dd(questionObj7713)">
+Check
+</button>
+<p id="result7713">
+</p>
+<script>
+  // Display the question
+    document.getElementById('question-text7713').textContent = questionObj7713.question;
+</script>
+Can you think of further explanatory variables which might help us to improve linear model fit for the registered demand?
+</li>
+<li>
+Discuss with your peers: Which criteria can help us to decide which additional explanatory variables should be included in the linear model?
+</li>
+</ol>
 </div>
 
 </div>
