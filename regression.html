@@ -23,7 +23,7 @@
 <meta name="author" content="Maria Osipenko" />
 
 
-<meta name="date" content="2026-11-23" />
+<meta name="date" content="2026-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -346,18 +346,15 @@ function checkAnswer_dd(q) {
     }
 }
 </script>
-<p>We have empirically established a linear relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span>.</p>
+<p>We have empirically established a linear relationship between the sales <span class="math inline">\(S\)</span> and the average temperature <span class="math inline">\(T\)</span> (<span class="math inline">\(\rho_{TS}=0.905\)</span>).</p>
 <p><strong>Can we now predict the expected sales for a given temperature level?</strong></p>
-<p><span class="math inline">\(\leadsto\)</span> correlation calculation vs. regression calculation:</p>
-<ul>
-<li><p>When asking about the linear relationship between two characteristics
+<p>When asking about the linear relationship between two characteristics
 we distinguish between the following two aspects:</p>
 <ul>
 <li><p>Correlation:
-Determines the <strong>strength</strong> of the linear relationship between two characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In short: whether a linear relationship exists.</p></li>
+Determines the <strong>strength</strong> of the linear relationship between two characteristics <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It tells us whether a linear relationship exists.</p></li>
 <li><p>Regression:
-Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</span> of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In short: which linear relationship exists.</p></li>
-</ul></li>
+Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</span> of the linear relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It tells us which linear function formalizes this linear relationship.</p></li>
 </ul>
 <hr />
 <p>In this chapter we will learn</p>
@@ -379,8 +376,8 @@ Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</sp
 \]</span></p>
 <ul>
 <li><p>the term <span class="math inline">\(a+bx\)</span> is called <strong>regression line</strong>;</p></li>
-<li><p>the variable <span class="math inline">\(y\)</span> is called <strong>regressand</strong> or <strong>explained variable</strong>;</p></li>
-<li><p>the variable <span class="math inline">\(x\)</span> is called <strong>regressor</strong> or <strong>explanatory variable</strong>.</p></li>
+<li><p>the variable <span class="math inline">\(y\)</span> is called <strong>dependent variable</strong> or <strong>regressand</strong> or <strong>explained variable</strong>;</p></li>
+<li><p>the variable <span class="math inline">\(x\)</span> is called <strong>independent variable</strong> or <strong>regressor</strong> or <strong>explanatory variable</strong>.</p></li>
 <li><p>In practice, the relationship is usually not perfectly linear. Therefore one writes
 <span class="math display">\[\begin{align*}
     y_1&amp;= a + b x_1 + \varepsilon_1\\
@@ -388,6 +385,8 @@ Determines the <strong>form</strong> <span class="math inline">\(Y=a + b X\)</sp
     y_n &amp;= a + b x_n + \varepsilon_n,
 \end{align*}\]</span>
 where <span class="math inline">\(\varepsilon_1, \ldots, \varepsilon_n\)</span> are the so-called <strong>error terms</strong> or <strong>residuals</strong>.</p></li>
+<li><p>The unknown <strong>regression coefficients</strong> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are estimated by minimizing the sum of squared error terms.</p></li>
+<li><p>The goodness-of-fit is assessed using <span class="math inline">\(R^2\)</span> which measures the proportion of the variation in <span class="math inline">\(y\)</span> which is explained by the linear regression model.</p></li>
 </ul>
 <hr />
 <!--::: {.example #linreg0 name="Linear regression for stock returns on market returns."}
@@ -784,7 +783,7 @@ and <span class="math inline">\(b\)</span> by minimizing the sum of the squared 
 <li><p>Estimate the coefficients of the regression line <span class="math inline">\(s=a+bt\)</span> from the data, where <span class="math inline">\(\bar s= 25.138,\)</span> <span class="math inline">\(\bar t=17.173,\)</span> <span class="math inline">\(s_S^2=14.0488,\)</span> <span class="math inline">\(s_T^2 = 19.4984,\)</span> and
 <span class="math inline">\(\hat\sigma_{TS}=14.9797.\)</span></p></li>
 <li><p>Then <span class="math inline">\(\hat b=\displaystyle\frac{14.9797}{19.4984} = 0.7683\)</span></p></li>
-<li><p>and <span class="math inline">\(\hat a=25.138+ 0.7683\cdot 17.173 = 11.9448.\)</span></p></li>
+<li><p>and <span class="math inline">\(\hat a=25.138- 0.7683\cdot 17.173 = 11.9448.\)</span></p></li>
 <li><p>Sales as a function of temperature:
 <span class="math inline">\(s= 11.9448 + 0.7683\cdot t,~\text{ für } 10\leq t\leq 25.\)</span></p></li>
 <li><p>Coefficient of determination: <span class="math inline">\(R^2=\hat\rho_{ST}^2=(0.905)^2=0.819.\)</span></p></li>
@@ -888,6 +887,22 @@ Submit
 
 </script>
 <hr />
+<p id="question">
+<span id="question-text761"></span>
+</p>
+<input type="number" id="answer761" placeholder="Enter your answer">
+<button onclick="checkAnswer_num(questionObj761)">Submit</button>
+<p id="result761">
+</p>
+<script>
+
+ // Generate a random question
+    const questionObj761 = generateQuestion_num(761);
+// Display the question
+    document.getElementById('question-text761').textContent = "Suppose that the sample covariance for features sales and rain indicator is \\("+ questionObj761.question[0]+ "\\), the variance of the rain indicator is equal to \\(" + questionObj761.question[1]/100+ "\\). What would be the estimate of the regression slope \\(\\hat b\\)?";
+    questionObj761.answer = questionObj761.question[0]/questionObj761.question[1]*100
+</script>
+<hr />
 <script>
   // Generate a random question
     const questionObj75 = {
@@ -949,7 +964,7 @@ Submit
 <p><strong>Can we take other influences into account (e.g. rainfall, day of week)?</strong></p>
 <p>Multivariate linear regression:</p>
 <ul>
-<li><p>Approach: <span class="math inline">\(y=\beta_0 + \beta_1\, x_1 + \beta_2\, x_2 + \cdots + \beta_L\, x_L,\)</span></p></li>
+<li><p>Approach: <span class="math inline">\(y=b_0 + b_1\, x_1 + b_2\, x_2 + \cdots + b_L\, x_L,\)</span></p></li>
 <li><p>with the regressand or dependent variable <span class="math inline">\(y\)</span> and <span class="math inline">\(L\)</span> regressors
 <span class="math inline">\(x_1, \ldots, x_L\)</span> (multivariate regression);</p></li>
 <li><p>Sample:</p></li>
@@ -961,15 +976,15 @@ Submit
 <li>System of linear equations:</li>
 </ul>
 <p><span class="math display">\[\begin{align*}
-        y_1 &amp;= \beta_0 + \beta_1\, x_{11} + \beta_2\, x_{21} + \cdots + \beta_L\, x_{L1}
-              + \varepsilon_1\\\vdots\\y_n &amp;= \beta_0+  \beta_1\, x_{1n} + \beta_2\, x_{2n} + \cdots + \beta_L\, x_{Ln}
+        y_1 &amp;= b_0 + \beta_1\, x_{11} + b_2\, x_{21} + \cdots + b_L\, x_{L1}
+              + \varepsilon_1\\\vdots\\y_n &amp;= b_0+  b_1\, x_{1n} + b_2\, x_{2n} + \cdots + b_L\, x_{Ln}
               + \varepsilon_n
 \end{align*}\]</span></p>
 <ul>
 <li>Representation in matrix form:</li>
 </ul>
 <p><span class="math display">\[
-      \bf{y} = \bf{X}\bf{\beta} + \bf{\varepsilon},
+      \bf{y} = \bf{X}\bf{b} + \bf{\varepsilon},
 \]</span></p>
 <p>with the design matrix</p>
 <p><span class="math display">\[
@@ -984,7 +999,7 @@ Submit
 <li>OLS-Solution:</li>
 </ul>
 <p><span class="math display">\[
-        \bf{\hat\beta} = (\bf{X}^T \bf{X})^{-1}\, \bf{X}^T\, \bf{y}
+        \bf{\hat b} = (\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{y}
 \]</span></p>
 <div class="example">
 <p><span id="exm:multilinreg" class="example"><strong>Example 5.3  (Sales vs Weather II) </strong></span>example <a href="association-between-two-features.html#exm:umswetkor">4.9</a> cont.</p>
@@ -998,7 +1013,7 @@ Submit
 <li>temperature,</li>
 </ol></li>
 <li><ol start="3" style="list-style-type: decimal">
-<li>rain indicator</li>
+<li>rain indicator (1 = rain, 0 = no rain)</li>
 </ol></li>
 </ul></li>
 </ul>
@@ -1016,23 +1031,25 @@ Submit
 <li>OLS-Solution:</li>
 </ul>
 <p><span class="math display">\[\begin{align*}
-    \hat\beta&amp;=(\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{Y}
+    \hat b&amp;=(\bf{X}^\top \bf{X})^{-1}\, \bf{X}^\top\, \bf{Y}
 \end{align*}\]</span></p>
 <p><img src="images/gretl_lr2.png" style="width:70.0%" /></p>
 <ul>
 <li><p>Function to forecast the sales:
-<span class="math display">\[sales\approx 16.0503 + 0.5887\cdot t - 2.5551\cdot r.\]</span></p></li>
+<span class="math display">\[sales\approx 16.0503 + 0.5887\cdot temperature - 2.5551\cdot rain\_indicator.\]</span></p></li>
 <li><p>Which sales would you forecast for a rainy day with an average of <span class="math inline">\(15°C\)</span>?</p></li>
 </ul>
 </div>
 </div>
 <div id="non-linear-regression" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Non-linear regression<a href="regression.html#non-linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If the relationship is not linear, such as <span class="math inline">\(v=\alpha\cdot \beta^u\)</span>: convert <span class="math inline">\(\rightarrow\)</span> into a linear relationship using a suitable transformation, e.g. by logarithmizing:
-<span class="math inline">\(\ln v = \ln \alpha + (\ln \beta)\cdot u\)</span>.</p>
+<p>If the relationship is not linear, such as
+<span class="math display">\[v=\alpha\cdot \beta^u,\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> convert to a linear form using a suitable transformation, e.g. by logarithmizing:</p>
+<p><span class="math display">\[\ln v = \ln \alpha + (\ln \beta)\cdot u.\]</span></p>
 <ul>
-<li><p>Set: <span class="math inline">\(y=\ln v\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\ln \beta\)</span> and <span class="math inline">\(x=u\)</span>
-<span class="math inline">\(\Rightarrow\)</span> The transformed function <span class="math inline">\(y=a+bx\)</span> is a straight line with the coefficients
+<li><p>Set: <span class="math inline">\(y=\ln v\)</span>, <span class="math inline">\(a=\ln \alpha\)</span>, <span class="math inline">\(b=\ln \beta\)</span> and <span class="math inline">\(x=u\)</span></p></li>
+<li><p>The transformed function <span class="math inline">\(y=a+bx\)</span> is a straight line with the coefficients
 coefficients <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>.</p></li>
 <li><p>The further procedure:</p>
 <ul>
@@ -1082,27 +1099,24 @@ specific consumer good as a function of the price <span class="math inline">\(p\
 <li><p>Least-Squares estimates for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (<span class="math inline">\(\hat\sigma_{XY} = -7.5288\)</span>, <span class="math inline">\(\hat\sigma_X^2 = 34.761\)</span>, <span class="math inline">\(\bar x= 11.565\)</span> and <span class="math inline">\(\bar y =-0.3341\)</span>:
 <span class="math display">\[\begin{align*}
     \hat b&amp;= \frac{-7.5288} {34.761} =-0.2166\\
-    \hat a&amp;= -0.3341 -0.2166 \cdot 11.565 = 2.1707
+    \hat a&amp;= -0.3341- (-0.2166) \cdot 11.565 = 2.1707
 \end{align*}\]</span></p></li>
 <li><p>Transformation back into the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>:</p></li>
 </ul>
-<p><span class="math display">\[
-   \hat  \alpha = \text e^{\hat a} = 8.7644 \text{ und   } \quad \hat \beta=\hat b = -0.2166
-\]</span></p>
+<p><span class="math display">\[\hat  \alpha = \text e^{\hat a} = 8.7644 \text{   and   } \quad \hat \beta=\hat b = -0.2166\]</span></p>
 <ul>
 <li>Demand function:</li>
 </ul>
 <p><span class="math display">\[
     \hat q=8.7644\cdot \text e^{-0.2166\cdot p}
 \]</span></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" alt="" width="672" /></p>
 </div>
 <hr />
 <p><strong>Transformation table</strong></p>
-<p>For the transformation <span class="math inline">\(v=f(u,\alpha\beta)\rightarrow y=a+b\,x\)</span>
-there are further examples of non-linear problems that can be
-can be transformed to a linear regression approach,
-are:</p>
+<p>For the transformation
+<span class="math display">\[v=f(u,\alpha,\beta)\rightarrow y=a+b\,x,\]</span>
+the most frequent approaches are summarized in the following table:</p>
 <p><span class="math display">\[
       \begin{array}[t]{c|ccccc}
         \hline
@@ -1309,7 +1323,7 @@ Compute the residuals (in the model menu: save residuals) and find their 5% and 
     const questionObj7715 = generateQuestion_num(7715);
 // Display the question
     document.getElementById('question-text7715').textContent = "The 5% conditional quantile for the predicted casual demand for the temperature of 25°C equals approx. to";
-    questionObj7715.answer = 906.944-652.85
+    questionObj7715.answer = 254.094//906.944-652.85
 </script>
 <!-- Question 16-->
 <p id="question">
@@ -1325,7 +1339,7 @@ Compute the residuals (in the model menu: save residuals) and find their 5% and 
     const questionObj7716 = generateQuestion_num(7716);
 // Display the question
     document.getElementById('question-text7716').textContent = "The 95% conditional quantile for the predicted casual demand (temperature = 25°C) equals approx. to";
-    questionObj7716.answer = 906.944+1358.8
+    questionObj7716.answer = 2265.744//906.944+1358.8
 </script>
 </li>
 <li>
